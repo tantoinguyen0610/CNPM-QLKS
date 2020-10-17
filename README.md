@@ -1,3 +1,4 @@
 # CNPM-QLKS
-CHức Năng Quản Lí Nhân Viên 
-Chức Năng Quản Lí Dịch Vụ
+Đặc Tả Yêu Cầu QLKS 
+Sơ đồ  Use-Case
+
