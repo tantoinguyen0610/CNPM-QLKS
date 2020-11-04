@@ -1,3 +1,11 @@
 # CNPM-QLKS
-CHức Năng Quản Lí Nhân Viên 
-Chức Năng Quản Lí Dịch Vụ
+Usecase Format QLHĐ
+UseCase Format QLKH
+Usecase QLHĐ
+Usecase QLKH 
+DFD QLHĐ
+DFD QLKH 
+Giao Diện QLHĐ 
+Giao Diện QLKH 
+Biểu Mẫu QLHĐ 
+Biểu Mẫu QLKH 
