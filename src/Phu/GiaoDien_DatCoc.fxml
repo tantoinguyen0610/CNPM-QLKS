@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="171.0" layoutY="14.0" text="ĐẶT CỌC">
+         <font>
+            <Font name="Times New Roman" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="85.0" layoutY="64.0" text="Số tiền cần đặt cọc:" />
+      <Label layoutX="85.0" layoutY="102.0" text="Số tiền khách đã đặt cọc:" />
+      <Label layoutX="85.0" layoutY="140.0" text="Ngày đặt cọc:" />
+      <ButtonBar layoutX="128.0" layoutY="185.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="Button_XacNhan" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Xác nhận" />
+            <Button fx:id="Button_Huy" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="Huỷ" />
+        </buttons>
+      </ButtonBar>
+      <TextField fx:id="datCoc_textField" layoutX="228.0" layoutY="52.0" />
+      <TextField fx:id="SoTienKhachDatCoc_textField" layoutX="228.0" layoutY="98.0" />
+      <DatePicker fx:id="NgayDatCoc_textField" layoutX="228.0" layoutY="135.0" prefHeight="26.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>
