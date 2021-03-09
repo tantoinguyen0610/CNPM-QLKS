@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.ParallelCamera?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1191.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HongThang.GiaoDienPhongController">
+   <children>
+      <Button fx:id="btTatca" layoutX="186.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Tất cả" textAlignment="CENTER" textFill="#3d2961" wrapText="true" />
+      <Button fx:id="btDasudung" layoutX="463.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
+      <Button fx:id="btDangbaotri" layoutX="602.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
+      <Button fx:id="btTrong" layoutX="324.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Trống" textAlignment="CENTER" textFill="#0d0d08" wrapText="true" />
+      <Button fx:id="btSaptra" layoutX="739.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Sắp trả" />
+      <Button fx:id="btDattruoc" layoutX="879.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
+      <Button fx:id="btDathanhtoan" layoutX="1022.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã thanh toán" />
+      <ComboBox fx:id="cbLoaiPhong" layoutX="14.0" layoutY="148.0" prefHeight="37.0" prefWidth="150.0" promptText="Loại phòng" />
+      <Accordion layoutX="164.0" layoutY="-38.0">
+        <panes>
+          <TitledPane animated="false" text="untitled 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <ScrollPane layoutX="307.0" layoutY="-222.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="ta1" layoutX="195.0" layoutY="240.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta2" layoutX="436.0" layoutY="240.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta3" layoutX="679.0" layoutY="240.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta4" layoutX="922.0" layoutY="240.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta8" layoutX="922.0" layoutY="426.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta7" layoutX="679.0" layoutY="426.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta6" layoutX="436.0" layoutY="426.0" prefHeight="136.0" prefWidth="200.0" />
+      <TextArea fx:id="ta5" layoutX="195.0" layoutY="426.0" prefHeight="136.0" prefWidth="200.0" />
+      <Button fx:id="btXemchitiet1" layoutX="246.0" layoutY="327.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet8" layoutX="973.0" layoutY="510.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet7" layoutX="730.0" layoutY="510.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet6" layoutX="487.0" layoutY="510.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet5" layoutX="246.0" layoutY="510.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet4" layoutX="973.0" layoutY="327.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet3" layoutX="730.0" layoutY="327.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <Button fx:id="btXemchitiet2" layoutX="487.0" layoutY="327.0" mnemonicParsing="false" text="Xem chi tiết" />
+      <ParallelCamera />
+      <AmbientLight color="CHARTREUSE" lightOn="true" />
+      <Line endX="100.0" startX="-100.0" />
+      <Line endX="100.0" startX="-100.0" />
+      <Line fx:id="Line" endX="1191.0" endY="60.0" startY="60.0" />
+   </children>
+</AnchorPane>
