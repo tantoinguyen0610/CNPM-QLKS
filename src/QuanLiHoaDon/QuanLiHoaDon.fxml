@@ -22,13 +22,13 @@
                            <buttons>
                               <TextFlow>
                                  <children>
-                                    <TableView accessibleRole="BUTTON" prefHeight="425.0" prefWidth="1028.0">
+                                    <TableView fx:id="HoaDonThanhToanPhongTableView" accessibleRole="BUTTON" prefHeight="425.0" prefWidth="1028.0">
                                       <columns>
                                         <TableColumn prefWidth="75.0" />
-                                        <TableColumn prefWidth="75.0" text="MAHĐ" />
-                                          <TableColumn prefWidth="195.0" text="Tên Khách" />
-                                          <TableColumn minWidth="0.0" prefWidth="112.0" text="Số Phòng" />
-                                          <TableColumn minWidth="0.0" prefWidth="146.0" text="Ngày Thanh Toán" />
+                                        <TableColumn fx:id="MaHDTableConlumn" prefWidth="75.0" text="MAHĐ" />
+                                          <TableColumn fx:id="TenKhachHangTableConlumn" prefWidth="195.0" text="Tên Khách" />
+                                          <TableColumn fx:id="SoPhongTableConlumn" minWidth="0.0" prefWidth="112.0" text="Số Phòng" />
+                                          <TableColumn fx:id="NgayThanhToanTableConlumn" minWidth="0.0" prefWidth="146.0" text="Ngày Thanh Toán" />
                                           <TableColumn prefWidth="118.0" text="Tổng Tiền" />
                                           <TableColumn prefWidth="118.0" text="Thanh Toán" />
                                           <TableColumn prefWidth="97.0" text="Tình Trạng" />
