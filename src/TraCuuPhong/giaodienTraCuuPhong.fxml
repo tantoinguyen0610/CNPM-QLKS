@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1191.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HongThang.GiaoDienTraCuuPhongController">
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1191.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TraCuuPhong.GiaoDienTraCuuPhongController">
    <children>
       <Button fx:id="btTatca" layoutX="186.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Tất cả" textAlignment="CENTER" textFill="#3d2961" wrapText="true" />
       <Button fx:id="btDasudung" layoutX="463.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
