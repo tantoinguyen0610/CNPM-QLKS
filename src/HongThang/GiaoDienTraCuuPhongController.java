@@ -1,17 +1,14 @@
 package HongThang;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Line;
 
+public class GiaoDienTraCuuPhongController {
 
-public class GiaoDienPhongController {
-
-	@FXML
+    @FXML
     private AnchorPane Ap;
 
     @FXML
@@ -85,16 +82,5 @@ public class GiaoDienPhongController {
 
     @FXML
     private Button btXemchitiet2;
-
-    @FXML
-    private Line Line;
-    
-    /*@FXML
-    void convertButtonListener(ActionEvent event) {
-    	final double CONVERSION_FACTOR = 0.6214;
-    	String str = kilometerTextFiled.getText();
-    	double miles = Double.parseDouble(str) * CONVERSION_FACTOR; 
-    	outputLabel.setText(str + " kilometer is " + miles + "miles");
-    */}
 
 }
