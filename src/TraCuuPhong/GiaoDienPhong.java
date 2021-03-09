@@ -1,4 +1,4 @@
-package HongThang;
+package TraCuuPhong;
 
 import javafx.application.Application;
 import javafx.fxml.*;
