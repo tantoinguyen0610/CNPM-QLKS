@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="199.0" layoutY="54.0" prefHeight="363.0" prefWidth="980.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+         <columns>
+            <TableColumn fx:id="tcSTT" prefWidth="57.0" text="STT" />
+            <TableColumn fx:id="tcNgaykiemtra" prefWidth="135.0" text="Ngày kiểm tra" />
+            <TableColumn fx:id="tcGiobatdau" prefWidth="110.0" text="Giờ bắt đầu" />
+            <TableColumn fx:id="tcGioketthuc" prefWidth="104.0" text="Giờ kết thúc " />
+            <TableColumn fx:id="tcTrangthaisausuachua" prefWidth="189.0" text="Trạng thái sau sửa chữa " />
+            <TableColumn fx:id="tcGhichu" prefWidth="214.0" text="Ghi chú" />
+            <TableColumn fx:id="tcNhanvienkiemtra" prefWidth="167.0" text="Nhân viên kiểm tra" />
+         </columns>
+      </TableView>
+      <BorderPane layoutX="207.0" layoutY="54.0" />
+      <Label fx:id="lbbangkiemtradinhki" layoutX="539.0" layoutY="14.0" text="BẢNG KIỂM TRA ĐỊNH KÌ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btLuu" layoutX="474.0" layoutY="464.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Lưu" />
+      <Button fx:id="btThoat" layoutX="770.0" layoutY="464.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Thoát" />
+   </children>
+</AnchorPane>
