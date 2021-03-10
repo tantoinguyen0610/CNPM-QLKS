@@ -18,7 +18,7 @@ public class CheckIn extends Application {
 	 Scene scene = new Scene(parent);
 	
 	 // Display our window, using the scene graph.
-	 stage.setTitle("Kilometer Converter");
+	 stage.setTitle("Giao dien Check-in");
 	stage.setScene(scene);
 	 stage.show();
 	 }
