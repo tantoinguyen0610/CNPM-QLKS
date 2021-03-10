@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.CheckList_CO_Controller">
+   <children>
+      <Label fx:id="CL_Label" layoutX="212.0" layoutY="14.0" text="CHECK-LIST">
+         <font>
+            <Font name="Times New Roman" size="30.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="DenPhong_CL" layoutX="58.0" layoutY="92.0" mnemonicParsing="false" text="Đèn phòng" />
+      <CheckBox fx:id="HeThongDayDan_CL" layoutX="58.0" layoutY="113.0" mnemonicParsing="false" text="Hệ thống dây dẫn" />
+      <CheckBox fx:id="RemCua_CL" layoutX="58.0" layoutY="134.0" mnemonicParsing="false" text="Rèm cửa" />
+      <CheckBox fx:id="ThamLon_CL" layoutX="58.0" layoutY="155.0" mnemonicParsing="false" text="Thảm lớn, nhỏ, sàn nhà" />
+      <CheckBox fx:id="TuQuanAo_CL" layoutX="58.0" layoutY="176.0" mnemonicParsing="false" text="Tủ quần áo" />
+      <CheckBox fx:id="CuaSo_CL" layoutX="58.0" layoutY="345.0" mnemonicParsing="false" text="Cửa sổ" />
+      <CheckBox fx:id="GatTan_CL" layoutX="58.0" layoutY="197.0" mnemonicParsing="false" text="Gạt tàn" />
+      <CheckBox fx:id="ToanBoNganKeo_CL" layoutX="58.0" layoutY="218.0" mnemonicParsing="false" text="Toàn bộ ngăn kéo" />
+      <CheckBox fx:id="Tivi_CL" layoutX="58.0" layoutY="239.0" mnemonicParsing="false" text="Tivi" />
+      <CheckBox fx:id="TuLanh_CL" layoutX="58.0" layoutY="367.0" mnemonicParsing="false" text="Tủ lạnh" />
+      <CheckBox fx:id="DienThoai_CL" layoutX="58.0" layoutY="260.0" mnemonicParsing="false" text="Điện thoại" />
+      <CheckBox fx:id="GamGiuong_CL" layoutX="58.0" layoutY="281.0" mnemonicParsing="false" text="Gầm giường" />
+      <CheckBox fx:id="ThungRac_CL" layoutX="58.0" layoutY="302.0" mnemonicParsing="false" text="Thùng rác" />
+      <CheckBox fx:id="KhoaCua_CL" layoutX="58.0" layoutY="323.0" mnemonicParsing="false" text="Khoá cửa" />
+      <CheckBox fx:id="Guong_CL" layoutX="387.0" layoutY="92.0" mnemonicParsing="false" text="Gương" />
+      <CheckBox fx:id="OngNuoc_CL" layoutX="387.0" layoutY="281.0" mnemonicParsing="false" text="Ống nước" />
+      <CheckBox fx:id="BonCau_CL" layoutX="387.0" layoutY="113.0" mnemonicParsing="false" text="Bồn cầu" />
+      <CheckBox fx:id="ThamChuiChan_CL" layoutX="387.0" layoutY="134.0" mnemonicParsing="false" text="Thảm chùi chân" />
+      <CheckBox fx:id="KhanTam_CL" layoutX="387.0" layoutY="155.0" mnemonicParsing="false" text="Khăn tắm" />
+      <CheckBox fx:id="XaPhong_CL" layoutX="387.0" layoutY="325.0" mnemonicParsing="false" text="Xà phòng" />
+      <CheckBox fx:id="RemMocTreo_CL" layoutX="387.0" layoutY="176.0" mnemonicParsing="false" text="Rèm/ Móc treo quần áo" />
+      <CheckBox fx:id="ThungDungRac_CL" layoutX="387.0" layoutY="197.0" mnemonicParsing="false" text="Thùng đựng rác" />
+      <CheckBox fx:id="GioDungDo_CL" layoutX="387.0" layoutY="218.0" mnemonicParsing="false" text="Giỏ đựng đồ giặt" />
+      <CheckBox fx:id="VoiSen_CL" layoutX="387.0" layoutY="239.0" mnemonicParsing="false" text="Vòi sen" />
+      <CheckBox fx:id="BonRuaTay_CL" layoutX="387.0" layoutY="303.0" mnemonicParsing="false" text="Bồn rửa tay" />
+      <CheckBox fx:id="BonTam_CL" layoutX="387.0" layoutY="260.0" mnemonicParsing="false" text="Bồn tắm" />
+      <Label fx:id="PhongKhach_Label" layoutX="62.0" layoutY="63.0" text="Phòng khách" />
+      <Label fx:id="PhongTam_Label" layoutX="396.0" layoutY="63.0" text="Phòng tắm" />
+      <ButtonBar layoutX="35.0" layoutY="410.0" prefHeight="49.0" prefWidth="532.0">
+        <buttons>
+            <Button fx:id="Button_XacNhan" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Xác nhận" />
+            <Button fx:id="Button_LapPhieuBoiThuong" mnemonicParsing="false" prefHeight="30.0" text="Lập phiếu bồi thường" />
+          <Button fx:id="Button_Huy" mnemonicParsing="false" prefHeight="31.0" text="Huỷ" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
