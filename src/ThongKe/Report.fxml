@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1028.0" style="-fx-background-color: #FFFACD;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1028.0" style="-fx-background-color: #FFFACD;" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="405.0" layoutY="34.0" text="THỐNG KÊ TỔNG" textFill="RED">
+            <Label layoutX="405.0" layoutY="34.0" text="THá»�NG KÃŠ Tá»”NG" textFill="RED">
                <font>
                   <Font size="28.0" />
                </font>
@@ -37,27 +37,27 @@
    <left>
       <AnchorPane prefHeight="423.0" prefWidth="213.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" text="Thống kê Khách Hàng">
+            <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" text="Thá»‘ng kÃª KhÃ¡ch HÃ ng">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="13.0" layoutY="70.0" mnemonicParsing="false" text="Thống kê Phòng sử dụng">
+            <Button layoutX="13.0" layoutY="70.0" mnemonicParsing="false" text="Thá»‘ng kÃª PhÃ²ng sá»­ dá»¥ng">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="28.0" layoutY="190.0" mnemonicParsing="false" text="Thống kê Doanh Thu">
+            <Button layoutX="28.0" layoutY="190.0" mnemonicParsing="false" text="Thá»‘ng kÃª Doanh Thu">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="9.0" layoutY="130.0" mnemonicParsing="false" text="Thống kê Dịch Vụ sử dụng">
+            <Button layoutX="9.0" layoutY="130.0" mnemonicParsing="false" text="Thá»‘ng kÃª Dá»‹ch Vá»¥ sá»­ dá»¥ng">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="12.0" layoutY="245.0" mnemonicParsing="false" text="Thống kê Chi Phí sử dụng">
+            <Button layoutX="12.0" layoutY="245.0" mnemonicParsing="false" text="Thá»‘ng kÃª Chi PhÃ­ sá»­ dá»¥ng">
                <font>
                   <Font size="15.0" />
                </font>
@@ -77,7 +77,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="44.0" layoutY="54.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="112.0" text="In" />
-            <Button layoutX="44.0" layoutY="232.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="112.0" text="Báo lỗi" />
+            <Button layoutX="44.0" layoutY="232.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="112.0" text="BÃ¡o lá»—i" />
          </children>
       </AnchorPane>
    </right>
