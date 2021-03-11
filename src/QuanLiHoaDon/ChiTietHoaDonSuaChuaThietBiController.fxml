@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiHoaDon.ChiTietPhieuSuaChuaThietBi">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiHoaDon.ChiTietHoaDonSuaChuaThietBiController">
    <children>
       <Label fx:id="ThongTinHoaDonSCTBLabel" alignment="CENTER" layoutX="29.0" layoutY="1.0" prefHeight="70.0" prefWidth="720.0" text="Thông Tin Hóa Đơn Sửa Chửa Thiết Bị">
          <font>
