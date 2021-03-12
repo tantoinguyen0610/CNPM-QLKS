@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.NhanVienController">
+   <children>
+      <ScrollPane fx:id="ScrollPane1" layoutX="82.0" layoutY="89.0" prefHeight="571.0" prefWidth="1093.0">
+         <content>
+            <TableView fx:id="Table_NhanVien" prefHeight="569.0" prefWidth="1092.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="STT" />
+                <TableColumn prefWidth="75.0" text="Mã NV" />
+                  <TableColumn prefWidth="75.0" text="Tên" />
+                  <TableColumn prefWidth="75.0" text="Chức vụ" />
+                  <TableColumn prefWidth="75.0" text="Ca làm" />
+                  <TableColumn prefWidth="103.0" text="Trạng thái" />
+                  <TableColumn prefWidth="159.0" text="Ngày làm việc" />
+                  <TableColumn prefWidth="134.0" text="Giờ vào" />
+                  <TableColumn prefWidth="107.0" text="Giờ ra" />
+                  <TableColumn prefWidth="103.0" text="Nhiệm vụ" />
+                  <TableColumn prefWidth="95.0" text="Ghi chú" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label fx:id="BangNV_Label" layoutX="461.0" layoutY="28.0" text="BẢNG NHÂN VIÊN">
+         <font>
+            <Font name="Times New Roman" size="37.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="268.0" layoutY="676.0" prefHeight="41.0" prefWidth="705.0">
+        <buttons>
+          <Button fx:id="Button_ChamCong" mnemonicParsing="false" prefHeight="46.0" prefWidth="191.0" text="Chấm công" />
+            <Button fx:id="Button_ThemNV" mnemonicParsing="false" prefHeight="45.0" text="Thêm" />
+            <Button fx:id="Button_Sua" mnemonicParsing="false" prefHeight="46.0" text="Sửa" />
+            <Button fx:id="Button_Xoa" mnemonicParsing="false" prefHeight="52.0" text="Xoá" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
