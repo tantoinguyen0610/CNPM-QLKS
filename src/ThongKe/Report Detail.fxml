@@ -635,5 +635,86 @@
             </AnchorPane>
         </content>
       </Tab>
+      <Tab text="TK_CPSD1">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutX="-1.0" layoutY="-3.0" prefHeight="790.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="417.0" layoutY="24.0" text="THỐNG KÊ CHI PHÍ SỬ DỤNG 1" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TableView layoutX="209.0" layoutY="237.0" prefHeight="304.0" prefWidth="670.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="C1" />
+                                    <TableColumn prefWidth="75.0" text="C2" />
+                                    <TableColumn prefWidth="75.0" text="Column X" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="1037.0" layoutY="276.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1036.0" layoutY="374.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1034.0" layoutY="459.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1003.0" layoutY="176.0" />
+                              <Label layoutX="198.0" layoutY="175.0" text="DỊch vụ ăn uống">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="671.0" layoutY="188.0" text="DỊch vụ giải trí">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <BarChart layoutX="37.0" layoutY="-67.0" prefHeight="243.0" prefWidth="452.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                              <BarChart layoutX="499.0" layoutY="-65.0" prefHeight="242.0" prefWidth="459.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
   </tabs>
 </TabPane>
