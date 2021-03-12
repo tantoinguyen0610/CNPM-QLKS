@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -15,93 +16,551 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1208.0" style="-fx-background-color: #FFFACD;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="Thống kê Khách Hàng">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button layoutX="36.0" layoutY="65.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="71.0" text="Home" />
-                        <Label layoutX="459.0" layoutY="30.0" text="THỐNG KÊ KHÁCH HÀNG" textFill="RED">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Label>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Thống kê Khách Hàng 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </top>
-   <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextField layoutX="26.0" layoutY="263.0" promptText="Search..." />
-         </children>
-      </AnchorPane>
-   </left>
-   <right>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="47.0" layoutY="259.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="87.0" text="In" />
-            <Button layoutX="48.0" layoutY="323.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="89.0" text="Báo lỗi" />
-            <Button layoutX="51.0" layoutY="379.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" text="Đánh dấu" />
-            <DatePicker layoutX="8.0" layoutY="8.0" />
-         </children>
-      </AnchorPane>
-   </right>
-   <bottom>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextArea layoutX="245.0" layoutY="-182.0" prefHeight="314.0" prefWidth="719.0" />
-            <ScrollBar layoutX="950.0" layoutY="-181.0" orientation="VERTICAL" prefHeight="313.0" prefWidth="14.0" />
-         </children>
-      </AnchorPane>
-   </bottom>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="775.0" BorderPane.alignment="CENTER">
-         <children>
-            <BarChart layoutX="154.0" prefHeight="268.0" prefWidth="492.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </BarChart>
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1222.0" style="-fx-background-color: #FFFACD;" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+  <tabs>
+    <Tab text="TK_KH">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutX="1.0" layoutY="-2.0" prefHeight="786.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="452.0" layoutY="39.0" text="THỐNG KÊ KHÁCH HÀNG" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="47.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1128.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <BarChart layoutX="336.0" layoutY="-26.0" prefHeight="232.0" prefWidth="543.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="214.0" layoutY="237.0" prefHeight="286.0" prefWidth="794.0" />
+                              <ScrollBar layoutX="994.0" layoutY="237.0" orientation="VERTICAL" prefHeight="286.0" prefWidth="14.0" />
+                              <Label layoutX="534.0" layoutY="193.0" text="Số liệu Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="filterField" layoutX="14.0" layoutY="194.0" prefHeight="25.0" prefWidth="178.0" promptText="Search..." />
+                              <DatePicker layoutX="994.0" layoutY="14.0" />
+                              <Button layoutX="1077.0" layoutY="237.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1076.0" layoutY="305.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1074.0" layoutY="380.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="TK_KH1">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutY="1.0" prefHeight="785.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="440.0" layoutY="39.0" text="THỐNG KÊ KHÁCH HÀNG 1" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1111.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="1222.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AreaChart layoutX="14.0" layoutY="-43.0" prefHeight="246.0" prefWidth="367.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                              <BarChart layoutX="443.0" layoutY="-41.0" prefHeight="242.0" prefWidth="423.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="302.0" layoutY="262.0" prefHeight="260.0" prefWidth="705.0" />
+                              <TextField fx:id="filterField1" layoutX="36.0" layoutY="262.0" prefHeight="25.0" prefWidth="178.0" promptText="Search..." />
+                              <Button layoutX="1069.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="441.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1007.0" layoutY="14.0" />
+                              <Label layoutX="112.0" layoutY="203.0" text="Đánh giá của Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="521.0" layoutY="203.0" text="Dự đoán thu nhập từ Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ScrollBar layoutX="993.0" layoutY="262.0" orientation="VERTICAL" prefHeight="261.0" prefWidth="14.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="TK_PSD">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutY="1.0" prefHeight="785.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="427.0" layoutY="39.0" text="THỐNG KÊ PHÒNG SỬ DỤNG" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1111.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="1222.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AreaChart layoutX="14.0" layoutY="-43.0" prefHeight="246.0" prefWidth="367.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </AreaChart>
+                              <BarChart layoutX="443.0" layoutY="-41.0" prefHeight="242.0" prefWidth="423.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="302.0" layoutY="262.0" prefHeight="260.0" prefWidth="705.0" />
+                              <TextField fx:id="filterField11" layoutX="36.0" layoutY="262.0" prefHeight="25.0" prefWidth="178.0" promptText="Search..." />
+                              <Button layoutX="1069.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="441.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1007.0" layoutY="14.0" />
+                              <Label layoutX="112.0" layoutY="203.0" text="Số liệu Đặt phòng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="585.0" layoutY="203.0" text="Tình trạng phòng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ScrollBar layoutX="993.0" layoutY="262.0" orientation="VERTICAL" prefHeight="260.0" prefWidth="14.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="TK_DVSD">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutY="1.0" prefHeight="785.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="440.0" layoutY="39.0" text="THỐNG KÊ DỊCH VỤ SỬ DỤNG" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1111.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="1222.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <BarChart layoutX="245.0" layoutY="-41.0" prefHeight="242.0" prefWidth="717.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="221.0" layoutY="256.0" prefHeight="260.0" prefWidth="781.0" />
+                              <TextField fx:id="filterField12" layoutX="36.0" layoutY="262.0" prefHeight="25.0" prefWidth="148.0" promptText="Search..." />
+                              <Button layoutX="1069.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="441.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1007.0" layoutY="14.0" />
+                              <Label layoutX="456.0" layoutY="201.0" text="Bảng thống kê số liệu của từng dịch vụ">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ScrollBar layoutX="988.0" layoutY="258.0" orientation="VERTICAL" prefHeight="257.0" prefWidth="14.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="TK_DVSD1">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutY="1.0" prefHeight="785.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="440.0" layoutY="39.0" text="THỐNG KÊ DỊCH VỤ SỬ DỤNG 1" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1111.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="1222.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AreaChart layoutX="14.0" layoutY="-43.0" prefHeight="246.0" prefWidth="367.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </AreaChart>
+                              <BarChart layoutX="443.0" layoutY="-41.0" prefHeight="242.0" prefWidth="423.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="302.0" layoutY="262.0" prefHeight="260.0" prefWidth="705.0" />
+                              <TextField fx:id="filterField13" layoutX="36.0" layoutY="262.0" prefHeight="25.0" prefWidth="178.0" promptText="Search..." />
+                              <Button layoutX="1069.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="441.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1007.0" layoutY="14.0" />
+                              <Label layoutX="112.0" layoutY="203.0" text="DỊch vụ ăn uống">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="597.0" layoutY="203.0" text="DỊch vụ giải trí">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ScrollBar layoutX="993.0" layoutY="262.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="14.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="TK_KH1">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutY="1.0" prefHeight="785.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="440.0" layoutY="39.0" text="THỐNG KÊ KHÁCH HÀNG 1" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1111.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="1222.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AreaChart layoutX="14.0" layoutY="-43.0" prefHeight="246.0" prefWidth="367.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </AreaChart>
+                              <BarChart layoutX="443.0" layoutY="-41.0" prefHeight="242.0" prefWidth="423.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="302.0" layoutY="262.0" prefHeight="260.0" prefWidth="705.0" />
+                              <TextField fx:id="filterField14" layoutX="36.0" layoutY="262.0" prefHeight="25.0" prefWidth="178.0" promptText="Search..." />
+                              <Button layoutX="1069.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="441.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1007.0" layoutY="14.0" />
+                              <Label layoutX="112.0" layoutY="203.0" text="Đánh giá của Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="521.0" layoutY="203.0" text="Dự đoán thu nhập từ Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="TK_KH1">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane layoutY="1.0" prefHeight="785.0" prefWidth="1222.0">
+                     <top>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="440.0" layoutY="39.0" text="THỐNG KÊ KHÁCH HÀNG 1" textFill="RED">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="45.0" layoutY="64.0" mnemonicParsing="false" text="Home">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1111.0" layoutY="64.0" mnemonicParsing="false" text="Next">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="1222.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AreaChart layoutX="14.0" layoutY="-43.0" prefHeight="246.0" prefWidth="367.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </AreaChart>
+                              <BarChart layoutX="443.0" layoutY="-41.0" prefHeight="242.0" prefWidth="423.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                              <TextArea layoutX="302.0" layoutY="262.0" prefHeight="260.0" prefWidth="705.0" />
+                              <TextField fx:id="filterField15" layoutX="36.0" layoutY="262.0" prefHeight="25.0" prefWidth="178.0" promptText="Search..." />
+                              <Button layoutX="1069.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" text="In">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" text="Báo lỗi">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="1068.0" layoutY="441.0" mnemonicParsing="false" text="Đánh dấu">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker layoutX="1007.0" layoutY="14.0" />
+                              <Label layoutX="112.0" layoutY="203.0" text="Đánh giá của Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="521.0" layoutY="203.0" text="Dự đoán thu nhập từ Khách Hàng">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
