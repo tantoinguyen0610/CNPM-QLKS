@@ -1,6 +1,11 @@
 package Check_in;
 
+import java.awt.event.ActionEvent;
+import javafx.stage.Stage;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.CheckBox;
@@ -13,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
 public class CheckInController {
@@ -90,10 +96,13 @@ public class CheckInController {
     private Label DKTP_Label;
 
     @FXML
-    private ToggleButton Button_DP_Truoc;
+    private ToggleButton Button_DP_TaiQuay;
 
     @FXML
-    private ToggleButton Button_DP_TaiQuay;
+    private ToggleGroup fgh;
+
+    @FXML
+    private ToggleButton Button_DP_Truoc;
 
     @FXML
     private AnchorPane AnchorPane1;
@@ -136,5 +145,23 @@ public class CheckInController {
 
     @FXML
     private TableColumn<?, ?> Tbl_Col_SoNgayO;
+
+    @FXML
+    void DatCocActionListener(ActionEvent event)throws Exception {
+
+    	if (DatCoc_CheckBox.isSelected()) {
+    		 Parent parent = FXMLLoader.load(
+    				 getClass().getResource("GiaoDien_DatCoc.fxml"));
+    				
+    				 // Build the scene graph.
+    				 Scene scene = new Scene(parent);
+    				Stage stage = new Stage();
+    				 // Display our window, using the scene graph.
+    				 stage.setTitle("DatCoc");
+    				stage.setScene(scene);
+    				 stage.show();
+    	}
+    	
+    }
 
 }
