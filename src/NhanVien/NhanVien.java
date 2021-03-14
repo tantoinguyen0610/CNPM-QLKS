@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class NhanVien extends Application {
 
 	public void start(Stage stage) throws Exception
