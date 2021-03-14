@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1129.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiHoaDon.QuanLiHoaDonController">
+   <children>
+      <TabPane fx:id="QuanLiHoaDonTabPane" layoutX="-2.0" layoutY="-1.0" prefHeight="683.0" prefWidth="1129.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="HoaDonThanhToanPhongTab" text="Hoá Đơn Thanh Toán Phòng">
+            <content>
+              <AnchorPane fx:id="a" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane layoutX="17.0" layoutY="88.0" prefHeight="451.0" prefWidth="1058.0">
+                           <content>
+                              <TableView fx:id="HoaDonThanhToanPhongTableView" prefHeight="457.0" prefWidth="1098.0">
+                                <columns>
+                                  <TableColumn fx:id="MaHDTTPColumn" prefWidth="70.0" text="MaHD" />
+                                  <TableColumn fx:id="TenKhachColumn" prefWidth="212.0" text="Tên Khách" />
+                                    <TableColumn fx:id="SoPhongTTPColumn" prefWidth="89.0" text="Số Phòng" />
+                                    <TableColumn fx:id="NgayThanhToanPhongColumn" prefWidth="178.0" text="Ngày Thanh Toán" />
+                                    <TableColumn fx:id="TongTienColumn" prefWidth="180.0" text="Tổng Tiền" />
+                                    <TableColumn fx:id="TongTienThanhToanColumn" prefWidth="189.0" text="Tổng Tiền Thanh Toán" />
+                                    <TableColumn fx:id="TinhTrangColumn" prefWidth="127.0" text="Tình Trạng" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <DatePicker fx:id="TuNgayDatePicker" layoutX="174.0" layoutY="31.0" onAction="#TuNgayDatePickerListener" prefHeight="42.0" prefWidth="291.0" />
+                        <DatePicker fx:id="DenNgayDatePicker" layoutX="735.0" layoutY="31.0" onAction="#DenNgayDatePickerListener" prefHeight="42.0" prefWidth="292.0" />
+                        <Label fx:id="TuNgayLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="33.0" prefHeight="30.0" prefWidth="155.0" text="Từ Ngày" />
+                        <Label fx:id="DenNgayLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="37.0" prefHeight="30.0" prefWidth="155.0" text="Đến Ngày" />
+                        <Button fx:id="XemChiTietHDTTPButton" layoutX="260.0" layoutY="553.0" mnemonicParsing="false" onAction="#XemChiTietHDTTPButtonListener" prefHeight="63.0" prefWidth="177.0" text="Xem Chi Tiết" />
+                        <Button fx:id="XoaHDTTPButton" layoutX="672.0" layoutY="553.0" mnemonicParsing="false" onAction="#XoaHDTTPButtonListener" prefHeight="63.0" prefWidth="177.0" text="Xóa Hóa Đơn" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="HoaDonSuaChuaThietBiTab" text="Hóa Đơn Sửa Chửa Thiết Bị">
+               <content>
+                  <AnchorPane fx:id="b" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="HoaDonSuaChuaThietBiTableView" layoutX="17.0" layoutY="88.0" prefHeight="449.0" prefWidth="1046.0">
+                           <columns>
+                              <TableColumn fx:id="MaHDSCTBColumn" prefWidth="75.0" text="MaHD" />
+                              <TableColumn fx:id="TenTBColumn" prefWidth="102.0" text="Tên Thiết Bị" />
+                              <TableColumn fx:id="SoLuongTBColumn" prefWidth="87.0" text="Số Lượng" />
+                              <TableColumn fx:id="NgaySuaChuaColumn" prefWidth="159.0" text="Ngày Sửa Chửa" />
+                              <TableColumn fx:id="TongTienSCTBColumn" prefWidth="156.0" text="Tổng Tiền Sửa Chửa" />
+                              <TableColumn fx:id="ThanhToanSCTBColumn" prefWidth="146.0" text="Thanh Toán" />
+                              <TableColumn fx:id="TingTrangHDSCTBColumn" prefWidth="159.0" text="Tình Trạng" />
+                              <TableColumn fx:id="DuyetThanhToanSCTBCoLumn" prefWidth="161.0" text="Duyệt Thanh Toán" />
+                           </columns>
+                        </TableView>
+                        <DatePicker fx:id="TuNgaySCTBDatePicker" layoutX="174.0" layoutY="31.0" onAction="#TuNgaySCTBDatePickerListener" prefHeight="42.0" prefWidth="291.0" />
+                        <DatePicker fx:id="DenNgaySCTBDatePicker" layoutX="735.0" layoutY="31.0" onAction="#DenNgaySCTBDatePickerListener" prefHeight="42.0" prefWidth="292.0" />
+                        <Label fx:id="TuNgaySCTBLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="33.0" prefHeight="30.0" prefWidth="155.0" text="Từ Ngày" />
+                        <Label fx:id="DenNgaySCTBLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="37.0" prefHeight="30.0" prefWidth="155.0" text="Đến Ngày" />
+                        <Button fx:id="XemHoaDonSCTBButton" layoutX="110.0" layoutY="553.0" mnemonicParsing="false" onAction="#XemHoaDonSCTBButtonListener" prefHeight="63.0" prefWidth="177.0" text="Xem Hóa Đơn" />
+                        <Button fx:id="XoaHoaDonSCTBButton" layoutX="440.0" layoutY="553.0" mnemonicParsing="false" onAction="#XoaHoaDonSCTBButtonListener" prefHeight="63.0" prefWidth="177.0" text="Xóa Hóa Đơn" />
+                        <Button fx:id="DuyetThanhToanHoaDonSCTBButton" layoutX="762.0" layoutY="553.0" mnemonicParsing="false" onAction="#DuyetThanhToanHoaDonSCTBButtonListener" prefHeight="63.0" prefWidth="177.0" text="Duyệt Thanh Toán" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="HoaDonNangCapPhongTab" text="Hóa Đơn Nâng Cấp Phòng">
+               <content>
+                  <AnchorPane fx:id="c" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="HoaDonNangCapPhongTableView" layoutX="17.0" layoutY="88.0" prefHeight="449.0" prefWidth="1046.0">
+                           <columns>
+                              <TableColumn fx:id="MaHDNCPColumn" prefWidth="75.0" text="MaHD" />
+                              <TableColumn fx:id="SoPhongNCPColumn" prefWidth="75.0" text="Số Phòng" />
+                              <TableColumn fx:id="NgaySuaChuaNCPColumn" prefWidth="140.0" text="Ngày Sửa Chửa" />
+                              <TableColumn fx:id="NgayKetThucNCPColumn" prefWidth="133.0" text="Ngày Kết Thúc" />
+                              <TableColumn fx:id="TongTienSuaChuaNCPColumn" prefWidth="153.0" text="Tổng Tiền Sửa Chửa" />
+                              <TableColumn fx:id="ThanhToanNCPColumn" prefWidth="169.0" text="Thanh Toán" />
+                              <TableColumn fx:id="TinhTrangHDNCPColumn" prefWidth="123.0" text="Tình Trạng " />
+                              <TableColumn fx:id="DuyetThanhToanNCPColumn" prefWidth="177.0" text="Duyệt Thanh Toán" />
+                           </columns>
+                        </TableView>
+                        <DatePicker fx:id="TuNgayNCPDatePicker" layoutX="174.0" layoutY="31.0" onAction="#TuNgayNCPDatePickerListener" prefHeight="42.0" prefWidth="291.0" />
+                        <DatePicker fx:id="DenNgayNCPDatePicker" layoutX="735.0" layoutY="31.0" onAction="#DenNgayNCPDatePickerListener" prefHeight="42.0" prefWidth="292.0" />
+                        <Label fx:id="TuNgayLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="33.0" prefHeight="30.0" prefWidth="155.0" text="Từ Ngày" />
+                        <Label fx:id="DenNgayLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="37.0" prefHeight="30.0" prefWidth="155.0" text="Đến Ngày" />
+                        <Button fx:id="XemHoaDonNCPButton" layoutX="110.0" layoutY="553.0" mnemonicParsing="false" onAction="#XemHoaDonNCPButtonListener" prefHeight="63.0" prefWidth="177.0" text="Xem Hóa Đơn" />
+                        <Button fx:id="XoaHoaDonNCPButton" layoutX="440.0" layoutY="553.0" mnemonicParsing="false" onAction="#XoaHoaDonNCPButtonListener" prefHeight="63.0" prefWidth="177.0" text="Xóa Hóa Đơn" />
+                        <Button fx:id="DuyetThanhToanHoaDonNCPButton" layoutX="762.0" layoutY="553.0" mnemonicParsing="false" onAction="#DuyetThanhToanHoaDonNCPButtonListener" prefHeight="63.0" prefWidth="177.0" text="Duyệt Thanh Toán" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

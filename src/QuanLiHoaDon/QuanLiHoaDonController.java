@@ -1,100 +1,248 @@
-;package QuanLiHoaDon;
+package QuanLiHoaDon;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 public class QuanLiHoaDonController {
 
     @FXML
-    private Button XoaHoaDonThanhToanPhongButton;
+    private ResourceBundle resources;
 
     @FXML
-    private Button LuuHoaDonThanhToanPhongButton;
+    private URL location;
 
     @FXML
-    private Button ThoatHoaDonThanhToanPhongButton;
+    private TabPane QuanLiHoaDonTabPane;
 
     @FXML
-    private Button XoaHoaDonSuaChuaPhongButton;
+    private Tab HoaDonThanhToanPhongTab;
 
     @FXML
-    private Button LuuHoaDonSuaChuaPhongButton;
+    private AnchorPane a;
 
     @FXML
-    private Button DuyetHoaDonSuaChuaPhongButton;
+    private TableView<?> HoaDonThanhToanPhongTableView;
 
     @FXML
-    private Button ThoatHoaDonSuaChuaPhongPhongButton;
+    private TableColumn<?, ?> MaHDTTPColumn;
 
     @FXML
-    private Button XoaHoaDonNangCapPhongButton;
+    private TableColumn<?, ?> TenKhachColumn;
 
     @FXML
-    private Button ThoatHoaDonNangCapPhongButton;
+    private TableColumn<?, ?> SoPhongTTPColumn;
 
     @FXML
-    private Button DuyetHoaDonNangCapPhongButton;
+    private TableColumn<?, ?> NgayThanhToanPhongColumn;
 
     @FXML
-    private Button LuuHoaDonNangCapPhongButton;
+    private TableColumn<?, ?> TongTienColumn;
 
     @FXML
-    void DuyetHoaDonNangCapPhongButtonListener(ActionEvent event) {
+    private TableColumn<?, ?> TongTienThanhToanColumn;
+
+    @FXML
+    private TableColumn<?, ?> TinhTrangColumn;
+
+    @FXML
+    private DatePicker TuNgayDatePicker;
+
+    @FXML
+    private DatePicker DenNgayDatePicker;
+
+    @FXML
+    private Label TuNgayLabel;
+
+    @FXML
+    private Label DenNgayLabel;
+
+    @FXML
+    private Button XemChiTietHDTTPButton;
+
+    @FXML
+    private Button XoaHDTTPButton;
+
+    @FXML
+    private Tab HoaDonSuaChuaThietBiTab;
+
+    @FXML
+    private AnchorPane b;
+
+    @FXML
+    private TableView<?> HoaDonSuaChuaThietBiTableView;
+
+    @FXML
+    private TableColumn<?, ?> MaHDSCTBColumn;
+
+    @FXML
+    private TableColumn<?, ?> TenTBColumn;
+
+    @FXML
+    private TableColumn<?, ?> SoLuongTBColumn;
+
+    @FXML
+    private TableColumn<?, ?> NgaySuaChuaColumn;
+
+    @FXML
+    private TableColumn<?, ?> TongTienSCTBColumn;
+
+    @FXML
+    private TableColumn<?, ?> ThanhToanSCTBColumn;
+
+    @FXML
+    private TableColumn<?, ?> TingTrangHDSCTBColumn;
+
+    @FXML
+    private TableColumn<?, ?> DuyetThanhToanSCTBCoLumn;
+
+    @FXML
+    private DatePicker TuNgaySCTBDatePicker;
+
+    @FXML
+    private DatePicker DenNgaySCTBDatePicker;
+
+    @FXML
+    private Label TuNgaySCTBLabel;
+
+    @FXML
+    private Label DenNgaySCTBLabel;
+
+    @FXML
+    private Button XemHoaDonSCTBButton;
+
+    @FXML
+    private Button XoaHoaDonSCTBButton;
+
+    @FXML
+    private Button DuyetThanhToanHoaDonSCTBButton;
+
+    @FXML
+    private Tab HoaDonNangCapPhongTab;
+
+    @FXML
+    private AnchorPane c;
+
+    @FXML
+    private TableView<?> HoaDonNangCapPhongTableView;
+
+    @FXML
+    private TableColumn<?, ?> MaHDNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> SoPhongNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> NgaySuaChuaNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> NgayKetThucNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> TongTienSuaChuaNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> ThanhToanNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> TinhTrangHDNCPColumn;
+
+    @FXML
+    private TableColumn<?, ?> DuyetThanhToanNCPColumn;
+
+    @FXML
+    private DatePicker TuNgayNCPDatePicker;
+
+    @FXML
+    private DatePicker DenNgayNCPDatePicker;
+
+    @FXML
+    private Button XemHoaDonNCPButton;
+
+    @FXML
+    private Button XoaHoaDonNCPButton;
+
+    @FXML
+    private Button DuyetThanhToanHoaDonNCPButton;
+
+    @FXML
+    void DenNgayDatePickerListener(ActionEvent event) {
 
     }
 
     @FXML
-    void DuyetHoaDonSuaChuaPhongButtonListener(ActionEvent event) {
+    void DenNgayNCPDatePickerListener(ActionEvent event) {
 
     }
 
     @FXML
-    void LuuHoaDonNangCapPhongButtonListener(ActionEvent event) {
+    void DenNgaySCTBDatePickerListener(ActionEvent event) {
 
     }
 
     @FXML
-    void LuuHoaDonSuaChuaPhongButtonListener(ActionEvent event) {
+    void DuyetThanhToanHoaDonNCPButtonListener(ActionEvent event) {
 
     }
 
     @FXML
-    void LuuHoaDonThanhToanPhongButtonListener(ActionEvent event) {
+    void DuyetThanhToanHoaDonSCTBButtonListener(ActionEvent event) {
 
     }
 
     @FXML
-    void ThoatHoaDonNangCapPhongButtonListener(ActionEvent event) {
+    void TuNgayDatePickerListener(ActionEvent event) {
 
     }
 
     @FXML
-    void ThoatHoaDonSuaChuaPhongButtonListener(ActionEvent event) {
+    void TuNgayNCPDatePickerListener(ActionEvent event) {
 
     }
 
     @FXML
-    void ThoatHoaDonThanhToanPhongButtonListener(ActionEvent event) {
+    void TuNgaySCTBDatePickerListener(ActionEvent event) {
 
     }
 
     @FXML
-    void XoaHoaDonNangCapPhongButtonListener(ActionEvent event) {
+    void XemChiTietHDTTPButtonListener(ActionEvent event) {
 
     }
 
     @FXML
-    void XoaHoaDonSuaChuaPhongButtonListener(ActionEvent event) {
+    void XemHoaDonNCPButtonListener(ActionEvent event) {
 
     }
 
     @FXML
-    void XoaHoaDonThanhToanPhongButtonListener(ActionEvent event) {
+    void XemHoaDonSCTBButtonListener(ActionEvent event) {
 
     }
 
+    @FXML
+    void XoaHDTTPButtonListener(ActionEvent event) {
+
+    }
+
+    @FXML
+    void XoaHoaDonNCPButtonListener(ActionEvent event) {
+
+    }
+
+    @FXML
+    void XoaHoaDonSCTBButtonListener(ActionEvent event) {
+
+    }
+
+   
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.BangNhiemVuController">
+   <children>
+      <Label fx:id="BangNhiemVu_Label" layoutX="285.0" layoutY="22.0" text="BẢNG NHIỆM VỤ">
+         <font>
+            <Font name="Times New Roman" size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="DiLamDungGio_Label" layoutX="68.0" layoutY="136.0" text="Đi làm đúng giờ" />
+      <Label fx:id="ItNghi_Label" layoutX="68.0" layoutY="190.0" text="Ít nghỉ (tối đa 2 ngày)" />
+      <Label fx:id="ThaiDoLamViec_Label" layoutX="68.0" layoutY="258.0" text="Thái độ khi làm việc" />
+      <Label fx:id="DanhGiaCuaKhachhang_Label" layoutX="68.0" layoutY="319.0" text="Đánh giá của khách hàng" />
+      <Label fx:id="DongPhuc_Label" layoutX="68.0" layoutY="381.0" text="Đồng phục" />
+      <Label fx:id="KhongTot_Label" layoutX="273.0" layoutY="99.0" text="Không tốt" />
+      <Label fx:id="Tot_Label" layoutX="407.0" layoutY="99.0" text="Tốt" />
+      <Label fx:id="GhiChu_Label" layoutX="580.0" layoutY="99.0" text="Ghi chú" />
+      <CheckBox fx:id="DiLamKhongTot_CheckBox" layoutX="293.0" layoutY="136.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="Nghi_Nhieu_CheckBox" layoutX="293.0" layoutY="190.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="ThaiDoKhongTot_CheckBox" layoutX="293.0" layoutY="258.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="DanhGiaKhongTot_CheckBox" layoutX="293.0" layoutY="319.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="DongPhucKhongTot_CheckBox" layoutX="293.0" layoutY="381.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="DiLamTot_CheckBox" layoutX="408.0" layoutY="136.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="Nghi_It_CheckBox" layoutX="408.0" layoutY="190.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="ThaiDoTot_CheckBox" layoutX="408.0" layoutY="258.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="DanhGiaTot_CheckBox" layoutX="408.0" layoutY="319.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <CheckBox fx:id="DongPhucTot_CheckBox" layoutX="408.0" layoutY="381.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="12.0" />
+      <TextArea fx:id="GhiChu_textArea" layoutX="472.0" layoutY="131.0" prefHeight="280.0" prefWidth="266.0" />
+      <ButtonBar layoutX="285.0" layoutY="450.0" prefHeight="45.0" prefWidth="267.0">
+        <buttons>
+          <Button fx:id="Button_LuuBangNV" mnemonicParsing="false" prefHeight="45.0" prefWidth="177.0" text="Lưu" />
+            <Button fx:id="Button_ThoatBangNV" mnemonicParsing="false" prefHeight="78.0" text="Thoát" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
