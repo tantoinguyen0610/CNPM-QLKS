@@ -156,7 +156,7 @@ public class CheckInController {
     				 // Build the scene graph.
     				 Scene scene = new Scene(parent);
     				Stage stage = new Stage();
-    				 // Display our window, using the scene graph.
+    				 // Display our window, using the scene graph..
     				 stage.setTitle("DatCoc");
     				stage.setScene(scene);
     				 stage.show();
