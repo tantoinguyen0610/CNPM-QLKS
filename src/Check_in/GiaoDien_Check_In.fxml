@@ -80,7 +80,7 @@
                               <TableColumn fx:id="Tbl_Col_LoaiPhong" prefWidth="105.0" text="Loại phòng" />
                               <TableColumn fx:id="Tbl_Col_NgayDat" prefWidth="140.0" text="Ngày đặt phòng" />
                               <TableColumn fx:id="Tbl_Col_NgayNhan" prefWidth="145.0" text="Ngày nhận phòng" />
-                              <TableColumn fx:id="Tbl_Col_SoNgayO" prefWidth="85.0" text="Số ngày ở" />
+                              <TableColumn fx:id="Tbl_Col_SoNgayO" prefWidth="85.1" text="Số ngày ở" />
                           </columns>
                         </TableView>
                      </content>
