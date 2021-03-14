@@ -15,6 +15,7 @@ public class HoaDonTraPhongController {
     @FXML
     private Label TTHoaDon_Label;
 
+    
     @FXML
     private Label MaKH_Label;
 
