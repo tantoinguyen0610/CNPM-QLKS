@@ -20,8 +20,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.*;
 import javafx.scene.*;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -36,44 +34,41 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
 
 	
 
-	    @FXML
-	    private AnchorPane Ap;
+	@FXML
+    private AnchorPane Ap;
 
-	    @FXML
-	    private Label lbSonguoichophep;
+    @FXML
+    private Label lbSonguoichophep;
 
-	    @FXML
-	    private Label lbSonguoihientai;
+    @FXML
+    private Label lbSonguoihientai;
 
-	    @FXML
-	    private Label lbTrangthai;
+    @FXML
+    private Label lbTrangthai;
 
-	    @FXML
-	    private Label lbPhong;
+    @FXML
+    private Label lbPhong;
 
-	    @FXML
-	    private ComboBox<String> cbSonguoihientai;
+    @FXML
+    private ComboBox<String> cbSonguoihientai;
 
-	    @FXML
-	    private TextField tfSonguoichophep;
+    @FXML
+    private TextField tfSonguoichophep;
 
-	    @FXML
-	    private ComboBox<String> cbTrangthai;
+    @FXML
+    private ComboBox<String> cbTrangthai;
 
-	    @FXML
-	    private Button btChecklist;
+    @FXML
+    private Button btchecklist;
 
-	    @FXML
-	    private Button btThoat;
+    @FXML
+    private Button btThoat;
 
-	    @FXML
-	    private Button btCapnhat;
+    @FXML
+    private Button btCapnhat;
 
-	    @FXML
-	    private Button btChinhsua;
-	    
-	    @FXML 
-	    private Label label;
+    @FXML
+    private Button btChinhsua;
 
 	
     
@@ -85,7 +80,6 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cbSonguoihientai.setItems(list1);
         cbTrangthai.setItems(list2);
-        
     }
    
     public void comboBoxChanged (ActionEvent event) {
@@ -95,5 +89,15 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     
     public void comboBoxChanged1(ActionEvent event) {
     	//
+    }
+    
+    @FXML
+    void btchecklist(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("CheckListPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
     }
 }
