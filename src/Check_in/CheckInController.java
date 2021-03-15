@@ -187,11 +187,13 @@ public class CheckInController implements Initializable {
     @FXML
     void DP_TaiQuay_ActionListener(ActionEvent event) {
     	DatCoc_CheckBox.setDisable(true);
+    	Ma_DP_textField.setDisable(true);
     }
 
     @FXML
     void DP_Truoc_ActionListener(ActionEvent event) {
     	DatCoc_CheckBox.setDisable(false);
+    	Ma_DP_textField.setDisable(false);
     }
 
     
