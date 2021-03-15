@@ -31,9 +31,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class GiaoDienChiTietPhongLeTanController implements Initializable {
-
 	
-
+	
+	
 	@FXML
     private AnchorPane Ap;
 
@@ -69,8 +69,15 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
 
     @FXML
     private Button btChinhsua;
+    
+    @FXML
+    private void btthoataction(){
+        // get a handle to the stage
+        Stage stage = (Stage) btThoat.getScene().getWindow();
+        // do what you have to do
+        stage.close();
 
-	
+    }
     
 
     ObservableList<String> list1 = FXCollections.observableArrayList("","1", "2", "3","4");
@@ -93,11 +100,12 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     
     @FXML
     void btchecklist(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("CheckListPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("CheckListPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
+    
 }
+	

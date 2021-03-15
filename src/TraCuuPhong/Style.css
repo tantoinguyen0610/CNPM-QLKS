@@ -1,6 +1,49 @@
 
 
 
-.button {
-	-fx-background-color: black;
+#button1 {
+	-fx-background-color: #3366FF;
+	-fx-text-fill: black;
+}
+
+#button2 {
+	-fx-background-color: #33CC33 ;
+	-fx-text-fill: black;
+
+}
+
+#button3 {
+	-fx-background-color: #888888 ;
+	-fx-text-fill: black;
+
+}
+
+#button4 {
+	-fx-background-color: #CC0000 ;
+	-fx-text-fill: black;
+
+}
+
+#button5 {
+	-fx-background-color: #FFFFFF ;
+	-fx-text-fill: black;
+
+}
+
+#button6 {
+	-fx-background-color: #FFFF66 ;
+	-fx-text-fill: black;
+
+}
+
+#button7 {
+	-fx-background-color: #FF9933 ;
+	-fx-text-fill: black;
+
+}
+
+#Ap {
+	-fx-background-color: #6699FF ;
+	-fx-text-fill: black;
+
 }

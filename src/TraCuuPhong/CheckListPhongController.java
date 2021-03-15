@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class CheckListPhongController {
 
@@ -61,5 +62,14 @@ public class CheckListPhongController {
 
     @FXML
     private Button btHuy;
+    
+    @FXML
+    private void btthoatchecklist(){
+        // get a handle to the stage
+        Stage stage = (Stage) btHuy.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+
+    }
 
 }

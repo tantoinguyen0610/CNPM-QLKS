@@ -28,6 +28,6 @@
          </font>
       </Label>
       <Button fx:id="btXacnhan" layoutX="268.0" layoutY="337.0" mnemonicParsing="false" text="Xác nhận" />
-      <Button fx:id="btHuy" layoutX="471.0" layoutY="337.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Hủy" />
+      <Button fx:id="btHuy" layoutX="471.0" layoutY="337.0" mnemonicParsing="false" onAction="#btthoatchecklist" prefHeight="31.0" prefWidth="81.0" text="Hủy" />
    </children>
 </AnchorPane>

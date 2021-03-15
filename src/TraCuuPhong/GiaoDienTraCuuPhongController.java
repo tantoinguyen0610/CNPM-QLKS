@@ -96,52 +96,47 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     
     @FXML
     void bt2(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt3(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt4(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt5(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt6(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
     
 

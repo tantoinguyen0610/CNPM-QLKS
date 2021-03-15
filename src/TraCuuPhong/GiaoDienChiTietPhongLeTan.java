@@ -13,6 +13,7 @@ public class GiaoDienChiTietPhongLeTan extends Application {
 		//Load FXML file
 		Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("");
 		stage.show();
@@ -23,6 +24,5 @@ public class GiaoDienChiTietPhongLeTan extends Application {
 		launch(args);
 	}
 
-	
 	
 }
