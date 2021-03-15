@@ -80,12 +80,18 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     }*/
     @FXML
     void bt1(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+//    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//    	FXMLLoader loader = new FXMLLoader();
+//    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+//    	Parent sampleParent = loader.load();
+//    	Scene scene = new Scene(sampleParent);
+//    	stage.setScene(scene);
+    	
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
