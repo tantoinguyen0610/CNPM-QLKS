@@ -1,9 +1,13 @@
 package QuanLiDichVu;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -11,6 +15,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class QuanLiDichVuController {
 
@@ -177,62 +182,94 @@ public class QuanLiDichVuController {
     private Button XoaDVPVButton;
 
     @FXML
-    void SuaDVAnUongButtonListener(ActionEvent event) {
+    void SuaDVAnUongButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuAnUongController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void SuaDVGTButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuGiaiTriController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void SuaDVPVButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuPhucVuController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void SuaDVTGButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuThuGianController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void ThemDVAnUongButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("ThemDichVuAnUongController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void ThemDVGTButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("ThemDichVuGiaiTriController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void ThemDVPVButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("ThemDichVuPhucVuController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void ThemDVTGButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("ThemDichVuThuGianController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
+
+    @FXML
+    void XoaDVAnUongButtonListener(ActionEvent event) throws IOException {
+    	
+    }
+
+    @FXML
+    void XoaDVGTButtonListener(ActionEvent event) throws IOException {
 
     }
 
     @FXML
-    void SuaDVGTButtonListener(ActionEvent event) {
+    void XoaDVPVButtonListener(ActionEvent event) throws IOException {
 
     }
 
     @FXML
-    void SuaDVPVButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void SuaDVTGButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ThemDVAnUongButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ThemDVGTButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ThemDVPVButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ThemDVTGButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void XoaDVAnUongButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void XoaDVGTButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void XoaDVPVButtonListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void XoaDVTGButtonListener(ActionEvent event) {
+    void XoaDVTGButtonListener(ActionEvent event) throws IOException {
 
     }
 
