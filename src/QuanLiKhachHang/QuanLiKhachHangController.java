@@ -1,13 +1,18 @@
 package QuanLiKhachHang;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class QuanLiKhachHangController {
 
@@ -69,27 +74,43 @@ public class QuanLiKhachHangController {
     private Button DanhGiaButton;
 
     @FXML
-    void DanhGiaButtonListener(ActionEvent event) {
-
+    void DanhGiaButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("BangDanhGiaKhachHangController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
-    void PhieuDichVuButtonListener(ActionEvent event) {
-
+    void PhieuDichVuButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("PhieuDichVuController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
-    void SuaButtonListener(ActionEvent event) {
-
+    void SuaButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("SuaKhachHangController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
-    void ThemButtonListener(ActionEvent event) {
-
+    void ThemButtonListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("ThemKhachHangController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
-    void XoaButtonListener(ActionEvent event) {
+    void XoaButtonListener(ActionEvent event) throws IOException {
 
     }
 
