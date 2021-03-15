@@ -5,82 +5,139 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.event.*;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Stack;
 
-public class GiaoDienTraCuuPhongController {
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.stage.*;
+import javafx.scene.*;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
 
+	 @FXML
+	    private AnchorPane Ap;
+
+	    @FXML
+	    private Button btTatca;
+
+	    @FXML
+	    private Button btDasudung;
+
+	    @FXML
+	    private Button btDangbaotri;
+
+	    @FXML
+	    private Button btTrong;
+
+	    @FXML
+	    private Button btSaptra;
+
+	    @FXML
+	    private Button btDattruoc;
+
+	    @FXML
+	    private Button btDathanhtoan;
+
+	    @FXML
+	    private Button btphong105;
+
+	    @FXML
+	    private Button btphong106;
+
+	    @FXML
+	    private Button btphong102;
+
+	    @FXML
+	    private Button btphong103;
+
+	    @FXML
+	    private Button btphong101;
+
+	    @FXML
+	    private Button btphong104;
+
+    
+    /*ObservableList<String> list = FXCollections.observableArrayList("Deluxe", "Double Room", "Single Room");
+    
     @FXML
-    private AnchorPane Ap;
-
+    public void initialize(URL location, ResourceBundle resources) {
+        //cbLoaiPhong.setItems(list);
+    }
+    public void comboBoxChanged (ActionEvent event){
+        //ta1.setText(cbLoaiPhong.getValue());
+        
+    }*/
     @FXML
-    private Button btTatca;
-
+    void bt1(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
+    }
+    
     @FXML
-    private Button btDasudung;
-
+    void bt2(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
+    }
+    
     @FXML
-    private Button btDangbaotri;
-
+    void bt3(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
+    }
+    
     @FXML
-    private Button btTrong;
-
+    void bt4(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
+    }
+    
     @FXML
-    private Button btSaptra;
-
+    void bt5(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
+    }
+    
     @FXML
-    private Button btDattruoc;
+    void bt6(ActionEvent event) throws IOException  {
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
+    	Parent sampleParent = loader.load();
+    	Scene scene = new Scene(sampleParent);
+    	stage.setScene(scene);
+    }
+    
 
-    @FXML
-    private Button btDathanhtoan;
-
-    @FXML
-    private ComboBox<?> cbLoaiPhong;
-
-    @FXML
-    private TextArea ta1;
-
-    @FXML
-    private TextArea ta2;
-
-    @FXML
-    private TextArea ta3;
-
-    @FXML
-    private TextArea ta4;
-
-    @FXML
-    private TextArea ta8;
-
-    @FXML
-    private TextArea ta7;
-
-    @FXML
-    private TextArea ta6;
-
-    @FXML
-    private TextArea ta5;
-
-    @FXML
-    private Button btXemchitiet1;
-
-    @FXML
-    private Button btXemchitiet8;
-
-    @FXML
-    private Button btXemchitiet7;
-
-    @FXML
-    private Button btXemchitiet6;
-
-    @FXML
-    private Button btXemchitiet5;
-
-    @FXML
-    private Button btXemchitiet4;
-
-    @FXML
-    private Button btXemchitiet3;
-
-    @FXML
-    private Button btXemchitiet2;
-
+    	
 }

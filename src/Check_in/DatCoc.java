@@ -25,7 +25,7 @@ public class DatCoc extends Application {
 	
 	 public static void main(String[] args)
  {
-	 // Launch the application.
+	 // Launch the application..
 	 launch(args);
 	 }
 

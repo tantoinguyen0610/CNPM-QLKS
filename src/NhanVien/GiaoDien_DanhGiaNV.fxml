@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="895.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="BangDanhGiaNV_Label" layoutX="408.0" layoutY="14.0" text="BẢNG ĐÁNH GIÁ NHÂN VIÊN">
+         <font>
+            <Font name="Times New Roman" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="NDDG_Label" layoutX="73.0" layoutY="62.0" text="NỘI DUNG ĐÁNH GIÁ">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="KQDG_Label" layoutX="865.0" layoutY="62.0" text="KẾT QUẢ ĐÁNH GIÁ">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="ChapHanhNoiQuy_Label" layoutX="73.0" layoutY="99.0" text="Chấp hành nội quy">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lbl_1" layoutX="73.0" layoutY="144.0" text="Tuân thủ giờ làm việc và nội quy lao động" />
+      <Label fx:id="Lbl_2" layoutX="73.0" layoutY="184.0" text="Tuân thủ nội quy, quy chế làm việc của Khách sạn" />
+      <Label fx:id="Lbl_3" layoutX="71.0" layoutY="240.0" text="Tác phong">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lbl_4" layoutX="73.0" layoutY="281.0" text="Ăn mặc gọn gàng, sạch sẽ" />
+      <Label fx:id="Lbl_5" layoutX="73.0" layoutY="318.0" text="Giữ gìn vệ sinh chung và vệ sinh nơi làm việc" />
+      <Label fx:id="Lbl_6" layoutX="76.0" layoutY="349.0" text="Nhanh nhẹn, linh hoạt" />
+      <Label fx:id="Lbl_7" layoutX="74.0" layoutY="383.0" prefHeight="21.0" prefWidth="565.0" text="Thái độ chăm sóc khách hàng: cẩn thận, chu đáo, thỏa mãn nhu cầu của khách hàng" />
+      <Label fx:id="Lbl_8" layoutX="74.0" layoutY="435.0" text="Công việc">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lbl_9" layoutX="71.0" layoutY="470.0" text="Tinh thần hợp tác trong công việc" />
+      <Label fx:id="Lbl_10" layoutX="71.0" layoutY="503.0" text="Thao tác thực hiện công việc" />
+      <Label fx:id="Lbl_11" layoutX="70.0" layoutY="536.0" text="Chất lượng, số lượng công việc hoàn thành" />
+      <Label fx:id="Lbl_12" layoutX="71.0" layoutY="571.0" text="Mức độ hiểu biết về công việc được giao" />
+      <Label fx:id="Lbl_13" layoutX="67.0" layoutY="605.0" text="Khả năng tiếp thu công việc" />
+      <Label fx:id="Lbl_14" layoutX="70.0" layoutY="642.0" text="Hiểu rõ các nghiệp vụ của công việc" />
+      <Label fx:id="Lbl_15" layoutX="71.0" layoutY="678.0" text="Kiến thức chuyên môn phù hợp với công việc" />
+      <Label fx:id="Lbl_16" layoutX="70.0" layoutY="718.0" text="Mức độ tin cậy" />
+      <Label fx:id="Lbl_17" layoutX="70.0" layoutY="753.0" text="Tính kỷ luật" />
+      <Label fx:id="Lbl_18" layoutX="68.0" layoutY="790.0" text="Khả năng làm việc độc lập và sử chủ động trong công việc" />
+      <Label fx:id="Kem_Label" layoutX="755.0" layoutY="99.0" text="Kém" />
+      <Label fx:id="TrungBinh_Label" layoutX="845.0" layoutY="99.0" text="Trung bình" />
+      <Label fx:id="Dat_Label" layoutX="979.0" layoutY="99.0" text="Đạt" />
+      <Label fx:id="Tot_Label" layoutX="1067.0" layoutY="99.0" text="Tốt" />
+      <Label fx:id="XuatSac_Label" layoutX="1144.0" layoutY="99.0" text="Xuất sắc" />
+      <RadioButton fx:id="Radio_Tot_1" layoutX="1067.0" layoutY="144.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_1" layoutX="865.0" layoutY="144.0" mnemonicParsing="false" toggleGroup="$RadioGroup_1" />
+      <RadioButton fx:id="Radio_Kem_1" layoutX="755.0" layoutY="145.0" mnemonicParsing="false" toggleGroup="$RadioGroup_1" />
+      <RadioButton fx:id="Radio_Dat_1" layoutX="979.0" layoutY="145.0" mnemonicParsing="false" toggleGroup="$RadioGroup_1" />
+      <RadioButton fx:id="Radio_XuatSac_1" layoutX="1157.0" layoutY="145.0" mnemonicParsing="false" toggleGroup="$RadioGroup_1" />
+      <RadioButton fx:id="Radio_Tot_2" layoutX="1067.0" layoutY="184.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_2" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_2" layoutX="865.0" layoutY="184.0" mnemonicParsing="false" toggleGroup="$RadioGroup_2" />
+      <RadioButton fx:id="Radio_Kem_2" layoutX="755.0" layoutY="185.0" mnemonicParsing="false" toggleGroup="$RadioGroup_2" />
+      <RadioButton fx:id="Radio_Dat_2" layoutX="979.0" layoutY="185.0" mnemonicParsing="false" toggleGroup="$RadioGroup_2" />
+      <RadioButton fx:id="Radio_XuatSac_2" layoutX="1157.0" layoutY="185.0" mnemonicParsing="false" toggleGroup="$RadioGroup_2" />
+      <RadioButton fx:id="Radio_Tot_3" layoutX="1071.0" layoutY="281.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_3" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_3" layoutX="869.0" layoutY="281.0" mnemonicParsing="false" toggleGroup="$RadioGroup_3" />
+      <RadioButton fx:id="Radio_Kem_3" layoutX="759.0" layoutY="282.0" mnemonicParsing="false" toggleGroup="$RadioGroup_3" />
+      <RadioButton fx:id="Radio_Dat_3" layoutX="983.0" layoutY="282.0" mnemonicParsing="false" toggleGroup="$RadioGroup_3" />
+      <RadioButton fx:id="Radio_XuatSac_3" layoutX="1161.0" layoutY="282.0" mnemonicParsing="false" toggleGroup="$RadioGroup_3" />
+      <RadioButton fx:id="Radio_Tot_4" layoutX="1071.0" layoutY="318.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_4" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_4" layoutX="869.0" layoutY="318.0" mnemonicParsing="false" toggleGroup="$RadioGroup_4" />
+      <RadioButton fx:id="Radio_Kem_4" layoutX="759.0" layoutY="319.0" mnemonicParsing="false" toggleGroup="$RadioGroup_4" />
+      <RadioButton fx:id="Radio_Dat_4" layoutX="983.0" layoutY="319.0" mnemonicParsing="false" toggleGroup="$RadioGroup_4" />
+      <RadioButton fx:id="Radio_XuatSac_4" layoutX="1161.0" layoutY="319.0" mnemonicParsing="false" toggleGroup="$RadioGroup_4" />
+      <RadioButton fx:id="Radio_Tot_5" layoutX="1071.0" layoutY="349.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_5" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_5" layoutX="869.0" layoutY="349.0" mnemonicParsing="false" toggleGroup="$RadioGroup_5" />
+      <RadioButton fx:id="Radio_Kem_5" layoutX="759.0" layoutY="350.0" mnemonicParsing="false" toggleGroup="$RadioGroup_5" />
+      <RadioButton fx:id="Radio_Dat_5" layoutX="983.0" layoutY="350.0" mnemonicParsing="false" toggleGroup="$RadioGroup_5" />
+      <RadioButton fx:id="Radio_XuatSac_5" layoutX="1161.0" layoutY="350.0" mnemonicParsing="false" toggleGroup="$RadioGroup_5" />
+      <RadioButton fx:id="Radio_Tot_6" layoutX="1072.0" layoutY="383.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_6" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_6" layoutX="870.0" layoutY="383.0" mnemonicParsing="false" toggleGroup="$RadioGroup_6" />
+      <RadioButton fx:id="Radio_Kem_6" layoutX="760.0" layoutY="384.0" mnemonicParsing="false" toggleGroup="$RadioGroup_6" />
+      <RadioButton fx:id="Radio_Dat_6" layoutX="984.0" layoutY="384.0" mnemonicParsing="false" toggleGroup="$RadioGroup_6" />
+      <RadioButton fx:id="Radio_XuatSac_6" layoutX="1162.0" layoutY="384.0" mnemonicParsing="false" toggleGroup="$RadioGroup_6" />
+      <RadioButton fx:id="Radio_Tot_7" layoutX="1072.0" layoutY="470.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_7" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_7" layoutX="870.0" layoutY="470.0" mnemonicParsing="false" toggleGroup="$RadioGroup_7" />
+      <RadioButton fx:id="Radio_Kem_7" layoutX="760.0" layoutY="471.0" mnemonicParsing="false" toggleGroup="$RadioGroup_7" />
+      <RadioButton fx:id="Radio_Dat_7" layoutX="984.0" layoutY="471.0" mnemonicParsing="false" toggleGroup="$RadioGroup_7" />
+      <RadioButton fx:id="Radio_XuatSac_7" layoutX="1162.0" layoutY="471.0" mnemonicParsing="false" toggleGroup="$RadioGroup_7" />
+      <RadioButton fx:id="Radio_Tot_8" layoutX="1072.0" layoutY="503.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_8" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_8" layoutX="870.0" layoutY="503.0" mnemonicParsing="false" toggleGroup="$RadioGroup_8" />
+      <RadioButton fx:id="Radio_Kem_8" layoutX="760.0" layoutY="504.0" mnemonicParsing="false" toggleGroup="$RadioGroup_8" />
+      <RadioButton fx:id="Radio_Dat_8" layoutX="984.0" layoutY="504.0" mnemonicParsing="false" toggleGroup="$RadioGroup_8" />
+      <RadioButton fx:id="Radio_XuatSac_8" layoutX="1162.0" layoutY="504.0" mnemonicParsing="false" toggleGroup="$RadioGroup_8" />
+      <RadioButton fx:id="Radio_Tot_9" layoutX="1072.0" layoutY="536.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_9" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_9" layoutX="870.0" layoutY="536.0" mnemonicParsing="false" toggleGroup="$RadioGroup_9" />
+      <RadioButton fx:id="Radio_Kem_9" layoutX="760.0" layoutY="537.0" mnemonicParsing="false" toggleGroup="$RadioGroup_9" />
+      <RadioButton fx:id="Radio_Dat_9" layoutX="984.0" layoutY="537.0" mnemonicParsing="false" toggleGroup="$RadioGroup_9" />
+      <RadioButton fx:id="Radio_XuatSac_9" layoutX="1162.0" layoutY="537.0" mnemonicParsing="false" toggleGroup="$RadioGroup_9" />
+      <RadioButton fx:id="Radio_Tot_10" layoutX="1072.0" layoutY="571.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_10" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_10" layoutX="870.0" layoutY="571.0" mnemonicParsing="false" toggleGroup="$RadioGroup_10" />
+      <RadioButton fx:id="Radio_Kem_10" layoutX="760.0" layoutY="572.0" mnemonicParsing="false" toggleGroup="$RadioGroup_10" />
+      <RadioButton fx:id="Radio_Dat_10" layoutX="984.0" layoutY="572.0" mnemonicParsing="false" toggleGroup="$RadioGroup_10" />
+      <RadioButton fx:id="Radio_XuatSac_10" layoutX="1162.0" layoutY="572.0" mnemonicParsing="false" toggleGroup="$RadioGroup_10" />
+      <RadioButton fx:id="Radio_Tot_11" layoutX="1072.0" layoutY="605.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_11" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_11" layoutX="870.0" layoutY="605.0" mnemonicParsing="false" toggleGroup="$RadioGroup_11" />
+      <RadioButton fx:id="Radio_Kem_11" layoutX="760.0" layoutY="606.0" mnemonicParsing="false" toggleGroup="$RadioGroup_11" />
+      <RadioButton fx:id="Radio_Dat_11" layoutX="984.0" layoutY="606.0" mnemonicParsing="false" toggleGroup="$RadioGroup_11" />
+      <RadioButton fx:id="Radio_XuatSac_11" layoutX="1162.0" layoutY="606.0" mnemonicParsing="false" toggleGroup="$RadioGroup_11" />
+      <RadioButton fx:id="Radio_Tot_12" layoutX="1072.0" layoutY="642.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_12" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_12" layoutX="870.0" layoutY="642.0" mnemonicParsing="false" toggleGroup="$RadioGroup_12" />
+      <RadioButton fx:id="Radio_Kem_12" layoutX="760.0" layoutY="643.0" mnemonicParsing="false" toggleGroup="$RadioGroup_12" />
+      <RadioButton fx:id="Radio_Dat_12" layoutX="984.0" layoutY="643.0" mnemonicParsing="false" toggleGroup="$RadioGroup_12" />
+      <RadioButton fx:id="Radio_XuatSac_12" layoutX="1162.0" layoutY="643.0" mnemonicParsing="false" toggleGroup="$RadioGroup_12" />
+      <RadioButton fx:id="Radio_Tot_13" layoutX="1072.0" layoutY="678.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_13" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_13" layoutX="870.0" layoutY="678.0" mnemonicParsing="false" toggleGroup="$RadioGroup_13" />
+      <RadioButton fx:id="Radio_Kem_13" layoutX="760.0" layoutY="679.0" mnemonicParsing="false" toggleGroup="$RadioGroup_13" />
+      <RadioButton fx:id="Radio_Dat_13" layoutX="984.0" layoutY="679.0" mnemonicParsing="false" toggleGroup="$RadioGroup_13" />
+      <RadioButton fx:id="Radio_XuatSac_13" layoutX="1162.0" layoutY="679.0" mnemonicParsing="false" toggleGroup="$RadioGroup_13" />
+      <RadioButton fx:id="Radio_Tot_14" layoutX="1072.0" layoutY="718.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_14" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_14" layoutX="870.0" layoutY="718.0" mnemonicParsing="false" toggleGroup="$RadioGroup_14" />
+      <RadioButton fx:id="Radio_Kem_14" layoutX="760.0" layoutY="719.0" mnemonicParsing="false" toggleGroup="$RadioGroup_14" />
+      <RadioButton fx:id="Radio_Dat_14" layoutX="984.0" layoutY="719.0" mnemonicParsing="false" toggleGroup="$RadioGroup_14" />
+      <RadioButton fx:id="Radio_XuatSac_14" layoutX="1162.0" layoutY="719.0" mnemonicParsing="false" toggleGroup="$RadioGroup_14" />
+      <RadioButton fx:id="Radio_Tot_15" layoutX="1072.0" layoutY="753.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_15" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_15" layoutX="870.0" layoutY="753.0" mnemonicParsing="false" toggleGroup="$RadioGroup_15" />
+      <RadioButton fx:id="Radio_Kem_15" layoutX="760.0" layoutY="754.0" mnemonicParsing="false" toggleGroup="$RadioGroup_15" />
+      <RadioButton fx:id="Radio_Dat_15" layoutX="984.0" layoutY="754.0" mnemonicParsing="false" toggleGroup="$RadioGroup_15" />
+      <RadioButton fx:id="Radio_XuatSac_15" layoutX="1162.0" layoutY="754.0" mnemonicParsing="false" toggleGroup="$RadioGroup_15" />
+      <RadioButton fx:id="Radio_Tot_16" layoutX="1072.0" layoutY="790.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="RadioGroup_16" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Radio_TrungBinh_16" layoutX="870.0" layoutY="790.0" mnemonicParsing="false" toggleGroup="$RadioGroup_16" />
+      <RadioButton fx:id="Radio_Kem_16" layoutX="760.0" layoutY="791.0" mnemonicParsing="false" toggleGroup="$RadioGroup_16" />
+      <RadioButton fx:id="Radio_Dat_16" layoutX="984.0" layoutY="791.0" mnemonicParsing="false" toggleGroup="$RadioGroup_16" />
+      <RadioButton fx:id="Radio_XuatSac_16" layoutX="1162.0" layoutY="791.0" mnemonicParsing="false" toggleGroup="$RadioGroup_16" />
+      <ButtonBar layoutX="489.0" layoutY="830.0" prefHeight="43.0" prefWidth="279.0">
+        <buttons>
+          <Button fx:id="Button_Luu_BangDGNV" mnemonicParsing="false" prefHeight="44.0" prefWidth="235.0" text="Lưu" />
+            <Button fx:id="Button_Huy_BangDGNV" mnemonicParsing="false" prefHeight="58.0" text="Huỷ" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

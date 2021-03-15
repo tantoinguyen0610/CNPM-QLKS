@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiHoaDon.ChiTietHoaDonThanhToanPhongController">
+   <children>
+      <Label fx:id="ThongTinHoaDonThanhToanPhongLabel" alignment="CENTER" layoutX="88.0" prefHeight="66.0" prefWidth="642.0" text="THÔNG TIN HÓA ĐƠN THANH TOÁN PHÒNG">
+         <font>
+            <Font name="Arial Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="TenKhachHangLabel" layoutX="38.0" layoutY="89.0" prefHeight="36.0" prefWidth="122.0" text="Tên Khách Hàng" />
+      <Label fx:id="SoPhongLabel" layoutX="38.0" layoutY="158.0" prefHeight="36.0" prefWidth="122.0" text="Số Phòng" />
+      <Label fx:id="GiaPhongLabel" layoutX="38.0" layoutY="243.0" prefHeight="36.0" prefWidth="122.0" text="Giá Phòng" />
+      <Label fx:id="SoNgayOLabel" layoutX="38.0" layoutY="324.0" prefHeight="36.0" prefWidth="122.0" text="Số Ngày Ở" />
+      <Label fx:id="TinhTrangLabel" layoutX="38.0" layoutY="407.0" prefHeight="36.0" prefWidth="122.0" text="Tình Trạng" />
+      <Label fx:id="NgayThanhToanLabel" layoutX="409.0" layoutY="90.0" prefHeight="36.0" prefWidth="172.0" text="Ngày Thanh Toán" />
+      <Label fx:id="TongTienDichVuLabel" layoutX="409.0" layoutY="158.0" prefHeight="36.0" prefWidth="172.0" text="Tổng Tiền Dịch Vụ" />
+      <Label fx:id="TienBoiThuongLabel" layoutX="409.0" layoutY="243.0" prefHeight="36.0" prefWidth="172.0" text="Tiền Bồi Thường" />
+      <Label fx:id="ThanhToanLabel" layoutX="409.0" layoutY="324.0" prefHeight="36.0" prefWidth="172.0" text="Thanh Toán" />
+      <TextField fx:id="TenKhachHangTextField" layoutX="163.0" layoutY="93.0" onAction="#TenKhachHangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="SoPhongTextField" layoutX="163.0" layoutY="163.0" onAction="#SoPhongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="GiaPhongTextField" layoutX="163.0" layoutY="246.0" onAction="#GiaPhongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="SoNgayOTextField" layoutX="163.0" layoutY="327.0" onAction="#SoNgayOTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="TinhTrangTextField" layoutX="163.0" layoutY="410.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="NgayThanhToanTextField" layoutX="599.0" layoutY="93.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="TongTienDichVuTextField" layoutX="599.0" layoutY="163.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="TienBoiThuongTextField" layoutX="599.0" layoutY="246.0" onAction="#TienBoiThuongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="ThanhToanTextField" layoutX="599.0" layoutY="327.0" onAction="#ThanhToanTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <Button fx:id="ĐongHDTTPButton" layoutX="511.0" layoutY="402.0" mnemonicParsing="false" onAction="#ĐongHDTTPButtonListener" prefHeight="79.0" prefWidth="202.0" text="Đóng" />
+   </children>
+</AnchorPane>
