@@ -1,9 +1,15 @@
 package Check_in;
 
-import java.awt.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +27,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
-public class CheckInController {
+
+public class CheckInController implements Initializable {
 
     @FXML
     private SplitPane SplitPane_1;
@@ -72,7 +79,8 @@ public class CheckInController {
     private DatePicker NgayNhanPhong;
 
     @FXML
-    private ChoiceBox<?> SoNguoiCung1Phong;
+    private ChoiceBox<String> SoNguoiCung1Phong;
+    
 
     @FXML
     private TextField Ma_DP_textField;
@@ -152,16 +160,48 @@ public class CheckInController {
     	if (DatCoc_CheckBox.isSelected()) {
     		 Parent parent = FXMLLoader.load(
     				 getClass().getResource("GiaoDien_DatCoc.fxml"));
-    				
     				 // Build the scene graph.
     				 Scene scene = new Scene(parent);
     				Stage stage = new Stage();
-    				 // Display our window, using the scene graph..
+    				 // Display our window, using the scene graph.
     				 stage.setTitle("DatCoc");
     				stage.setScene(scene);
     				 stage.show();
     	}
     	
     }
+    
+    @FXML
+    void ResetActionListener(ActionEvent event) {
+    	TenKH_textField.setText("");
+    	CMND_textField.setText("");
+    	SDT_textField.setText("");
+    	SoNgayO_textField.setText("");
+    	Ngay_Dat_Phong.getEditor().clear();
+    	NgayNhanPhong.getEditor().clear();
+    	SoNguoiCung1Phong.getSelectionModel().clearSelection();
+    	Ma_DP_textField.setText("");
+    	Loai_Phong.getSelectionModel().clearSelection();
+    }
+    
+    @FXML
+    void DP_TaiQuay_ActionListener(ActionEvent event) {
+    	DatCoc_CheckBox.setDisable(true);
+    }
 
+    @FXML
+    void DP_Truoc_ActionListener(ActionEvent event) {
+    	DatCoc_CheckBox.setDisable(false);
+    }
+
+    
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		ObservableList<String> list = FXCollections.observableArrayList("1", "2","3","4");
+		SoNguoiCung1Phong.setItems(list);
+
+	}
+    
+    
 }
