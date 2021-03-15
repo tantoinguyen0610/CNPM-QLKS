@@ -1,5 +1,6 @@
 package QuanLiKhachHang;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class PhieuDichVuController {
 
@@ -169,8 +171,10 @@ public class PhieuDichVuController {
     }
 
     @FXML
-    void HuyBottonListener(ActionEvent event) {
-
+    void HuyBottonListener(ActionEvent event) throws IOException {
+    	Stage stage = (Stage) HuyBotton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML

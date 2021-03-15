@@ -1,5 +1,6 @@
 package QuanLiKhachHang;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class BangDanhGiaKhachHangController {
 
@@ -42,8 +44,10 @@ public class BangDanhGiaKhachHangController {
     private TableColumn<?, ?> NhanXetColumn;
 
     @FXML
-    void DongButtonListener(ActionEvent event) {
-
+    void DongButtonListener(ActionEvent event) throws IOException {
+    	Stage stage = (Stage) DongButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
    

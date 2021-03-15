@@ -1,5 +1,6 @@
 package QuanLiKhachHang;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class SuaKhachHangController {
 
@@ -108,8 +110,10 @@ public class SuaKhachHangController {
     }
 
     @FXML
-    void HuyButtonListener(ActionEvent event) {
-
+    void HuyButtonListener(ActionEvent event) throws IOException {
+    	Stage stage = (Stage) HuyButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML
