@@ -1,222 +1,426 @@
-CREATE DATABASE IF NOT EXISTS QLKS_DB CHARACTER SET 'UTF8' COLLATE 'UTF8_UNICODE_CI';
-Use QLKS_DB;
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 15, 2021 lúc 04:42 AM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-CREATE TABLE IF NOT EXISTS  KHACHHANG
-(
-	MAKH			VARCHAR(10)	NOT NULL,
-	TENKH			VARCHAR(50)	NOT NULL,
-	GIOITINH		VARCHAR(03)	NOT NULL,
-	DIACHI			VARCHAR(150)		,
-	NGAYSINH		DATE				,
-	SDT				INT					,
-	CMND			VARCHAR(15)			,
-	QUOCTICH		VARCHAR(20)			,
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-	CONSTRAINT pk_KHACHHANG PRIMARY KEY KHACHHANG(MAKH)
-);
+--
+-- Cơ sở dữ liệu: `qlks_db`
+--
 
-CREATE TABLE IF NOT EXISTS THIET_BI
-(
-	MA_THIETBI			VARCHAR(10)	NOT NULL,
-	TEN_THIETBI			VARCHAR(20)	NOT NULL,
-	NGAY_NHAP			VARCHAR(20)	NOT NULL,	
-	NGAY_XUAT			VARCHAR(10)			,
-	TINHTRANG			VARCHAR(20)			,
-	VI_TRI				VARCHAR(20)			,		
+-- --------------------------------------------------------
 
-	CONSTRAINT pk_THIETBI PRIMARY KEY THIET_BI(MA_THIETBI)
+--
+-- Cấu trúc bảng cho bảng `bang_kiem_tra_dinh_ki`
+--
 
-);
+CREATE TABLE `bang_kiem_tra_dinh_ki` (
+  `MA_KT_DK` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAY_KT` date DEFAULT NULL,
+  `GIO_BD` time DEFAULT NULL,
+  `GIO_KT` time DEFAULT NULL,
+  `TRANGTHAISAUKT` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `GHI_CHU` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `cham_cong`
+--
 
-CREATE TABLE IF NOT EXISTS BANG_KIEM_TRA_DINH_KI
+CREATE TABLE `cham_cong` (
+  `MA_CC` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAYCHAM` date DEFAULT NULL,
+  `GIOCHAM` int(11) DEFAULT NULL,
+  `SOGIOLAM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
-(
-	MA_KT_DK			VARCHAR(10) NOT NULL	,
-	NGAY_KT				DATE					,	
-	GIO_BD				TIME					,
-	GIO_KT				TIME					,
-	TRANGTHAISAUKT		VARCHAR(20)			,
-	GHI_CHU				VARCHAR(100)			,
-	CONSTRAINT pk_BANG_KIEM_TRA_DINH_KI PRIMARY KEY BANG_KIEM_TRA_DINH_KI(MA_KT_DK)
-);
+--
+-- Cấu trúc bảng cho bảng `chucvu`
+--
 
-CREATE TABLE IF NOT EXISTS LOAI_PHONG
-(
-	MA_LOAIPHONG		VARCHAR(10)	NOT NULL,
-	MA_KT_DK			VARCHAR(10)	NOT NULL,	    
-	TEN_lOAIPHONG		VARCHAR(20)	NOT NULL,
-	SOLUONGNGUOIO		INT						,	
-	GIATIEN				INT			NOT NULL,		
+CREATE TABLE `chucvu` (
+  `MA_CV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_CV` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-	CONSTRAINT pk_LOAIPHONG PRIMARY KEY LOAI_PHONG(MA_LOAIPHONG),
-	CONSTRAINT fk_BANG_KIEM_TRA_DINH_KI FOREIGN KEY (MA_KT_DK) REFERENCES BANG_KIEM_TRA_DINH_KI(MA_KT_DK)
-);
+-- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `dv`
+--
 
+CREATE TABLE `dv` (
+  `MA_DV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TENDV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAYDATDV` date NOT NULL,
+  `SOLUONG` int(11) DEFAULT NULL,
+  `GIO_BD` time DEFAULT NULL,
+  `GIO_KT` time DEFAULT NULL,
+  `SONGUOITHAMGIA` int(11) DEFAULT NULL,
+  `GIA` int(11) DEFAULT NULL,
+  `DANHGIACUAKH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS PHONG
-(
-	MA_PHONG			VARCHAR(10)	NOT NULL,
-	MA_LOAIPHONG		VARCHAR(10)	NOT NULL,		
-	MA_THIETBI			VARCHAR(20)	NOT NULL,
-	TEN_PHONG			VARCHAR(20)	NOT NULL,
-	SONGUOIO			INT						,	
-	TINHTRANG			VARCHAR(20)	NOT NULL,	
-	CONSTRAINT pk_PHONG PRIMARY KEY PHONG(MA_PHONG),
-	CONSTRAINT fk_LOAIPHONG FOREIGN KEY (MA_LOAIPHONG) REFERENCES LOAI_PHONG(MA_LOAIPHONG),
-	CONSTRAINT fk_THIETBI FOREIGN KEY (MA_THIETBI) REFERENCES THIET_BI(MA_THIETBI)
-);
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS DV
-(
-	MA_DV				VARCHAR(10)	NOT NULL,
-	TENDV				VARCHAR(50)	NOT NULL,
-	NGAYDATDV			DATE			NOT NULL,
-	SOLUONG				INT						,
-	GIO_BD				TIME					,
-	GIO_KT				TIME					,
-	SONGUOITHAMGIA		INT						,
-	GIA					INT						,
-	DANHGIACUAKH		VARCHAR(100)			,
+--
+-- Cấu trúc bảng cho bảng `hoadon_thanhtoanphong`
+--
 
-	CONSTRAINT pk_DV PRIMARY KEY DV(MA_DV)
-);
+CREATE TABLE `hoadon_thanhtoanphong` (
+  `MA_HD_TTP` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_PT` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MAKH` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TENKH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAYTHANHTOAN` date DEFAULT NULL,
+  `TIENPHONG` int(11) DEFAULT NULL,
+  `TONGTIENDV` int(11) DEFAULT NULL,
+  `PHUTHU` int(11) DEFAULT NULL,
+  `TONGTIEN` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS PHIEU_DV
-(
-	MAPHIEUDV			VARCHAR(10)	NOT NULL,
-	MA_DV				VARCHAR(50)	NOT NULL,
-	TENDV				VARCHAR(50)	NOT NULL,
-	TONGTIENDV			INT				,
+--
+-- Cấu trúc bảng cho bảng `hoa_don`
+--
 
-	CONSTRAINT pk_PHIEU_DV PRIMARY KEY PHIEU_DV(MAPHIEUDV),
-	CONSTRAINT fk_DICHVU1 FOREIGN KEY (MA_DV) REFERENCES DV(MA_DV)
-);
+CREATE TABLE `hoa_don` (
+  `MA_HD` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_HD_TTP` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_HD` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LOAI_HD` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS PHIEUTHUEPHONG
-(
-	MA_PT			VARCHAR(10)	NOT NULL,
-	MA_DATPHONG		VARCHAR(10)			,
-	MA_PHONG		VARCHAR(10)	NOT NULL,
-	MAPHIEUDV		VARCHAR(10)	NOT NULL,
-	MAKH			vARCHAR(10)	NOT NULL,
-	TENKH			VARCHAR(50)	NOT NULL,
-	NGAYDAT			DATE				,		
-	NGAYNHAN		DATE				,
-	SONGAYO			INT					,		
+-- --------------------------------------------------------
 
-	CONSTRAINT pk_PHIEUTHUEPHONG PRIMARY KEY PHIEUTHUEPHONG(MA_PT),
-	CONSTRAINT fk_PHONG FOREIGN KEY (MA_PHONG) REFERENCES PHONG(MA_PHONG),
-	CONSTRAINT fk_PHIEU_DV FOREIGN KEY (MAPHIEUDV) REFERENCES PHIEU_DV(MAPHIEUDV),
-	CONSTRAINT fk_KHACHHANG1 FOREIGN KEY (MAKH) REFERENCES KHACHHANG(MAKH)
-);
+--
+-- Cấu trúc bảng cho bảng `khachhang`
+--
 
+CREATE TABLE `khachhang` (
+  `MAKH` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TENKH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NGAYSINH` date DEFAULT NULL,
+  `SDT` int(11) DEFAULT NULL,
+  `CMND` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `QUOCTICH` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS HOADON_THANHTOANPHONG
-(
-	MA_HD_TTP		VARCHAR(10)	NOT NULL,
-	MA_PT			VARCHAR(10)	NOT NULL,
-	MAKH			VARCHAR(10)	NOT NULL,
-	TENKH			VARCHAR(50)	NOT NULL,
-	NGAYTHANHTOAN	DATE					,
-	TIENPHONG		INT						,
-	TONGTIENDV		INT						,
-	PHUTHU			INT						,
-	TONGTIEN		INT						,	
-		CONSTRAINT pk_HOADON_THANHTOANPHONG PRIMARY KEY HOADON_THANHTOANPHONG(MA_HD_TTP),	
-		CONSTRAINT fk_PHIEUTHUEPHONG1 FOREIGN KEY (MA_PT) REFERENCES PHIEUTHUEPHONG(MA_PT),
-		CONSTRAINT fk_KHACHHANG2 FOREIGN KEY (MAKH) REFERENCES KHACHHANG(MAKH)	
-);
+-- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `loai_phong`
+--
 
+CREATE TABLE `loai_phong` (
+  `MA_LOAIPHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_lOAIPHONG` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `SOLUONGNGUOIO` int(11) DEFAULT NULL,
+  `GIATIEN` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `nhanvien`
+--
 
-CREATE TABLE IF NOT EXISTS HOA_DON
-(
-	MA_HD		VARCHAR(10)	NOT NULL,
-	MA_HD_TTP	VARCHAR(10)	NOT NULL,
-	TEN_HD		VARCHAR(50)			,
-	LOAI_HD		VARCHAR(50)	NOT NULL,		
-			
-	CONSTRAINT pk_HOA_DON PRIMARY KEY HOA_DON(MA_HD),
-	CONSTRAINT fk_HOADON_THANHTOANPHONG FOREIGN KEY (MA_HD_TTP) REFERENCES HOADON_THANHTOANPHONG(MA_HD_TTP)
+CREATE TABLE `nhanvien` (
+  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TENNV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NGAYSINH` date DEFAULT NULL,
+  `SDT` int(11) DEFAULT NULL,
+  `EMAIL` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `QUOCTICH` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-);
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS NHANVIEN
-(	
-	MANV		VARCHAR(10)	NOT NULL,
-	TENNV		VARCHAR(50)	NOT NULL,
-	GIOITINH	VARCHAR(03)	NOT NULL,
-	DIACHI		VARCHAR(150)		,
-	NGAYSINH	DATE				,
-	SDT			INT					,
-	EMAIL		VARCHAR(50)			,
-	QUOCTICH	VARCHAR(20)			,
+--
+-- Cấu trúc bảng cho bảng `phieuthuephong`
+--
 
-	CONSTRAINT pk_NHANVIEN PRIMARY KEY NHANVIEN(MANV)
+CREATE TABLE `phieuthuephong` (
+  `MA_PT` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_DATPHONG` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MA_PHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MAPHIEUDV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MAKH` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TENKH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAYDAT` date DEFAULT NULL,
+  `NGAYNHAN` date DEFAULT NULL,
+  `SONGAYO` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-);
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS THONGKE
-(
-	MA_THONGKE		VARCHAR(10)	NOT NULL,
-	MANV			VARCHAR(10)	NOT NULL,
-	TEN_THONGKE		VARCHAR(10)	NOT NULL,
-	LOAI_THONGKE	VARCHAR(50)	NOT NULL,
-	NGAYLAP			DATE					,			
+--
+-- Cấu trúc bảng cho bảng `phieu_dv`
+--
 
-	CONSTRAINT pk_THONGKE PRIMARY KEY THONGKE(MA_THONGKE),
-	CONSTRAINT fk_NHANVIEN1 FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV)
-);
+CREATE TABLE `phieu_dv` (
+  `MAPHIEUDV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_DV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `TENDV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `TONGTIENDV` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS CHUCVU
-(
-	MA_CV			VARCHAR(10)	NOT NULL,
-	MANV			VARCHAR(10)	NOT NULL,
-	TEN_CV			VARCHAR(50)	NOT NULL,	
+--
+-- Cấu trúc bảng cho bảng `phong`
+--
 
-	CONSTRAINT pk_CHUCVU PRIMARY KEY CHUCVU(MA_CV),
-	CONSTRAINT fk_NHANVIEN2 FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV)
-);
+CREATE TABLE `phong` (
+  `MA_PHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_LOAIPHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_THIETBI` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_PHONG` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `SONGUOIO` int(11) DEFAULT NULL,
+  `TINHTRANG` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS CHAM_CONG
-(
-	MA_CC			VARCHAR(10)	NOT NULL,
-	MANV			VARCHAR(10)	NOT NULL,
-	NGAYCHAM		DATE				,
-	GIOCHAM			INT					,
-	SOGIOLAM		INT					,			
+--
+-- Cấu trúc bảng cho bảng `taikhoan`
+--
 
-	CONSTRAINT pk_CHAM_CONG PRIMARY KEY CHAM_CONG(MA_CC),
-	CONSTRAINT fk_NHANVIEN3 FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV)
-);
+CREATE TABLE `taikhoan` (
+  `MATK` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MANV` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `USERNAME` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PSW` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `thiet_bi`
+--
 
+CREATE TABLE `thiet_bi` (
+  `MA_THIETBI` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_THIETBI` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAY_NHAP` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAY_XUAT` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TINHTRANG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `VI_TRI` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `thongke`
+--
 
+CREATE TABLE `thongke` (
+  `MA_THONGKE` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_THONGKE` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `LOAI_THONGKE` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `NGAYLAP` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Chỉ mục cho các bảng đã đổ
+--
 
+--
+-- Chỉ mục cho bảng `bang_kiem_tra_dinh_ki`
+--
+ALTER TABLE `bang_kiem_tra_dinh_ki`
+  ADD PRIMARY KEY (`MA_KT_DK`);
 
+--
+-- Chỉ mục cho bảng `cham_cong`
+--
+ALTER TABLE `cham_cong`
+  ADD PRIMARY KEY (`MA_CC`),
+  ADD KEY `fk_NHANVIEN3` (`MANV`);
 
+--
+-- Chỉ mục cho bảng `chucvu`
+--
+ALTER TABLE `chucvu`
+  ADD PRIMARY KEY (`MA_CV`),
+  ADD KEY `fk_NHANVIEN2` (`MANV`);
 
+--
+-- Chỉ mục cho bảng `dv`
+--
+ALTER TABLE `dv`
+  ADD PRIMARY KEY (`MA_DV`);
 
+--
+-- Chỉ mục cho bảng `hoadon_thanhtoanphong`
+--
+ALTER TABLE `hoadon_thanhtoanphong`
+  ADD PRIMARY KEY (`MA_HD_TTP`),
+  ADD KEY `fk_PHIEUTHUEPHONG1` (`MA_PT`),
+  ADD KEY `fk_KHACHHANG2` (`MAKH`);
 
+--
+-- Chỉ mục cho bảng `hoa_don`
+--
+ALTER TABLE `hoa_don`
+  ADD PRIMARY KEY (`MA_HD`),
+  ADD KEY `fk_HOADON_THANHTOANPHONG` (`MA_HD_TTP`);
 
+--
+-- Chỉ mục cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  ADD PRIMARY KEY (`MAKH`);
 
+--
+-- Chỉ mục cho bảng `loai_phong`
+--
+ALTER TABLE `loai_phong`
+  ADD PRIMARY KEY (`MA_LOAIPHONG`),
+  ADD KEY `fk_BANG_KIEM_TRA_DINH_KI` (`MA_KT_DK`);
 
+--
+-- Chỉ mục cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD PRIMARY KEY (`MANV`);
 
+--
+-- Chỉ mục cho bảng `phieuthuephong`
+--
+ALTER TABLE `phieuthuephong`
+  ADD PRIMARY KEY (`MA_PT`),
+  ADD KEY `fk_PHONG` (`MA_PHONG`),
+  ADD KEY `fk_PHIEU_DV` (`MAPHIEUDV`),
+  ADD KEY `fk_KHACHHANG1` (`MAKH`);
 
+--
+-- Chỉ mục cho bảng `phieu_dv`
+--
+ALTER TABLE `phieu_dv`
+  ADD PRIMARY KEY (`MAPHIEUDV`),
+  ADD KEY `fk_DICHVU1` (`MA_DV`);
 
+--
+-- Chỉ mục cho bảng `phong`
+--
+ALTER TABLE `phong`
+  ADD PRIMARY KEY (`MA_PHONG`),
+  ADD KEY `fk_LOAIPHONG` (`MA_LOAIPHONG`),
+  ADD KEY `fk_THIETBI` (`MA_THIETBI`);
 
+--
+-- Chỉ mục cho bảng `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD PRIMARY KEY (`MATK`),
+  ADD KEY `fk_NHANVIEN4` (`MANV`);
 
+--
+-- Chỉ mục cho bảng `thiet_bi`
+--
+ALTER TABLE `thiet_bi`
+  ADD PRIMARY KEY (`MA_THIETBI`);
+
+--
+-- Chỉ mục cho bảng `thongke`
+--
+ALTER TABLE `thongke`
+  ADD PRIMARY KEY (`MA_THONGKE`),
+  ADD KEY `fk_NHANVIEN1` (`MANV`);
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `cham_cong`
+--
+ALTER TABLE `cham_cong`
+  ADD CONSTRAINT `fk_NHANVIEN3` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+
+--
+-- Các ràng buộc cho bảng `chucvu`
+--
+ALTER TABLE `chucvu`
+  ADD CONSTRAINT `fk_NHANVIEN2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+
+--
+-- Các ràng buộc cho bảng `hoadon_thanhtoanphong`
+--
+ALTER TABLE `hoadon_thanhtoanphong`
+  ADD CONSTRAINT `fk_KHACHHANG2` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
+  ADD CONSTRAINT `fk_PHIEUTHUEPHONG1` FOREIGN KEY (`MA_PT`) REFERENCES `phieuthuephong` (`MA_PT`);
+
+--
+-- Các ràng buộc cho bảng `hoa_don`
+--
+ALTER TABLE `hoa_don`
+  ADD CONSTRAINT `fk_HOADON_THANHTOANPHONG` FOREIGN KEY (`MA_HD_TTP`) REFERENCES `hoadon_thanhtoanphong` (`MA_HD_TTP`);
+
+--
+-- Các ràng buộc cho bảng `loai_phong`
+--
+
+--
+-- Các ràng buộc cho bảng `phieuthuephong`
+--
+ALTER TABLE `phieuthuephong`
+  ADD CONSTRAINT `fk_KHACHHANG1` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
+  ADD CONSTRAINT `fk_PHIEU_DV` FOREIGN KEY (`MAPHIEUDV`) REFERENCES `phieu_dv` (`MAPHIEUDV`),
+  ADD CONSTRAINT `fk_PHONG` FOREIGN KEY (`MA_PHONG`) REFERENCES `phong` (`MA_PHONG`);
+
+--
+-- Các ràng buộc cho bảng `phieu_dv`
+--
+ALTER TABLE `phieu_dv`
+  ADD CONSTRAINT `fk_DICHVU1` FOREIGN KEY (`MA_DV`) REFERENCES `dv` (`MA_DV`);
+
+--
+-- Các ràng buộc cho bảng `phong`
+--
+ALTER TABLE `phong`
+  ADD CONSTRAINT `fk_LOAIPHONG` FOREIGN KEY (`MA_LOAIPHONG`) REFERENCES `loai_phong` (`MA_LOAIPHONG`),
+  ADD CONSTRAINT `fk_THIETBI` FOREIGN KEY (`MA_THIETBI`) REFERENCES `thiet_bi` (`MA_THIETBI`);
+
+--
+-- Các ràng buộc cho bảng `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD CONSTRAINT `fk_NHANVIEN4` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+
+--
+-- Các ràng buộc cho bảng `thongke`
+--
+ALTER TABLE `thongke`
+  ADD CONSTRAINT `fk_NHANVIEN1` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
