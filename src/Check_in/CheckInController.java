@@ -1,7 +1,10 @@
 package Check_in;
 
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -187,13 +190,11 @@ public class CheckInController implements Initializable {
     @FXML
     void DP_TaiQuay_ActionListener(ActionEvent event) {
     	DatCoc_CheckBox.setDisable(true);
-    	Ma_DP_textField.setDisable(true);
     }
 
     @FXML
     void DP_Truoc_ActionListener(ActionEvent event) {
     	DatCoc_CheckBox.setDisable(false);
-    	Ma_DP_textField.setDisable(false);
     }
 
     
@@ -205,5 +206,34 @@ public class CheckInController implements Initializable {
 
 	}
     
-    
+	@FXML
+    void DatPhong_ActionListener(ActionEvent event) {
+		
+		try {
+				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+				Connection conn = DriverManager.getConnection(DB_URL,"root","");
+//				PreparedStatement pst1 = conn.prepareStatement("select MAX(MA_PT) +1 FROM phieuthuephong");
+//		            ResultSet rs = pst1.executeQuery();
+//		            String user_id ="" ;
+//		            while(rs.next())
+//		            {
+//		                user_id = rs.getString(1);
+//		            }
+			
+				String query = "insert into phieuthuephong(MA_PT,NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO) VALUES(DEFAULT,?,?,?,?)";
+				PreparedStatement pst = conn.prepareStatement(query);
+				//pst.setString(1,user_id.toString() );
+				pst.setString(1, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
+				pst.setString(2, Ma_DP_textField.getText());
+				pst.setString(3, ((TextField)NgayNhanPhong.getEditor()).getText());
+				pst.setString(4, SoNgayO_textField.getText());
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+				
+			}
+			catch(Exception e) {
+				JOptionPane.showMessageDialog(null, e);
+			}
+    }
 }
