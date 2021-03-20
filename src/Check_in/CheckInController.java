@@ -221,7 +221,7 @@ public class CheckInController implements Initializable {
 //		                user_id = rs.getString(1);
 //		            }
 			
-				String query = "insert into phieuthuephong(MA_PT,NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO) VALUES(DEFAULT,?,?,?,?)";
+				String query = "insert into `phieuthuephong`(NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO) VALUES(?,?,?,?)";
 				PreparedStatement pst = conn.prepareStatement(query);
 				//pst.setString(1,user_id.toString() );
 				pst.setString(1, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
