@@ -13,6 +13,7 @@ public class GiaoDienQuanLyPhong extends Application {
 		//Load FXML file
 		Parent root = FXMLLoader.load(getClass().getResource("GiaoDienQuanLyPhong.fxml"));
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("quanlyphong.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Demo giao diện");
 		stage.show();
