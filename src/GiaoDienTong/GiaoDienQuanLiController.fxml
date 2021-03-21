@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienQuanLiController">
+   <children>
+      <AnchorPane layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1083.0">
+         <children>
+            <Label alignment="CENTER" layoutX="336.0" layoutY="45.0" text="Quản Lí Khách Sạn">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
+            <Button fx:id="QLPButton" layoutX="130.0" layoutY="591.0" mnemonicParsing="false" onAction="#QLPButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Phòng" />
+            <Button fx:id="QLNVButton" layoutX="466.0" layoutY="591.0" mnemonicParsing="false" onAction="#QLNVButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Nhân Viên " />
+            <Button fx:id="QLDVButton" layoutX="781.0" layoutY="591.0" mnemonicParsing="false" onAction="#QLDVButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Dịch Vụ" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
