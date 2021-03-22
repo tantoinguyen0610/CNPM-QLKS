@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1106.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienNhanVienController">
    <children>
       <Label alignment="CENTER" layoutX="336.0" layoutY="45.0" text="Quản Lí Khách Sạn">
@@ -15,7 +14,7 @@
       </Label>
       <Button fx:id="Check_inButton" layoutX="82.0" layoutY="591.0" mnemonicParsing="false" onAction="#Check_inButtonListener" prefHeight="108.0" prefWidth="175.0" text="Check-in" />
       <Button fx:id="Check_outButton" layoutX="336.0" layoutY="591.0" mnemonicParsing="false" onAction="#Check_outButtonListener" prefHeight="108.0" prefWidth="175.0" text="Check-out" />
-      <Button fx:id="TraCuuPhongButton" layoutX="582.0" layoutY="591.0" mnemonicParsing="false" onAction="#Check_outButtonListener" prefHeight="108.0" prefWidth="175.0" text="Tra Cứu Phòng" />
+      <Button fx:id="TraCuuPhongButton" layoutX="582.0" layoutY="591.0" mnemonicParsing="false" onAction="#TraCuuPhong_ButtonListener" prefHeight="108.0" prefWidth="175.0" text="Tra Cứu Phòng" />
       <Button fx:id="QuanLiKhachHangButton" layoutX="838.0" layoutY="591.0" mnemonicParsing="false" onAction="#QuanLiKhachHangButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Khách Hàng" />
    </children>
 </AnchorPane>

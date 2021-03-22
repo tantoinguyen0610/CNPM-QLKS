@@ -58,9 +58,28 @@ public class GiaoDienNhanVienController {
     }
 
     @FXML
-    void QuanLiKhachHangButtonListener(ActionEvent event) {
-
+    void QuanLiKhachHangButtonListener(ActionEvent event) throws Exception {
+    	Parent parent = FXMLLoader.load(
+				 getClass().getClassLoader().getResource("QuanLiKhachHang/QuanLiKhachHangController.fxml"));
+				 // Build the scene graph.
+				 Scene scene = new Scene(parent);
+				Stage stage = new Stage();
+				 // Display our window, using the scene graph.
+				 stage.setTitle("Quản Lí Khách Hàng");
+				stage.setScene(scene);
+				 stage.show();
     }
 
-   
+    @FXML
+    void TraCuuPhong_ButtonListener(ActionEvent event) throws Exception {
+    	Parent parent = FXMLLoader.load(
+				 getClass().getClassLoader().getResource("QuanLyPhong/GiaoDienQuanLyPhong.fxml"));
+				 // Build the scene graph.
+				 Scene scene = new Scene(parent);
+				Stage stage = new Stage();
+				 // Display our window, using the scene graph.
+				 stage.setTitle("Tra cứu phòng");
+				stage.setScene(scene);
+				 stage.show();
+    }
 }

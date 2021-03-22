@@ -18,7 +18,7 @@ public class GiaoDienNhanVien extends Application {
 	 Scene scene = new Scene(parent);
 	
 	 // Display our window, using the scene graph.
-	 stage.setTitle("Giao dien Check-in");
+	 stage.setTitle("Giao dien Nhan Vien");
 	stage.setScene(scene);
 	 stage.show();
 	 }
