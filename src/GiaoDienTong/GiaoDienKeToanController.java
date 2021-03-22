@@ -32,14 +32,20 @@ public class GiaoDienKeToanController {
 				 Scene scene = new Scene(parent);
 				Stage stage = new Stage();
 				 // Display our window, using the scene graph.
-				 stage.setTitle("DatCoc");
+				 stage.setTitle("Quản Lí Hoá Đơn");
 				stage.setScene(scene);
 				 stage.show();
     }
 
     @FXML
-    void ThongKeButtonListener(ActionEvent event) {
-
+    void ThongKeButtonListener(ActionEvent event) throws Exception{
+    	Parent parent = FXMLLoader.load(
+				 getClass().getClassLoader().getResource("ThongKe/Report.fxml"));
+				 Scene scene = new Scene(parent);
+				Stage stage = new Stage();
+				 stage.setTitle("Thống Kê");
+				stage.setScene(scene);
+				 stage.show();
     }
 
     

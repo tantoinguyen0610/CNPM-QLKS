@@ -33,12 +33,28 @@ public class GiaoDienNhanVienController {
 
     @FXML
     void Check_inButtonListener(ActionEvent event) throws IOException {
-   
+    	Parent parent = FXMLLoader.load(
+				 getClass().getClassLoader().getResource("Check_in/GiaoDien_Check_In.fxml"));
+				 // Build the scene graph.
+				 Scene scene = new Scene(parent);
+				Stage stage = new Stage();
+				 // Display our window, using the scene graph.
+				 stage.setTitle("Giao Diện Check-in");
+				stage.setScene(scene);
+				 stage.show();
     }
 
     @FXML
-    void Check_outButtonListener(ActionEvent event) {
-
+    void Check_outButtonListener(ActionEvent event) throws Exception {
+    	Parent parent = FXMLLoader.load(
+				 getClass().getClassLoader().getResource("Check_out/GiaoDien_Check_Out.fxml"));
+				 // Build the scene graph.
+				 Scene scene = new Scene(parent);
+				Stage stage = new Stage();
+				 // Display our window, using the scene graph.
+				 stage.setTitle("Giao Diện Check-out");
+				stage.setScene(scene);
+				 stage.show();
     }
 
     @FXML
