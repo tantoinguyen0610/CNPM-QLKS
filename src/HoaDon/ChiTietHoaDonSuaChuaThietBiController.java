@@ -1,20 +1,16 @@
-package QuanLiHoaDon;
+package HoaDon;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ChiTietHoaDonNangCapPhongController {
+public class ChiTietHoaDonSuaChuaThietBiController {
 
     @FXML
     private ResourceBundle resources;
@@ -23,16 +19,13 @@ public class ChiTietHoaDonNangCapPhongController {
     private URL location;
 
     @FXML
-    private AnchorPane ThongTinHoaDonNangCapPhong;
+    private Label ThongTinHoaDonSCTBLabel;
 
     @FXML
-    private Label ThongTinHoaDonNCPLabel;
+    private Label TênTBLabel;
 
     @FXML
-    private Label SoPhongLabel;
-
-    @FXML
-    private Label LiDoNangCapLabel;
+    private Label SoLuongLabel;
 
     @FXML
     private Label NgayBatDauLabel;
@@ -41,19 +34,19 @@ public class ChiTietHoaDonNangCapPhongController {
     private Label NgayKetThucLabel;
 
     @FXML
-    private Label TinhTrangNangCapLabel;
+    private Label TinhTrangSuaLabel;
 
     @FXML
-    private Label ChiPhiNangCapLabel;
+    private Label ChiPhiSuaChuaLabel;
 
     @FXML
     private Label TongTienLabel;
 
     @FXML
-    private TextField SoPhongTextField;
+    private TextField TenTBTextField;
 
     @FXML
-    private TextField LiDoNangCapTextField;
+    private TextField SoLuongTextField;
 
     @FXML
     private TextField NgayBatDauTextField;
@@ -62,10 +55,10 @@ public class ChiTietHoaDonNangCapPhongController {
     private TextField NgayKetThucTextField;
 
     @FXML
-    private TextField TìnhTrangNangCapTextField;
+    private TextField TìnhTrangSuaTextField;
 
     @FXML
-    private TextField ChiPhiNangCapTextField;
+    private TextField ChiPhiSuaChuaTextField;
 
     @FXML
     private TextField TongTienTextField;
@@ -74,7 +67,7 @@ public class ChiTietHoaDonNangCapPhongController {
     private Button DongButton;
 
     @FXML
-    void ChiPhiNangCapTextFieldListener(ActionEvent event) {
+    void ChiPhiSuaChuaTextFieldListener(ActionEvent event) {
 
     }
 
@@ -83,11 +76,6 @@ public class ChiTietHoaDonNangCapPhongController {
     	Stage stage = (Stage) DongButton.getScene().getWindow();
         // do what you have to do
         stage.close();
-    }
-
-    @FXML
-    void LiDoNangCapTextFieldListener(ActionEvent event) {
-
     }
 
     @FXML
@@ -101,7 +89,7 @@ public class ChiTietHoaDonNangCapPhongController {
     }
 
     @FXML
-    void SoPhongTextFieldListener(ActionEvent event) {
+    void TenTBTextFieldListener(ActionEvent event) {
 
     }
 
@@ -111,9 +99,9 @@ public class ChiTietHoaDonNangCapPhongController {
     }
 
     @FXML
-    void TìnhTrangNangCapTextFieldListener(ActionEvent event) {
+    void TìnhTrangSuaTextFieldListener(ActionEvent event) {
 
     }
 
-  
+
 }

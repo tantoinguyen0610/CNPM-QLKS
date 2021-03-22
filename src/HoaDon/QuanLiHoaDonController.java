@@ -1,4 +1,4 @@
-package QuanLiHoaDon;
+package HoaDon;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class QuanLiHoaDonController {
+public class QuanLiHoaDonController{
 
     @FXML
     private ResourceBundle resources;

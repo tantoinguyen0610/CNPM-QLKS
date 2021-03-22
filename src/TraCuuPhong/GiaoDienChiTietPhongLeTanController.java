@@ -87,16 +87,29 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cbSonguoihientai.setItems(list1);
         cbTrangthai.setItems(list2);
+        tfSonguoichophep.setEditable(false);
+        cbTrangthai.setDisable(true);
+        cbSonguoihientai.setDisable(true);
+        
     }
    
     public void comboBoxChanged (ActionEvent event) {
-     /*  label.setText(cbSonguoihientai.getValue()); */
+    	//cbSonguoihientai.setVisible(false);
         
     }
     
     public void comboBoxChanged1(ActionEvent event) {
-    	//
+    	
     }
+    
+   
+    public void btactionchinhsua(ActionEvent event) {
+    	tfSonguoichophep.setEditable(true);
+        cbTrangthai.setDisable(false);
+        cbSonguoihientai.setDisable(false);
+    }
+    
+    
     
     @FXML
     void btchecklist(ActionEvent event) throws IOException  {
