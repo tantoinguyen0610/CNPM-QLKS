@@ -18,7 +18,7 @@ public class GiaoDienQuanLi extends Application {
 	 Scene scene = new Scene(parent);
 	
 	 // Display our window, using the scene graph.
-	 stage.setTitle("Giao dien Check-in");
+	 stage.setTitle("Giao dien Quản Lý");
 	stage.setScene(scene);
 	 stage.show();
 	 }

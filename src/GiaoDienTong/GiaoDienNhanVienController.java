@@ -73,7 +73,7 @@ public class GiaoDienNhanVienController {
     @FXML
     void TraCuuPhong_ButtonListener(ActionEvent event) throws Exception {
     	Parent parent = FXMLLoader.load(
-				 getClass().getClassLoader().getResource("QuanLyPhong/GiaoDienQuanLyPhong.fxml"));
+				 getClass().getClassLoader().getResource("TraCuuPhong/giaodienTraCuuPhong.fxml"));
 				 // Build the scene graph.
 				 Scene scene = new Scene(parent);
 				Stage stage = new Stage();
