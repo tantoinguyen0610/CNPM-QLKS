@@ -14,8 +14,19 @@
                   <Font size="55.0" />
                </font>
             </Label>
-            <Button fx:id="ThongKeButton" layoutX="243.0" layoutY="591.0" mnemonicParsing="false" onAction="#ThongKeButtonListener" prefHeight="108.0" prefWidth="175.0" text="Thống Kê" />
-            <Button fx:id="QLHDButton" layoutX="662.0" layoutY="591.0" mnemonicParsing="false" onAction="#QLHDButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Hóa Đơn" />
+            <Button fx:id="ThongKeButton" layoutX="164.0" layoutY="621.0" mnemonicParsing="false" onAction="#ThongKeButtonListener" prefHeight="108.0" prefWidth="175.0" text="Thống Kê">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Button fx:id="QLHDButton" layoutX="443.0" layoutY="621.0" mnemonicParsing="false" onAction="#QLHDButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Hóa Đơn">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Button fx:id="Button_Thoat_QLKS" layoutX="723.0" layoutY="621.0" mnemonicParsing="false" onAction="#Thoat_ActionListener" prefHeight="108.0" prefWidth="175.0" text="Thoát">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

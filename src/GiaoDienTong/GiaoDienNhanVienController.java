@@ -30,6 +30,9 @@ public class GiaoDienNhanVienController {
 
     @FXML
     private Button QuanLiKhachHangButton;
+    
+    @FXML
+    private Button Thoat_Button;
 
     @FXML
     void Check_inButtonListener(ActionEvent event) throws IOException {
@@ -81,5 +84,10 @@ public class GiaoDienNhanVienController {
 				 stage.setTitle("Tra cứu phòng");
 				stage.setScene(scene);
 				 stage.show();
+    }
+    
+    @FXML
+    void GDNV_Thoat_ActionListener(ActionEvent event) {
+
     }
 }

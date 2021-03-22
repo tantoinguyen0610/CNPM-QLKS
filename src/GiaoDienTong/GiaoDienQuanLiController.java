@@ -26,6 +26,10 @@ public class GiaoDienQuanLiController {
 
     @FXML
     private Button QLDVButton;
+    
+    @FXML
+    private Button Button_Thoat;
+
 
     @FXML
     void QLDVButtonListener(ActionEvent event) throws Exception {
@@ -65,6 +69,10 @@ public class GiaoDienQuanLiController {
 				stage.setScene(scene);
 				 stage.show();
     }
-
+    
+    @FXML
+    void QL_Thoat_ButtonListener(ActionEvent event) {
+    	
+    }
    
 }

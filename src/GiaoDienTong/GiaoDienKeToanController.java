@@ -23,6 +23,8 @@ public class GiaoDienKeToanController {
 
     @FXML
     private Button QLHDButton;
+    @FXML
+    private Button Button_Thoat_QLKS;
 
     @FXML
     void QLHDButtonListener(ActionEvent event) throws Exception {
@@ -47,6 +49,9 @@ public class GiaoDienKeToanController {
 				stage.setScene(scene);
 				 stage.show();
     }
-
+    @FXML
+    void Thoat_ActionListener(ActionEvent event) {
+    	
+    }
     
 }
