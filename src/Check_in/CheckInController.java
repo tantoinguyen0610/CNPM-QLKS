@@ -255,6 +255,14 @@ public class CheckInController implements Initializable {
 				pst.setString(3, ((TextField)NgayNhanPhong.getEditor()).getText());
 				pst.setString(4, SoNgayO_textField.getText());
 				pst.executeUpdate();
+				
+				String query1 = "INSERT INTO khachhang (TENKH,SDT,CMND) VALUES(?,?,?)";
+			
+				PreparedStatement pst1 = conn.prepareStatement(query1);
+				pst1.setString(1, TenKH_textField.getText());
+				pst1.setString(2, SDT_textField.getText());
+				pst1.setString(3, CMND_textField.getText());
+				pst1.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
 				
 			}
