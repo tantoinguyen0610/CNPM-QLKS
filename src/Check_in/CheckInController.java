@@ -2,6 +2,8 @@ package Check_in;
 
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -10,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -203,6 +206,38 @@ public class CheckInController implements Initializable {
 		// TODO Auto-generated method stub
 		ObservableList<String> list = FXCollections.observableArrayList("1", "2","3","4");
 		SoNguoiCung1Phong.setItems(list);
+		Ngay_Dat_Phong.setConverter(
+		   new StringConverter<LocalDate>() {
+		          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		          @Override
+		          public String toString(LocalDate date) {
+		            return (date != null) ? dateFormatter.format(date) : "";
+		          }
+
+		          @Override
+		          public LocalDate fromString(String string) {
+		            return (string != null && !string.isEmpty())
+		                ? LocalDate.parse(string, dateFormatter)
+		                : null;
+		          }
+		        });
+		NgayNhanPhong.setConverter(
+				   new StringConverter<LocalDate>() {
+				          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+				          @Override
+				          public String toString(LocalDate date) {
+				            return (date != null) ? dateFormatter.format(date) : "";
+				          }
+
+				          @Override
+				          public LocalDate fromString(String string) {
+				            return (string != null && !string.isEmpty())
+				                ? LocalDate.parse(string, dateFormatter)
+				                : null;
+				          }
+				        });
 
 	}
     
@@ -213,17 +248,8 @@ public class CheckInController implements Initializable {
 				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 				Connection conn = DriverManager.getConnection(DB_URL,"root","");
-//				PreparedStatement pst1 = conn.prepareStatement("select MAX(MA_PT) +1 FROM phieuthuephong");
-//		            ResultSet rs = pst1.executeQuery();
-//		            String user_id ="" ;
-//		            while(rs.next())
-//		            {
-//		                user_id = rs.getString(1);
-//		            }
-			
 				String query = "insert into `phieuthuephong`(NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO) VALUES(?,?,?,?)";
 				PreparedStatement pst = conn.prepareStatement(query);
-				//pst.setString(1,user_id.toString() );
 				pst.setString(1, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
 				pst.setString(2, Ma_DP_textField.getText());
 				pst.setString(3, ((TextField)NgayNhanPhong.getEditor()).getText());
