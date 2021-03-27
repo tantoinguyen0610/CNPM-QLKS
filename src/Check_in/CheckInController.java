@@ -5,7 +5,10 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javafx.scene.control.ComboBox;
 import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
@@ -31,6 +34,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -74,6 +78,7 @@ public class CheckInController implements Initializable {
 
     @FXML
     private TextField SDT_textField;
+    
 
     @FXML
     private TextField SoNgayO_textField;
@@ -92,8 +97,16 @@ public class CheckInController implements Initializable {
     private TextField Ma_DP_textField;
 
     @FXML
-    private ChoiceBox<?> Loai_Phong;
+    private ComboBox<?> Loai_Phong_Cmb;
 
+
+    @FXML
+    private Label Sophong_Label;
+    
+    @FXML
+    private ComboBox<?> SoPhong_Cmb;
+
+    
     @FXML
     private CheckBox DatCoc_CheckBox;
 
@@ -125,40 +138,29 @@ public class CheckInController implements Initializable {
     private ScrollPane ScrollPane;
 
     @FXML
-    private TableView<?> Table_Check_In;
+    private TableView<ModelTable> Table_Check_In;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_STT;
+    private TableColumn<ModelTable, Integer> Tbl_Col_STT;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_KH;
+    private TableColumn<ModelTable, String> Tbl_Col_KH;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_CMND;
+    private TableColumn<ModelTable, String> Tbl_Col_MaDP;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_SDT;
+    private TableColumn<ModelTable, String> Tbl_Col_SoPhong;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_SNCP;
+    private TableColumn<ModelTable, String> Tbl_Col_NgayDat;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_MaDP;
+    private TableColumn<ModelTable, String> Tbl_Col_NgayNhan;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_LoaiP;
+    private TableColumn<ModelTable, String> Tbl_Col_SoNgayO;
 
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_LoaiPhong;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_NgayDat;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_NgayNhan;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_SoNgayO;
 
     @FXML
     void DatCocActionListener(ActionEvent event)throws Exception {
@@ -187,7 +189,7 @@ public class CheckInController implements Initializable {
     	NgayNhanPhong.getEditor().clear();
     	SoNguoiCung1Phong.getSelectionModel().clearSelection();
     	Ma_DP_textField.setText("");
-    	Loai_Phong.getSelectionModel().clearSelection();
+    	Loai_Phong_Cmb.getSelectionModel().clearSelection();
     }
     
     @FXML
@@ -200,10 +202,36 @@ public class CheckInController implements Initializable {
     	DatCoc_CheckBox.setDisable(false);
     }
 
-    
+    ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
+    ResultSet rs = null;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			PreparedStatement ps = conn.prepareStatement("select MA_PT,TENKH, MA_DATPHONG, SOPHONG, NGAYDAT, NGAYNHAN, SONGAYO from phieuthuephong, khachhang");
+			ResultSet rs = ps.executeQuery();
+			
+				while (rs.next()) {	
+					oblist.add(new ModelTable(rs.getString("MA_PT"),rs.getString("TENKH"),rs.getString("MA_DATPHONG"),rs.getString("SOPHONG"),rs.getString("NGAYDAT"),rs.getString("NGAYNHAN"),rs.getString("SONGAYO")));
+					
+				}
+			}
+			catch(SQLException ex) {
+				Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			
+			Tbl_Col_STT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
+			Tbl_Col_KH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
+			Tbl_Col_MaDP.setCellValueFactory(new PropertyValueFactory<>("MA_DATPHONG"));
+			Tbl_Col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+			Tbl_Col_NgayDat.setCellValueFactory(new PropertyValueFactory<>("NGAYDAT"));
+			Tbl_Col_NgayNhan.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
+			Tbl_Col_SoNgayO.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
+			Table_Check_In.setItems(oblist);
+			
+			
 		ObservableList<String> list = FXCollections.observableArrayList("1", "2","3","4");
 		SoNguoiCung1Phong.setItems(list);
 		Ngay_Dat_Phong.setConverter(
@@ -238,7 +266,8 @@ public class CheckInController implements Initializable {
 				                : null;
 				          }
 				        });
-
+		
+		
 	}
     
 	@FXML
