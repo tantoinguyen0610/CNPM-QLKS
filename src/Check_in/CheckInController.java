@@ -202,34 +202,25 @@ public class CheckInController implements Initializable {
     	DatCoc_CheckBox.setDisable(false);
     }
 
-    ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
-    ResultSet rs = null;
+   
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		 ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
 		// TODO Auto-generated method stub
 		try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			PreparedStatement ps = conn.prepareStatement("select MA_PT,TENKH, MA_DATPHONG, SOPHONG, NGAYDAT, NGAYNHAN, SONGAYO from phieuthuephong, khachhang");
-			ResultSet rs = ps.executeQuery();
+			ResultSet rs = conn.createStatement().executeQuery("select MA_PT,TENKH, MA_DATPHONG, SOPHONG, NGAYDAT, NGAYNHAN, SONGAYO from phieuthuephong, khachhang");
 			
 				while (rs.next()) {	
 					oblist.add(new ModelTable(rs.getString("MA_PT"),rs.getString("TENKH"),rs.getString("MA_DATPHONG"),rs.getString("SOPHONG"),rs.getString("NGAYDAT"),rs.getString("NGAYNHAN"),rs.getString("SONGAYO")));
 					
 				}
 			}
-			catch(SQLException ex) {
-				Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE, null, ex);
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
 			}
-			
-			Tbl_Col_STT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
-			Tbl_Col_KH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
-			Tbl_Col_MaDP.setCellValueFactory(new PropertyValueFactory<>("MA_DATPHONG"));
-			Tbl_Col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
-			Tbl_Col_NgayDat.setCellValueFactory(new PropertyValueFactory<>("NGAYDAT"));
-			Tbl_Col_NgayNhan.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
-			Tbl_Col_SoNgayO.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
-			Table_Check_In.setItems(oblist);
 			
 			
 		ObservableList<String> list = FXCollections.observableArrayList("1", "2","3","4");
@@ -266,7 +257,14 @@ public class CheckInController implements Initializable {
 				                : null;
 				          }
 				        });
-		
+		Tbl_Col_STT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
+		Tbl_Col_KH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
+		Tbl_Col_MaDP.setCellValueFactory(new PropertyValueFactory<>("MA_DATPHONG"));
+		Tbl_Col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+		Tbl_Col_NgayDat.setCellValueFactory(new PropertyValueFactory<>("NGAYDAT"));
+		Tbl_Col_NgayNhan.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
+		Tbl_Col_SoNgayO.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
+		Table_Check_In.setItems(oblist);
 		
 	}
     
@@ -293,10 +291,38 @@ public class CheckInController implements Initializable {
 				pst1.setString(3, CMND_textField.getText());
 				pst1.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+				UpdateTable();
 				
 			}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(null, e);
 			}
     }
+	public void UpdateTable() {
+		 ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
+		 oblist.clear();
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MA_PT,TENKH, MA_DATPHONG, SOPHONG, NGAYDAT, NGAYNHAN, SONGAYO from phieuthuephong, khachhang");
+			
+				while (rs.next()) {	
+					oblist.add(new ModelTable(rs.getString("MA_PT"),rs.getString("TENKH"),rs.getString("MA_DATPHONG"),rs.getString("SOPHONG"),rs.getString("NGAYDAT"),rs.getString("NGAYNHAN"),rs.getString("SONGAYO")));
+					
+				}
+				rs.close();
+			}
+			catch(Exception e) {
+				JOptionPane.showMessageDialog(null, e);
+			}
+		Tbl_Col_STT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
+		Tbl_Col_KH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
+		Tbl_Col_MaDP.setCellValueFactory(new PropertyValueFactory<>("MA_DATPHONG"));
+		Tbl_Col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+		Tbl_Col_NgayDat.setCellValueFactory(new PropertyValueFactory<>("NGAYDAT"));
+		Tbl_Col_NgayNhan.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
+		Tbl_Col_SoNgayO.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
+		Table_Check_In.setItems(oblist);
+	}
+	
 }
