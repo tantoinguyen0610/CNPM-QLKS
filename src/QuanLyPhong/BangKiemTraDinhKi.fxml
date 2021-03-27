@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.BangKiemTraDinhKiController">
    <children>
-      <TableView fx:id="tbview1" layoutX="199.0" layoutY="54.0" prefHeight="363.0" prefWidth="980.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+      <TableView fx:id="tbview1" layoutX="199.0" layoutY="54.0" prefHeight="363.0" prefWidth="974.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
          <columns>
             <TableColumn fx:id="tcSTT" prefWidth="57.0" text="STT" />
             <TableColumn fx:id="tcNgaykiemtra" prefWidth="135.0" text="Ngày kiểm tra" />
@@ -25,7 +25,8 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btLuu" layoutX="474.0" layoutY="464.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Lưu" />
-      <Button fx:id="btThoat" layoutX="770.0" layoutY="464.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Thoát" />
+      <Button fx:id="btLuu" layoutX="658.0" layoutY="464.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="81.0" text="Lưu" />
+      <Button fx:id="btThoat" layoutX="910.0" layoutY="464.0" mnemonicParsing="false" onAction="#btThoat" prefHeight="31.0" prefWidth="81.0" text="Thoát" />
+      <Button fx:id="btThem" layoutX="414.0" layoutY="464.0" mnemonicParsing="false" onAction="#btThembangkiemtradinhki" prefHeight="31.0" prefWidth="81.0" text="Thêm" />
    </children>
 </AnchorPane>

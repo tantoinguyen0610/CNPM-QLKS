@@ -12,13 +12,14 @@
       <Button id="bt6" fx:id="btSaptraa" layoutX="751.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Sắp trả" />
       <Button id="bt7" fx:id="btDattruocc" layoutX="896.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
       <Button id="bt3" fx:id="btDathanhtoann" layoutX="331.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã thanh toán" />
-      <Button fx:id="btphong1055" layoutX="471.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt55" prefHeight="116.0" prefWidth="209.0" text="Phòng 105" />
-      <Button fx:id="btphong1066" layoutX="751.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt66" prefHeight="116.0" prefWidth="209.0" text="Phòng 106" />
-      <Button fx:id="btphong1022" layoutX="471.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt22" prefHeight="116.0" prefWidth="209.0" text="Phòng 102" />
-      <Button fx:id="btphong1033" layoutX="751.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt33" prefHeight="116.0" prefWidth="209.0" text="Phòng 103" />
-      <Button fx:id="btphong1011" layoutX="191.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt11" prefHeight="116.0" prefWidth="209.0" text="Phòng 101" />
-      <Button fx:id="btphong1044" layoutX="191.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt44" prefHeight="116.0" prefWidth="209.0" text="Phòng 104" />
-      <Button fx:id="btnangcapphong" layoutX="331.0" layoutY="617.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="178.0" text="Phiếu nâng cấp phòng" />
-      <Button fx:id="btsuachuaphong" layoutX="634.0" layoutY="617.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="178.0" text="Phiếu sửa chữa thiết bị" />
+      <Button fx:id="btphong1055" layoutX="471.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt55" prefHeight="116.0" prefWidth="209.0" text="Phòng 105 (Deluxe)" />
+      <Button fx:id="btphong1066" layoutX="751.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt66" prefHeight="116.0" prefWidth="209.0" text="Phòng 106 (Superior)" />
+      <Button fx:id="btphong1022" layoutX="471.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt22" prefHeight="116.0" prefWidth="209.0" text="Phòng 102 (Superior)" />
+      <Button fx:id="btphong1033" layoutX="751.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt33" prefHeight="116.0" prefWidth="209.0" text="Phòng 103 (Standard)" />
+      <Button fx:id="btphong1011" layoutX="191.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt11" prefHeight="116.0" prefWidth="209.0" text="Phòng 101 (Deluxe)" />
+      <Button fx:id="btphong1044" layoutX="191.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt44" prefHeight="116.0" prefWidth="209.0" text="Phòng 104 (Standard)" />
+      <Button fx:id="btnangcapphong" layoutX="487.0" layoutY="617.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="178.0" text="Phiếu nâng cấp phòng" />
+      <Button fx:id="btsuachuaphong" layoutX="767.0" layoutY="617.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="178.0" text="Phiếu sửa chữa thiết bị" />
+      <Button fx:id="btQuanlythietbi" layoutX="214.0" layoutY="617.0" mnemonicParsing="false" onAction="#actionQuanlythietbi" prefHeight="37.0" prefWidth="178.0" text="Quản lý thiết bị" />
    </children>
 </AnchorPane>
