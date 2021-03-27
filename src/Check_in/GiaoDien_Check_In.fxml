@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -27,24 +28,23 @@
                   <Label fx:id="SDT_Label" layoutX="442.0" layoutY="165.0" text="SĐT:" />
                   <Label fx:id="SoNg1Phong_Label" layoutX="441.0" layoutY="204.0" prefHeight="26.0" prefWidth="170.0" text="Số người cùng 1 phòng:" />
                   <Label fx:id="Ma_DP_Label" layoutX="439.0" layoutY="247.0" prefHeight="18.0" prefWidth="128.0" text="Mã đặt phòng:" />
-                  <Label fx:id="Ngay_DP_Label" layoutX="440.0" layoutY="324.0" prefHeight="18.0" prefWidth="118.0" text="Ngày đặt phòng:" />
-                  <Label fx:id="NgayNhanPhong_Label" layoutX="442.0" layoutY="359.0" prefHeight="28.0" prefWidth="149.0" text="Ngày nhận phòng:" />
+                  <Label fx:id="Ngay_DP_Label" layoutX="440.0" layoutY="362.0" prefHeight="18.0" prefWidth="118.0" text="Ngày đặt phòng:" />
+                  <Label fx:id="NgayNhanPhong_Label" layoutX="442.0" layoutY="397.0" prefHeight="28.0" prefWidth="149.0" text="Ngày nhận phòng:" />
                   <Label fx:id="LoaiPhong_Label" layoutX="440.0" layoutY="285.0" prefHeight="18.0" prefWidth="109.0" text="Loại phòng:" />
-                  <Label fx:id="SoNgayO_Label" layoutX="442.0" layoutY="401.0" prefHeight="18.0" prefWidth="102.0" text="Số ngày ở:" />
+                  <Label fx:id="SoNgayO_Label" layoutX="442.0" layoutY="439.0" prefHeight="18.0" prefWidth="102.0" text="Số ngày ở:" />
                   <TextField fx:id="TenKH_textField" layoutX="643.0" layoutY="98.0" />
                   <TextField fx:id="CMND_textField" layoutX="643.0" layoutY="130.0" />
                   <TextField fx:id="SDT_textField" layoutX="643.0" layoutY="162.0" />
-                  <TextField fx:id="SoNgayO_textField" layoutX="641.0" layoutY="396.0" prefHeight="26.0" prefWidth="38.0" />
-                  <DatePicker fx:id="Ngay_Dat_Phong" layoutX="642.0" layoutY="319.0" prefHeight="26.0" prefWidth="149.0" />
-                  <DatePicker fx:id="NgayNhanPhong" layoutX="642.0" layoutY="357.0" prefHeight="26.0" prefWidth="149.0" />
+                  <TextField fx:id="SoNgayO_textField" layoutX="641.0" layoutY="434.0" prefHeight="26.0" prefWidth="38.0" />
+                  <DatePicker fx:id="Ngay_Dat_Phong" layoutX="642.0" layoutY="357.0" prefHeight="26.0" prefWidth="149.0" />
+                  <DatePicker fx:id="NgayNhanPhong" layoutX="642.0" layoutY="395.0" prefHeight="26.0" prefWidth="149.0" />
                   <ChoiceBox fx:id="SoNguoiCung1Phong" layoutX="647.0" layoutY="201.0" prefHeight="26.0" prefWidth="45.0" />
-                  <TextField fx:id="Ma_DP_textField" layoutX="642.0" layoutY="242.0" />
-                  <ChoiceBox fx:id="Loai_Phong" layoutX="642.0" layoutY="280.0" prefHeight="26.0" prefWidth="149.0" />
-                  <CheckBox fx:id="DatCoc_CheckBox" layoutX="699.0" layoutY="401.0" mnemonicParsing="false" onAction="#DatCocActionListener" prefHeight="18.0" prefWidth="102.0" text="Đặt cọc" />
-                  <ButtonBar fx:id="Bar_button1" layoutX="484.0" layoutY="439.0" prefHeight="56.0" prefWidth="300.0">
+                  <TextField fx:id="Ma_DP_textField" layoutX="642.0" layoutY="242.0" prefHeight="31.0" prefWidth="149.0" />
+                  <CheckBox fx:id="DatCoc_CheckBox" layoutX="699.0" layoutY="439.0" mnemonicParsing="false" onAction="#DatCocActionListener" prefHeight="18.0" prefWidth="102.0" text="Đặt cọc" />
+                  <ButtonBar fx:id="Bar_button1" layoutX="482.0" layoutY="468.0" prefHeight="56.0" prefWidth="300.0">
                      <buttons>
                         <Button fx:id="Button_DatPhong" mnemonicParsing="false" onAction="#DatPhong_ActionListener" prefHeight="45.0" prefWidth="138.0" text="Đặt phòng" />
-                        <Button fx:id="Button_Reset" mnemonicParsing="false" onAction="#ResetActionListener" prefHeight="41.0" prefWidth="162.0" text="Reset" />
+                        <Button fx:id="Button_Reset" mnemonicParsing="false" onAction="#ResetActionListener" prefHeight="45.0" prefWidth="162.0" text="Reset" />
                      </buttons>
                   </ButtonBar>
                   <Label fx:id="DKTP_Label" layoutX="442.0" layoutY="14.0" text="ĐĂNG KÝ THUÊ PHÒNG">
@@ -62,6 +62,9 @@
                         <ToggleButton fx:id="Button_DP_Truoc" mnemonicParsing="false" onAction="#DP_Truoc_ActionListener" prefHeight="38.0" prefWidth="170.0" text="Đặt phòng trước" toggleGroup="$fgh" />
                     </buttons>
                   </ButtonBar>
+                  <Label fx:id="Sophong_Label" layoutX="440.0" layoutY="323.0" text="Số phòng:" />
+                  <ComboBox fx:id="SoPhong_Cmb" layoutX="642.0" layoutY="316.0" prefWidth="150.0" />
+                  <ComboBox fx:id="Loai_Phong_Cmb" layoutX="642.0" layoutY="280.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="AnchorPane1" prefHeight="190.0" prefWidth="1102.0" SplitPane.resizableWithParent="false">
@@ -73,7 +76,7 @@
                             <TableColumn fx:id="Tbl_Col_STT" prefWidth="42.399995386600494" text="STT" />
                             <TableColumn fx:id="Tbl_Col_KH" prefWidth="193.0" text="Tên KH" />
                               <TableColumn fx:id="Tbl_Col_MaDP" maxWidth="239.0" minWidth="-1.0" prefWidth="155.0" text="Mã đặt phòng" />
-                              <TableColumn fx:id="Tbl_Col_LoaiPhong" prefWidth="189.0" text="Loại phòng" />
+                              <TableColumn fx:id="Tbl_Col_SoPhong" prefWidth="189.0" text="Số phòng" />
                               <TableColumn fx:id="Tbl_Col_NgayDat" prefWidth="210.0" text="Ngày đặt phòng" />
                               <TableColumn fx:id="Tbl_Col_NgayNhan" prefWidth="242.0" text="Ngày nhận phòng" />
                               <TableColumn fx:id="Tbl_Col_SoNgayO" prefWidth="183.0" text="Số ngày ở" />
