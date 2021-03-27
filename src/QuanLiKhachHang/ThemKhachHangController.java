@@ -121,18 +121,18 @@ public class ThemKhachHangController {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "insert into `khachhang`(MAKH,TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH) VALUES(?,?,?,?,?,?,?,?)";
+			String query = "insert into `khachhang`(TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH) VALUES(?,?,?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(query);
-			pst.setString(1, MaKHTextField.getText());
-			pst.setString(2, TenKhTextField.getText());
-			pst.setString(3, DiaChiTextField.getText());
-			pst.setString(4,  SDTTextField.getText());		
-			pst.setString(5, QuocTichTextField.getText());
-			pst.setString(6,  CMNDTextField.getText());
-			pst.setString(7, GTTextField.getText());
-			pst.setString(8, NgaySinhTextField.getText());
+			pst.setString(1, TenKhTextField.getText());
+			pst.setString(2, DiaChiTextField.getText());
+			pst.setString(3,  SDTTextField.getText());		
+			pst.setString(4, QuocTichTextField.getText());
+			pst.setString(5,  CMNDTextField.getText());
+			pst.setString(6, GTTextField.getText());
+			pst.setString(7, NgaySinhTextField.getText());
 			pst.executeUpdate();
-			
+			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+			//UpdateTable();
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
