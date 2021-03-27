@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 25, 2021 lúc 03:12 AM
+-- Thời gian đã tạo: Th3 26, 2021 lúc 03:55 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -122,13 +122,20 @@ CREATE TABLE `hoa_don` (
 CREATE TABLE `khachhang` (
   `MAKH` int(10) NOT NULL,
   `TENKH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAYSINH` date DEFAULT NULL,
   `SDT` int(11) DEFAULT NULL,
   `CMND` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `QUOCTICH` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `khachhang`
+--
+
+INSERT INTO `khachhang` (`MAKH`, `TENKH`, `GIOITINH`, `DIACHI`, `NGAYSINH`, `SDT`, `CMND`, `QUOCTICH`) VALUES
+(1, 'qwe', NULL, NULL, NULL, 123123, 'wqe', NULL);
 
 -- --------------------------------------------------------
 
@@ -172,21 +179,29 @@ CREATE TABLE `phieuthuephong` (
   `MA_PHONG` int(10) DEFAULT NULL,
   `MAKH` int(10) DEFAULT NULL,
   `ma_datCoc` int(10) DEFAULT NULL,
-  `NGAYDAT` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NGAYDAT` date DEFAULT NULL,
   `MA_DATPHONG` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `NGAYNHAN` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `SONGAYO` int(11) DEFAULT NULL
+  `NGAYNHAN` date DEFAULT NULL,
+  `SONGAYO` int(11) DEFAULT NULL,
+  `LOAIPHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SOPHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `phieuthuephong`
 --
 
-INSERT INTO `phieuthuephong` (`MA_PT`, `MA_PHONG`, `MAKH`, `ma_datCoc`, `NGAYDAT`, `MA_DATPHONG`, `NGAYNHAN`, `SONGAYO`) VALUES
-(1, NULL, NULL, NULL, '3/2/2021', 'qwe', '3/3/2021', 2),
-(2, NULL, NULL, NULL, '3/2/2021', 'qwe', '3/3/2021', 2),
-(3, NULL, NULL, NULL, '', '', '', 2),
-(4, NULL, NULL, NULL, '3/4/2021', 'wqe', '3/24/2021', 2);
+INSERT INTO `phieuthuephong` (`MA_PT`, `MA_PHONG`, `MAKH`, `ma_datCoc`, `NGAYDAT`, `MA_DATPHONG`, `NGAYNHAN`, `SONGAYO`, `LOAIPHONG`, `SOPHONG`) VALUES
+(6, NULL, NULL, NULL, '2021-03-01', 'asdasd', '2021-03-18', 4, NULL, NULL),
+(7, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(8, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(9, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(10, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(11, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(12, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(13, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-10', 4, NULL, NULL),
+(14, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-10', 4, NULL, NULL),
+(15, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-10', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -405,7 +420,7 @@ ALTER TABLE `hoadon_thanhtoanphong`
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MAKH` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `MAKH` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `loai_phong`
@@ -423,7 +438,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `phieuthuephong`
 --
 ALTER TABLE `phieuthuephong`
-  MODIFY `MA_PT` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MA_PT` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `phieu_dv`
