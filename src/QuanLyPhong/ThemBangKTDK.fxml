@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.ThemBangKTDKController">
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.ThemBangKTDKController">
    <children>
       <Label fx:id="lbMakiemtra" layoutX="44.0" layoutY="79.0" text="Mã Kiểm tra" />
       <Label fx:id="STT" layoutX="44.0" layoutY="35.0" text="STT" />
@@ -21,9 +21,10 @@
       <TextField fx:id="tfTrangthai" layoutX="237.0" layoutY="323.0" />
       <TextField fx:id="tfGiobatdau" layoutX="237.0" layoutY="174.0" />
       <DatePicker fx:id="dtNgaykiemtra" layoutX="237.0" layoutY="124.0" prefHeight="31.0" prefWidth="187.0" />
-      <Button fx:id="btThem" layoutX="268.0" layoutY="431.0" mnemonicParsing="false" prefWidth="65.0" text="Thêm" />
+      <Button fx:id="btThem" layoutX="125.0" layoutY="431.0" mnemonicParsing="false" prefWidth="65.0" text="Thêm" />
       <TextField fx:id="tfGhichu" layoutX="237.0" layoutY="378.0" />
       <Label fx:id="lbTrangthaisausuachua" layoutX="44.0" layoutY="328.0" text="Trạng thái sau sửa chữa" />
       <TextField fx:id="tfGioketthuc" layoutX="237.0" layoutY="227.0" />
+      <Button fx:id="btHuy" layoutX="280.0" layoutY="431.0" mnemonicParsing="false" onAction="#actionHuy" prefWidth="65.0" text="Hủy" />
    </children>
 </AnchorPane>

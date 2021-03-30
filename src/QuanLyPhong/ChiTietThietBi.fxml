@@ -16,9 +16,8 @@
       <CheckBox fx:id="cb3" layoutX="74.0" layoutY="134.0" mnemonicParsing="false" text="Ti vi" />
       <CheckBox fx:id="cb4" layoutX="75.0" layoutY="169.0" mnemonicParsing="false" text="Tủ lạnh " />
       <CheckBox fx:id="cb7" layoutX="351.0" layoutY="134.0" mnemonicParsing="false" text="Bàn và ghế làm việc" />
-      <Button fx:id="btCapnhat" layoutX="234.0" layoutY="225.0" mnemonicParsing="false" text="Cập nhật" />
-      <Button fx:id="btLuu" layoutX="101.0" layoutY="225.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Lưu " />
-      <Button fx:id="btHuy" layoutX="373.0" layoutY="225.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Hủy" />
+      <Button fx:id="btLuu" layoutX="142.0" layoutY="225.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Lưu " />
+      <Button fx:id="btHuy" layoutX="333.0" layoutY="225.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Hủy" />
       <Label fx:id="lbThietbiphong" layoutX="182.0" layoutY="14.0" text="Thiết Bị Phòng">
          <font>
             <Font name="System Bold" size="24.0" />

@@ -6,6 +6,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class ThemBangKTDKController {
 
@@ -62,5 +63,15 @@ public class ThemBangKTDKController {
 
     @FXML
     private TextField tfGioketthuc;
-
+    
+    @FXML
+    private Button btHuy;
+    
+    @FXML
+    private void actionHuy() {
+    	// get a handle to the stage
+        Stage stage = (Stage) btHuy.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
 }
