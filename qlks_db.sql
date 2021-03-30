@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 18, 2021 lúc 08:10 AM
+-- Thời gian đã tạo: Th3 26, 2021 lúc 03:55 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bang_kiem_tra_dinh_ki` (
-  `MA_KT_DK` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_KT_DK` int(10) NOT NULL,
   `NGAY_KT` date DEFAULT NULL,
   `GIO_BD` time DEFAULT NULL,
   `GIO_KT` time DEFAULT NULL,
@@ -43,23 +43,11 @@ CREATE TABLE `bang_kiem_tra_dinh_ki` (
 --
 
 CREATE TABLE `cham_cong` (
-  `MA_CC` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_CC` int(10) NOT NULL,
+  `MANV` int(10) NOT NULL,
   `NGAYCHAM` date DEFAULT NULL,
   `GIOCHAM` int(11) DEFAULT NULL,
   `SOGIOLAM` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `chucvu`
---
-
-CREATE TABLE `chucvu` (
-  `MA_CV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `TEN_CV` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -69,7 +57,7 @@ CREATE TABLE `chucvu` (
 --
 
 CREATE TABLE `datcoc` (
-  `ma_datCoc` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ma_datCoc` int(10) NOT NULL,
   `SoTienKhachDatCoc` int(10) NOT NULL,
   `So TienCanDatCoc` int(10) NOT NULL,
   `NgayDatCoc` date NOT NULL
@@ -82,7 +70,7 @@ CREATE TABLE `datcoc` (
 --
 
 CREATE TABLE `dv` (
-  `MA_DV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_DV` int(10) NOT NULL,
   `TENDV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `NGAYDATDV` date NOT NULL,
   `SOLUONG` int(11) DEFAULT NULL,
@@ -100,10 +88,10 @@ CREATE TABLE `dv` (
 --
 
 CREATE TABLE `hoadon_thanhtoanphong` (
-  `MA_HD_TTP` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MA_PT` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MAPHIEUDV` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MAKH` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_HD_TTP` int(10) NOT NULL,
+  `MA_PT` int(10) NOT NULL,
+  `MAPHIEUDV` int(10) DEFAULT NULL,
+  `MAKH` int(10) NOT NULL,
   `TENKH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `NGAYTHANHTOAN` date DEFAULT NULL,
   `TIENPHONG` int(11) DEFAULT NULL,
@@ -120,7 +108,7 @@ CREATE TABLE `hoadon_thanhtoanphong` (
 
 CREATE TABLE `hoa_don` (
   `MA_HD` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MA_HD_TTP` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_HD_TTP` int(10) NOT NULL,
   `TEN_HD` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `LOAI_HD` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -132,15 +120,22 @@ CREATE TABLE `hoa_don` (
 --
 
 CREATE TABLE `khachhang` (
-  `MAKH` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MAKH` int(10) NOT NULL,
   `TENKH` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAYSINH` date DEFAULT NULL,
   `SDT` int(11) DEFAULT NULL,
   `CMND` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `QUOCTICH` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `khachhang`
+--
+
+INSERT INTO `khachhang` (`MAKH`, `TENKH`, `GIOITINH`, `DIACHI`, `NGAYSINH`, `SDT`, `CMND`, `QUOCTICH`) VALUES
+(1, 'qwe', NULL, NULL, NULL, 123123, 'wqe', NULL);
 
 -- --------------------------------------------------------
 
@@ -149,7 +144,7 @@ CREATE TABLE `khachhang` (
 --
 
 CREATE TABLE `loai_phong` (
-  `MA_LOAIPHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_LOAIPHONG` int(10) NOT NULL,
   `TEN_lOAIPHONG` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `SOLUONGNGUOIO` int(11) DEFAULT NULL,
   `GIATIEN` int(11) NOT NULL
@@ -162,9 +157,10 @@ CREATE TABLE `loai_phong` (
 --
 
 CREATE TABLE `nhanvien` (
-  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MANV` int(10) NOT NULL,
   `TENNV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `CHUCVU` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `GIOITINH` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAYSINH` date DEFAULT NULL,
   `SDT` int(11) DEFAULT NULL,
@@ -179,15 +175,33 @@ CREATE TABLE `nhanvien` (
 --
 
 CREATE TABLE `phieuthuephong` (
-  `MA_PT` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MA_PHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MAKH` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `ma_datCoc` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_PT` int(10) NOT NULL,
+  `MA_PHONG` int(10) DEFAULT NULL,
+  `MAKH` int(10) DEFAULT NULL,
+  `ma_datCoc` int(10) DEFAULT NULL,
   `NGAYDAT` date DEFAULT NULL,
   `MA_DATPHONG` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAYNHAN` date DEFAULT NULL,
-  `SONGAYO` int(11) DEFAULT NULL
+  `SONGAYO` int(11) DEFAULT NULL,
+  `LOAIPHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SOPHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `phieuthuephong`
+--
+
+INSERT INTO `phieuthuephong` (`MA_PT`, `MA_PHONG`, `MAKH`, `ma_datCoc`, `NGAYDAT`, `MA_DATPHONG`, `NGAYNHAN`, `SONGAYO`, `LOAIPHONG`, `SOPHONG`) VALUES
+(6, NULL, NULL, NULL, '2021-03-01', 'asdasd', '2021-03-18', 4, NULL, NULL),
+(7, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(8, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(9, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(10, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(11, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(12, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-17', 4, NULL, NULL),
+(13, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-10', 4, NULL, NULL),
+(14, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-10', 4, NULL, NULL),
+(15, NULL, NULL, NULL, '2021-03-01', 'qwe', '2021-03-10', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -196,8 +210,8 @@ CREATE TABLE `phieuthuephong` (
 --
 
 CREATE TABLE `phieu_dv` (
-  `MAPHIEUDV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MA_DV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `MAPHIEUDV` int(10) NOT NULL,
+  `MA_DV` int(10) NOT NULL,
   `TENDV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `TONGTIENDV` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -209,10 +223,10 @@ CREATE TABLE `phieu_dv` (
 --
 
 CREATE TABLE `phong` (
-  `MA_PHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MA_KT_DK` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `MA_LOAIPHONG` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MA_THIETBI` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_PHONG` int(10) NOT NULL,
+  `MA_KT_DK` int(10) DEFAULT NULL,
+  `MA_LOAIPHONG` int(10) DEFAULT NULL,
+  `MA_THIETBI` int(10) DEFAULT NULL,
   `TEN_PHONG` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `SONGUOIO` int(11) DEFAULT NULL,
   `TINHTRANG` varchar(20) COLLATE utf8_unicode_ci NOT NULL
@@ -225,8 +239,8 @@ CREATE TABLE `phong` (
 --
 
 CREATE TABLE `taikhoan` (
-  `MATK` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MANV` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MATK` int(10) NOT NULL,
+  `MANV` int(10) DEFAULT NULL,
   `USERNAME` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PSW` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -238,7 +252,7 @@ CREATE TABLE `taikhoan` (
 --
 
 CREATE TABLE `thiet_bi` (
-  `MA_THIETBI` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_THIETBI` int(10) NOT NULL,
   `TEN_THIETBI` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `NGAY_NHAP` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `NGAY_XUAT` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -253,8 +267,8 @@ CREATE TABLE `thiet_bi` (
 --
 
 CREATE TABLE `thongke` (
-  `MA_THONGKE` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `MANV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_THONGKE` int(10) NOT NULL,
+  `MANV` int(10) NOT NULL,
   `TEN_THONGKE` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `LOAI_THONGKE` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `NGAYLAP` date DEFAULT NULL
@@ -276,13 +290,6 @@ ALTER TABLE `bang_kiem_tra_dinh_ki`
 ALTER TABLE `cham_cong`
   ADD PRIMARY KEY (`MA_CC`),
   ADD KEY `fk_NHANVIEN3` (`MANV`);
-
---
--- Chỉ mục cho bảng `chucvu`
---
-ALTER TABLE `chucvu`
-  ADD PRIMARY KEY (`MA_CV`),
-  ADD KEY `fk_NHANVIEN2` (`MANV`);
 
 --
 -- Chỉ mục cho bảng `datcoc`
@@ -335,9 +342,9 @@ ALTER TABLE `nhanvien`
 --
 ALTER TABLE `phieuthuephong`
   ADD PRIMARY KEY (`MA_PT`),
-  ADD KEY `fk_PHONG` (`MA_PHONG`),
-  ADD KEY `fk_KHACHHANG1` (`MAKH`),
-  ADD KEY `ma_datCoc` (`ma_datCoc`);
+  ADD KEY `fk_DATCOC` (`ma_datCoc`),
+  ADD KEY `fk_KHACHHANG` (`MAKH`),
+  ADD KEY `fk_PHONG` (`MA_PHONG`);
 
 --
 -- Chỉ mục cho bảng `phieu_dv`
@@ -376,6 +383,94 @@ ALTER TABLE `thongke`
   ADD KEY `fk_NHANVIEN1` (`MANV`);
 
 --
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `bang_kiem_tra_dinh_ki`
+--
+ALTER TABLE `bang_kiem_tra_dinh_ki`
+  MODIFY `MA_KT_DK` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `cham_cong`
+--
+ALTER TABLE `cham_cong`
+  MODIFY `MA_CC` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `datcoc`
+--
+ALTER TABLE `datcoc`
+  MODIFY `ma_datCoc` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `dv`
+--
+ALTER TABLE `dv`
+  MODIFY `MA_DV` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `hoadon_thanhtoanphong`
+--
+ALTER TABLE `hoadon_thanhtoanphong`
+  MODIFY `MA_HD_TTP` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  MODIFY `MAKH` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `loai_phong`
+--
+ALTER TABLE `loai_phong`
+  MODIFY `MA_LOAIPHONG` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  MODIFY `MANV` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `phieuthuephong`
+--
+ALTER TABLE `phieuthuephong`
+  MODIFY `MA_PT` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT cho bảng `phieu_dv`
+--
+ALTER TABLE `phieu_dv`
+  MODIFY `MAPHIEUDV` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `phong`
+--
+ALTER TABLE `phong`
+  MODIFY `MA_PHONG` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  MODIFY `MATK` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `thiet_bi`
+--
+ALTER TABLE `thiet_bi`
+  MODIFY `MA_THIETBI` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `thongke`
+--
+ALTER TABLE `thongke`
+  MODIFY `MA_THONGKE` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- Các ràng buộc cho các bảng đã đổ
 --
 
@@ -383,41 +478,35 @@ ALTER TABLE `thongke`
 -- Các ràng buộc cho bảng `cham_cong`
 --
 ALTER TABLE `cham_cong`
-  ADD CONSTRAINT `fk_NHANVIEN3` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
-
---
--- Các ràng buộc cho bảng `chucvu`
---
-ALTER TABLE `chucvu`
-  ADD CONSTRAINT `fk_NHANVIEN2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+  ADD CONSTRAINT `FK_NHANVIEN4` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 
 --
 -- Các ràng buộc cho bảng `hoadon_thanhtoanphong`
 --
 ALTER TABLE `hoadon_thanhtoanphong`
-  ADD CONSTRAINT `fk_KHACHHANG2` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
-  ADD CONSTRAINT `fk_PHIEUTHUEPHONG1` FOREIGN KEY (`MA_PT`) REFERENCES `phieuthuephong` (`MA_PT`),
-  ADD CONSTRAINT `hoadon_thanhtoanphong_ibfk_1` FOREIGN KEY (`MAPHIEUDV`) REFERENCES `phieu_dv` (`MAPHIEUDV`);
+  ADD CONSTRAINT `fk_KH` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
+  ADD CONSTRAINT `fk_PHIEUDV` FOREIGN KEY (`MAPHIEUDV`) REFERENCES `phieu_dv` (`MAPHIEUDV`),
+  ADD CONSTRAINT `fk_PHIEUTHUE` FOREIGN KEY (`MA_PT`) REFERENCES `phieuthuephong` (`MA_PT`);
 
 --
 -- Các ràng buộc cho bảng `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  ADD CONSTRAINT `fk_HOADON_THANHTOANPHONG` FOREIGN KEY (`MA_HD_TTP`) REFERENCES `hoadon_thanhtoanphong` (`MA_HD_TTP`);
+  ADD CONSTRAINT `fk_hdttp` FOREIGN KEY (`MA_HD_TTP`) REFERENCES `hoadon_thanhtoanphong` (`MA_HD_TTP`);
 
 --
 -- Các ràng buộc cho bảng `phieuthuephong`
 --
 ALTER TABLE `phieuthuephong`
-  ADD CONSTRAINT `fk_KHACHHANG1` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
-  ADD CONSTRAINT `fk_PHONG` FOREIGN KEY (`MA_PHONG`) REFERENCES `phong` (`MA_PHONG`),
-  ADD CONSTRAINT `phieuthuephong_ibfk_1` FOREIGN KEY (`ma_datCoc`) REFERENCES `datcoc` (`ma_datCoc`);
+  ADD CONSTRAINT `fk_DATCOC` FOREIGN KEY (`ma_datCoc`) REFERENCES `datcoc` (`ma_datCoc`),
+  ADD CONSTRAINT `fk_KHACHHANG` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
+  ADD CONSTRAINT `fk_PHONG` FOREIGN KEY (`MA_PHONG`) REFERENCES `phong` (`MA_PHONG`);
 
 --
 -- Các ràng buộc cho bảng `phieu_dv`
 --
 ALTER TABLE `phieu_dv`
-  ADD CONSTRAINT `fk_DICHVU1` FOREIGN KEY (`MA_DV`) REFERENCES `dv` (`MA_DV`);
+  ADD CONSTRAINT `fk_DV` FOREIGN KEY (`MA_DV`) REFERENCES `dv` (`MA_DV`);
 
 --
 -- Các ràng buộc cho bảng `phong`
@@ -431,13 +520,13 @@ ALTER TABLE `phong`
 -- Các ràng buộc cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD CONSTRAINT `fk_NHANVIEN4` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+  ADD CONSTRAINT `FK_NHANVIEN5` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`) ON UPDATE NO ACTION;
 
 --
 -- Các ràng buộc cho bảng `thongke`
 --
 ALTER TABLE `thongke`
-  ADD CONSTRAINT `fk_NHANVIEN1` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+  ADD CONSTRAINT `FK_NHANVIEN2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

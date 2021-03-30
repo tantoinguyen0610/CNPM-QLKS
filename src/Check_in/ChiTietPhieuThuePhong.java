@@ -6,19 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class DatCoc extends Application {
+public class ChiTietPhieuThuePhong extends Application {
 
 	public void start(Stage stage) throws Exception
 	 {
 	 // Load the FXML file.
 	 Parent parent = FXMLLoader.load(
-	 getClass().getResource("GiaoDien_DatCoc.fxml"));
+	 getClass().getResource("GiaoDien_ChiTietPhieuThuePhong.fxml"));
 	
 	 // Build the scene graph.
 	 Scene scene = new Scene(parent);
 	
 	 // Display our window, using the scene graph.
-	 stage.setTitle("DatCoc");
+	 stage.setTitle("Giao dien Chi tiết phiếu thuê");
 	stage.setScene(scene);
 	 stage.show();
 	 }

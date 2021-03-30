@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="835.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="TenKH_Label" layoutX="224.0" layoutY="147.0" text="Tên khách hàng:" />
+      <Label fx:id="CMND_Label" layoutX="222.0" layoutY="179.0" prefHeight="18.0" prefWidth="71.0" text="CMND:" />
+      <Label fx:id="SDT_Label" layoutX="226.0" layoutY="209.0" text="SĐT:" />
+      <Label fx:id="SoNg1Phong_Label" layoutX="225.0" layoutY="248.0" prefHeight="26.0" prefWidth="170.0" text="Số người cùng 1 phòng:" />
+      <Label fx:id="Ma_DP_Label" layoutX="223.0" layoutY="291.0" prefHeight="18.0" prefWidth="128.0" text="Mã đặt phòng:" />
+      <Label fx:id="Ngay_DP_Label" layoutX="224.0" layoutY="368.0" prefHeight="18.0" prefWidth="118.0" text="Ngày đặt phòng:" />
+      <Label fx:id="NgayNhanPhong_Label" layoutX="226.0" layoutY="403.0" prefHeight="28.0" prefWidth="149.0" text="Ngày nhận phòng:" />
+      <Label fx:id="LoaiPhong_Label" layoutX="224.0" layoutY="329.0" prefHeight="18.0" prefWidth="109.0" text="Loại phòng:" />
+      <Label fx:id="SoNgayO_Label" layoutX="226.0" layoutY="445.0" prefHeight="18.0" prefWidth="102.0" text="Số ngày ở:" />
+      <TextField fx:id="TenKH_textField" layoutX="427.0" layoutY="142.0" />
+      <TextField fx:id="CMND_textField" layoutX="427.0" layoutY="174.0" />
+      <TextField fx:id="SDT_textField" layoutX="427.0" layoutY="206.0" />
+      <TextField fx:id="SoNgayO_textField" layoutX="425.0" layoutY="440.0" prefHeight="26.0" prefWidth="38.0" />
+      <DatePicker fx:id="Ngay_Dat_Phong" layoutX="426.0" layoutY="363.0" prefHeight="26.0" prefWidth="149.0" />
+      <DatePicker fx:id="NgayNhanPhong" layoutX="426.0" layoutY="401.0" prefHeight="26.0" prefWidth="149.0" />
+      <ChoiceBox fx:id="SoNguoiCung1Phong" layoutX="431.0" layoutY="245.0" prefHeight="26.0" prefWidth="45.0" />
+      <TextField fx:id="Ma_DP_textField" layoutX="426.0" layoutY="286.0" />
+      <ChoiceBox fx:id="Loai_Phong" layoutX="426.0" layoutY="324.0" prefHeight="26.0" prefWidth="149.0" />
+      <CheckBox fx:id="DatCoc_CheckBox" layoutX="493.0" layoutY="445.0" mnemonicParsing="false" onAction="#DatCocActionListener" prefHeight="18.0" prefWidth="102.0" text="Đặt cọc" />
+      <Label fx:id="DKTP_Label" layoutX="121.0" layoutY="47.0" prefHeight="40.0" prefWidth="612.0" text="THÔNG TIN CHI TIẾT KHÁCH HÀNG">
+         <font>
+            <Font name="Times New Roman" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

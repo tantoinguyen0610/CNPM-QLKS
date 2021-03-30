@@ -2,14 +2,20 @@ package Check_in;
 
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javafx.scene.control.ComboBox;
 import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,6 +34,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -71,6 +78,7 @@ public class CheckInController implements Initializable {
 
     @FXML
     private TextField SDT_textField;
+    
 
     @FXML
     private TextField SoNgayO_textField;
@@ -89,8 +97,16 @@ public class CheckInController implements Initializable {
     private TextField Ma_DP_textField;
 
     @FXML
-    private ChoiceBox<?> Loai_Phong;
+    private ComboBox<?> Loai_Phong_Cmb;
 
+
+    @FXML
+    private Label Sophong_Label;
+    
+    @FXML
+    private ComboBox<?> SoPhong_Cmb;
+
+    
     @FXML
     private CheckBox DatCoc_CheckBox;
 
@@ -122,40 +138,29 @@ public class CheckInController implements Initializable {
     private ScrollPane ScrollPane;
 
     @FXML
-    private TableView<?> Table_Check_In;
+    private TableView<ModelTable> Table_Check_In;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_STT;
+    private TableColumn<ModelTable, Integer> Tbl_Col_STT;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_KH;
+    private TableColumn<ModelTable, String> Tbl_Col_KH;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_CMND;
+    private TableColumn<ModelTable, String> Tbl_Col_MaDP;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_SDT;
+    private TableColumn<ModelTable, String> Tbl_Col_SoPhong;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_SNCP;
+    private TableColumn<ModelTable, String> Tbl_Col_NgayDat;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_MaDP;
+    private TableColumn<ModelTable, String> Tbl_Col_NgayNhan;
 
     @FXML
-    private TableColumn<?, ?> Tbl_Col_LoaiP;
+    private TableColumn<ModelTable, String> Tbl_Col_SoNgayO;
 
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_LoaiPhong;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_NgayDat;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_NgayNhan;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_SoNgayO;
 
     @FXML
     void DatCocActionListener(ActionEvent event)throws Exception {
@@ -184,7 +189,7 @@ public class CheckInController implements Initializable {
     	NgayNhanPhong.getEditor().clear();
     	SoNguoiCung1Phong.getSelectionModel().clearSelection();
     	Ma_DP_textField.setText("");
-    	Loai_Phong.getSelectionModel().clearSelection();
+    	Loai_Phong_Cmb.getSelectionModel().clearSelection();
     }
     
     @FXML
@@ -197,13 +202,70 @@ public class CheckInController implements Initializable {
     	DatCoc_CheckBox.setDisable(false);
     }
 
+   
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		 ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
 		// TODO Auto-generated method stub
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MA_PT,TENKH, MA_DATPHONG, SOPHONG, NGAYDAT, NGAYNHAN, SONGAYO from phieuthuephong, khachhang where khachhang.MAKH=phieuthuephong.MA_PT");
+			
+				while (rs.next()) {	
+					oblist.add(new ModelTable(rs.getString("MA_PT"),rs.getString("TENKH"),rs.getString("MA_DATPHONG"),rs.getString("SOPHONG"),rs.getString("NGAYDAT"),rs.getString("NGAYNHAN"),rs.getString("SONGAYO")));
+					
+				}
+			}
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+			
+			
 		ObservableList<String> list = FXCollections.observableArrayList("1", "2","3","4");
 		SoNguoiCung1Phong.setItems(list);
+		Ngay_Dat_Phong.setConverter(
+		   new StringConverter<LocalDate>() {
+		          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+		          @Override
+		          public String toString(LocalDate date) {
+		            return (date != null) ? dateFormatter.format(date) : "";
+		          }
+
+		          @Override
+		          public LocalDate fromString(String string) {
+		            return (string != null && !string.isEmpty())
+		                ? LocalDate.parse(string, dateFormatter)
+		                : null;
+		          }
+		        });
+		NgayNhanPhong.setConverter(
+				   new StringConverter<LocalDate>() {
+				          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+				          @Override
+				          public String toString(LocalDate date) {
+				            return (date != null) ? dateFormatter.format(date) : "";
+				          }
+
+				          @Override
+				          public LocalDate fromString(String string) {
+				            return (string != null && !string.isEmpty())
+				                ? LocalDate.parse(string, dateFormatter)
+				                : null;
+				          }
+				        });
+		Tbl_Col_STT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
+		Tbl_Col_KH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
+		Tbl_Col_MaDP.setCellValueFactory(new PropertyValueFactory<>("MA_DATPHONG"));
+		Tbl_Col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+		Tbl_Col_NgayDat.setCellValueFactory(new PropertyValueFactory<>("NGAYDAT"));
+		Tbl_Col_NgayNhan.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
+		Tbl_Col_SoNgayO.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
+		Table_Check_In.setItems(oblist);
+		
 	}
     
 	@FXML
@@ -213,27 +275,54 @@ public class CheckInController implements Initializable {
 				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 				Connection conn = DriverManager.getConnection(DB_URL,"root","");
-//				PreparedStatement pst1 = conn.prepareStatement("select MAX(MA_PT) +1 FROM phieuthuephong");
-//		            ResultSet rs = pst1.executeQuery();
-//		            String user_id ="" ;
-//		            while(rs.next())
-//		            {
-//		                user_id = rs.getString(1);
-//		            }
-			
 				String query = "insert into `phieuthuephong`(NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO) VALUES(?,?,?,?)";
 				PreparedStatement pst = conn.prepareStatement(query);
-				//pst.setString(1,user_id.toString() );
 				pst.setString(1, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
 				pst.setString(2, Ma_DP_textField.getText());
 				pst.setString(3, ((TextField)NgayNhanPhong.getEditor()).getText());
 				pst.setString(4, SoNgayO_textField.getText());
 				pst.executeUpdate();
+				
+				String query1 = "INSERT INTO khachhang (TENKH,SDT,CMND) VALUES(?,?,?)";
+			
+				PreparedStatement pst1 = conn.prepareStatement(query1);
+				pst1.setString(1, TenKH_textField.getText());
+				pst1.setString(2, SDT_textField.getText());
+				pst1.setString(3, CMND_textField.getText());
+				pst1.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+				
 				
 			}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(null, e);
 			}
     }
+//	public void UpdateTable() {
+//		 ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
+//		 oblist.clear();
+//		try {
+//			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+//			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+//			ResultSet rs = conn.createStatement().executeQuery("select MA_PT,TENKH, MA_DATPHONG, SOPHONG, NGAYDAT, NGAYNHAN, SONGAYO from phieuthuephong, khachhang where khachhang.MAKH=phieuthuephong.MA_PT");
+//			
+//				while (rs.next()) {	
+//					oblist.add(new ModelTable(rs.getString("MA_PT"),rs.getString("TENKH"),rs.getString("MA_DATPHONG"),rs.getString("SOPHONG"),rs.getString("NGAYDAT"),rs.getString("NGAYNHAN"),rs.getString("SONGAYO")));
+//					
+//				}
+//				rs.close();
+//			}
+//			catch(Exception e) {
+//				JOptionPane.showMessageDialog(null, e);
+//			}
+//		Tbl_Col_STT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
+//		Tbl_Col_KH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
+//		Tbl_Col_MaDP.setCellValueFactory(new PropertyValueFactory<>("MA_DATPHONG"));
+//		Tbl_Col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+//		Tbl_Col_NgayDat.setCellValueFactory(new PropertyValueFactory<>("NGAYDAT"));
+//		Tbl_Col_NgayNhan.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
+//		Tbl_Col_SoNgayO.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
+//		Table_Check_In.setItems(oblist);
+//	}
+	
 }
