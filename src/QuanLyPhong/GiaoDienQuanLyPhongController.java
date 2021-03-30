@@ -163,5 +163,14 @@ public class GiaoDienQuanLyPhongController /*implements Initializable*/ {
     	stage.setScene(scene);
     	stage.show();
     }
+    
+    @FXML
+    void btsuachuaphongListener(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("HoaDonSuaChuaThietBiController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
     	
 }
