@@ -69,7 +69,7 @@ public class GiaoDienQuanLyPhongController /*implements Initializable*/ {
 
     @FXML
     private Button btnangcapphong;
-
+    	
     @FXML
     private Button btsuachuaphong;
 
@@ -155,6 +155,13 @@ public class GiaoDienQuanLyPhongController /*implements Initializable*/ {
     	
     }
     
-
+    @FXML
+    void btnangcapphongListener(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("HoaDonNangCapPhongController.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
     	
 }

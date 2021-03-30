@@ -18,7 +18,7 @@
       <Button fx:id="btphong1033" layoutX="751.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt33" prefHeight="116.0" prefWidth="209.0" text="Phòng 103 (Standard)" />
       <Button fx:id="btphong1011" layoutX="191.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt11" prefHeight="116.0" prefWidth="209.0" text="Phòng 101 (Deluxe)" />
       <Button fx:id="btphong1044" layoutX="191.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt44" prefHeight="116.0" prefWidth="209.0" text="Phòng 104 (Standard)" />
-      <Button fx:id="btnangcapphong" layoutX="487.0" layoutY="617.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="178.0" text="Phiếu nâng cấp phòng" />
+      <Button fx:id="btnangcapphong" layoutX="487.0" layoutY="617.0" mnemonicParsing="false" onAction="#btnangcapphongListener" prefHeight="37.0" prefWidth="178.0" text="Phiếu nâng cấp phòng" />
       <Button fx:id="btsuachuaphong" layoutX="767.0" layoutY="617.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="178.0" text="Phiếu sửa chữa thiết bị" />
       <Button fx:id="btQuanlythietbi" layoutX="214.0" layoutY="617.0" mnemonicParsing="false" onAction="#actionQuanlythietbi" prefHeight="37.0" prefWidth="178.0" text="Quản lý thiết bị" />
    </children>
