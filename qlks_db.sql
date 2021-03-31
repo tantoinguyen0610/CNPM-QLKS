@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 26, 2021 lúc 03:55 PM
+-- Thời gian đã tạo: Th3 31, 2021 lúc 02:34 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.4
+-- Phiên bản PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,15 @@ CREATE TABLE `bang_kiem_tra_dinh_ki` (
   `TRANGTHAISAUKT` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GHI_CHU` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bang_kiem_tra_dinh_ki`
+--
+
+INSERT INTO `bang_kiem_tra_dinh_ki` (`MA_KT_DK`, `NGAY_KT`, `GIO_BD`, `GIO_KT`, `TRANGTHAISAUKT`, `GHI_CHU`) VALUES
+(1, NULL, NULL, NULL, 'Cần sửa chữa', 'Sửa chữa tủ, sơn lại'),
+(2, NULL, NULL, NULL, 'Bình thường', NULL),
+(3, NULL, NULL, NULL, 'Cần nâng cấp, bảo tr', 'Phòng hư hỏng nặng, tủ tróc sơn, gạch sàn nứt');
 
 -- --------------------------------------------------------
 
@@ -149,6 +158,15 @@ CREATE TABLE `loai_phong` (
   `SOLUONGNGUOIO` int(11) DEFAULT NULL,
   `GIATIEN` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `loai_phong`
+--
+
+INSERT INTO `loai_phong` (`MA_LOAIPHONG`, `TEN_lOAIPHONG`, `SOLUONGNGUOIO`, `GIATIEN`) VALUES
+(1, 'Standard', 2, 500000),
+(2, 'Deluxe', 4, 3000000),
+(3, 'Superior', 2, 700000);
 
 -- --------------------------------------------------------
 
@@ -390,7 +408,7 @@ ALTER TABLE `thongke`
 -- AUTO_INCREMENT cho bảng `bang_kiem_tra_dinh_ki`
 --
 ALTER TABLE `bang_kiem_tra_dinh_ki`
-  MODIFY `MA_KT_DK` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_KT_DK` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `cham_cong`
@@ -426,7 +444,7 @@ ALTER TABLE `khachhang`
 -- AUTO_INCREMENT cho bảng `loai_phong`
 --
 ALTER TABLE `loai_phong`
-  MODIFY `MA_LOAIPHONG` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `MA_LOAIPHONG` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`

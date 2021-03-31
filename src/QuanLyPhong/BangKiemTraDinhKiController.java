@@ -48,9 +48,6 @@ public class BangKiemTraDinhKiController {
     private Label lbbangkiemtradinhki;
 
     @FXML
-    private Button btLuu;
-
-    @FXML
     private Button btThoat;
 
     @FXML

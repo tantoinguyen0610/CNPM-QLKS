@@ -71,6 +71,9 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     private Button btChinhsua;
     
     @FXML
+    private Button btLuu;
+    
+    @FXML
     private void btthoataction(){
         // get a handle to the stage
         Stage stage = (Stage) btThoat.getScene().getWindow();
@@ -104,10 +107,18 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     
    
     public void btactionchinhsua(ActionEvent event) {
-    	tfSonguoichophep.setEditable(true);
+    	tfSonguoichophep.setEditable(false);
         cbTrangthai.setDisable(false);
         cbSonguoihientai.setDisable(false);
     }
+    
+    
+    public void btactionluu(ActionEvent event) {
+    	tfSonguoichophep.setEditable(false);
+        cbTrangthai.setDisable(true);
+        cbSonguoihientai.setDisable(true);
+    }
+
     
     
     
