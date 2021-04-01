@@ -10,7 +10,7 @@ public class dbConnection {
 	
 	private static final String Connection = null;
 
-	public static Connection getJBDCConnection()
+	public static Connection getJBDCConnection() {
 		final String url = "jdbc:mysql://http://localhost:8080/qlks_db" + "autoReconnect=true&useSSL=false";
 		final String user = "root";
 		final String password = "";
