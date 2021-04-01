@@ -72,9 +72,6 @@ public class LoginController {
     	checkLogIn();
     }
     
-    
-    
-    
     private void checkLogIn() throws IOException {
 		// TODO Auto-generated method stub
 		if (username_textField.getText().toString().equals("quanly") && password_textField.getText().toString().equals("QLKS")) {
@@ -99,9 +96,7 @@ public class LoginController {
 			stage.show();
 		}
 	}
-
-
-
+    
 
 	public void connectDB() {
     	try {
