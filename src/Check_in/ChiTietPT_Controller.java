@@ -1,14 +1,20 @@
 package Check_in;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import Check_in.CheckInController;
 
-public class ChiTietPT_Controller {
+public class ChiTietPT_Controller extends CheckInController implements Initializable {
 
     @FXML
     private Label TenKH_Label;
@@ -74,7 +80,18 @@ public class ChiTietPT_Controller {
     void DatCocActionListener(ActionEvent event) {
 
     }
-
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+    	onEdit();
+    }
+    public void onEdit() {
+        // check the table's selected item and get selected item
+        if (Table_Check_In.getSelectionModel().getSelectedItem() != null) {
+            ModelTable selectedPerson = Table_Check_In.getSelectionModel().getSelectedItem();
+            TenKH_textField.setText(selectedPerson.getTENKH());
+            //addressTextField.setText(selectedPerson.getAddress());
+        }}
+    
     @FXML
     void ThoatChiTietPT_ActionListener(ActionEvent event) {
 

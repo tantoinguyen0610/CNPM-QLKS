@@ -1,10 +1,10 @@
 package Check_in;
 
 public class ModelTable extends Object {
-		String MA_PT, TENKH,MA_DATPHONG,SOPHONG,NGAYDAT,NGAYNHAN,SONGAYO;
+		String MA_PT, TENKH,MA_DATPHONG,SOPHONG,NGAYDAT,NGAYNHAN,SONGAYO,CMND,SDT,SONGUOI1PHONG,LOAIPHONG;
 
-		public ModelTable(String MA_PT, String TENKH, String MA_DATPHONG, String SOPHONG, String NGAYDAT,
-				String NGAYNHAN, String SONGAYO) {
+		public ModelTable(String MA_PT, String TENKH,String CMND, String SDT,String SONGUOI1PHONG, String LOAIPHONG, String SOPHONG, String NGAYDAT,
+				String NGAYNHAN, String SONGAYO, String MA_DATPHONG ) {
 			
 			this.MA_PT = MA_PT;
 			this.TENKH = TENKH;
@@ -13,6 +13,42 @@ public class ModelTable extends Object {
 			this.NGAYDAT = NGAYDAT;
 			this.NGAYNHAN = NGAYNHAN;
 			this.SONGAYO= SONGAYO;
+			this.CMND = CMND;
+			this.SDT = SDT;
+			this.SONGUOI1PHONG = SONGUOI1PHONG;
+			this.LOAIPHONG= LOAIPHONG;
+		}
+
+		public String getCMND() {
+			return CMND;
+		}
+
+		public void setCMND(String CMND) {
+			this.CMND = CMND;
+		}
+
+		public String getSDT() {
+			return SDT;
+		}
+
+		public void setSDT(String SDT) {
+			this.SDT = SDT;
+		}
+
+		public String getSONGUOI1PHONG() {
+			return SONGUOI1PHONG;
+		}
+
+		public void setSONGUOI1PHONG(String SONGUOI1PHONG) {
+			this.SONGUOI1PHONG = SONGUOI1PHONG;
+		}
+
+		public String getLOAIPHONG() {
+			return LOAIPHONG;
+		}
+
+		public void setLOAIPHONG(String LOAIPHONG) {
+			this.LOAIPHONG = LOAIPHONG;
 		}
 
 		public String getMA_PT() {
