@@ -8,7 +8,7 @@ public class Taikhoan {
 	@Id
 	private Integer MATK;
 	private Integer MANV;
-	private String USERNAME;
+	private static String USERNAME;
 	private String PSW;
 
 	public Taikhoan() {
@@ -38,7 +38,7 @@ public class Taikhoan {
 		this.MANV = MANV;
 	}
 
-	public String getUSERNAME() {
+	public static String getUSERNAME() {
 		return USERNAME;
 	}
 
