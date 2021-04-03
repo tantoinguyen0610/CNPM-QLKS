@@ -14,6 +14,7 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class LoginController {
 
@@ -72,7 +74,24 @@ public class LoginController {
     private Button Button_LogIn;
 
     @FXML
-    private Label wronglogin;
+    private Label Notification;
+    
+    @FXML
+    void login(ActionEvent event) throws IOException {
+	 Window owner = Button_LogIn.getScene().getWindow();
+
+      System.out.println(username_textField.getText());
+      System.out.println(password_textField.getText());
+
+       if (username_textField.getText().isEmpty()) {
+    	   Notification.setText("Enter username");
+           return;
+       }
+       else if (password_textField.getText().isEmpty()) {
+    	   Notification.setText("Enter Password");
+           return ;
+           }
+       }
 
     @FXML
     void Login_ActionListener(ActionEvent event) throws IOException {
@@ -83,7 +102,12 @@ public class LoginController {
     	Metadata metaData = new MetadataSources(standardRegistry).getMetadataBuilder().build();
     	SessionFactory sessionFactory = metaData.getSessionFactoryBuilder().build();
     	Session session = sessionFactory.openSession();
+    	String username = username_textField.getText();
+    	String password =password_textField.getText();
 		String hql = "FROM Taikhoan A WHERE A.USERNAME = :USERNAME and A.PSW = :PSW";
+        Query query = session.createQuery(hql);
+        query.setParameter("username", username);
+        query.setParameter("password", password);
     }
     
     
