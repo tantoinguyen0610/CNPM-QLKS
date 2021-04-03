@@ -17,7 +17,6 @@ public class BangKiemTraDinhKi extends Application {
 		stage.setTitle("Demo giao diện");
 		stage.show();
 	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch(args);

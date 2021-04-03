@@ -22,7 +22,4 @@ public class CheckListPhong extends Application {
 		// TODO Auto-generated method stub
 		launch(args);
 	}
-
-	
-	
 }
