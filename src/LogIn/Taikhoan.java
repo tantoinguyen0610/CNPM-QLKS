@@ -1,10 +1,15 @@
 package LogIn;
-
-public class Taikhoan extends Object {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="TAIKHOAN")
+public class Taikhoan {
+	@Id
 	private Integer MATK;
 	private Integer MANV;
 	private String USERNAME;
-	private String PWS;
+	private String PSW;
 
 	public Taikhoan() {
 		super();
@@ -14,38 +19,38 @@ public class Taikhoan extends Object {
 		this.MANV = MANV;
 		this.MATK = MATK;
 		this.USERNAME = USERNAME;
-		this.PWS = PWS;
+		this.PSW = PSW;
 	}
 
 	public Integer getMATK() {
 		return MATK;
 	}
 
-	public void setMATK(Integer mATK) {
-		MATK = mATK;
+	public void setMATK(Integer MATK) {
+		this.MATK = MATK;
 	}
 
 	public Integer getMANV() {
 		return MANV;
 	}
 
-	public void setMANV(Integer mANV) {
-		MANV = mANV;
+	public void setMANV(Integer MANV) {
+		this.MANV = MANV;
 	}
 
 	public String getUSERNAME() {
 		return USERNAME;
 	}
 
-	public void setUSERNAME(String uSERNAME) {
-		USERNAME = uSERNAME;
+	public void setUSERNAME(String USERNAME) {
+		this.USERNAME = USERNAME;
 	}
 
 	public String getPWS() {
-		return PWS;
+		return PSW;
 	}
 
-	public void setPWS(String pWS) {
-		PWS = pWS;
+	public void setPWS(String PSW) {
+		this.PSW = PSW;
 	}
 }

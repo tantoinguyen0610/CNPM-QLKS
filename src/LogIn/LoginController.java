@@ -8,6 +8,13 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -69,44 +76,16 @@ public class LoginController {
 
     @FXML
     void Login_ActionListener(ActionEvent event) throws IOException {
-    	checkLogIn();
+    	
+       	StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
+    			.configure("hibernate.cfg.xml")
+    			.build();
+    	Metadata metaData = new MetadataSources(standardRegistry).getMetadataBuilder().build();
+    	SessionFactory sessionFactory = metaData.getSessionFactoryBuilder().build();
+    	Session session = sessionFactory.openSession();
+		String hql = "FROM Taikhoan A WHERE A.USERNAME = :USERNAME and A.PSW = :PSW";
     }
     
-    private void checkLogIn() throws IOException {
-		// TODO Auto-generated method stub
-		if (username_textField.getText().toString().equals("quanly") && password_textField.getText().toString().equals("QLKS")) {
-			Parent root = FXMLLoader.load(getClass().getResource("GiaoDienQuanLiController.fxml"));
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.show();
-		}
-		else if (username_textField.getText().toString().equals("ketoan") && password_textField.getText().toString().equals("KTKS")) {
-			Parent root = FXMLLoader.load(getClass().getResource("GiaoDienKeToanController.fxml"));
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.show();
-		}
-		else if (username_textField.getText().toString().equals("nhanvien") && password_textField.getText().toString().equals("NVKS")) {
-			Parent root = FXMLLoader.load(getClass().getResource("GiaoDienNhanVien.java.fxml"));
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.show();
-		}
-	}
     
-
-	public void connectDB() {
-    	try {
-			final String DB_URL = "jdbc:mysql://localhost:8080/qlks_db";
-			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-    	}
-    	catch(Exception e) {
-			JOptionPane.showMessageDialog(null, e);
-			}
-    }
-
    
 }
