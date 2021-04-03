@@ -65,6 +65,16 @@
                   <Label fx:id="Sophong_Label" layoutX="494.0" layoutY="323.0" text="Số phòng:" />
                   <ComboBox fx:id="SoPhong_Cmb" layoutX="696.0" layoutY="316.0" prefWidth="150.0" />
                   <ComboBox fx:id="Loai_Phong_Cmb" layoutX="696.0" layoutY="280.0" prefWidth="150.0" />
+                  <Label fx:id="err_TenKH" layoutX="899.0" layoutY="103.0" textFill="RED" />
+                  <Label fx:id="err_CMND" layoutX="899.0" layoutY="135.0" textFill="RED" />
+                  <Label fx:id="err_SDT" layoutX="899.0" layoutY="167.0" textFill="RED" />
+                  <Label fx:id="err_SoNguoi1Phong" layoutX="899.0" layoutY="206.0" textFill="RED" />
+                  <Label fx:id="err_MaDP" layoutX="899.0" layoutY="247.0" textFill="RED" />
+                  <Label fx:id="err_LoaiPhong" layoutX="899.0" layoutY="285.0" textFill="RED" />
+                  <Label fx:id="err_SoPhong" layoutX="899.0" layoutY="321.0" textFill="RED" />
+                  <Label fx:id="err_NgayDP" layoutX="899.0" layoutY="362.0" textFill="RED" />
+                  <Label fx:id="err_NgayNhanPhong" layoutX="899.0" layoutY="401.0" textFill="RED" />
+                  <Label fx:id="err_SoNgayO" layoutX="899.0" layoutY="439.0" textFill="RED" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="AnchorPane1" prefHeight="190.0" prefWidth="1102.0" SplitPane.resizableWithParent="false">
