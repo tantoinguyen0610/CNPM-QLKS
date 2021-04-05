@@ -23,7 +23,4 @@ public class GiaoDienQuanLyPhong extends Application {
 		// TODO Auto-generated method stub
 		launch(args);
 	}
-
-	
-	
 }

@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -23,7 +25,7 @@ import javafx.scene.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.fxml.FXML;
+import java.sql.*;
 
 
 
@@ -83,16 +85,18 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     }
     
 
-    ObservableList<String> list1 = FXCollections.observableArrayList("","1", "2", "3","4");
-    ObservableList<String> list2 = FXCollections.observableArrayList("","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
+    ObservableList<String> listsonguoihientai = FXCollections.observableArrayList("","1", "2", "3","4");
+    ObservableList<String> listtrangthai = FXCollections.observableArrayList("","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cbSonguoihientai.setItems(list1);
-        cbTrangthai.setItems(list2);
+        cbSonguoihientai.setItems(listsonguoihientai);
+        cbTrangthai.setItems(listtrangthai);
         tfSonguoichophep.setEditable(false);
         cbTrangthai.setDisable(true);
         cbSonguoihientai.setDisable(true);
+        
+        
         
     }
    
@@ -117,6 +121,23 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     	tfSonguoichophep.setEditable(false);
         cbTrangthai.setDisable(true);
         cbSonguoihientai.setDisable(true);
+        
+        try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query = "insert into `phong`(SONGUOIHIENTAI,TINHTRANG) VALUES(?,?)";
+			PreparedStatement pst = conn.prepareStatement(query);
+			String value = cbSonguoihientai.getValue().toString();
+			pst.setString(1, value);
+			String value1 = cbTrangthai.getValue().toString();
+			pst.setString(2, value1);
+			pst.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+        }
+        catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
     }
 
     
@@ -130,6 +151,8 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
     	stage.setScene(scene);
     	stage.show();
     }
+    
+    
     
 }
 	

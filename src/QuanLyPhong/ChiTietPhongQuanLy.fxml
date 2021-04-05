@@ -17,6 +17,8 @@
       <Label fx:id="lbSonguoichophep" layoutX="26.0" layoutY="155.0" text="Số người cho phép" />
       <Button fx:id="btThietbi" layoutX="89.0" layoutY="90.0" mnemonicParsing="false" onAction="#btactionthietbi" text="Click" />
       <Button fx:id="btKiemtradinhki" layoutX="215.0" layoutY="224.0" mnemonicParsing="false" onAction="#btactiondinhki" text="Xem chi tiết" />
-      <Button fx:id="btChinhsua" layoutX="381.0" layoutY="523.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="136.0" text="Chỉnh sửa" />
+      <Button fx:id="btChinhsua" layoutX="381.0" layoutY="523.0" mnemonicParsing="false" onAction="#btchinhsua" prefHeight="31.0" prefWidth="136.0" text="Chỉnh sửa" />
+      <Button fx:id="btLuu" layoutX="145.0" layoutY="523.0" mnemonicParsing="false" onAction="#btLưu" prefHeight="31.0" prefWidth="136.0" text="Lưu" />
    </children>
 </AnchorPane>
+d

@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,6 +60,9 @@ public class ChiTietPhongQuanLyController implements Initializable {
 
     @FXML
     private Button btChinhsua;
+    
+    @FXML
+    private Button btLuu;
 
     @FXML
     private void btthoat() {
@@ -67,13 +71,17 @@ public class ChiTietPhongQuanLyController implements Initializable {
         // do what you have to do
         stage.close();
     }
-    ObservableList<String> list1 = FXCollections.observableArrayList("","1", "2", "3","4");
-    ObservableList<String> list2 = FXCollections.observableArrayList("","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
     
+    ObservableList<String> listsonguoichophep = FXCollections.observableArrayList("","1", "2", "3","4");
+    ObservableList<String> listtrangthai = FXCollections.observableArrayList("","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
+   
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cbSonguoichophep.setItems(list1);
-        cbTrangthai.setItems(list2);
+        cbSonguoichophep.setItems(listsonguoichophep);
+        cbTrangthai.setItems(listtrangthai);
+        cbSonguoichophep.setDisable(false);
+        cbTrangthai.setDisable(false);
+ 
     }
     @FXML
     void btactionthietbi() throws IOException  {
@@ -91,5 +99,14 @@ public class ChiTietPhongQuanLyController implements Initializable {
     	stage.setScene(scene);
     	stage.show();
     }
-
+    
+    public void btchinhsua(ActionEvent event) {
+    	cbSonguoichophep.setEditable(false);
+        cbTrangthai.setDisable(false);
+    }
+    
+    public void btactionluu(ActionEvent event) {
+    	
+    }
+    
 }

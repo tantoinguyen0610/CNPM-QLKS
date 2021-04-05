@@ -1,11 +1,13 @@
 package TraCuuPhong;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.event.*;
 
 public class CheckListPhongController {
 
@@ -69,7 +71,11 @@ public class CheckListPhongController {
         Stage stage = (Stage) btHuy.getScene().getWindow();
         // do what you have to do
         stage.close();
-
+    }
+    
+    
+    public void btxacnhan (ActionEvent event) {
+    	
     }
 
 }
