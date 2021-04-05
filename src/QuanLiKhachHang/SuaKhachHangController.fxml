@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.SuaKhachHangController">
    <children>
       <AnchorPane fx:id="SuaKhachHangAnchorPane" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="926.0">
@@ -26,18 +25,18 @@
             <Label fx:id="DiaChiLabel" alignment="CENTER" layoutX="446.0" layoutY="310.0" prefHeight="45.0" prefWidth="127.0" text="Địa Chỉ" />
             <Label fx:id="NgayCheck_inLabel" alignment="CENTER" layoutX="446.0" layoutY="389.0" prefHeight="45.0" prefWidth="127.0" text="Ngày Check-in" />
             <Label fx:id="SoNgayOLabel" alignment="CENTER" layoutX="446.0" layoutY="473.0" prefHeight="45.0" prefWidth="127.0" text="Số Ngày Ở" />
-            <TextField fx:id="MaKHTextField" layoutX="178.0" layoutY="157.0" onAction="#MaKHTextFieldListener" />
-            <TextField fx:id="TenKhTextField" layoutX="178.0" layoutY="238.0" onAction="#TenKhTextFieldListener" />
-            <TextField fx:id="GTTextField" layoutX="178.0" layoutY="310.0" onAction="#GTTextFieldListener" />
-            <TextField fx:id="SDTTextField" layoutX="178.0" layoutY="396.0" onAction="#SDTTextFieldListener" />
-            <TextField fx:id="CMNDTextField" layoutX="178.0" layoutY="473.0" onAction="#CMNDTextFieldListener" />
-            <TextField fx:id="QuocTichTextField" layoutX="615.0" layoutY="157.0" onAction="#QuocTichTextFieldListener" />
-            <TextField fx:id="NgaySinhTextField" layoutX="615.0" layoutY="238.0" onAction="#NgaySinhTextFieldListener" />
-            <TextField fx:id="DiaChiTextField" layoutX="615.0" layoutY="317.0" onAction="#DiaChiTextFieldListener" />
-            <TextField fx:id="NgayCheck_inTextField" layoutX="615.0" layoutY="403.0" onAction="#NgayCheck_inTextFieldListener" />
-            <TextField fx:id="SoNgayOTextField" layoutX="615.0" layoutY="473.0" onAction="#SoNgayOTextFieldListener" />
-            <Button fx:id="LuuButton" layoutX="397.0" layoutY="543.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
-            <Button fx:id="HuyButton" layoutX="583.0" layoutY="543.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
+            <TextField fx:id="MaKHTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaKHTextFieldListener" />
+            <TextField fx:id="TenKhTextField" disable="true" layoutX="178.0" layoutY="238.0" onAction="#TenKhTextFieldListener" />
+            <TextField fx:id="GTTextField" disable="true" layoutX="178.0" layoutY="310.0" onAction="#GTTextFieldListener" />
+            <TextField fx:id="SDTTextField" disable="true" layoutX="178.0" layoutY="396.0" onAction="#SDTTextFieldListener" />
+            <TextField fx:id="CMNDTextField" disable="true" layoutX="178.0" layoutY="473.0" onAction="#CMNDTextFieldListener" />
+            <TextField fx:id="QuocTichTextField" disable="true" layoutX="615.0" layoutY="157.0" onAction="#QuocTichTextFieldListener" />
+            <TextField fx:id="NgaySinhTextField" disable="true" layoutX="615.0" layoutY="238.0" onAction="#NgaySinhTextFieldListener" />
+            <TextField fx:id="DiaChiTextField" disable="true" layoutX="615.0" layoutY="317.0" onAction="#DiaChiTextFieldListener" />
+            <TextField fx:id="NgayCheck_inTextField" disable="true" layoutX="615.0" layoutY="403.0" onAction="#NgayCheck_inTextFieldListener" />
+            <TextField fx:id="SoNgayOTextField" disable="true" layoutX="615.0" layoutY="473.0" onAction="#SoNgayOTextFieldListener" />
+            <Button fx:id="LuuButton" disable="true" layoutX="397.0" layoutY="543.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
+            <Button fx:id="HuyButton" disable="true" layoutX="583.0" layoutY="543.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
             <Button fx:id="SuaButton" layoutX="195.0" layoutY="543.0" mnemonicParsing="false" onAction="#SuaButtonListener" prefHeight="63.0" prefWidth="116.0" text="Sửa" />
          </children>
       </AnchorPane>

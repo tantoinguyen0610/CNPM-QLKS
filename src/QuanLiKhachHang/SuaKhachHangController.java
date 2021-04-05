@@ -153,7 +153,19 @@ public class SuaKhachHangController {
 
     @FXML
     void SuaButtonListener(ActionEvent event) {
-
+    	MaKHTextField.setDisable(false);
+    	TenKhTextField.setDisable(false);
+    	GTTextField.setDisable(false);
+    	SDTTextField.setDisable(false);
+    	CMNDTextField.setDisable(false);
+    	QuocTichTextField.setDisable(false);
+    	NgaySinhTextField.setDisable(false);
+    	DiaChiTextField.setDisable(false);
+    	NgayCheck_inTextField.setDisable(false);
+    	SoNgayOTextField.setDisable(false);
+    	LuuButton.setDisable(false);
+    	HuyButton.setDisable(false);
+    	
     }
 
     @FXML
