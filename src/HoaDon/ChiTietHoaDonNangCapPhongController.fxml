@@ -22,13 +22,13 @@
             <Label fx:id="TinhTrangNangCapLabel" layoutX="389.0" layoutY="95.0" prefHeight="41.0" prefWidth="145.0" text="Tình Trạng Nâng Cấp" />
             <Label fx:id="ChiPhiNangCapLabel" layoutX="389.0" layoutY="182.0" prefHeight="41.0" prefWidth="145.0" text="Chi Phí Nâng Cấp" />
             <Label fx:id="TongTienLabel" layoutX="389.0" layoutY="258.0" prefHeight="41.0" prefWidth="145.0" text="Tổng Tiền" />
-            <TextField fx:id="SoPhongTextField" layoutX="174.0" layoutY="100.0" onAction="#SoPhongTextFieldListener" />
-            <TextField fx:id="LiDoNangCapTextField" layoutX="174.0" layoutY="171.0" onAction="#LiDoNangCapTextFieldListener" />
-            <TextField fx:id="NgayBatDauTextField" layoutX="174.0" layoutY="263.0" onAction="#NgayBatDauTextFieldListener" />
-            <TextField fx:id="NgayKetThucTextField" layoutX="174.0" layoutY="353.0" onAction="#NgayKetThucTextFieldListener" />
-            <TextField fx:id="TìnhTrangNangCapTextField" layoutX="552.0" layoutY="100.0" onAction="#TìnhTrangNangCapTextFieldListener" />
-            <TextField fx:id="ChiPhiNangCapTextField" layoutX="552.0" layoutY="187.0" onAction="#ChiPhiNangCapTextFieldListener" />
-            <TextField fx:id="TongTienTextField" layoutX="552.0" layoutY="263.0" onAction="#TongTienTextFieldListener" />
+            <TextField fx:id="SoPhongTextField" disable="true" layoutX="174.0" layoutY="100.0" onAction="#SoPhongTextFieldListener" />
+            <TextField fx:id="LiDoNangCapTextField" disable="true" layoutX="174.0" layoutY="171.0" onAction="#LiDoNangCapTextFieldListener" />
+            <TextField fx:id="NgayBatDauTextField" disable="true" layoutX="174.0" layoutY="263.0" onAction="#NgayBatDauTextFieldListener" />
+            <TextField fx:id="NgayKetThucTextField" disable="true" layoutX="174.0" layoutY="353.0" onAction="#NgayKetThucTextFieldListener" />
+            <TextField fx:id="TìnhTrangNangCapTextField" disable="true" layoutX="552.0" layoutY="100.0" onAction="#TìnhTrangNangCapTextFieldListener" />
+            <TextField fx:id="ChiPhiNangCapTextField" disable="true" layoutX="552.0" layoutY="187.0" onAction="#ChiPhiNangCapTextFieldListener" />
+            <TextField fx:id="TongTienTextField" disable="true" layoutX="552.0" layoutY="263.0" onAction="#TongTienTextFieldListener" />
             <Button fx:id="DongButton" layoutX="509.0" layoutY="360.0" mnemonicParsing="false" onAction="#DongButtonListener" prefHeight="59.0" prefWidth="187.0" text="Đóng" />
          </children>
       </AnchorPane>
