@@ -11,14 +11,13 @@
       <Label fx:id="lbKiemtradinhki" layoutX="23.0" layoutY="229.0" text="Kiểm tra định kì 3 ngày/ lần" />
       <Label fx:id="lbTrangthai" layoutX="29.0" layoutY="315.0" text="Trạng thái" />
       <Label fx:id="lbPhong" layoutX="25.0" layoutY="38.0" text="Phòng Deluxe: Loại phòng cao hơn Superior, thường ở tầng cao, diện tích rộng, hướng nhìn đẹp và trang bị cao cấp." />
-      <ComboBox fx:id="cbSonguoichophep" layoutX="177.0" layoutY="150.0" prefHeight="31.0" prefWidth="39.0" />
+      <ComboBox fx:id="cbSonguoichophep" layoutX="177.0" layoutY="150.0" prefHeight="31.0" prefWidth="67.0" />
       <ComboBox fx:id="cbTrangthai" layoutX="122.0" layoutY="310.0" prefHeight="31.0" prefWidth="161.0" />
       <Button fx:id="btThoat" layoutX="659.0" layoutY="523.0" mnemonicParsing="false" onAction="#btthoat" prefHeight="31.0" prefWidth="136.0" text="Thoát" />
       <Label fx:id="lbSonguoichophep" layoutX="26.0" layoutY="155.0" text="Số người cho phép" />
       <Button fx:id="btThietbi" layoutX="89.0" layoutY="90.0" mnemonicParsing="false" onAction="#btactionthietbi" text="Click" />
       <Button fx:id="btKiemtradinhki" layoutX="215.0" layoutY="224.0" mnemonicParsing="false" onAction="#btactiondinhki" text="Xem chi tiết" />
       <Button fx:id="btChinhsua" layoutX="381.0" layoutY="523.0" mnemonicParsing="false" onAction="#btchinhsua" prefHeight="31.0" prefWidth="136.0" text="Chỉnh sửa" />
-      <Button fx:id="btLuu" layoutX="145.0" layoutY="523.0" mnemonicParsing="false" onAction="#btLưu" prefHeight="31.0" prefWidth="136.0" text="Lưu" />
+      <Button fx:id="btLuu" layoutX="134.0" layoutY="523.0" mnemonicParsing="false" onAction="#btactionLuu" prefHeight="31.0" prefWidth="136.0" text="Lưu" />
    </children>
 </AnchorPane>
-d

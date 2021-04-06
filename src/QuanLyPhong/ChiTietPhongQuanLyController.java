@@ -22,7 +22,7 @@ import javafx.event.*;
 
 public class ChiTietPhongQuanLyController implements Initializable {
 
-    @FXML
+	@FXML
     private AnchorPane Ap;
 
     @FXML
@@ -47,9 +47,6 @@ public class ChiTietPhongQuanLyController implements Initializable {
     private Button btThoat;
 
     @FXML
-    private Button btCapnhat;
-
-    @FXML
     private Label lbSonguoichophep;
 
     @FXML
@@ -60,9 +57,10 @@ public class ChiTietPhongQuanLyController implements Initializable {
 
     @FXML
     private Button btChinhsua;
-    
+
     @FXML
     private Button btLuu;
+
 
     @FXML
     private void btthoat() {
@@ -105,7 +103,7 @@ public class ChiTietPhongQuanLyController implements Initializable {
         cbTrangthai.setDisable(false);
     }
     
-    public void btactionluu(ActionEvent event) {
+    public void btactionLuu(ActionEvent event) {
     	
     }
     
