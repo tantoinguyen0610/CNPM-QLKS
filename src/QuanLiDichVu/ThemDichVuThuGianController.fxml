@@ -21,7 +21,7 @@
             <Label fx:id="LoaiDVLabel" alignment="CENTER" layoutX="446.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="Loại Dịch Vụ" />
             <Label fx:id="GiaLabel" alignment="CENTER" layoutX="446.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Giá" />
             <Label fx:id="TinhTrangLLabel" alignment="CENTER" layoutX="446.0" layoutY="303.0" prefHeight="45.0" prefWidth="127.0" text="Tình Trạng" />
-            <TextField fx:id="MaDVAnUongTextField" layoutX="178.0" layoutY="157.0" onAction="#MaDVAnUongTextFieldListener" />
+            <TextField fx:id="MaDVAnUongTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaDVAnUongTextFieldListener" prefHeight="31.0" prefWidth="63.0" />
             <TextField fx:id="TenDVAnUongTextField" layoutX="178.0" layoutY="238.0" onAction="#TenDVAnUongTextFieldListener" />
             <TextField fx:id="KhungGioDVTGTextField" layoutX="178.0" layoutY="310.0" onAction="#KhungGioDVTGTextFieldListener" />
             <TextField fx:id="LoaiDVTextField" layoutX="615.0" layoutY="157.0" onAction="#LoaiDVTextFieldListener" />
