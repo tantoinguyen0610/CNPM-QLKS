@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_in.DatCocController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_in.DatCocController">
    <children>
-      <Label fx:id="DatCoc_Label" layoutX="171.0" layoutY="14.0" text="ĐẶT CỌC">
+      <Label fx:id="DatCoc_Label" layoutX="189.0" layoutY="14.0" text="ĐẶT CỌC">
          <font>
             <Font name="Times New Roman" size="30.0" />
          </font>
@@ -18,10 +18,10 @@
       <Label fx:id="SoTienDatCOc_Label" layoutX="49.0" layoutY="64.0" text="Số tiền cần đặt cọc:" />
       <Label fx:id="SoTienKhachDC_Label" layoutX="49.0" layoutY="102.0" text="Số tiền khách đã đặt cọc:" />
       <Label fx:id="NgayDC_Label" layoutX="49.0" layoutY="140.0" text="Ngày đặt cọc:" />
-      <ButtonBar layoutX="128.0" layoutY="185.0" prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar layoutX="151.0" layoutY="185.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="Button_XacNhan" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Xác nhận" />
-            <Button fx:id="Button_Huy" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="Huỷ" />
+          <Button fx:id="Button_XacNhan" mnemonicParsing="false" onAction="#XacNhan_ActionListener" prefHeight="26.0" prefWidth="97.0" text="Xác nhận" />
+            <Button fx:id="Button_Huy" mnemonicParsing="false" onAction="#Huy_AcitonListener" prefHeight="18.0" prefWidth="92.0" text="Huỷ" />
         </buttons>
       </ButtonBar>
       <TextField fx:id="datCoc_textField" layoutX="228.0" layoutY="52.0" />
