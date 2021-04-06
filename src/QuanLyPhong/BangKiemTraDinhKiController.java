@@ -1,21 +1,24 @@
 package QuanLyPhong;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.*;
 
-public class BangKiemTraDinhKiController {
+public class BangKiemTraDinhKiController implements Initializable {
 
     @FXML
     private AnchorPane Ap;
@@ -51,22 +54,71 @@ public class BangKiemTraDinhKiController {
     private Button btThoat;
 
     @FXML
+    private AnchorPane Ap1;
+
+    @FXML
+    private Label lbngaykiemtra;
+
+    @FXML
+    private Label lbghichu;
+
+    @FXML
+    private Label lbnvkiemtra;
+
+    @FXML
+    private Label lbGioketthuc;
+
+    @FXML
+    private Label lbGiobatdau;
+
+    @FXML
+    private Label lbTrangthaisausuachua;
+
+    @FXML
     private Button btThem;
-    
+
     @FXML
-    private void btThoat(){
-        // get a handle to the stage
-        Stage stage = (Stage) btThoat.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-    }
+    private DatePicker dtNgaykiemtra;
+
     @FXML
-    void btThembangkiemtradinhki(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ThemBangKTDK.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    private TextField tfGioketthuc;
+
+    @FXML
+    private TextField tfNhanvienkiemtra;
+
+    @FXML
+    private TextField tfGhichu;
+
+    @FXML
+    private ComboBox<String> cbTrangthaisausuachua;
+
+    @FXML
+    private TextField tfGiobatdau;
+
+    @FXML
+    private Button btReset;
+
+    @FXML
+    void btReset(ActionEvent event) {
+
     }
 
+    @FXML
+    void btThembangkiemtradinhki(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btThoat(ActionEvent event) {
+
+    }
+    
+    ObservableList<String> cb_Trangthaisausuachua = FXCollections.observableArrayList("","Bình thường", "Cần sửa chữa", "Cần thay thế");
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cbTrangthaisausuachua.setItems(cb_Trangthaisausuachua);
+     
+
+    }
 }

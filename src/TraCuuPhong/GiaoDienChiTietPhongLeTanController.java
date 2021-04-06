@@ -133,7 +133,7 @@ public class GiaoDienChiTietPhongLeTanController implements Initializable {
 			String value1 = cbTrangthai.getValue().toString();
 			pst.setString(2, value1);
 			pst.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+			JOptionPane.showMessageDialog(null, "Lưu Thành Công!"); 
         }
         catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);

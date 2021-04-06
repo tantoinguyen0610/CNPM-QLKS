@@ -74,74 +74,64 @@ public class GiaoDienQuanLyPhongController /*implements Initializable*/ {
     private Button btsuachuaphong;
 
     
-    /*ObservableList<String> list = FXCollections.observableArrayList("Deluxe", "Double Room", "Single Room");
-    
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        //cbLoaiPhong.setItems(list);
-    }
-    public void comboBoxChanged (ActionEvent event){
-        //ta1.setText(cbLoaiPhong.getValue());
-        
-    }*/
     @FXML
     void bt11(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhongQuanLy.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongQuanLy.fxml"));
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt22(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhongQuanLy.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongQuanLy.fxml"));
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt33(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhongQuanLy.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongQuanLy.fxml"));
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt44(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhongQuanLy.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongQuanLy.fxml"));
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt55(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhongQuanLy.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongQuanLy.fxml"));
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
     void bt66(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("ChitietPhongQuanLy.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongQuanLy.fxml"));
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     }
     
     @FXML
