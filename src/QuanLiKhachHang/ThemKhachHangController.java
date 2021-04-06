@@ -5,18 +5,22 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class ThemKhachHangController {
+public class ThemKhachHangController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -92,6 +96,14 @@ public class ThemKhachHangController {
 
     @FXML
     private Button HuyButton;
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		
+		autoTaoMaKH();
+		
+	}
 
     @FXML
     void CMNDTextFieldListener(ActionEvent event) {
@@ -121,15 +133,19 @@ public class ThemKhachHangController {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "insert into `khachhang`(TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH) VALUES(?,?,?,?,?,?,?)";
+			String query = "insert into `khachhang`(MAKH,TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH,NGAYCHECK_IN,SONGAYO) VALUES(?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(query);
-			pst.setString(1, TenKhTextField.getText());
-			pst.setString(2, DiaChiTextField.getText());
-			pst.setString(3,  SDTTextField.getText());		
-			pst.setString(4, QuocTichTextField.getText());
-			pst.setString(5,  CMNDTextField.getText());
-			pst.setString(6, GTTextField.getText());
-			pst.setString(7, NgaySinhTextField.getText());
+			pst.setString(1, MaKHTextField.getText());
+			pst.setString(2, TenKhTextField.getText());
+			pst.setString(3, DiaChiTextField.getText());
+			pst.setString(4,  SDTTextField.getText());		
+			pst.setString(5, QuocTichTextField.getText());
+			pst.setString(6,  CMNDTextField.getText());
+			pst.setString(7, GTTextField.getText());
+			pst.setString(8, NgaySinhTextField.getText());
+			pst.setString(9,  NgayCheck_inTextField.getText());
+			pst.setString(10, SoNgayOTextField.getText());
+			
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
 			//UpdateTable();
@@ -137,7 +153,39 @@ public class ThemKhachHangController {
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
+		autoTaoMaKH();
+		Stage stage = (Stage) LuuButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
 } 
+    
+    public void autoTaoMaKH() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(MaKH) from khachhang");
+			rs.next();
+			rs.getString("Max(MaKH)");
+			
+			if(rs.getString("Max(MaKH)")== null)
+			{
+				 MaKHTextField.setText("1");
+			}
+			else
+			{
+				int makh = Integer.parseInt(rs.getString("Max(MaKH)"));
+				makh++;
+				 MaKHTextField.setText(String.format("%d",makh));
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
     
 
     @FXML
