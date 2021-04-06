@@ -58,7 +58,7 @@ public class LoginController implements Initializable {
     
     public void HienThiQuanLi() throws Exception {
     	Parent parent = FXMLLoader.load(
-				getClass().getResource("GiaoDienTong/GiaoDienQuanLiController.fxml"));
+				getClass().getClassLoader().getResource("GiaoDienTong/GiaoDienQuanLiController.fxml"));
 				Scene scene = new Scene(parent);
 				Stage stage = new Stage();
 				stage.setTitle("Giao Dien Quan Li");
