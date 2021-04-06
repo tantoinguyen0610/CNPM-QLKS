@@ -75,8 +75,10 @@
                   <Label fx:id="err_NgayDP" layoutX="899.0" layoutY="362.0" textFill="RED" />
                   <Label fx:id="err_NgayNhanPhong" layoutX="899.0" layoutY="401.0" textFill="RED" />
                   <Label fx:id="err_SoNgayO" layoutX="899.0" layoutY="439.0" textFill="RED" />
-                  <Label fx:id="MaKH_Label" layoutX="320.0" layoutY="103.0" prefHeight="21.0" prefWidth="55.0" text="Mã KH:" />
-                  <TextField fx:id="MaKH_textField" disable="true" layoutX="389.0" layoutY="98.0" prefHeight="31.0" prefWidth="45.0" />
+                  <Label fx:id="MaKH_Label" layoutX="314.0" layoutY="151.0" prefHeight="21.0" prefWidth="55.0" text="Mã KH:" />
+                  <TextField fx:id="MaKH_textField" disable="true" layoutX="383.0" layoutY="146.0" prefHeight="31.0" prefWidth="45.0" />
+                  <Label fx:id="MaPT_Label" layoutX="316.0" layoutY="103.0" prefHeight="21.0" prefWidth="55.0" text="Mã PT:" />
+                  <TextField fx:id="MaPT_textField" disable="true" layoutX="385.0" layoutY="98.0" prefHeight="31.0" prefWidth="45.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="AnchorPane1" prefHeight="190.0" prefWidth="1102.0" SplitPane.resizableWithParent="false">
