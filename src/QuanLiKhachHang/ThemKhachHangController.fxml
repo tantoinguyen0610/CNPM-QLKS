@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.ThemKhachHangController">
    <children>
       <Label fx:id="ThemKHLabel" alignment="CENTER" layoutX="184.0" layoutY="28.0" prefHeight="84.0" prefWidth="578.0" text="Thêm Khách Hàng">
@@ -24,7 +23,7 @@
       <Label fx:id="DiaChiLabel" alignment="CENTER" layoutX="446.0" layoutY="310.0" prefHeight="45.0" prefWidth="127.0" text="Địa Chỉ" />
       <Label fx:id="NgayCheck_inLabel" alignment="CENTER" layoutX="446.0" layoutY="389.0" prefHeight="45.0" prefWidth="127.0" text="Ngày Check-in" />
       <Label fx:id="SoNgayOLabel" alignment="CENTER" layoutX="446.0" layoutY="473.0" prefHeight="45.0" prefWidth="127.0" text="Số Ngày Ở" />
-      <TextField fx:id="MaKHTextField" layoutX="178.0" layoutY="157.0" onAction="#MaKHTextFieldListener" />
+      <TextField fx:id="MaKHTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaKHTextFieldListener" prefHeight="31.0" prefWidth="74.0" />
       <TextField fx:id="TenKhTextField" layoutX="178.0" layoutY="238.0" onAction="#TenKhTextFieldListener" />
       <TextField fx:id="GTTextField" layoutX="178.0" layoutY="310.0" onAction="#GTTextFieldListener" />
       <TextField fx:id="SDTTextField" layoutX="178.0" layoutY="396.0" onAction="#SDTTextFieldListener" />
