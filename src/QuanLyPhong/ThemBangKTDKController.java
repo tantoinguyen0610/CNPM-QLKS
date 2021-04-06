@@ -74,4 +74,6 @@ public class ThemBangKTDKController {
         // do what you have to do
         stage.close();
     }
+    
+    
 }
