@@ -108,6 +108,13 @@ public class CheckInController implements Initializable {
 
     @FXML
     private Label err_SoNgayO;
+
+    @FXML
+    private Label MaPT_Label;
+
+    @FXML
+    private TextField MaPT_textField;
+
     
     @FXML
     private TextField TenKH_textField;
@@ -218,6 +225,7 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		HienComboboxLoaiPhong();
 		
 		ChuyenNguocNamThangNgay();
@@ -227,11 +235,14 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 		DisableTextFields();
 		
 		HienTableCheckIn();		
+		
 		//combobox so nguoi 1 phong
 		SoNguoiCung1Phong.setItems(List_SoNguoi1Phong);
+		
 		SoPhong_Cmb.setItems(List_SoPhong);
 		
 		autoTaoMaKH();
+		autoTaoMaPT();
 		//SoSanhNgay();
 	}
 	
@@ -247,7 +258,6 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 			 {
 				 list_lp.add(rs.getString("TEN_lOAIPHONG"));
 				 Loai_Phong_Cmb.setItems(list_lp);
-				 
 			 }
 			 pst.close();
 			 rs.close();
@@ -398,7 +408,6 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 			err_SDT.setText("Vui lòng điền số hợp lệ");
 			return false;
 		}
-		
 	}
 	
 	private boolean KiemTraSoNgayO() {
@@ -411,7 +420,6 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 			err_SoNgayO.setText("Vui lòng điền số ngày ở hợp lệ");
 			return false;
 		}
-		
 	}
 	
 	private boolean KiemTraMaDP() {
@@ -424,7 +432,6 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 			err_MaDP.setText("Vui lòng điền mã phòng hợp lệ");
 			return false;
 		}
-		
 	}
 	
 	private boolean KiemTraTenKH() {
@@ -437,7 +444,6 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 			err_TenKH.setText("Vui lòng điền tên hợp lệ");
 			return false;
 		}
-		
 	}
 	
 	public void Chon1Trong2LoaiPhieu() {
@@ -554,20 +560,21 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 				Connection conn = DriverManager.getConnection(DB_URL,"root","");
-				String query = "insert into `phieuthuephong`(MaKH,NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO,LOAIPHONG,SOPHONG,SONGUOI1PHONG) "
-								+ "VALUES(?,?,?,?,?,?,?,?)";
+				String query = "insert into `phieuthuephong`(Ma_PT,MaKH,NGAYDAT,MA_DATPHONG,NGAYNHAN,SONGAYO,LOAIPHONG,SOPHONG,SONGUOI1PHONG) "
+								+ "VALUES(?,?,?,?,?,?,?,?,?)";
 				PreparedStatement pst = conn.prepareStatement(query);
-				pst.setString(1, MaKH_textField.getText());
-				pst.setString(2, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
-				pst.setString(3, Ma_DP_textField.getText());
-				pst.setString(4, ((TextField)NgayNhanPhong.getEditor()).getText());
-				pst.setString(5, SoNgayO_textField.getText());
+				pst.setString(1, MaPT_textField.getText());
+				pst.setString(2, MaKH_textField.getText());
+				pst.setString(3, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
+				pst.setString(4, Ma_DP_textField.getText());
+				pst.setString(5, ((TextField)NgayNhanPhong.getEditor()).getText());
+				pst.setString(6, SoNgayO_textField.getText());
 				String value = Loai_Phong_Cmb.getValue().toString();
-				pst.setString(6, value);
+				pst.setString(7, value);
 				String value1 = SoPhong_Cmb.getValue().toString();
-				pst.setString(7, value1);
+				pst.setString(8, value1);
 				String value2 = SoNguoiCung1Phong.getValue().toString();
-				pst.setString(8, value2);
+				pst.setString(9, value2);
 				pst.executeUpdate();
 				
 				String query1 = "INSERT INTO khachhang (TENKH,SDT,CMND) VALUES(?,?,?)";
@@ -586,6 +593,7 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 	}
 		UpdateTable();
 		autoTaoMaKH();
+		autoTaoMaPT();
     }
 	
 	public void XoaCanhBao() {
@@ -626,14 +634,35 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 				makh++;
 				MaKH_textField.setText(String.format("%d",makh));
 			}
-			
-			
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 	}
 	
+	public void autoTaoMaPT() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(Ma_PT) from phieuthuephong");
+			rs.next();
+			rs.getString("Max(Ma_PT)");
+			
+			if(rs.getString("Max(Ma_PT)")== null)
+			{
+				MaPT_textField.setText("1");
+			}
+			else
+			{
+				int mapt = Integer.parseInt(rs.getString("Max(Ma_PT)"));
+				mapt++;
+				MaPT_textField.setText(String.format("%d",mapt));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public boolean SoSanhNgay() {
 		
 		if(Ngay_Dat_Phong.getValue().isAfter(NgayNhanPhong.getValue()) )
