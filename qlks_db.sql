@@ -269,7 +269,8 @@ CREATE TABLE `phong` (
 CREATE TABLE `taikhoan` (
   `MATK` int(10) NOT NULL,
   `USERNAME` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `PSW` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
+  `PSW` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CHUCVU` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
