@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class SuaNV extends Application {
 
 	public void start(Stage stage) throws Exception

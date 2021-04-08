@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class BangDanhGiaNhanVien extends Application {
 
 	public void start(Stage stage) throws Exception
@@ -29,5 +28,4 @@ public class BangDanhGiaNhanVien extends Application {
 	 // Launch the application.
 	 launch(args);
 	 }
-
 }
