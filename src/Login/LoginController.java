@@ -1,5 +1,6 @@
 package Login;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class LoginController implements Initializable {
 
@@ -52,14 +54,32 @@ public class LoginController implements Initializable {
     @FXML
     private Button LoginButton;
     
+    @FXML
+    private Label thongbao;
+    
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		
 	}
+    
 
     @FXML
     void LoginButtonListener(ActionEvent event) throws Exception {
+    	
+    	Window owner = LoginButton.getScene().getWindow();
+
+        System.out.println(UserTextField.getText());
+        System.out.println(PasswordTextField.getText());
+
+         if (UserTextField.getText().isEmpty()) {
+             thongbao.setText("Bạn chưa nhập tài khoản !");
+             return;
+         }
+         else if (PasswordTextField.getText().isEmpty()) {
+             thongbao.setText("Bạn chưa nhập mật khẩu !");
+             return ;
+         }
     	
     	try {
 			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
