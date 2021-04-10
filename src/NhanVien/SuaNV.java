@@ -12,13 +12,13 @@ public class SuaNV extends Application {
 	 {
 	 // Load the FXML file.
 	 Parent parent = FXMLLoader.load(
-	 getClass().getResource("GiaoDien_ThemNV.fxml"));
+	 getClass().getResource("GiaoDien_SuaNV.fxml"));
 	
 	 // Build the scene graph.
 	 Scene scene = new Scene(parent);
 	
 	 // Display our window, using the scene graph.
-	 stage.setTitle("Giao dien them nhan vien");
+	 stage.setTitle("Giao Diện Sửa Nhân Viên");
 	stage.setScene(scene);
 	 stage.show();
 	 }

@@ -9,36 +9,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.SuaNVController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.SuaNVController">
    <children>
-      <Label fx:id="ThemNV_Label" layoutX="316.0" layoutY="18.0" text="BẢNG SỬA NV">
+      <Label fx:id="SuaNV_Label" layoutX="186.0" layoutY="14.0" text="BẢNG SỬA NHÂN VIÊN">
          <font>
             <Font name="Times New Roman" size="34.0" />
          </font>
       </Label>
-      <Label fx:id="MaNV_Label" layoutX="56.0" layoutY="83.0" text="Mã nhân viên:" />
-      <Label fx:id="HoTenNV_Label" layoutX="56.0" layoutY="124.0" text="Họ và tên NV:" />
-      <Label fx:id="ChucVu_Label" layoutX="56.0" layoutY="170.0" text="Chức vụ:" />
-      <Label fx:id="NgayBatDau_Label" layoutX="481.0" layoutY="83.0" text="Ngày bắt đầu làm :" />
-      <Label fx:id="GioiTinh_Label" layoutX="482.0" layoutY="121.0" text="Giới tính:" />
-      <Label fx:id="NgaySinh_Label" layoutX="481.0" layoutY="170.0" text="Ngày sinh:" />
-      <TextField fx:id="MaNV_textField" layoutX="163.0" layoutY="75.0" />
-      <TextField fx:id="TenNV_textField" layoutX="163.0" layoutY="116.0" />
-      <DatePicker fx:id="NgayBatDau_DatePicker" layoutX="623.0" layoutY="75.0" prefHeight="31.0" prefWidth="167.0" />
-      <ComboBox fx:id="GioiTinh_cmbBox" layoutX="623.0" layoutY="116.0" prefHeight="31.0" prefWidth="70.0" />
-      <DatePicker fx:id="NgaySinh_DatePicker" layoutX="623.0" layoutY="165.0" prefHeight="31.0" prefWidth="167.0" />
-      <ComboBox fx:id="ChucVu_cmbBox" layoutX="163.0" layoutY="165.0" prefHeight="31.0" prefWidth="187.0" />
-      <ButtonBar layoutX="314.0" layoutY="319.0" prefHeight="48.0" prefWidth="238.0">
+      <Label fx:id="MaNV_Label" layoutX="182.0" layoutY="83.0" text="Mã nhân viên:" />
+      <Label fx:id="HoTenNV_Label" layoutX="182.0" layoutY="118.0" text="Họ và tên NV:" />
+      <Label fx:id="ChucVu_Label" layoutX="184.0" layoutY="323.0" text="Chức vụ:" />
+      <Label fx:id="NgayBatDau_Label" layoutX="182.0" layoutY="239.0" text="Ngày bắt đầu:" />
+      <Label fx:id="GioiTinh_Label" layoutX="182.0" layoutY="200.0" text="Giới tính:" />
+      <Label fx:id="NgaySinh_Label" layoutX="183.0" layoutY="282.0" text="Ngày sinh:" />
+      <TextField fx:id="MaNV_textField" disable="true" layoutX="289.0" layoutY="75.0" prefHeight="31.0" prefWidth="49.0" />
+      <TextField fx:id="TenNV_textField" layoutX="288.0" layoutY="113.0" prefHeight="31.0" prefWidth="167.0" />
+      <DatePicker fx:id="NgayBatDau_DatePicker" layoutX="288.0" layoutY="234.0" prefHeight="31.0" prefWidth="167.0" />
+      <ComboBox fx:id="GioiTinh_cmbBox" layoutX="289.0" layoutY="195.0" prefHeight="31.0" prefWidth="85.0" />
+      <DatePicker fx:id="NgaySinh_DatePicker" layoutX="288.0" layoutY="277.0" prefHeight="31.0" prefWidth="167.0" />
+      <ComboBox fx:id="ChucVu_cmbBox" layoutX="289.0" layoutY="318.0" prefHeight="31.0" prefWidth="138.0" />
+      <ButtonBar layoutX="233.0" layoutY="561.0" prefHeight="48.0" prefWidth="238.0">
          <buttons>
-            <Button fx:id="Button_Sua" mnemonicParsing="false" prefHeight="46.0" text="Sửa" />
-            <Button fx:id="Button_Thoat" mnemonicParsing="false" prefHeight="51.0" prefWidth="123.0" text="Thoát" />
+            <Button fx:id="Button_Sua" mnemonicParsing="false" onAction="#SuaNV_ActionListener" prefHeight="66.0" text="Sửa" />
+            <Button fx:id="Button_Thoat" mnemonicParsing="false" onAction="#Thoat_ActionListener" prefHeight="57.0" prefWidth="123.0" text="Thoát" />
          </buttons>
       </ButtonBar>
-      <Label layoutX="56.0" layoutY="220.0" text="Ca làm:" />
-      <Label layoutX="56.0" layoutY="264.0" text="Trạng thái:" />
-      <ComboBox fx:id="GioiTinh_cmbBox1" layoutX="149.0" layoutY="259.0" prefHeight="31.0" prefWidth="70.0" />
-      <ComboBox fx:id="GioiTinh_cmbBox2" layoutX="149.0" layoutY="215.0" prefHeight="31.0" prefWidth="70.0" />
-      <Button fx:id="Button_GhiChu" layoutX="481.0" layoutY="215.0" mnemonicParsing="false" text="Ghi chú" />
-      <Button fx:id="Button_NhiemVu" layoutX="607.0" layoutY="215.0" mnemonicParsing="false" text="Nhiệm vụ" />
+      <Label fx:id="CaLam_Label" layoutX="182.0" layoutY="159.0" prefHeight="21.0" prefWidth="78.0" text="Ca làm" />
+      <ComboBox fx:id="CaLam_Cmb" layoutX="289.0" layoutY="154.0" prefHeight="31.0" prefWidth="85.0" />
+      <Label fx:id="SDT_Label" layoutX="184.0" layoutY="360.0" text="SĐT:" />
+      <TextField fx:id="SDT_textField" layoutX="288.0" layoutY="355.0" prefHeight="31.0" prefWidth="167.0" />
+      <Label fx:id="err_TenNV" layoutX="464.0" layoutY="118.0" textFill="RED" />
+      <Label fx:id="err_CaLam" layoutX="464.0" layoutY="159.0" textFill="RED" />
+      <Label fx:id="err_GioiTinh" layoutX="464.0" layoutY="200.0" textFill="RED" />
+      <Label fx:id="err_NgayBatDau" layoutX="468.0" layoutY="239.0" textFill="RED" />
+      <Label fx:id="err_NgaySinh" layoutX="468.0" layoutY="282.0" textFill="RED" />
+      <Label fx:id="err_ChucVu" layoutX="468.0" layoutY="323.0" textFill="RED" />
+      <Label fx:id="err_SDT" layoutX="468.0" layoutY="360.0" textFill="RED" />
+      <ButtonBar layoutX="227.0" layoutY="478.0" prefHeight="48.0" prefWidth="250.0">
+        <buttons>
+          <Button fx:id="Button_NhiemVu" mnemonicParsing="false" prefHeight="41.0" prefWidth="151.0" text="Nhiệm Vụ" />
+            <Button fx:id="Button_DanhGia" mnemonicParsing="false" prefHeight="41.0" prefWidth="65.0" text="Đánh giá" />
+        </buttons>
+      </ButtonBar>
+      <Label fx:id="TT_Label" layoutX="183.0" layoutY="401.0" text="Trạng thái:" />
+      <ComboBox fx:id="TrangThai_cmb" layoutX="289.0" layoutY="396.0" prefHeight="31.0" prefWidth="138.0" />
    </children>
 </AnchorPane>

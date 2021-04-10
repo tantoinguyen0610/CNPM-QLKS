@@ -3,13 +3,12 @@ package NhanVien;
 import javafx.scene.control.Button;
 
 public class TableNhanVien extends Object {
-	String MANV, TENNV, CHUCVU,CA_LAM,TRANGTHAI,NGAYLAMVIEC,GIOVAO,GIORA,SDT;
+	String MANV, TENNV, CHUCVU,CA_LAM,TRANGTHAI,NGAYLAMVIEC,SDT,GIOITINH,NGAYSINH;
 
 	public TableNhanVien(String MANV, String TENNV, 
 						String CHUCVU, String CA_LAM, 
 						String TRANGTHAI, String NGAYLAMVIEC, 
-						String GIOVAO, String GIORA, 
-						String SDT) {
+						String SDT,String GIOITINH,String NGAYSINH) {
 		
 		this.MANV=MANV;
 		this.TENNV=TENNV;
@@ -17,9 +16,25 @@ public class TableNhanVien extends Object {
 		this.CA_LAM=CA_LAM;
 		this.TRANGTHAI=TRANGTHAI;
 		this.NGAYLAMVIEC=NGAYLAMVIEC;
-		this.GIOVAO=GIOVAO;
-		this.GIORA=GIORA;
 		this.SDT=SDT;
+		this.GIOITINH=GIOITINH;
+		this.NGAYSINH=NGAYSINH;
+	}
+
+	public String getGIOITINH() {
+		return GIOITINH;
+	}
+
+	public void setGIOITINH(String GIOITINH) {
+		this.GIOITINH = GIOITINH;
+	}
+
+	public String getNGAYSINH() {
+		return NGAYSINH;
+	}
+
+	public void setNGAYSINH(String NGAYSINH) {
+		this.NGAYSINH = NGAYSINH;
 	}
 
 	public String getMANV() {
@@ -68,22 +83,6 @@ public class TableNhanVien extends Object {
 
 	public void setNGAYLAMVIEC(String NGAYLAMVIEC) {
 		this.NGAYLAMVIEC = NGAYLAMVIEC;
-	}
-
-	public String getGIOVAO() {
-		return GIOVAO;
-	}
-
-	public void setGIOVAO(String GIOVAO) {
-		this.GIOVAO = GIOVAO;
-	}
-
-	public String getGIORA() {
-		return GIORA;
-	}
-
-	public void setGIORA(String GIORA) {
-		this.GIORA = GIORA;
 	}
 
 	public String getSDT() {
