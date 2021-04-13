@@ -1,6 +1,8 @@
 
 
-
+.bgtracuuphong{
+	-fx-background-image:url("bg1.jpg");
+}
 #button1 {
 	-fx-background-color: #3366FF;
 	-fx-text-fill: black;

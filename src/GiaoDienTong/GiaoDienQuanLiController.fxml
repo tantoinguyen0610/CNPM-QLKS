@@ -6,40 +6,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienQuanLiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="1083.0" preserveRatio="true" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienQuanLiController">
    <children>
-      <AnchorPane layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1083.0">
+      <AnchorPane layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="1063.0">
          <children>
-            <Label alignment="CENTER" layoutX="336.0" layoutY="45.0" text="Quản Lí Khách Sạn">
+            <Label alignment="CENTER" layoutX="295.0" layoutY="43.0" text="QUẢN LÝ KHÁCH SẠN" textAlignment="CENTER">
                <font>
-                  <Font size="55.0" />
+                  <Font size="48.0" />
                </font>
             </Label>
-            <ButtonBar layoutX="164.0" layoutY="644.0" prefHeight="126.0" prefWidth="755.0">
-              <buttons>
-                  <Button fx:id="QLPButton" mnemonicParsing="false" onAction="#QLPButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Phòng">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="QLNVButton" mnemonicParsing="false" onAction="#QLNVButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Nhân Viên ">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="QLDVButton" mnemonicParsing="false" onAction="#QLDVButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Dịch Vụ">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="Button_Thoat" mnemonicParsing="false" onAction="#QL_Thoat_ButtonListener" prefHeight="106.0" text="Thoát">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
-              </buttons>
-            </ButtonBar>
          </children>
       </AnchorPane>
+      <ButtonBar layoutX="169.0" layoutY="459.0" prefHeight="126.0" prefWidth="755.0">
+        <buttons>
+            <Button fx:id="QLNVButton" mnemonicParsing="false" onAction="#QLNVButtonListener" prefHeight="67.0" prefWidth="175.0" style="-fx-alignment: F102;" text="Quản Lí Nhân Viên ">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="QLDVButton" mnemonicParsing="false" onAction="#QLDVButtonListener" prefHeight="67.0" prefWidth="175.0" text="Quản Lí Dịch Vụ">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="Button_Thoat" mnemonicParsing="false" onAction="#QL_Thoat_ButtonListener" prefHeight="66.0" text="Thoát">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="QLPButton" mnemonicParsing="false" onAction="#QLPButtonListener" prefHeight="65.0" prefWidth="175.0" text="Quản Lí Phòng">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+        </buttons>
+      </ButtonBar>
    </children>
 </AnchorPane>

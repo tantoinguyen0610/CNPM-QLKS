@@ -14,6 +14,7 @@ public class GiaoDienPhong extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("giaodienTraCuuPhong.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+		//scene.getStylesheets().add(getClass().getResource("QLKho.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Demo giao diện");
 		stage.show();
