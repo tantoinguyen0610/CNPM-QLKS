@@ -13,7 +13,7 @@
       <Label fx:id="lbSonguoichophep" layoutX="25.0" layoutY="95.0" text="Số người cho phép" />
       <Label fx:id="lbSonguoihientai" layoutX="25.0" layoutY="155.0" prefHeight="21.0" prefWidth="126.0" text="Số người hiện tại" />
       <Label fx:id="lbTrangthai" layoutX="25.0" layoutY="223.0" text="Trạng thái" />
-      <Label fx:id="lbPhong" layoutX="25.0" layoutY="36.0" prefHeight="21.0" prefWidth="844.0" text="Phòng Standard: được đặt ở những vị trí  không có view đẹp, thay vào đó là những vị trí không được ưu tiên trong khách sạn." />
+      <Label fx:id="lbPhong" layoutX="25.0" layoutY="36.0" prefHeight="21.0" prefWidth="844.0" text="Phòng Superior (SUP): là một loại phòng với tầm nhìn và không gian thoải mái, phù hợp với nhiều đối tượng khách hàng." />
       <ComboBox fx:id="cbSonguoihientai" layoutX="160.0" layoutY="150.0" onAction="#comboBoxChanged" prefHeight="38.0" prefWidth="67.0" />
       <TextField fx:id="tfSonguoichophep" layoutX="158.0" layoutY="90.0" prefHeight="38.0" prefWidth="47.0" />
       <ComboBox fx:id="cbTrangthai" layoutX="158.0" layoutY="218.0" onAction="#comboBoxChanged1" prefHeight="38.0" prefWidth="161.0" />
