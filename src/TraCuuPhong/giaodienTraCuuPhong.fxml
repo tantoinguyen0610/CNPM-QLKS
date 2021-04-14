@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1095.0" styleClass="bgtracuuphong" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TraCuuPhong.GiaoDienTraCuuPhongController">
+<AnchorPane fx:id="Ap" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="1095.0" styleClass="bgtracuuphong" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TraCuuPhong.GiaoDienTraCuuPhongController">
    <children>
-      <Button id="button1" fx:id="btTatca" layoutX="48.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Tất cả" textAlignment="CENTER" textFill="#3d2961" wrapText="true" />
-      <Button id="button4" fx:id="btDasudung" layoutX="471.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
-      <Button id="button5" fx:id="btDangbaotri" layoutX="610.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
-      <Button id="button2" fx:id="btTrong" layoutX="191.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Trống" textAlignment="CENTER" textFill="#0d0d08" wrapText="true" />
-      <Button id="button6" fx:id="btSaptra" layoutX="751.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Sắp trả" />
-      <Button id="button7" fx:id="btDattruoc" layoutX="896.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
-      <Button id="button3" fx:id="btDathanhtoan" layoutX="331.0" layoutY="148.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã thanh toán" />
-      <Button fx:id="btphong105" layoutX="471.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt5" prefHeight="116.0" prefWidth="209.0" text="Phòng 105 (Duluxe)" />
-      <Button fx:id="btphong106" layoutX="751.0" layoutY="456.0" mnemonicParsing="false" onAction="#bt6" prefHeight="116.0" prefWidth="209.0" text="Phòng 106 (Superior)" />
-      <Button fx:id="btphong102" layoutX="471.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt2" prefHeight="116.0" prefWidth="209.0" text="Phòng 102 (Superior)" />
-      <Button fx:id="btphong103" layoutX="751.0" layoutY="273.0" mnemonicParsing="false" onAction="#bt3" prefHeight="116.0" prefWidth="209.0" text="Phòng 103 (Standard)" />
-      <Button fx:id="btphong101" alignment="TOP_LEFT" layoutX="183.0" layoutY="298.0" mnemonicParsing="false" onAction="#bt1" prefHeight="66.0" prefWidth="209.0" style="-fx-background-radius: 2em; -fx-border-color: blue; -fx-border-radius: 2em;" text="Phòng 101 (Deluxe)" AnchorPane.leftAnchor="183.0">
+      <Button id="button1" fx:id="btTatca" layoutX="47.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Tất cả" textAlignment="CENTER" textFill="#3d2961" wrapText="true" />
+      <Button id="button4" fx:id="btDasudung" layoutX="470.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
+      <Button id="button5" fx:id="btDangbaotri" layoutX="609.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
+      <Button id="button2" fx:id="btTrong" layoutX="190.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Trống" textAlignment="CENTER" textFill="#0d0d08" wrapText="true" />
+      <Button id="button6" fx:id="btSaptra" layoutX="750.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Sắp trả" />
+      <Button id="button7" fx:id="btDattruoc" layoutX="895.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
+      <Button id="button3" fx:id="btDathanhtoan" layoutX="330.0" layoutY="196.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã thanh toán" />
+      <Button fx:id="btphong105" layoutX="474.0" layoutY="489.0" mnemonicParsing="false" onAction="#bt5" prefHeight="66.0" prefWidth="209.0" style="-fx-background-radius: 2em;" text="Phòng 105 (Deluxe)">
          <graphic>
-            <ImageView fitHeight="50.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="97.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@iconroom.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="btphong104" layoutX="191.0" layoutY="457.0" mnemonicParsing="false" onAction="#bt4" prefHeight="116.0" prefWidth="209.0" text="Phòng 104 (Standard)" />
+      <Button fx:id="btphong106" layoutX="749.0" layoutY="489.0" mnemonicParsing="false" onAction="#bt6" prefHeight="66.0" prefWidth="219.0" style="-fx-background-radius: 2em;" text="Phòng 106 (Superior)">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong102" layoutX="469.0" layoutY="320.0" mnemonicParsing="false" onAction="#bt2" prefHeight="66.0" prefWidth="219.0" style="-fx-background-radius: 2em;" text="Phòng 102 (Superior)">
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong103" layoutX="749.0" layoutY="320.0" mnemonicParsing="false" onAction="#bt3" prefHeight="66.0" prefWidth="219.0" style="-fx-background-radius: 2em;" text="             Phòng 103 (Standard)" />
+      <Button fx:id="btphong101" alignment="TOP_LEFT" layoutX="186.0" layoutY="320.0" mnemonicParsing="false" onAction="#bt1" prefHeight="66.0" prefWidth="219.0" style="-fx-background-radius: 2em;" text="Phòng 101 (Deluxe)" textAlignment="CENTER" AnchorPane.leftAnchor="186.0">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong104" layoutX="186.0" layoutY="489.0" mnemonicParsing="false" onAction="#bt4" prefHeight="66.0" prefWidth="219.0" style="-fx-background-radius: 2em;" text="Phòng 104 (Standard)">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="764.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iconroom.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="530.0" layoutY="46.0" text="Label" />
+      <ImageView fitHeight="131.0" fitWidth="91.0" layoutX="485.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hinhnensgu.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="432.0" layoutY="22.0" prefHeight="70.0" prefWidth="219.0" text="SGU HOTEL" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#862196" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
    </children>
 </AnchorPane>

@@ -87,7 +87,7 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
 //    	Scene scene = new Scene(sampleParent);
 //    	stage.setScene(scene);
     	
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongDeluxe.fxml"));
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
@@ -97,7 +97,7 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     
     @FXML
     void bt2(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongSup.fxml"));
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();
@@ -107,7 +107,7 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     
     @FXML
     void bt3(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongStandard.fxml"));
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();
@@ -117,7 +117,7 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     
     @FXML
     void bt4(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongStandard.fxml"));
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();
@@ -127,7 +127,7 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     
     @FXML
     void bt5(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongDeluxe.fxml"));
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();
@@ -137,7 +137,7 @@ public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
     
     @FXML
     void bt6(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhong.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongSup.fxml"));
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();
