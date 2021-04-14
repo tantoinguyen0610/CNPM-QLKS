@@ -1,6 +1,6 @@
-
-
-
+.bgquanlyphong{
+	-fx-background-image:url("bg2.jpg");
+}
 #bt1 {
 	-fx-background-color: #3366FF;
 	-fx-text-fill: black;
@@ -42,8 +42,3 @@
 
 }
 
-#Ap {
-	-fx-background-color: #6699FF ;
-	-fx-text-fill: black;
-
-}
