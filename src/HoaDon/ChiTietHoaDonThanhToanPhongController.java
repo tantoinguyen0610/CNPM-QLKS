@@ -43,9 +43,6 @@ public class ChiTietHoaDonThanhToanPhongController {
     private Label TongTienDichVuLabel;
 
     @FXML
-    private Label TienBoiThuongLabel;
-
-    @FXML
     private Label ThanhToanLabel;
 
     @FXML
@@ -69,14 +66,12 @@ public class ChiTietHoaDonThanhToanPhongController {
     @FXML
     private TextField TongTienDichVuTextField;
 
-    @FXML
-    private TextField TienBoiThuongTextField;
 
     @FXML
     private TextField ThanhToanTextField;
 
     @FXML
-    private Button ĐongHDTTPButton;
+    private Button DongHDTTPButton;
 
     @FXML
     void GiaPhongTextFieldListener(ActionEvent event) {
@@ -103,21 +98,30 @@ public class ChiTietHoaDonThanhToanPhongController {
 
     }
 
-    @FXML
-    void TienBoiThuongTextFieldListener(ActionEvent event) {
-
-    }
 
     @FXML
     void TinhTrangTextFieldListener(ActionEvent event) {
 
     }
+    
+    
 
     @FXML
-    void ĐongHDTTPButtonListener(ActionEvent event) throws IOException {
-    	Stage stage = (Stage) ĐongHDTTPButton.getScene().getWindow();
+    void DongHDTTPButtonListener(ActionEvent event) throws IOException {
+    	Stage stage = (Stage) DongHDTTPButton.getScene().getWindow();
         // do what you have to do
         stage.close();
+    }
+    
+    public void setHDTTP(TableHoaDonTTP tablehoadon) {
+    	TenKhachHangTextField.setText(tablehoadon.getTENKH());
+    	SoPhongTextField.setText(String.valueOf(tablehoadon.getSOPHONG()));
+    	GiaPhongTextField.setText(String.valueOf(tablehoadon.getGIAPHONG()));
+    	SoNgayOTextField.setText(String.valueOf(tablehoadon.getSONGAYO()));
+    	TinhTrangTextField.setText(tablehoadon.getTINHTRANG());
+    	NgayThanhToanTextField.setText(String.valueOf(tablehoadon.getNGAYTHANHTOAN()));
+    	TongTienDichVuTextField.setText(String.valueOf(tablehoadon.getTONGTIENDV()));
+    	ThanhToanTextField.setText(String.valueOf(tablehoadon.getTHANHTOAN()));
     }
 
    

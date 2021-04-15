@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,7 +37,7 @@ public class QuanLiHoaDonController{
     private AnchorPane a;
 
     @FXML
-    private TableView<?> HoaDonThanhToanPhongTableView;
+    private TableView<TableHoaDonTTP> HoaDonThanhToanPhongTableView;
 
     @FXML
     private TableColumn<?, ?> MaHDTTPColumn;
@@ -221,11 +222,15 @@ public class QuanLiHoaDonController{
 
     @FXML
     void XemChiTietHDTTPButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChiTietHoaDonThanhToanPhongController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
+    	Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("ChiTietHoaDonThanhToanPhongController.fxml"));
+    	Parent HienChiTietHDTTP = loader.load();
+    	Scene scene = new Scene(HienChiTietHDTTP);
+    	ChiTietHoaDonThanhToanPhongController controller = loader.getController();
+    	TableHoaDonTTP selected = HoaDonThanhToanPhongTableView.getSelectionModel().getSelectedItem();
+    	controller.setHDTTP(selected);
     	stage.setScene(scene);
-    	stage.show();
     }
 
     @FXML
