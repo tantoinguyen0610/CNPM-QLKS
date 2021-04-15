@@ -38,37 +38,34 @@ public class QuanLiKhachHangController implements Initializable {
     private Label DanhSachKhachHangLabel;
 
     @FXML
-    private TableView<?> DanhSachKHTableView;
+    private TableView<TableKhachHang> DanhSachKHTableView;
 
     @FXML
-    private TableColumn<?, ?> MaKHColumn;
+    private TableColumn<TableKhachHang, String> MaKHColumn;
 
     @FXML
-    private TableColumn<?, ?> TenKHLabel;
+    private TableColumn<TableKhachHang, String> TenKHLabel;
 
     @FXML
-    private TableColumn<?, ?> NgaySinhColumn;
+    private TableColumn<TableKhachHang, String> NgaySinhColumn;
 
     @FXML
-    private TableColumn<?, ?> GTColumn;
+    private TableColumn<TableKhachHang, String> GTColumn;
 
     @FXML
-    private TableColumn<?, ?> ĐiaChiColumn;
+    private TableColumn<TableKhachHang, String> ĐiaChiColumn;
 
     @FXML
-    private TableColumn<?, ?> QuocTichColumn;
+    private TableColumn<TableKhachHang, String> QuocTichColumn;
 
     @FXML
-    private TableColumn<?, ?> SDTColumn;
+    private TableColumn<TableKhachHang, String> SDTColumn;
 
     @FXML
-    private TableColumn<?, ?> CMNDColumn;
+    private TableColumn<TableKhachHang, String> CMNDColumn;
 
     @FXML
-    private TableColumn<?, ?> NgayCheck_inColumn;
-
-    @FXML
-    private TableColumn<?, ?> SoNgayOColumn;
+    private TableColumn<TableKhachHang, String> NgayCheck_inColumn;
 
     @FXML
     private Button ThemButton;
@@ -96,15 +93,13 @@ public class QuanLiKhachHangController implements Initializable {
     	try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			ResultSet rs = conn.createStatement().executeQuery("select MA_PT,TENKH,CMND,SDT,SONGUOI1PHONG,LOAIPHONG,SOPHONG,NGAYDAT, NGAYNHAN, SONGAYO, MA_DATPHONG "
-					+ "from phieuthuephong, khachhang "
-					+ "where khachhang.MAKH=phieuthuephong.MA_PT");
+			ResultSet rs = conn.createStatement().executeQuery("select * from khachhang ");
 			
 				while (rs.next()) {	
 					listkh.add(new TableKhachHang(rs.getString("MAKH"),rs.getString("TENKH"),
 							rs.getString("NGAYSINH"),rs.getString("GIOITINH"),rs.getString("DIACHI"),
 							rs.getString("QUOCTICH"), 
-							rs.getString("SDT"),rs.getString("CMND"),rs.getString("NGAYCHECK_IN"),rs.getString("SONGAYO")));
+							rs.getString("SDT"),rs.getString("CMND"),rs.getString("NGAYCHECK_IN")));
 				}
 			}
 		 catch(Exception e) {
@@ -119,8 +114,13 @@ public class QuanLiKhachHangController implements Initializable {
 		 SDTColumn.setCellValueFactory(new PropertyValueFactory<>("SDT"));
 		 CMNDColumn.setCellValueFactory(new PropertyValueFactory<>("CMND"));
 		 NgayCheck_inColumn.setCellValueFactory(new PropertyValueFactory<>("NGAYCHECK_IN"));
-		 SoNgayOColumn.setCellValueFactory(new PropertyValueFactory<>("SONGAYO"));
+		 DanhSachKHTableView.setItems(listkh);
 		 }
+    
+    public void UpdateTable() {
+		 listkh.clear();
+		 HienTableKhachHang();
+	}
     
     @FXML
     void DanhGiaButtonListener(ActionEvent event) throws IOException {

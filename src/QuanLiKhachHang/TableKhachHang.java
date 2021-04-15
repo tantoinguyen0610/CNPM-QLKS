@@ -4,12 +4,12 @@ import javafx.scene.control.Button;
 
 
 	public class TableKhachHang extends Object {
-		String MAKH,TENKH,NGAYSINH,GIOITINH,DIACHI,QUOCTICH,SDT,CMND,NGAYCHECK_IN,SONGAYO;
+		String MAKH,TENKH,NGAYSINH,GIOITINH,DIACHI,QUOCTICH,SDT,CMND,NGAYCHECK_IN;
 			
 		public TableKhachHang(String MAKH, String TENKH, 
 				String NGAYSINH, String GIOITINH, 
 				String DIACHI, String QUOCTICH, 
-				String SDT,String CMND,String NGAYCHECK_IN,String SONGAYO) {
+				String SDT,String CMND,String NGAYCHECK_IN) {
 			this.MAKH=MAKH;
 			this.TENKH=TENKH;
 			this.NGAYSINH=NGAYSINH;
@@ -19,15 +19,14 @@ import javafx.scene.control.Button;
 			this.SDT=SDT;
 			this.CMND=CMND;
 			this.NGAYCHECK_IN=NGAYCHECK_IN;
-			this.SONGAYO=SONGAYO;
 		}
 
 		public String getMAKH() {
 			return MAKH;
 		}
 
-		public void setMAKH(String mAKH) {
-			MAKH = mAKH;
+		public void setMAKH(String MAKH) {
+			MAKH = MAKH;
 		}
 
 		public String getTENKH() {
@@ -42,40 +41,40 @@ import javafx.scene.control.Button;
 			return DIACHI;
 		}
 
-		public void setDIACHI(String dIACHI) {
-			DIACHI = dIACHI;
+		public void setDIACHI(String DIACHI) {
+			DIACHI = DIACHI;
 		}
 
 		public String getSDT() {
 			return SDT;
 		}
 
-		public void setSDT(String sDT) {
-			SDT = sDT;
+		public void setSDT(String SDT) {
+			SDT = SDT;
 		}
 
 		public String getQUOCTICH() {
 			return QUOCTICH;
 		}
 
-		public void setQUOCTICH(String qUOCTICH) {
-			QUOCTICH = qUOCTICH;
+		public void setQUOCTICH(String QUOCTICH) {
+			QUOCTICH = QUOCTICH;
 		}
 
 		public String getCMND() {
 			return CMND;
 		}
 
-		public void setCMND(String cMND) {
-			CMND = cMND;
+		public void setCMND(String CMND) {
+			CMND = CMND;
 		}
 
 		public String getGIOITINH() {
 			return GIOITINH;
 		}
 
-		public void setGIOITINH(String gIOITINH) {
-			GIOITINH = gIOITINH;
+		public void setGIOITINH(String GIOITINH) {
+			GIOITINH = GIOITINH;
 		}
 
 		public String getNGAYSINH() {
@@ -94,13 +93,7 @@ import javafx.scene.control.Button;
 			NGAYCHECK_IN = nGAYCHECK_IN;
 		}
 
-		public String getSONGAYO() {
-			return SONGAYO;
-		}
 
-		public void setSONGAYO(String sONGAYO) {
-			SONGAYO = sONGAYO;
-		}
 		
 		
 }
