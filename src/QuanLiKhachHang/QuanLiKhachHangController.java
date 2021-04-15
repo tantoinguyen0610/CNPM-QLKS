@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-public class QuanLiKhachHangController {
+public class QuanLiKhachHangController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -73,6 +74,11 @@ public class QuanLiKhachHangController {
     @FXML
     private Button DanhGiaButton;
 
+    public void initialize(URL arg0, ResourceBundle arg1) {
+		
+    	
+	}
+    
     @FXML
     void DanhGiaButtonListener(ActionEvent event) throws IOException {
     	Parent root = FXMLLoader.load(getClass().getResource("BangDanhGiaKhachHangController.fxml"));
