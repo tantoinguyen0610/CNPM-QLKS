@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.CheckOutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="1335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.CheckOutController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="161.0" layoutX="54.0" layoutY="190.0" opacity="0.56" stroke="BLACK" strokeType="INSIDE" width="841.0" />
-      <ScrollPane layoutX="94.0" layoutY="61.0" prefHeight="116.0" prefWidth="787.0">
-         <content>
-            <TableView fx:id="Table_CheckOut" prefHeight="104.0" prefWidth="787.0">
-              <columns>
-                <TableColumn fx:id="Tbl_Col_MaKH" text="Mã KH" />
-                <TableColumn fx:id="Tbl_Col_TenKH" prefWidth="114.0" text="Tên KH" />
-                  <TableColumn fx:id="Tbl_Col_NgayDen" prefWidth="159.0" text="Ngày đến" />
-                  <TableColumn fx:id="Tbl_Col_MaPhong" prefWidth="139.0" text="Mã phòng" />
-                  <TableColumn fx:id="Tbl_Col_GiaPhongNgay" prefWidth="153.0" text="Giá phòng/ ngày" />
-                  <TableColumn fx:id="Tbl_Col_TrangThai" prefWidth="141.0" text="Trạng thái" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
-      <Label fx:id="MaKH_Label" layoutX="82.0" layoutY="203.0" text="Mã KH:" />
-      <Label fx:id="TenKH_Label" layoutX="81.0" layoutY="230.0" text="Tên KH:" />
-      <Label fx:id="SoNgayO_Label" layoutX="81.0" layoutY="257.0" text="Số ngày ở:" />
-      <Label fx:id="MaPhong_Label" layoutX="80.0" layoutY="285.0" text="Mã phòng:" />
-      <Label fx:id="TienBoiThuong_Label" layoutX="77.0" layoutY="313.0" text="Tổng tiền bồi thường:" />
-      <Label fx:id="NgayDen_Label" layoutX="547.0" layoutY="203.0" text="Ngày đến:" />
-      <Label fx:id="NgayHienTai_Label" layoutX="547.0" layoutY="230.0" text="Ngày hiện tại:" />
-      <Label fx:id="Gia_Label" layoutX="547.0" layoutY="257.0" text="Giá:" />
-      <Label fx:id="TongTienDV_Label" layoutX="548.0" layoutY="285.0" text="Tổng tiền dịch vụ:" />
-      <Label fx:id="TongCong_Label" layoutX="549.0" layoutY="313.0" text="Tổng cộng:" />
-      <TextField fx:id="Ma_KH_textField" disable="true" layoutX="231.0" layoutY="199.0" />
-      <TextField fx:id="TenKH_textField" disable="true" layoutX="231.0" layoutY="226.0" />
-      <TextField fx:id="SoNgayO_textField" disable="true" layoutX="231.0" layoutY="253.0" />
-      <TextField fx:id="Ma_Phong_textField" disable="true" layoutX="231.0" layoutY="281.0" />
-      <TextField fx:id="TienBoiThuong_textField" disable="true" layoutX="232.0" layoutY="309.0" />
-      <TextField fx:id="Gia_textField" disable="true" layoutX="678.0" layoutY="254.0" />
-      <TextField fx:id="Tien_DV_textField" disable="true" layoutX="678.0" layoutY="283.0" />
-      <TextField fx:id="TongCong_textField" disable="true" layoutX="678.0" layoutY="311.0" />
-      <Button fx:id="Button_TraPhong" layoutX="408.0" layoutY="388.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="134.0" text="Trả phòng">
+      <Button fx:id="Button_TraPhong" layoutX="601.0" layoutY="375.0" mnemonicParsing="false" onAction="#TraPhong_ActionListener" prefHeight="44.0" prefWidth="134.0" text="Trả phòng">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Label fx:id="CO_Label" layoutX="400.0" layoutY="24.0" text="CHECK OUT">
+      <Label fx:id="CO_Label" layoutX="573.0" layoutY="14.0" text="CHECK OUT">
          <font>
-            <Font name="Times New Roman" size="26.0" />
+            <Font name="Times New Roman" size="34.0" />
          </font>
       </Label>
-      <DatePicker fx:id="NgayDen_textField" disable="true" layoutX="678.0" layoutY="196.0" prefHeight="26.0" prefWidth="150.0" />
-      <DatePicker fx:id="Ngay_HienTai_textField" disable="true" layoutX="679.0" layoutY="223.0" prefHeight="26.0" prefWidth="149.0" />
+      <Label layoutX="24.0" layoutY="72.0" text="Bảng phiếu thuê">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="14.0" layoutY="115.0" prefHeight="228.0" prefWidth="1291.0">
+         <content>
+            <TableView fx:id="Table_Check_In" prefHeight="226.0" prefWidth="1600.0">
+               <columns>
+                  <TableColumn fx:id="Tbl_Col_STT" prefWidth="72.00003051757812" text="Mã PT" />
+                  <TableColumn fx:id="Tbl_Col_KH" prefWidth="164.0" text="Tên KH" />
+                  <TableColumn fx:id="Tbl_Col_CMND" maxWidth="239.0" minWidth="-1.0" prefWidth="155.0" text="CMND" />
+                  <TableColumn fx:id="Tbl_Col_SDT" prefWidth="168.0" text="SDT" />
+                  <TableColumn fx:id="Tbl_Col_SoNguoi1Phong" prefWidth="231.0" text="Số người 1 phòng" />
+                  <TableColumn fx:id="Tbl_Col_LoaiPhong" prefWidth="185.0" text="Loại phòng" />
+                  <TableColumn fx:id="Tbl_Col_SoPhong" prefWidth="153.0" text="Số phòng" />
+                  <TableColumn fx:id="Tbl_Col_NgayDat" prefWidth="154.0" text="Ngày đặt phòng" />
+                  <TableColumn fx:id="Tbl_Col_NgayNhan" prefWidth="156.0" text="Ngày nhận phòng" />
+                  <TableColumn fx:id="Tbl_Col_SoNgayO" prefWidth="84.0" text="Số ngày ở" />
+                  <TableColumn fx:id="Tbl_Col_MaDP" prefWidth="75.0" text="Ma_DP" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

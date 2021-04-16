@@ -4,7 +4,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -33,6 +35,12 @@ public class DatCocController implements Initializable {
 
     @FXML
     private Label NgayDC_Label;
+    
+    @FXML
+    private Label MaDC_Label;
+
+    @FXML
+    private TextField MaDC_textField;
 
     @FXML
     private Button Button_XacNhan;
@@ -53,7 +61,7 @@ public class DatCocController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		ChuyenNguocNamThangNgay();
-		
+		autoTaoMaDatCoc();
 	}
     
     public void ChuyenNguocNamThangNgay()
@@ -100,6 +108,33 @@ public class DatCocController implements Initializable {
     	{
     	JOptionPane.showMessageDialog(null, e);
     	}
+    	autoTaoMaDatCoc();
 }
+    
+    public void autoTaoMaDatCoc() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(MA_PT) from phieuthuephong");
+			rs.next();
+			rs.getString("Max(MA_PT)");
+			
+			if(rs.getString("Max(MA_PT)")== null)
+			{
+				MaDC_textField.setText("1");
+			}
+			else
+			{
+				int madc = Integer.parseInt(rs.getString("Max(MA_PT)"));
+				madc++;
+				MaDC_textField.setText(String.format("%d",madc));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+    
 }
 

@@ -244,7 +244,11 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 		autoTaoMaKH();
 		autoTaoMaPT();
 		//SoSanhNgay();
+		
 	}
+	
+	
+	
 	
 	public void HienComboboxLoaiPhong() {
 		 
@@ -422,17 +426,6 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 		}
 	}
 	
-	private boolean KiemTraMaDP() {
-		Pattern p = Pattern.compile("[0-9]+");
-		Matcher m = p.matcher(Ma_DP_textField.getText());
-		if(m.find() && m.group().equals(Ma_DP_textField.getText())){
-			return true;
-		}
-		else {
-			err_MaDP.setText("Vui lòng điền mã phòng hợp lệ");
-			return false;
-		}
-	}
 	
 	private boolean KiemTraTenKH() {
 		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
@@ -519,7 +512,7 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
     	CMND_textField.setDisable(false);
     	SDT_textField.setDisable(false);
     	SoNgayO_textField.setDisable(false);
-    	Ngay_Dat_Phong.setDisable(false);
+    	Ngay_Dat_Phong.setDisable(true);
     	NgayNhanPhong.setDisable(false);
     	SoNguoiCung1Phong.setDisable(false);
     	Loai_Phong_Cmb.setDisable(false);
@@ -546,6 +539,7 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
     	if(Ma_DP_textField.getText().isEmpty())
     	{
     		err_MaDP.setText("Vui lòng nhập phiếu đặt phòng");
+    		err_NgayDP.setText("Vui lòng nhập ngày đặt phòng");
     	}
     }
 	
@@ -553,9 +547,9 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
     void DatPhong_ActionListener(ActionEvent event) {
 	if ( KiemTraCMND() & KiemTraSDT() 
 			& KiemTraTenKH() & KiemTraSoNgayO() 
-			&  KiemTraCMND() & KiemTraNgayDat() 
+			&  KiemTraCMND() 
 			& KiemTraNgayNhan() & KiemTraSoPhong() 
-			& KiemTraLoaiPhong() & KiemTraSoNguoi1Phong()&SoSanhNgay())	{
+			& KiemTraLoaiPhong() & KiemTraSoNguoi1Phong())	{
 		try {
 				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -565,6 +559,7 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 				PreparedStatement pst = conn.prepareStatement(query);
 				pst.setString(1, MaPT_textField.getText());
 				pst.setString(2, MaKH_textField.getText());
+				//pst.setNull(4, java.sql.Types.DATE);
 				pst.setString(3, ((TextField)Ngay_Dat_Phong.getEditor()).getText());
 				pst.setString(4, Ma_DP_textField.getText());
 				pst.setString(5, ((TextField)NgayNhanPhong.getEditor()).getText());
@@ -577,11 +572,12 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 				pst.setString(9, value2);
 				pst.executeUpdate();
 				
-				String query1 = "INSERT INTO khachhang (TENKH,SDT,CMND) VALUES(?,?,?)";
+				String query1 = "INSERT INTO khachhang (MAKH,TENKH,SDT,CMND) VALUES(?,?,?,?)";
 				PreparedStatement pst1 = conn.prepareStatement(query1);
-				pst1.setString(1, TenKH_textField.getText());
-				pst1.setString(2, SDT_textField.getText());
-				pst1.setString(3, CMND_textField.getText());
+				pst1.setString(1, MaKH_textField.getText());
+				pst1.setString(2, TenKH_textField.getText());
+				pst1.setString(3, SDT_textField.getText());
+				pst1.setString(4, CMND_textField.getText());
 				pst1.executeUpdate();
 				
 				JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
@@ -665,7 +661,7 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 	}
 	public boolean SoSanhNgay() {
 		
-		if(Ngay_Dat_Phong.getValue().isAfter(NgayNhanPhong.getValue()) )
+		if(Ngay_Dat_Phong.getValue().isAfter(NgayNhanPhong.getValue()) && Ngay_Dat_Phong.getValue()!=null )
 		{	
 			JOptionPane.showMessageDialog(null, "Ngày Đặt Phải Nhỏ Hơn Hoặc Bằng Ngày Nhận! ");
 			return false;

@@ -36,7 +36,7 @@
                   <TextField fx:id="CMND_textField" layoutX="697.0" layoutY="130.0" />
                   <TextField fx:id="SDT_textField" layoutX="697.0" layoutY="162.0" />
                   <TextField fx:id="SoNgayO_textField" layoutX="695.0" layoutY="434.0" prefHeight="26.0" prefWidth="38.0" />
-                  <DatePicker fx:id="Ngay_Dat_Phong" layoutX="696.0" layoutY="357.0" prefHeight="26.0" prefWidth="149.0" />
+                  <DatePicker fx:id="Ngay_Dat_Phong" editable="false" layoutX="696.0" layoutY="357.0" prefHeight="26.0" prefWidth="149.0" />
                   <DatePicker fx:id="NgayNhanPhong" layoutX="696.0" layoutY="395.0" prefHeight="26.0" prefWidth="149.0" />
                   <ChoiceBox fx:id="SoNguoiCung1Phong" layoutX="701.0" layoutY="201.0" prefHeight="26.0" prefWidth="45.0" />
                   <TextField fx:id="Ma_DP_textField" layoutX="696.0" layoutY="242.0" prefHeight="31.0" prefWidth="149.0" />
