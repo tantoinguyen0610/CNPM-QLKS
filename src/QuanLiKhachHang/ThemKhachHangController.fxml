@@ -22,7 +22,6 @@
       <Label fx:id="NgaySinhLabel" alignment="CENTER" layoutX="446.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Ngày Sinh" />
       <Label fx:id="DiaChiLabel" alignment="CENTER" layoutX="446.0" layoutY="310.0" prefHeight="45.0" prefWidth="127.0" text="Địa Chỉ" />
       <Label fx:id="NgayCheck_inLabel" alignment="CENTER" layoutX="446.0" layoutY="389.0" prefHeight="45.0" prefWidth="127.0" text="Ngày Check-in" />
-      <Label fx:id="SoNgayOLabel" alignment="CENTER" layoutX="446.0" layoutY="473.0" prefHeight="45.0" prefWidth="127.0" text="Số Ngày Ở" />
       <TextField fx:id="MaKHTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaKHTextFieldListener" prefHeight="31.0" prefWidth="74.0" />
       <TextField fx:id="TenKhTextField" layoutX="178.0" layoutY="238.0" onAction="#TenKhTextFieldListener" />
       <TextField fx:id="GTTextField" layoutX="178.0" layoutY="310.0" onAction="#GTTextFieldListener" />
@@ -32,7 +31,6 @@
       <TextField fx:id="NgaySinhTextField" layoutX="615.0" layoutY="238.0" onAction="#NgaySinhTextFieldListener" />
       <TextField fx:id="DiaChiTextField" layoutX="615.0" layoutY="317.0" onAction="#DiaChiTextFieldListener" />
       <TextField fx:id="NgayCheck_inTextField" layoutX="615.0" layoutY="403.0" onAction="#NgayCheck_inTextFieldListener" />
-      <TextField fx:id="SoNgayOTextField" layoutX="615.0" layoutY="473.0" onAction="#SoNgayOTextFieldListener" />
       <Button fx:id="LuuButton" layoutX="249.0" layoutY="543.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
       <Button fx:id="HuyButton" layoutX="515.0" layoutY="543.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
    </children>

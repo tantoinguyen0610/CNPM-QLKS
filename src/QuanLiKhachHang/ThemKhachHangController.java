@@ -58,8 +58,7 @@ public class ThemKhachHangController implements Initializable {
     @FXML
     private Label NgayCheck_inLabel;
 
-    @FXML
-    private Label SoNgayOLabel;
+    
 
     @FXML
     private TextField MaKHTextField;
@@ -87,9 +86,6 @@ public class ThemKhachHangController implements Initializable {
 
     @FXML
     private TextField NgayCheck_inTextField;
-
-    @FXML
-    private TextField SoNgayOTextField;
 
     @FXML
     private Button LuuButton;
@@ -144,7 +140,7 @@ public class ThemKhachHangController implements Initializable {
 			pst.setString(7, GTTextField.getText());
 			pst.setString(8, NgaySinhTextField.getText());
 			pst.setString(9,  NgayCheck_inTextField.getText());
-			pst.setString(10, SoNgayOTextField.getText());
+	
 			
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
@@ -213,10 +209,6 @@ public class ThemKhachHangController implements Initializable {
 
     }
 
-    @FXML
-    void SoNgayOTextFieldListener(ActionEvent event) {
-
-    }
 
     @FXML
     void TenKhTextFieldListener(ActionEvent event) {
