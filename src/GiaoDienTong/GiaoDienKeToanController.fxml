@@ -2,31 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="803.0" prefWidth="1025.0" stylesheets="@colourgiaodien.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienKeToanController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1025.0" stylesheets="@KeToan.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienKeToanController">
    <children>
-      <AnchorPane id="Ap" fx:id="Ap" layoutX="-2.0" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="811.0" prefWidth="1025.0">
+      <AnchorPane id="Ap" fx:id="Ap" layoutX="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="836.0" prefWidth="1036.0" styleClass="bgketoan">
          <children>
-            <Label alignment="CENTER" layoutX="305.0" layoutY="42.0" text="Quản Lí Khách Sạn">
+            <Label alignment="CENTER" layoutX="266.0" layoutY="51.0" text="QUẢN LÝ KHÁCH SẠN" textFill="#99b99c">
                <font>
-                  <Font size="55.0" />
+                  <Font name="System Bold" size="48.0" />
                </font>
             </Label>
-            <Button fx:id="ThongKeButton" layoutX="164.0" layoutY="621.0" mnemonicParsing="false" onAction="#ThongKeButtonListener" prefHeight="108.0" prefWidth="175.0" text="Thống Kê">
+            <Button fx:id="ThongKeButton" layoutX="160.0" layoutY="688.0" mnemonicParsing="false" onAction="#ThongKeButtonListener" prefHeight="70.0" prefWidth="175.0" style="-fx-background-radius: 2em; -fx-background-color: 00B2BF;" text="THỐNG KÊ">
                <font>
                   <Font size="17.0" />
                </font></Button>
-            <Button fx:id="QLHDButton" layoutX="443.0" layoutY="621.0" mnemonicParsing="false" onAction="#QLHDButtonListener" prefHeight="108.0" prefWidth="175.0" text="Quản Lí Hóa Đơn">
+            <Button fx:id="QLHDButton" layoutX="439.0" layoutY="688.0" mnemonicParsing="false" onAction="#QLHDButtonListener" prefHeight="70.0" prefWidth="175.0" style="-fx-background-radius: 2em; -fx-background-color: CCCCCC;" text="QUẢN LÍ HÓA ĐƠN">
                <font>
                   <Font size="17.0" />
                </font></Button>
-            <Button fx:id="Button_Thoat_QLKS" layoutX="723.0" layoutY="621.0" mnemonicParsing="false" onAction="#Thoat_ActionListener" prefHeight="108.0" prefWidth="175.0" text="Thoát">
+            <Button fx:id="Button_Thoat_QLKS" layoutX="724.0" layoutY="688.0" mnemonicParsing="false" onAction="#Thoat_ActionListener" prefHeight="70.0" prefWidth="175.0" style="-fx-background-radius: 2em; -fx-background-color: CCCCCC;" text="THOÁT">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
+            <ImageView fitHeight="226.0" fitWidth="161.0" layoutX="426.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hinhnensgu.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

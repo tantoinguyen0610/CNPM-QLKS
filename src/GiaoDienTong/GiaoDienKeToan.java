@@ -19,6 +19,7 @@ public class GiaoDienKeToan extends Application {
 	
 	 // Display our window, using the scene graph.
 	 stage.setTitle("Giao dien Check-in");
+	 scene.getStylesheets().add(getClass().getResource("KeToan.css").toExternalForm());
 	stage.setScene(scene);
 	 stage.show();
 	 }
