@@ -91,25 +91,25 @@ public class QuanLiDichVuController implements Initializable {
     private ScrollPane BScrollPane;
 
     @FXML
-    private TableView<?> DichVuGiaiTriTableView;
+    private TableView<TableDichVuGiaiTri> DichVuGiaiTriTableView;
 
     @FXML
-    private TableColumn<?, ?> MaDVGTColumn;
+    private TableColumn<TableDichVuGiaiTri, String> MaDVGTColumn;
 
     @FXML
-    private TableColumn<?, ?> TenDVGTColumn;
+    private TableColumn<TableDichVuGiaiTri, String> TenDVGTColumn;
 
     @FXML
-    private TableColumn<?, ?> LoaiDVGTColumn;
+    private TableColumn<TableDichVuGiaiTri, String> LoaiDVGTColumn;
 
     @FXML
-    private TableColumn<?, ?> KhungGioGTColumn;
+    private TableColumn<TableDichVuGiaiTri, String> KhungGioGTColumn;
 
     @FXML
-    private TableColumn<?, ?> TinhTrangColumn;
+    private TableColumn<TableDichVuGiaiTri, String> TinhTrangColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDVGTColumn;
+    private TableColumn<TableDichVuGiaiTri, String> GiaDVGTColumn;
 
     @FXML
     private Button ThemDVGTButton;
@@ -130,28 +130,28 @@ public class QuanLiDichVuController implements Initializable {
     private ScrollPane CScrollPane;
 
     @FXML
-    private TableView<?> DichVuThuGianTableView;
+    private TableView<TableDichVuThuGian> DichVuThuGianTableView;
 
     @FXML
-    private TableColumn<?, ?> MaDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> MaDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> TenDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> TenDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> LoaiDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> LoaiDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> SoLuongNguoiDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> SoLuongNguoiDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> KhungGioDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> KhungGioDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> TinhTrangDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> TinhTrangDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDVTGColumn;
+    private TableColumn<TableDichVuThuGian, String> GiaDVTGColumn;
 
     @FXML
     private Button ThemDVTGButton;
@@ -172,25 +172,25 @@ public class QuanLiDichVuController implements Initializable {
     private ScrollPane DScrollPane;
 
     @FXML
-    private TableView<?> DIchVuPhucVuTableView;
+    private TableView<TableDichVuPhucVu> DIchVuPhucVuTableView;
 
     @FXML
-    private TableColumn<?, ?> MADVPVColumn;
+    private TableColumn<TableDichVuPhucVu, String> MADVPVColumn;
 
     @FXML
-    private TableColumn<?, ?> TenDVPVColumn;
+    private TableColumn<TableDichVuPhucVu, String> TenDVPVColumn;
 
     @FXML
-    private TableColumn<?, ?> SoLuongDVPVColumn;
+    private TableColumn<TableDichVuPhucVu, String> SoLuongDVPVColumn;
 
     @FXML
-    private TableColumn<?, ?> LoaiDVPVColumn;
+    private TableColumn<TableDichVuPhucVu, String> LoaiDVPVColumn;
 
     @FXML
-    private TableColumn<?, ?> TinhTrangDVPVColumn;
+    private TableColumn<TableDichVuPhucVu, String> TinhTrangDVPVColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDVPVColumn;
+    private TableColumn<TableDichVuPhucVu, String> GiaDVPVColumn;
 
     @FXML
     private Button ThemDVPVButton;
@@ -204,9 +204,15 @@ public class QuanLiDichVuController implements Initializable {
   
     
     ObservableList<TableDichVuAnUong> listdvanuong = FXCollections.observableArrayList();
+    ObservableList<TableDichVuGiaiTri> listdvgt = FXCollections.observableArrayList();
+    ObservableList<TableDichVuThuGian> listdvtg = FXCollections.observableArrayList();
+    ObservableList<TableDichVuPhucVu> listdvpv = FXCollections.observableArrayList();
     
     public void initialize(URL arg0, ResourceBundle arg1) {
     	HienTableDichVuAnUong();
+    	HienTableDichVuGiaiTri();
+    	HienTableDichVuThuGian();
+    	HienTableDichVuPhucVu();
     	
 	}
 
@@ -239,12 +245,95 @@ public class QuanLiDichVuController implements Initializable {
 		 }
 
 	
+	public void HienTableDichVuGiaiTri() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MA_DV,TENDV,LOAIDV,KHUNGGIO,TINHTRANG,GIA from dv "
+					+ "where dv.LOAIDV = 'Giải Trí' ");
+			
+				while (rs.next()) {	
+					listdvgt.add(new TableDichVuGiaiTri(rs.getString("MA_DV"),rs.getString("TENDV"),
+							rs.getString("LOAIDV"),rs.getString("KHUNGGIO"),rs.getString("TRANGTHAI"),
+							rs.getString("GIA")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+    			MaDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
+    			TenDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+    			LoaiDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
+    			KhungGioGTColumn.setCellValueFactory(new PropertyValueFactory<>("KHUNGGIO"));
+    			TinhTrangColumn.setCellValueFactory(new PropertyValueFactory<>("TRANGTHAI"));
+    			GiaDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+    			DichVuGiaiTriTableView.setItems(listdvgt);
+    			
+		 }
 	
+	public void HienTableDichVuThuGian() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MA_DV,TENDV,LOAIDV,SOLUONGNGUOI,KHUNGGIO,TINHTRANG,GIA from dv "
+					+ "where dv.LOAIDV = 'Thư Giản' ");
+			
+				while (rs.next()) {	
+					listdvtg.add(new TableDichVuThuGian(rs.getString("MA_DV"),rs.getString("TENDV"),
+							rs.getString("LOAIDV"),rs.getString("SOLUONGNGUOI"),rs.getString("KHUNGGIO"),rs.getString("TRANGTHAI"),
+							rs.getString("GIA")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+    			MaDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
+    			TenDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+    			LoaiDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
+    			SoLuongNguoiDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONGNGUOI"));
+    			KhungGioDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("KHUNGGIO"));
+    			TinhTrangDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("TRANGTHAI"));
+    			GiaDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+    			DichVuThuGianTableView.setItems(listdvtg);
+    			
+		 }
+	
+	public void HienTableDichVuPhucVu() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MA_DV,TENDV,SOLUONG,LOAIDV,TINHTRANG,GIA from dv "
+					+ "where dv.LOAIDV = 'Phục Vụ' ");
+			
+				while (rs.next()) {	
+					listdvpv .add(new TableDichVuPhucVu(rs.getString("MA_DV"),rs.getString("TENDV"),
+							rs.getString("LOAIDV"),rs.getString("SOLUONGNGUOI"),rs.getString("TRANGTHAI"),
+							rs.getString("GIA")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+    			MADVPVColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
+    			TenDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+    			SoLuongDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
+    			LoaiDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONGNGUOI"));
+    			TinhTrangDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("TRANGTHAI"));
+    			GiaDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+    			DIchVuPhucVuTableView.setItems(listdvpv);
+    			
+		 }
 	
     
     public void UpdateTable() {
 		 listdvanuong.clear();
+		 listdvgt.clear();
+		 listdvtg.clear();
+		 listdvpv.clear();
 		 HienTableDichVuAnUong();
+		 HienTableDichVuGiaiTri();
+		 HienTableDichVuThuGian();
+		 HienTableDichVuPhucVu();
 	}
     
     @FXML
