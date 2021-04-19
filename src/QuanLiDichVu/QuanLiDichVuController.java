@@ -100,13 +100,16 @@ public class QuanLiDichVuController implements Initializable {
     private TableColumn<?, ?> TenDVGTColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDVGTColumn;
+    private TableColumn<?, ?> LoaiDVGTColumn;
 
     @FXML
     private TableColumn<?, ?> KhungGioGTColumn;
 
     @FXML
     private TableColumn<?, ?> TinhTrangColumn;
+
+    @FXML
+    private TableColumn<?, ?> GiaDVGTColumn;
 
     @FXML
     private Button ThemDVGTButton;
@@ -136,7 +139,7 @@ public class QuanLiDichVuController implements Initializable {
     private TableColumn<?, ?> TenDVTGColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDCTGColumn;
+    private TableColumn<?, ?> LoaiDVTGColumn;
 
     @FXML
     private TableColumn<?, ?> SoLuongNguoiDVTGColumn;
@@ -146,6 +149,9 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> TinhTrangDVTGColumn;
+
+    @FXML
+    private TableColumn<?, ?> GiaDVTGColumn;
 
     @FXML
     private Button ThemDVTGButton;
@@ -178,10 +184,13 @@ public class QuanLiDichVuController implements Initializable {
     private TableColumn<?, ?> SoLuongDVPVColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDVPVCloumn;
+    private TableColumn<?, ?> LoaiDVPVColumn;
 
     @FXML
     private TableColumn<?, ?> TinhTrangDVPVColumn;
+
+    @FXML
+    private TableColumn<?, ?> GiaDVPVColumn;
 
     @FXML
     private Button ThemDVPVButton;
@@ -191,6 +200,8 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private Button XoaDVPVButton;
+
+  
     
     ObservableList<TableDichVuAnUong> listdvanuong = FXCollections.observableArrayList();
     

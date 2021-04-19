@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiDichVu.QuanLiDichVuController">
    <children>
       <TabPane fx:id="DichVuTabPane" prefHeight="755.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
@@ -44,13 +43,14 @@
                      <children>
                         <ScrollPane fx:id="BScrollPane" layoutX="24.0" layoutY="35.0" prefHeight="575.0" prefWidth="918.0">
                            <content>
-                              <TableView fx:id="DichVuGiaiTriTableView" prefHeight="560.0" prefWidth="919.0">
+                              <TableView fx:id="DichVuGiaiTriTableView" prefHeight="565.0" prefWidth="929.0">
                                 <columns>
                                   <TableColumn fx:id="MaDVGTColumn" prefWidth="87.0" text="MADV" />
-                                  <TableColumn fx:id="TenDVGTColumn" prefWidth="207.0" text="Tên Dịch Vụ" />
-                                    <TableColumn fx:id="GiaDVGTColumn" prefWidth="209.0" text="Giá " />
-                                    <TableColumn fx:id="KhungGioGTColumn" prefWidth="187.0" text="Khung Giờ" />
-                                    <TableColumn fx:id="TinhTrangColumn" prefWidth="215.0" text="Tình Trạng" />
+                                  <TableColumn fx:id="TenDVGTColumn" prefWidth="135.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="LoaiDVGTColumn" prefWidth="132.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="KhungGioGTColumn" minWidth="0.0" prefWidth="184.0" text="Khung Giờ" />
+                                    <TableColumn fx:id="TinhTrangColumn" minWidth="0.0" prefWidth="168.0" text="Tình Trạng" />
+                                    <TableColumn fx:id="GiaDVGTColumn" prefWidth="196.0" text="Giá " />
                                 </columns>
                               </TableView>
                            </content>
@@ -71,11 +71,12 @@
                               <TableView fx:id="DichVuThuGianTableView" prefHeight="575.0" prefWidth="921.0">
                                 <columns>
                                   <TableColumn fx:id="MaDVTGColumn" prefWidth="75.0" text="MaDV" />
-                                  <TableColumn fx:id="TenDVTGColumn" prefWidth="122.0" text="Tên Dịch Vụ" />
-                                    <TableColumn fx:id="GiaDCTGColumn" prefWidth="196.0" text="Giá" />
-                                    <TableColumn fx:id="SoLuongNguoiDVTGColumn" prefWidth="144.0" text="Số Lượng Người" />
-                                    <TableColumn fx:id="KhungGioDVTGColumn" prefWidth="141.0" text="Khung Giờ" />
-                                    <TableColumn fx:id="TinhTrangDVTGColumn" prefWidth="225.0" text="Tình Trạng" />
+                                  <TableColumn fx:id="TenDVTGColumn" prefWidth="131.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="LoaiDVTGColumn" prefWidth="115.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="SoLuongNguoiDVTGColumn" prefWidth="137.0" text="Số Lượng Người" />
+                                    <TableColumn fx:id="KhungGioDVTGColumn" prefWidth="129.0" text="Khung Giờ" />
+                                    <TableColumn fx:id="TinhTrangDVTGColumn" prefWidth="159.0" text="Tình Trạng" />
+                                    <TableColumn fx:id="GiaDVTGColumn" prefWidth="156.0" text="Giá" />
                                 </columns>
                               </TableView>
                            </content>
@@ -96,10 +97,11 @@
                               <TableView fx:id="DIchVuPhucVuTableView" prefHeight="600.0" prefWidth="939.0">
                                 <columns>
                                   <TableColumn fx:id="MADVPVColumn" prefWidth="75.0" text="MaDV" />
-                                  <TableColumn fx:id="TenDVPVColumn" prefWidth="196.0" text="Tên Dịch Vụ" />
-                                    <TableColumn fx:id="SoLuongDVPVColumn" prefWidth="189.0" text="Số Lượng" />
-                                    <TableColumn fx:id="GiaDVPVCloumn" prefWidth="223.0" text="Giá " />
-                                    <TableColumn fx:id="TinhTrangDVPVColumn" prefWidth="231.0" text="Tình Trạng" />
+                                  <TableColumn fx:id="TenDVPVColumn" prefWidth="198.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="SoLuongDVPVColumn" prefWidth="142.0" text="Số Lượng" />
+                                    <TableColumn fx:id="LoaiDVPVColumn" prefWidth="203.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="TinhTrangDVPVColumn" prefWidth="154.0" text="Tình Trạng" />
+                                    <TableColumn fx:id="GiaDVPVColumn" prefWidth="145.0" text="Giá" />
                                 </columns>
                               </TableView>
                            </content>
