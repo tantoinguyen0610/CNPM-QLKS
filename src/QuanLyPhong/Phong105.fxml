@@ -21,11 +21,11 @@
       <Label fx:id="SoPhong_Label" layoutX="31.0" layoutY="106.0" text="Số phòng:" />
       <TextField fx:id="SoPhong_textField" disable="true" layoutX="223.0" layoutY="101.0" prefHeight="31.0" prefWidth="99.0" />
       <ButtonBar layoutX="232.0" layoutY="405.0" prefHeight="87.0" prefWidth="450.0">
-        <buttons>
+         <buttons>
             <Button fx:id="btLuu" mnemonicParsing="false" onAction="#btactionLuu" prefHeight="51.0" prefWidth="147.0" text="Lưu" />
             <Button fx:id="btChinhsua" mnemonicParsing="false" onAction="#btchinhsua" prefHeight="53.0" prefWidth="136.0" text="Chỉnh sửa" />
             <Button fx:id="btThoat" mnemonicParsing="false" onAction="#btthoat" prefHeight="53.0" prefWidth="136.0" text="Thoát" />
-        </buttons>
+         </buttons>
       </ButtonBar>
    </children>
 </AnchorPane>

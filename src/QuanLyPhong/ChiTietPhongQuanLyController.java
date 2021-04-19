@@ -8,10 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -65,18 +65,22 @@ public class ChiTietPhongQuanLyController implements Initializable {
 
     @FXML
     private Button btLuu;
+    
+    @FXML
+    private Label SoPhong_Label;
+
+    @FXML
+    private TextField SoPhong_textField;
 
 
     @FXML
     private void btthoat() {
-    	// get a handle to the stage
         Stage stage = (Stage) btThoat.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
     
-    ObservableList<String> listsonguoichophep = FXCollections.observableArrayList("","1", "2", "3","4");
-    ObservableList<String> listtrangthai = FXCollections.observableArrayList("","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
+    ObservableList<String> listsonguoichophep = FXCollections.observableArrayList("1", "2", "3","4");
+    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
    
     @Override
     public void initialize(URL location, ResourceBundle resources) {

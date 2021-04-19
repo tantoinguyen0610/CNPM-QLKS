@@ -11,13 +11,13 @@
 
 <AnchorPane fx:id="App" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1095.0" styleClass="bgquanlyphong" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.GiaoDienQuanLyPhongController">
    <children>
-      <Button id="bt1" fx:id="btTatcaa" layoutX="48.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Tất cả" textAlignment="CENTER" textFill="#3d2961" wrapText="true" />
-      <Button id="bt4" fx:id="btDasudungg" layoutX="471.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
-      <Button id="bt5" fx:id="btDangbaotrii" layoutX="610.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
-      <Button id="bt2" fx:id="btTrongg" layoutX="191.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Trống" textAlignment="CENTER" textFill="#0d0d08" wrapText="true" />
-      <Button id="bt6" fx:id="btSaptraa" layoutX="751.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Sắp trả" />
-      <Button id="bt7" fx:id="btDattruocc" layoutX="896.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
-      <Button id="bt3" fx:id="btDathanhtoann" layoutX="331.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã thanh toán" />
+      <Button id="bt1" fx:id="btTatcaa" layoutX="48.0" layoutY="206.0" mnemonicParsing="false" onAction="#TatCa_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Tất cả" textAlignment="CENTER" textFill="#3d2961" wrapText="true" />
+      <Button id="bt4" fx:id="btDasudungg" layoutX="471.0" layoutY="206.0" mnemonicParsing="false" onAction="#DaSD_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
+      <Button id="bt5" fx:id="btDangbaotrii" layoutX="610.0" layoutY="206.0" mnemonicParsing="false" onAction="#BaoTri_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
+      <Button id="bt2" fx:id="btTrongg" layoutX="191.0" layoutY="206.0" mnemonicParsing="false" onAction="#Trong_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Trống" textAlignment="CENTER" textFill="#0d0d08" wrapText="true" />
+      <Button id="bt6" fx:id="btSaptraa" layoutX="751.0" layoutY="206.0" mnemonicParsing="false" onAction="#SapTra_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Sắp trả" />
+      <Button id="bt7" fx:id="btDattruocc" layoutX="896.0" layoutY="206.0" mnemonicParsing="false" onAction="#DatTruoc_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
+      <Button id="bt3" fx:id="btDathanhtoann" layoutX="331.0" layoutY="206.0" mnemonicParsing="false" onAction="#DaTT_ActionListener" prefHeight="37.0" prefWidth="121.0" text="Đã thanh toán" />
       <Button fx:id="btphong1055" layoutX="471.0" layoutY="488.0" mnemonicParsing="false" onAction="#bt55" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 105 (Deluxe)">
          <graphic>
             <ImageView fitHeight="78.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
