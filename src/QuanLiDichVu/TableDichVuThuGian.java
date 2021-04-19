@@ -1,5 +1,7 @@
 package QuanLiDichVu;
 
+import javafx.scene.control.Button;
+
 public class TableDichVuThuGian extends Object {
 	String MA_DV,TENDV,LOAIDV,SOLUONGNGUOI,KHUNGGIO,TRANGTHAI,GIA;
 		
