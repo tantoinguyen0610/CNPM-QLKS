@@ -1,17 +1,17 @@
 package QuanLiDichVu;
 
 public class TableDichVuGiaiTri extends Object {
-	String MA_DV,TENDV,LOAIDV,GIA,KHUNGGIO,TRANGTHAI;
+	String MA_DV,TENDV,LOAIDV,KHUNGGIO,TRANGTHAI,GIA;
 		
 	public TableDichVuGiaiTri(String MA_DV, String TENDV, 
-			String LOAIDV,String GIA, 
-			String KHUNGGIO , String TRANGTHAI) {
+			String LOAIDV, String KHUNGGIO , 
+			String TRANGTHAI,String GIA) {
 		this.MA_DV=MA_DV;
 		this.TENDV=TENDV;
 		this.LOAIDV=LOAIDV;
-		this.GIA=GIA;
 		this.KHUNGGIO=KHUNGGIO;
 		this.TRANGTHAI=TRANGTHAI;
+		this.GIA=GIA;
 	}
 
 	public String getMA_DV() {
@@ -38,14 +38,6 @@ public class TableDichVuGiaiTri extends Object {
 		LOAIDV = lOAIDV;
 	}
 
-	public String getGIA() {
-		return GIA;
-	}
-
-	public void setGIA(String gIA) {
-		GIA = gIA;
-	}
-
 	public String getKHUNGGIO() {
 		return KHUNGGIO;
 	}
@@ -62,4 +54,11 @@ public class TableDichVuGiaiTri extends Object {
 		TRANGTHAI = tRANGTHAI;
 	}
 	
+	public String getGIA() {
+		return GIA;
+	}
+
+	public void setGIA(String gIA) {
+		GIA = gIA;
+	}
 }
