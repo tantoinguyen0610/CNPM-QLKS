@@ -2,10 +2,20 @@ package QuanLiDichVu;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
+import QuanLiKhachHang.TableKhachHang;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,10 +24,11 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class QuanLiDichVuController {
+public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -41,25 +52,25 @@ public class QuanLiDichVuController {
     private ScrollPane AScrollPane;
 
     @FXML
-    private TableView<?> DichVuAnUongTableView;
+    private TableView<TableDichVuAnUong> DichVuAnUongTableView;
 
     @FXML
-    private TableColumn<?, ?> MaDVAnUongColumn;
+    private TableColumn<TableDichVuAnUong , String > MaDVAnUongColumn;
 
     @FXML
-    private TableColumn<?, ?> TenDichVuAnUongColumn;
+    private TableColumn<TableDichVuAnUong , String> TenDichVuAnUongColumn;
 
     @FXML
-    private TableColumn<?, ?> LoaiDichVuAnUongColumn;
+    private TableColumn<TableDichVuAnUong , String> LoaiDichVuAnUongColumn;
 
     @FXML
-    private TableColumn<?, ?> SoLuongAnUongColumn;
+    private TableColumn<TableDichVuAnUong , String> SoLuongAnUongColumn;
 
     @FXML
-    private TableColumn<?, ?> GiaDVAnUongColumn;
+    private TableColumn<TableDichVuAnUong , String> GiaDVAnUongColumn;
 
     @FXML
-    private TableColumn<?, ?> TinhTrangDVAnUongColumn;
+    private TableColumn<TableDichVuAnUong , String> TinhTrangDVAnUongColumn;
 
     @FXML
     private Button ThemDVAnUongButton;
@@ -180,7 +191,51 @@ public class QuanLiDichVuController {
 
     @FXML
     private Button XoaDVPVButton;
+    
+    ObservableList<TableDichVuAnUong> listdvanuong = FXCollections.observableArrayList();
+    
+    public void initialize(URL arg0, ResourceBundle arg1) {
+    	HienTableDichVuAnUong();
+    	
+	}
 
+
+
+	public void HienTableDichVuAnUong() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MA_DV,TENDV,LOAIDV,SOLUONG,GIA,TINHTRANG from dv "
+					+ "where dv.LOAIDV = 'ăn uống' ");
+			
+				while (rs.next()) {	
+					listdvanuong.add(new TableDichVuAnUong(rs.getString("MA_DV"),rs.getString("TENDV"),
+							rs.getString("LOAIDV"),rs.getString("SOLUONG"),rs.getString("GIA"),
+							rs.getString("TINHTRANG")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+    			MaDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
+    			TenDichVuAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+    			LoaiDichVuAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
+    			SoLuongAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+    			GiaDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+    			TinhTrangDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
+    			DichVuAnUongTableView.setItems(listdvanuong);
+    			
+		 }
+
+	
+	
+	
+    
+    public void UpdateTable() {
+		 listdvanuong.clear();
+		 HienTableDichVuAnUong();
+	}
+    
     @FXML
     void SuaDVAnUongButtonListener(ActionEvent event) throws IOException {
     	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuAnUongController.fxml"));
