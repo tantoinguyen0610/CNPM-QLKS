@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -72,6 +74,8 @@ public class ThemDichVuAnUongController implements Initializable {
 
     @FXML
     private Button HuyButton;
+    
+    
 
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -117,7 +121,7 @@ public class ThemDichVuAnUongController implements Initializable {
 			JOptionPane.showMessageDialog(null, e);
 		}
     	autoTaoMADV();
-    	Stage stage = (Stage) LuuButton.getScene().getWindow();
+    	    	Stage stage = (Stage) LuuButton.getScene().getWindow();
         // do what you have to do
         stage.close();
     }
