@@ -64,6 +64,9 @@ public class SuaDichVuAnUongController {
     private Button HuyButton;
 
     @FXML
+    private Button SuaButton;
+    
+    @FXML
     void GiaTextFieldListener(ActionEvent event) {
 
     }
@@ -92,6 +95,11 @@ public class SuaDichVuAnUongController {
 
     @FXML
     void SoLuongTextFieldListener(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void SuaButtonListener(ActionEvent event) {
 
     }
 
