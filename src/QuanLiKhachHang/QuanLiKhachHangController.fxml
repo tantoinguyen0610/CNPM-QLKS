@@ -35,6 +35,6 @@
       <Button fx:id="XoaButton" layoutX="529.0" layoutY="132.0" mnemonicParsing="false" onAction="#XoaButtonListener" prefHeight="104.0" prefWidth="179.0" text="Xóa" />
       <Button fx:id="SuaButton" layoutX="280.0" layoutY="132.0" mnemonicParsing="false" onAction="#SuaButtonListener" prefHeight="104.0" prefWidth="179.0" text="Sửa" />
       <Button fx:id="PhieuDichVuButton" layoutX="770.0" layoutY="132.0" mnemonicParsing="false" onAction="#PhieuDichVuButtonListener" prefHeight="104.0" prefWidth="179.0" text="Phiếu Dịch Vụ" />
-      <Button fx:id="DanhGiaButton" layoutX="1007.0" layoutY="132.0" mnemonicParsing="false" onAction="#DanhGiaButtonListener" prefHeight="104.0" prefWidth="179.0" text="Làm Mới" />
+      <Button fx:id="DanhGiaButton" layoutX="1007.0" layoutY="132.0" mnemonicParsing="false" onAction="#DanhGiaButtonListener" prefHeight="104.0" prefWidth="179.0" text="Cập Nhật" />
    </children>
 </AnchorPane>
