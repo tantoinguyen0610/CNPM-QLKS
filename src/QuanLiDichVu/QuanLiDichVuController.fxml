@@ -31,8 +31,9 @@
                            </content>
                         </ScrollPane>
                         <Button fx:id="ThemDVAnUongButton" layoutX="161.0" layoutY="606.0" mnemonicParsing="false" onAction="#ThemDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Thêm " />
-                        <Button fx:id="SuaDVAnUongButton" layoutX="423.0" layoutY="606.0" mnemonicParsing="false" onAction="#SuaDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Sửa" />
-                        <Button fx:id="XoaDVAnUongButton" layoutX="685.0" layoutY="606.0" mnemonicParsing="false" onAction="#XoaDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Xóa" />
+                        <Button fx:id="SuaDVAnUongButton" layoutX="365.0" layoutY="606.0" mnemonicParsing="false" onAction="#SuaDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Sửa" />
+                        <Button fx:id="XoaDVAnUongButton" layoutX="564.0" layoutY="606.0" mnemonicParsing="false" onAction="#XoaDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVAnUongButton" layoutX="743.0" layoutY="606.0" mnemonicParsing="false" onAction="#CapNhatDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Cập Nhật" />
                      </children>
                   </AnchorPane>
             </content>
@@ -55,9 +56,10 @@
                               </TableView>
                            </content>
                         </ScrollPane>
-                        <Button fx:id="ThemDVGTButton" layoutX="191.0" layoutY="621.0" mnemonicParsing="false" onAction="#ThemDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Thêm " />
-                        <Button fx:id="SuaDVGTButton" layoutX="415.0" layoutY="621.0" mnemonicParsing="false" onAction="#SuaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Sửa" />
-                        <Button fx:id="XoaDVGTButton" layoutX="622.0" layoutY="621.0" mnemonicParsing="false" onAction="#XoaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Xóa" />
+                        <Button fx:id="ThemDVGTButton" layoutX="163.0" layoutY="621.0" mnemonicParsing="false" onAction="#ThemDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Thêm " />
+                        <Button fx:id="SuaDVGTButton" layoutX="364.0" layoutY="621.0" mnemonicParsing="false" onAction="#SuaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Sửa" />
+                        <Button fx:id="XoaDVGTButton" layoutX="539.0" layoutY="621.0" mnemonicParsing="false" onAction="#XoaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVGTButton" layoutX="726.0" layoutY="621.0" mnemonicParsing="false" onAction="#CapNhatDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Cập Nhật" />
                      </children>
                   </AnchorPane>
             </content>
@@ -82,8 +84,9 @@
                            </content>
                         </ScrollPane>
                         <Button fx:id="ThemDVTGButton" layoutX="180.0" layoutY="622.0" mnemonicParsing="false" onAction="#ThemDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Thêm" />
-                        <Button fx:id="SuaDVTGButton" layoutX="390.0" layoutY="622.0" mnemonicParsing="false" onAction="#SuaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Sửa" />
-                        <Button fx:id="XoaDVTGButton" layoutX="604.0" layoutY="622.0" mnemonicParsing="false" onAction="#XoaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Xóa" />
+                        <Button fx:id="SuaDVTGButton" layoutX="361.0" layoutY="622.0" mnemonicParsing="false" onAction="#SuaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Sửa" />
+                        <Button fx:id="XoaDVTGButton" layoutX="542.0" layoutY="622.0" mnemonicParsing="false" onAction="#XoaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVTGButton" layoutX="717.0" layoutY="622.0" mnemonicParsing="false" onAction="#CapNhatDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Cập Nhật" />
                      </children>
                   </AnchorPane>
                </content>
@@ -106,9 +109,10 @@
                               </TableView>
                            </content>
                         </ScrollPane>
-                        <Button fx:id="ThemDVPVButton" layoutX="210.0" layoutY="629.0" mnemonicParsing="false" onAction="#ThemDVPVButtonListener" prefHeight="75.0" prefWidth="117.0" text="Thêm" />
-                        <Button fx:id="SuaDVPVButton" layoutX="407.0" layoutY="629.0" mnemonicParsing="false" onAction="#SuaDVPVButtonListener" prefHeight="75.0" prefWidth="120.0" text="Sửa" />
-                        <Button fx:id="XoaDVPVButton" layoutX="589.0" layoutY="629.0" mnemonicParsing="false" onAction="#XoaDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Xóa" />
+                        <Button fx:id="ThemDVPVButton" layoutX="194.0" layoutY="629.0" mnemonicParsing="false" onAction="#ThemDVPVButtonListener" prefHeight="75.0" prefWidth="117.0" text="Thêm" />
+                        <Button fx:id="SuaDVPVButton" layoutX="374.0" layoutY="629.0" mnemonicParsing="false" onAction="#SuaDVPVButtonListener" prefHeight="75.0" prefWidth="120.0" text="Sửa" />
+                        <Button fx:id="XoaDVPVButton" layoutX="539.0" layoutY="629.0" mnemonicParsing="false" onAction="#XoaDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVPVButton" layoutX="711.0" layoutY="629.0" mnemonicParsing="false" onAction="#CapNhatDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Cập Nhật" />
                      </children>
                   </AnchorPane>
                </content>

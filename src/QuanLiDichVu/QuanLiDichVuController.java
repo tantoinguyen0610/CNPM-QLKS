@@ -80,6 +80,9 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private Button XoaDVAnUongButton;
+    
+    @FXML
+    private Button CapNhatDVAnUongButton;
 
     @FXML
     private Tab DichVuGiaiTriTab;
@@ -119,6 +122,9 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private Button XoaDVGTButton;
+    
+    @FXML
+    private Button CapNhatDVGTButton;
 
     @FXML
     private Tab DichVuThuGianTab;
@@ -161,6 +167,9 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private Button XoaDVTGButton;
+    
+    @FXML
+    private Button CapNhatDVTGButton;
 
     @FXML
     private Tab DichVuPhucVuTab;
@@ -200,6 +209,10 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     private Button XoaDVPVButton;
+    
+    @FXML
+    private Button CapNhatDVPVButton;
+
 
   
     
@@ -426,6 +439,26 @@ public class QuanLiDichVuController implements Initializable {
     @FXML
     void XoaDVTGButtonListener(ActionEvent event) throws IOException {
 
+    }
+    
+    @FXML
+    void CapNhatDVAnUongButtonListener(ActionEvent event) throws IOException {
+    	UpdateTable();
+    }
+
+    @FXML
+    void CapNhatDVGTButtonListener(ActionEvent event) throws IOException {
+    	UpdateTable();
+    }
+
+    @FXML
+    void CapNhatDVPVButtonListener(ActionEvent event) throws IOException {
+    	UpdateTable();
+    }
+
+    @FXML
+    void CapNhatDVTGButtonListener(ActionEvent event) throws IOException {
+    	UpdateTable();
     }
 
   
