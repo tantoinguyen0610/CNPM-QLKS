@@ -154,6 +154,7 @@ public class SuaKhachHangController {
     	SoNgayOTextField.setDisable(false);
     	LuuButton.setDisable(false);
     	HuyButton.setDisable(false);
+    	SuaButton.setDisable(true);
     	
     }
 
