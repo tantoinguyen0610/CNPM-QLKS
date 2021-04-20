@@ -3,17 +3,17 @@ package QuanLiDichVu;
 import javafx.scene.control.Button;
 
 public class TableDichVuAnUong extends Object {
-	String MA_DV,TENDV,LOAIDV,SOLUONG,GIA,TRANGTHAI;
+	String MA_DV,TENDV,LOAIDV,SOLUONG,GIA,TINHTRANG;
 		
 	public TableDichVuAnUong(String MA_DV, String TENDV, 
 			String LOAIDV, String SOLUONG, 
-			String GIA, String TRANGTHAI) {
+			String GIA, String TINHTRANG) {
 		this.MA_DV=MA_DV;
 		this.TENDV=TENDV;
 		this.LOAIDV=LOAIDV;
 		this.SOLUONG=SOLUONG;
 		this.GIA=GIA;
-		this.TRANGTHAI=TRANGTHAI;
+		this.TINHTRANG=TINHTRANG;
 	}
 
 	public String getMA_DV() {
@@ -56,12 +56,12 @@ public class TableDichVuAnUong extends Object {
 		GIA = gIA;
 	}
 
-	public String getTRANGTHAI() {
-		return TRANGTHAI;
+	public String getTINHTRANG() {
+		return TINHTRANG;
 	}
 
-	public void setTRANGTHAI(String tRANGTHAI) {
-		TRANGTHAI = tRANGTHAI;
+	public void setTINHTRANG(String tINHTRANG) {
+		TINHTRANG = tINHTRANG;
 	}
 	
 }	

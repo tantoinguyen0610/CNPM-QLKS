@@ -1,16 +1,16 @@
 package QuanLiDichVu;
 
 public class TableDichVuPhucVu extends Object {
-	String MA_DV,TENDV,SOLUONG,LOAIDV,TRANGTHAI,GIA;
+	String MA_DV,TENDV,SOLUONG,LOAIDV,TINHTRANG,GIA;
 		
 	public TableDichVuPhucVu(String MA_DV, String TENDV, 
 			String SOLUONG,String LOAIDV, 
-			 String TRANGTHAI, String GIA) {
+			 String TINHTRANG, String GIA) {
 		this.MA_DV=MA_DV;
 		this.TENDV=TENDV;
 		this.SOLUONG=SOLUONG;
 		this.LOAIDV=LOAIDV;
-		this.TRANGTHAI=TRANGTHAI;
+		this.TINHTRANG=TINHTRANG;
 		this.GIA=GIA;
 	}
 
@@ -46,12 +46,12 @@ public class TableDichVuPhucVu extends Object {
 		LOAIDV = lOAIDV;
 	}
 
-	public String getTRANGTHAI() {
-		return TRANGTHAI;
+	public String getTINHTRANG() {
+		return TINHTRANG;
 	}
 
-	public void setTRANGTHAI(String tRANGTHAI) {
-		TRANGTHAI = tRANGTHAI;
+	public void setTINHTRANG(String tINHTRANG) {
+		TINHTRANG = tINHTRANG;
 	}
 
 	public String getGIA() {

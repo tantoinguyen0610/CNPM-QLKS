@@ -3,16 +3,16 @@ package QuanLiDichVu;
 import javafx.scene.control.Button;
 
 public class TableDichVuGiaiTri extends Object {
-	String MA_DV,TENDV,LOAIDV,KHUNGGIO,TRANGTHAI,GIA;
+	String MA_DV,TENDV,LOAIDV,KHUNGGIO,TINHTRANG,GIA;
 		
 	public TableDichVuGiaiTri(String MA_DV, String TENDV, 
 			String LOAIDV, String KHUNGGIO , 
-			String TRANGTHAI,String GIA) {
+			String TINHTRANG,String GIA) {
 		this.MA_DV=MA_DV;
 		this.TENDV=TENDV;
 		this.LOAIDV=LOAIDV;
 		this.KHUNGGIO=KHUNGGIO;
-		this.TRANGTHAI=TRANGTHAI;
+		this.TINHTRANG=TINHTRANG;
 		this.GIA=GIA;
 	}
 
@@ -48,12 +48,12 @@ public class TableDichVuGiaiTri extends Object {
 		KHUNGGIO = kHUNGGIO;
 	}
 
-	public String getTRANGTHAI() {
-		return TRANGTHAI;
+	public String getTINHTRANG() {
+		return TINHTRANG;
 	}
 
-	public void setTRANGTHAI(String tRANGTHAI) {
-		TRANGTHAI = tRANGTHAI;
+	public void setTRANGTHAI(String tINHTRANG) {
+		TINHTRANG = tINHTRANG;
 	}
 	
 	public String getGIA() {

@@ -3,17 +3,17 @@ package QuanLiDichVu;
 import javafx.scene.control.Button;
 
 public class TableDichVuThuGian extends Object {
-	String MA_DV,TENDV,LOAIDV,SOLUONGNGUOI,KHUNGGIO,TRANGTHAI,GIA;
+	String MA_DV,TENDV,LOAIDV,SONGUOITHAMGIA,KHUNGGIO,TINHTRANG,GIA;
 		
 	public TableDichVuThuGian(String MA_DV, String TENDV, 
-			String LOAIDV,String SOLUONGNGUOI, 
-			String KHUNGGIO , String TRANGTHAI, String GIA) {
+			String LOAIDV,String SONGUOITHAMGIA, 
+			String KHUNGGIO , String TINHTRANG, String GIA) {
 		this.MA_DV=MA_DV;
 		this.TENDV=TENDV;
 		this.LOAIDV=LOAIDV;
-		this.SOLUONGNGUOI=SOLUONGNGUOI;
+		this.SONGUOITHAMGIA= SONGUOITHAMGIA;
 		this.KHUNGGIO=KHUNGGIO;
-		this.TRANGTHAI=TRANGTHAI;
+		this.TINHTRANG=TINHTRANG;
 		this.GIA=GIA;
 	}
 
@@ -41,12 +41,12 @@ public class TableDichVuThuGian extends Object {
 		LOAIDV = lOAIDV;
 	}
 
-	public String getSOLUONGNGUOI() {
-		return SOLUONGNGUOI;
+	public String getSONGUOITHAMGIA() {
+		return SONGUOITHAMGIA;
 	}
 
-	public void setSOLUONGNGUOI(String sOLUONGNGUOI) {
-		SOLUONGNGUOI = sOLUONGNGUOI;
+	public void setSONGUOITHAMGIA(String sONGUOITHAMGIA) {
+		SONGUOITHAMGIA = sONGUOITHAMGIA;
 	}
 
 	public String getKHUNGGIO() {
@@ -57,12 +57,12 @@ public class TableDichVuThuGian extends Object {
 		KHUNGGIO = kHUNGGIO;
 	}
 
-	public String getTRANGTHAI() {
-		return TRANGTHAI;
+	public String getTINHTRANG() {
+		return TINHTRANG;
 	}
 
-	public void setTRANGTHAI(String tRANGTHAI) {
-		TRANGTHAI = tRANGTHAI;
+	public void setTRANGTHAI(String tINHTRANG) {
+		TINHTRANG = tINHTRANG;
 	}
 
 	public String getGIA() {

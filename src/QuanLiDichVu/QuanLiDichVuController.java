@@ -254,7 +254,7 @@ public class QuanLiDichVuController implements Initializable {
 			
 				while (rs.next()) {	
 					listdvgt.add(new TableDichVuGiaiTri(rs.getString("MA_DV"),rs.getString("TENDV"),
-							rs.getString("LOAIDV"),rs.getString("KHUNGGIO"),rs.getString("TRANGTHAI"),
+							rs.getString("LOAIDV"),rs.getString("KHUNGGIO"),rs.getString("TINHTRANG"),
 							rs.getString("GIA")));
 				}
 			}
@@ -265,7 +265,7 @@ public class QuanLiDichVuController implements Initializable {
     			TenDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
     			LoaiDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
     			KhungGioGTColumn.setCellValueFactory(new PropertyValueFactory<>("KHUNGGIO"));
-    			TinhTrangColumn.setCellValueFactory(new PropertyValueFactory<>("TRANGTHAI"));
+    			TinhTrangColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
     			GiaDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
     			DichVuGiaiTriTableView.setItems(listdvgt);
     			
@@ -275,24 +275,24 @@ public class QuanLiDichVuController implements Initializable {
     	try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			ResultSet rs = conn.createStatement().executeQuery("select MA_DV,TENDV,LOAIDV,SOLUONGNGUOI,KHUNGGIO,TINHTRANG,GIA from dv "
+			ResultSet rs = conn.createStatement().executeQuery("select MA_DV,TENDV,LOAIDV,SONGUOITHAMGIA,KHUNGGIO,TINHTRANG,GIA from dv "
 					+ "where dv.LOAIDV = 'Thư Giản' ");
 			
 				while (rs.next()) {	
 					listdvtg.add(new TableDichVuThuGian(rs.getString("MA_DV"),rs.getString("TENDV"),
-							rs.getString("LOAIDV"),rs.getString("SOLUONGNGUOI"),rs.getString("KHUNGGIO"),rs.getString("TRANGTHAI"),
+							rs.getString("LOAIDV"),rs.getString("SONGUOITHAMGIA"),rs.getString("KHUNGGIO"),rs.getString("TINHTRANG"),
 							rs.getString("GIA")));
 				}
 			}
 		 catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			}
-    			MaDVGTColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
+    			MaDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
     			TenDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
     			LoaiDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
-    			SoLuongNguoiDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONGNGUOI"));
+    			SoLuongNguoiDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("SONGUOITHAMGIA"));
     			KhungGioDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("KHUNGGIO"));
-    			TinhTrangDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("TRANGTHAI"));
+    			TinhTrangDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
     			GiaDVTGColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
     			DichVuThuGianTableView.setItems(listdvtg);
     			
@@ -307,7 +307,7 @@ public class QuanLiDichVuController implements Initializable {
 			
 				while (rs.next()) {	
 					listdvpv .add(new TableDichVuPhucVu(rs.getString("MA_DV"),rs.getString("TENDV"),
-							rs.getString("LOAIDV"),rs.getString("SOLUONGNGUOI"),rs.getString("TRANGTHAI"),
+							rs.getString("LOAIDV"),rs.getString("SOLUONG"),rs.getString("TINHTRANG"),
 							rs.getString("GIA")));
 				}
 			}
@@ -317,8 +317,8 @@ public class QuanLiDichVuController implements Initializable {
     			MADVPVColumn.setCellValueFactory(new PropertyValueFactory<>("MA_DV"));
     			TenDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
     			SoLuongDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("LOAIDV"));
-    			LoaiDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONGNGUOI"));
-    			TinhTrangDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("TRANGTHAI"));
+    			LoaiDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+    			TinhTrangDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
     			GiaDVPVColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
     			DIchVuPhucVuTableView.setItems(listdvpv);
     			
