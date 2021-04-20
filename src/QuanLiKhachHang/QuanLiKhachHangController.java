@@ -65,9 +65,6 @@ public class QuanLiKhachHangController implements Initializable {
     private TableColumn<TableKhachHang, String> CMNDColumn;
 
     @FXML
-    private TableColumn<TableKhachHang, String> NgayCheck_inColumn;
-
-    @FXML
     private Button ThemButton;
 
     @FXML
@@ -99,7 +96,7 @@ public class QuanLiKhachHangController implements Initializable {
 					listkh.add(new TableKhachHang(rs.getString("MAKH"),rs.getString("TENKH"),
 							rs.getString("NGAYSINH"),rs.getString("GIOITINH"),rs.getString("DIACHI"),
 							rs.getString("QUOCTICH"), 
-							rs.getString("SDT"),rs.getString("CMND"),rs.getString("NGAYCHECK_IN")));
+							rs.getString("SDT"),rs.getString("CMND")));
 				}
 			}
 		 catch(Exception e) {
@@ -113,7 +110,6 @@ public class QuanLiKhachHangController implements Initializable {
 		 QuocTichColumn.setCellValueFactory(new PropertyValueFactory<>("QUOCTICH"));
 		 SDTColumn.setCellValueFactory(new PropertyValueFactory<>("SDT"));
 		 CMNDColumn.setCellValueFactory(new PropertyValueFactory<>("CMND"));
-		 NgayCheck_inColumn.setCellValueFactory(new PropertyValueFactory<>("NGAYCHECK_IN"));
 		 DanhSachKHTableView.setItems(listkh);
 		 }
     

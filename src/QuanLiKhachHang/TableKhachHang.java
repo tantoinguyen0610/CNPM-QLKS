@@ -4,12 +4,12 @@ import javafx.scene.control.Button;
 
 
 	public class TableKhachHang extends Object {
-		String MAKH,TENKH,NGAYSINH,GIOITINH,DIACHI,QUOCTICH,SDT,CMND,NGAYCHECK_IN;
+		String MAKH,TENKH,NGAYSINH,GIOITINH,DIACHI,QUOCTICH,SDT,CMND;
 			
 		public TableKhachHang(String MAKH, String TENKH, 
 				String NGAYSINH, String GIOITINH, 
 				String DIACHI, String QUOCTICH, 
-				String SDT,String CMND,String NGAYCHECK_IN) {
+				String SDT,String CMND) {
 			this.MAKH=MAKH;
 			this.TENKH=TENKH;
 			this.NGAYSINH=NGAYSINH;
@@ -18,7 +18,6 @@ import javafx.scene.control.Button;
 			this.QUOCTICH=QUOCTICH;
 			this.SDT=SDT;
 			this.CMND=CMND;
-			this.NGAYCHECK_IN=NGAYCHECK_IN;
 		}
 
 		public String getMAKH() {
@@ -83,14 +82,6 @@ import javafx.scene.control.Button;
 
 		public void setNGAYSINH(String nGAYSINH) {
 			NGAYSINH = nGAYSINH;
-		}
-
-		public String getNGAYCHECK_IN() {
-			return NGAYCHECK_IN;
-		}
-
-		public void setNGAYCHECK_IN(String nGAYCHECK_IN) {
-			NGAYCHECK_IN = nGAYCHECK_IN;
 		}
 
 

@@ -54,12 +54,7 @@ public class ThemKhachHangController implements Initializable {
 
     @FXML
     private Label DiaChiLabel;
-
-    @FXML
-    private Label NgayCheck_inLabel;
-
     
-
     @FXML
     private TextField MaKHTextField;
 
@@ -83,9 +78,6 @@ public class ThemKhachHangController implements Initializable {
 
     @FXML
     private TextField DiaChiTextField;
-
-    @FXML
-    private TextField NgayCheck_inTextField;
 
     @FXML
     private Button LuuButton;
@@ -129,7 +121,7 @@ public class ThemKhachHangController implements Initializable {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "insert into `khachhang`(MAKH,TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH,NGAYCHECK_IN,SONGAYO) VALUES(?,?,?,?,?,?,?,?,?,?)";
+			String query = "insert into `khachhang`(MAKH,TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH,SONGAYO) VALUES(?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, MaKHTextField.getText());
 			pst.setString(2, TenKhTextField.getText());
@@ -139,12 +131,9 @@ public class ThemKhachHangController implements Initializable {
 			pst.setString(6,  CMNDTextField.getText());
 			pst.setString(7, GTTextField.getText());
 			pst.setString(8, NgaySinhTextField.getText());
-			pst.setString(9,  NgayCheck_inTextField.getText());
-	
-			
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
-			//UpdateTable();
+			
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
@@ -172,7 +161,7 @@ public class ThemKhachHangController implements Initializable {
 			else
 			{
 				int makh = Integer.parseInt(rs.getString("Max(MaKH)"));
-				makh++;
+						makh++;
 				 MaKHTextField.setText(String.format("%d",makh));
 			}
 			
@@ -189,10 +178,6 @@ public class ThemKhachHangController implements Initializable {
 
     }
 
-    @FXML
-    void NgayCheck_inTextFieldListener(ActionEvent event) {
-
-    }
 
     @FXML
     void NgaySinhTextFieldListener(ActionEvent event) {

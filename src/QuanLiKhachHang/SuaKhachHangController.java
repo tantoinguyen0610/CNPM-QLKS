@@ -49,8 +49,6 @@ public class SuaKhachHangController {
     @FXML
     private Label DiaChiLabel;
 
-    @FXML
-    private Label NgayCheck_inLabel;
 
     @FXML
     private Label SoNgayOLabel;
@@ -78,9 +76,6 @@ public class SuaKhachHangController {
 
     @FXML
     private TextField DiaChiTextField;
-
-    @FXML
-    private TextField NgayCheck_inTextField;
 
     @FXML
     private TextField SoNgayOTextField;
@@ -127,11 +122,6 @@ public class SuaKhachHangController {
     }
 
     @FXML
-    void NgayCheck_inTextFieldListener(ActionEvent event) {
-
-    }
-
-    @FXML
     void NgaySinhTextFieldListener(ActionEvent event) {
 
     }
@@ -161,7 +151,6 @@ public class SuaKhachHangController {
     	QuocTichTextField.setDisable(false);
     	NgaySinhTextField.setDisable(false);
     	DiaChiTextField.setDisable(false);
-    	NgayCheck_inTextField.setDisable(false);
     	SoNgayOTextField.setDisable(false);
     	LuuButton.setDisable(false);
     	HuyButton.setDisable(false);
