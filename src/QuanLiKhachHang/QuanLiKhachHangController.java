@@ -120,11 +120,7 @@ public class QuanLiKhachHangController implements Initializable {
     
     @FXML
     void DanhGiaButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("BangDanhGiaKhachHangController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	UpdateTable();
     }
 
     @FXML
