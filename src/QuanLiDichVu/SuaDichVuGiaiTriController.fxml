@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiDichVu.SuaDichVuGiaiTriController">
    <children>
       <AnchorPane fx:id="SuaDichVuGiaiTriAnchorPane" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="924.0">
@@ -21,13 +20,14 @@
             <Label fx:id="KhungGioLabel" alignment="CENTER" layoutX="51.0" layoutY="303.0" prefHeight="45.0" prefWidth="127.0" text="Khung giờ" />
             <Label fx:id="GiaLabel" alignment="CENTER" layoutX="461.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="Giá" />
             <Label fx:id="TinhTrangLLabel" alignment="CENTER" layoutX="461.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Tình Trạng" />
-            <TextField fx:id="MaDVAnUongTextField" layoutX="178.0" layoutY="157.0" onAction="#MaDVAnUongTextFieldListener" />
-            <TextField fx:id="TenDVAnUongTextField" layoutX="178.0" layoutY="238.0" onAction="#TenDVAnUongTextFieldListener" />
-            <TextField fx:id="KhungGioTextField" layoutX="178.0" layoutY="310.0" onAction="#KhungGioTextFieldListener" />
-            <TextField fx:id="GiaTextField" layoutX="626.0" layoutY="157.0" onAction="#GiaTextFieldListener" />
-            <TextField fx:id="TinhTrangTextField" layoutX="626.0" layoutY="238.0" onAction="#TinhTrangTextFieldListener" />
-            <Button fx:id="LuuButton" layoutX="242.0" layoutY="407.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
-            <Button fx:id="HuyButton" layoutX="479.0" layoutY="407.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
+            <TextField fx:id="MaDVAnUongTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaDVAnUongTextFieldListener" />
+            <TextField fx:id="TenDVAnUongTextField" disable="true" layoutX="178.0" layoutY="238.0" onAction="#TenDVAnUongTextFieldListener" />
+            <TextField fx:id="KhungGioTextField" disable="true" layoutX="178.0" layoutY="310.0" onAction="#KhungGioTextFieldListener" />
+            <TextField fx:id="GiaTextField" disable="true" layoutX="626.0" layoutY="157.0" onAction="#GiaTextFieldListener" />
+            <TextField fx:id="TinhTrangTextField" disable="true" layoutX="626.0" layoutY="238.0" onAction="#TinhTrangTextFieldListener" />
+            <Button fx:id="LuuButton" disable="true" layoutX="397.0" layoutY="407.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
+            <Button fx:id="HuyButton" disable="true" layoutX="604.0" layoutY="407.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
+            <Button fx:id="SuaButton" layoutX="193.0" layoutY="407.0" mnemonicParsing="false" onAction="#SuaButtonListener" prefHeight="63.0" prefWidth="116.0" text="Sửa" />
          </children>
       </AnchorPane>
    </children>

@@ -60,6 +60,9 @@ public class SuaDichVuPhucVuController {
 
     @FXML
     private Button HuyButton;
+    
+    @FXML
+    private Button SuaButton;
 
     @FXML
     void GiaTextFieldListener(ActionEvent event) {
@@ -87,6 +90,18 @@ public class SuaDichVuPhucVuController {
     void SoLuongTextFieldListener(ActionEvent event) {
 
     }
+    
+    @FXML
+    void SuaButtonListener(ActionEvent event) {
+    	MaDVTextField.setDisable(false);
+    	TenDVTextField.setDisable(false);
+    	SoLuongTextField.setDisable(false);
+    	GiaTextField.setDisable(false);
+    	TinhTrangTextField.setDisable(false);
+    	LuuButton.setDisable(false);
+    	HuyButton.setDisable(false);
+    	SuaButton.setDisable(true);
+    }
 
     @FXML
     void TenDVTextFieldListener(ActionEvent event) {
@@ -98,22 +113,5 @@ public class SuaDichVuPhucVuController {
 
     }
 
-    @FXML
-    void initialize() {
-        assert SuaDichVuGiaiTriAnchorPane != null : "fx:id=\"SuaDichVuGiaiTriAnchorPane\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert SuaDichVuPhucVuLabel != null : "fx:id=\"SuaDichVuPhucVuLabel\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert MaDVLabel != null : "fx:id=\"MaDVLabel\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert TenDVLabel != null : "fx:id=\"TenDVLabel\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert SoLuongLabel != null : "fx:id=\"SoLuongLabel\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert GiaLabel != null : "fx:id=\"GiaLabel\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert TinhTrangLLabel != null : "fx:id=\"TinhTrangLLabel\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert MaDVTextField != null : "fx:id=\"MaDVTextField\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert TenDVTextField != null : "fx:id=\"TenDVTextField\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert SoLuongTextField != null : "fx:id=\"SoLuongTextField\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert GiaTextField != null : "fx:id=\"GiaTextField\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert TinhTrangTextField != null : "fx:id=\"TinhTrangTextField\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert LuuButton != null : "fx:id=\"LuuButton\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-        assert HuyButton != null : "fx:id=\"HuyButton\" was not injected: check your FXML file 'SuaDichVuPhucVuController.fxml'.";
-
-    }
+   
 }
