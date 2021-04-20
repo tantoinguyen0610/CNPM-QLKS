@@ -121,7 +121,7 @@ public class ThemKhachHangController implements Initializable {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "insert into `khachhang`(MAKH,TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH,SONGAYO) VALUES(?,?,?,?,?,?,?,?,?)";
+			String query = "insert into `khachhang`(MAKH,TENKH,DIACHI,SDT,QUOCTICH,CMND,GIOITINH,NGAYSINH) VALUES(?,?,?,?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, MaKHTextField.getText());
 			pst.setString(2, TenKhTextField.getText());
@@ -131,6 +131,7 @@ public class ThemKhachHangController implements Initializable {
 			pst.setString(6,  CMNDTextField.getText());
 			pst.setString(7, GTTextField.getText());
 			pst.setString(8, NgaySinhTextField.getText());
+			
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
 			
