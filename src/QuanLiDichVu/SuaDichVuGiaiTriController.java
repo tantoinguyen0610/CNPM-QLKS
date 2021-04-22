@@ -94,7 +94,7 @@ public class SuaDichVuGiaiTriController {
     
     @FXML
     void SuaButtonListener(ActionEvent event) {
-    	MaDVAnUongTextField.setDisable(false);
+    	MaDVAnUongTextField.setDisable(true);
     	TenDVAnUongTextField.setDisable(false);
     	KhungGioTextField.setDisable(false);
     	GiaTextField.setDisable(false);

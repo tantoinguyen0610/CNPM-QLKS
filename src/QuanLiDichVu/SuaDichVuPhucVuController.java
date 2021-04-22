@@ -93,7 +93,7 @@ public class SuaDichVuPhucVuController {
     
     @FXML
     void SuaButtonListener(ActionEvent event) {
-    	MaDVTextField.setDisable(false);
+    	MaDVTextField.setDisable(true);
     	TenDVTextField.setDisable(false);
     	SoLuongTextField.setDisable(false);
     	GiaTextField.setDisable(false);
