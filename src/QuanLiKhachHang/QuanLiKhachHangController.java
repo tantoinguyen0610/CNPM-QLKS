@@ -1,5 +1,7 @@
 package QuanLiKhachHang;
 
+
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -7,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
@@ -16,6 +19,7 @@ import NhanVien.TableNhanVien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,8 +29,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
 
 public class QuanLiKhachHangController implements Initializable {
 
@@ -80,11 +86,19 @@ public class QuanLiKhachHangController implements Initializable {
 
     @FXML
     private Button DanhGiaButton;
+    
+    @FXML
+    private TextField tb1TextField;
+
+    @FXML
+    private Label tb1Label;
+    
 
     ObservableList<TableKhachHang> listkh = FXCollections.observableArrayList();
     
     public void initialize(URL arg0, ResourceBundle arg1) {
     	HienTableKhachHang();
+    	HienDataLenTextField();
     	
 	}
     
@@ -172,7 +186,7 @@ public class QuanLiKhachHangController implements Initializable {
         		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
         		Connection conn = DriverManager.getConnection(DB_URL,"root","");
         		PreparedStatement pst = conn.prepareStatement(sql);
-        		pst.setString(1, MaKHColumn.getText());
+        		pst.setString(1, tb1TextField.getText());
         		pst.execute();
         		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
         	}
@@ -187,4 +201,22 @@ public class QuanLiKhachHangController implements Initializable {
      	}
     }
     
+    private void HienDataLenTextField() {
+    	DanhSachKHTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableKhachHang tbl_nv = DanhSachKHTableView.getItems().get(DanhSachKHTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMAKH());
+    			
+    		}
+    		
+    	});
+    }
+    
+    
+    @FXML
+    void tb1TextFieldListener(ActionEvent event) {
+
+    }
+
 }

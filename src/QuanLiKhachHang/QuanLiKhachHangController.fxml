@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -36,5 +37,7 @@
       <Button fx:id="SuaButton" layoutX="280.0" layoutY="132.0" mnemonicParsing="false" onAction="#SuaButtonListener" prefHeight="104.0" prefWidth="179.0" text="Sửa" />
       <Button fx:id="PhieuDichVuButton" layoutX="770.0" layoutY="132.0" mnemonicParsing="false" onAction="#PhieuDichVuButtonListener" prefHeight="104.0" prefWidth="179.0" text="Phiếu Dịch Vụ" />
       <Button fx:id="DanhGiaButton" layoutX="1007.0" layoutY="132.0" mnemonicParsing="false" onAction="#DanhGiaButtonListener" prefHeight="104.0" prefWidth="179.0" text="Cập Nhật" />
+      <TextField fx:id="tb1TextField" disable="true" layoutX="181.0" layoutY="251.0" onAction="#tb1TextFieldListener" prefHeight="31.0" prefWidth="40.0" />
+      <Label fx:id="tb1Label" layoutX="24.0" layoutY="251.0" prefHeight="31.0" prefWidth="157.0" text="Bạn Đang Chọn KH số:" />
    </children>
 </AnchorPane>
