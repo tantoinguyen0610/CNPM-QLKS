@@ -114,9 +114,9 @@ public class SuaKhachHangController {
         stage.close();
     }
 
-    @FXML
-    void LuuButtonListener(ActionEvent event) {
-    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn lưu cập nhật?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     @FXML
+     void LuuButtonListener(ActionEvent event) {
+   	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn lưu cập nhật?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
      	if(response == JOptionPane.YES_OPTION) {
      		try {
     			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -129,7 +129,7 @@ public class SuaKhachHangController {
     			String value5 =QuocTichTextField.getText();
     			String value6 =SDTTextField.getText();
     			String value7 =CMNDTextField.getText();
-    			String sql = "update khachhang set MAKH= '"+value0+"',TENKH='"+value1+"',NGAYSINH='"+value2+"',GIOITINH='"+value3+"',DIACHI='"+value4+"',QUOCTICH='"+value5+"',SDT='"+value6+"',CMND='"+value7+"'";
+    			String sql = "update khachhang set MAKH= '"+value0+"',TENKH='"+value1+"',NGAYSINH='"+value2+"',GIOITINH='"+value3+"',DIACHI='"+value4+"',QUOCTICH='"+value5+"',SDT='"+value6+"',CMND='"+value7+"' where MAKH='"+value0+"'";
     			PreparedStatement pst = conn.prepareStatement(sql);	
     			pst.execute();
     			JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
@@ -140,7 +140,7 @@ public class SuaKhachHangController {
      	else if(response == JOptionPane.NO_OPTION){
      		
      	}
-    }
+    } 
 
     @FXML
     void MaKHTextFieldListener(ActionEvent event) {
@@ -176,7 +176,7 @@ public class SuaKhachHangController {
 
     @FXML
     void SuaButtonListener(ActionEvent event) {
-    	MaKHTextField.setDisable(false);
+    	MaKHTextField.setDisable(true);
     	TenKhTextField.setDisable(false);
     	GTTextField.setDisable(false);
     	SDTTextField.setDisable(false);
@@ -184,7 +184,6 @@ public class SuaKhachHangController {
     	QuocTichTextField.setDisable(false);
     	NgaySinhTextField.setDisable(false);
     	DiaChiTextField.setDisable(false);
-    	SoNgayOTextField.setDisable(false);
     	LuuButton.setDisable(false);
     	HuyButton.setDisable(false);
     	SuaButton.setDisable(true);

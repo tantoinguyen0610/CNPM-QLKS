@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
@@ -163,8 +164,27 @@ public class QuanLiKhachHangController implements Initializable {
 
     @FXML
     void XoaButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DanhSachKHTableView.getItems().removeAll(DanhSachKHTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from khachhang where MAKH = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, MaKHColumn.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
-
     
 }
