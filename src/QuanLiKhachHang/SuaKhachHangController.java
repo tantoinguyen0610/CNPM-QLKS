@@ -3,6 +3,8 @@ package QuanLiKhachHang;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Check_in.ModelTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -113,7 +115,7 @@ public class SuaKhachHangController {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-
+    	
     }
 
     @FXML
@@ -139,6 +141,17 @@ public class SuaKhachHangController {
     @FXML
     void SoNgayOTextFieldListener(ActionEvent event) {
 
+    }
+    
+    public void setKhachHang(TableKhachHang khachhang) {
+    	MaKHTextField.setText(String.valueOf(khachhang.getMAKH()));
+    	TenKhTextField.setText(String.valueOf(khachhang.getTENKH()));
+    	NgaySinhTextField.setText(String.valueOf(khachhang.getNGAYSINH()));
+    	GTTextField.setText(String.valueOf(khachhang.getGIOITINH()));
+    	DiaChiTextField.setText(String.valueOf(khachhang.getDIACHI()));
+    	QuocTichTextField.setText(String.valueOf(khachhang.getQUOCTICH()));
+    	SDTTextField.setText(String.valueOf(khachhang.getSDT()));
+    	CMNDTextField.setText(String.valueOf(khachhang.getCMND()));
     }
 
     @FXML

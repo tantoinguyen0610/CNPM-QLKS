@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import Check_in.ModelTable;
+import Check_out.HoaDonTraPhongController;
 import NhanVien.TableNhanVien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -134,12 +135,22 @@ public class QuanLiKhachHangController implements Initializable {
 
     @FXML
     void SuaButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaKhachHangController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
-    }
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaKhachHangController.fxml"));
+    		Parent HienDanhSachSuaKhachHang = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaKhachHang);
+    		TableKhachHang selected = DanhSachKHTableView.getSelectionModel().getSelectedItem();
+    		SuaKhachHangController controller = loader.getController();
+    		controller.setKhachHang(selected);
+    		stage.setTitle("Khách Hàng");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
+        }
 
     @FXML
     void ThemButtonListener(ActionEvent event) throws IOException {
