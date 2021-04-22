@@ -12,8 +12,14 @@ import javafx.scene.paint.Color;
 import javafx.event.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import java.util.Stack;
+
+import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,9 +39,6 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     private AnchorPane App;
 
     @FXML
-    private Button btTatcaa;
-
-    @FXML
     private Button btDasudungg;
 
     @FXML
@@ -45,13 +48,7 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     private Button btTrongg;
 
     @FXML
-    private Button btSaptraa;
-
-    @FXML
     private Button btDattruocc;
-
-    @FXML
-    private Button btDathanhtoann;
 
     @FXML
     private Button btphong1055;
@@ -73,51 +70,244 @@ public class GiaoDienQuanLyPhongController implements Initializable {
 
     @FXML
     private Button btnangcapphong;
-    	
+
     @FXML
     private Button btsuachuaphong;
+
+    @FXML
+    private Button btQuanlythietbi;
+    
+    @FXML
+    private Button Button_KTDK;
+
+    
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	
-		
+    	DoiMauPhong101();
+    	DoiMauPhong102();
+    	DoiMauPhong103();
+    	DoiMauPhong104();
+    	DoiMauPhong105();
+    	DoiMauPhong106();
+    	
 	}
     
-    @FXML
-    void BaoTri_ActionListener(ActionEvent event) {
-    	btphong1011.setBackground(new Background(new BackgroundFill(Color.GREEN,CornerRadii.EMPTY,Insets.EMPTY)));
-    	btphong1011.setVisible(false);
-    }
-
-    @FXML
-    void DaSD_ActionListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void DaTT_ActionListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void DatTruoc_ActionListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void SapTra_ActionListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void TatCa_ActionListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Trong_ActionListener(ActionEvent event) {
-
-    }
+    public void DoiMauPhong101() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='1'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1011.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1011.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1011.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1011.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1011.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1011.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong102() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='2'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1022.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1022.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1022.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1022.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1022.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1022.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong103() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='3'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1033.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1033.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1033.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1033.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1033.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1033.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong104() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='4'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1044.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1044.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1044.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1044.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1044.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1044.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong105() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='5'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1055.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1055.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1055.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1055.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1055.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1055.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong106() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='6'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1066.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1066.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1066.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1066.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1066.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1066.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
     
     
 
@@ -184,12 +374,11 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     
     @FXML
     void actionQuanlythietbi(ActionEvent event) throws IOException  {
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("QuanLyThietBi.fxml"));
-    	Parent sampleParent = loader.load();
-    	Scene scene = new Scene(sampleParent);
+    	Parent root = FXMLLoader.load(getClass().getResource("QuanLyThietBi.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.show();
     	
     }
     
@@ -200,6 +389,7 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	Stage stage = new Stage();
     	stage.setScene(scene);
     	stage.show();
+    	
     }
     
     @FXML
@@ -211,6 +401,13 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	stage.show();
     }
 
-	
+    @FXML
+    void KTDK_ActionListener(ActionEvent event)  throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("BangKiemTraDinhKi.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.show();
+    }
     	
 }

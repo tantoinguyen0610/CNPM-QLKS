@@ -24,7 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class ChiTietThietBiController implements Initializable {
+public class ThietBi105Controller implements Initializable {
 
     @FXML
     private AnchorPane Ap;
@@ -77,7 +77,7 @@ public class ChiTietThietBiController implements Initializable {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
 			Statement s= conn.createStatement();
-			ResultSet rs = s.executeQuery("select THIETBI from phong where MA_PHONG = '1' ");
+			ResultSet rs = s.executeQuery("select THIETBI from phong where MA_PHONG = '5' ");
 			rs.next();
 			//ResultSet rs = conn.createStatement().executeQuery("select THIETBI from phong where MA_PHONG = '1' ");
 				rs.getString("THIETBI");
@@ -183,7 +183,7 @@ public class ChiTietThietBiController implements Initializable {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 101";
+			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 105";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, checkboxlist.toString());
 			pst.executeUpdate();
@@ -202,7 +202,7 @@ public class ChiTietThietBiController implements Initializable {
     			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
     			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
     			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-    			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 101";
+    			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 105";
     			PreparedStatement pst = conn.prepareStatement(query);
     			pst.setString(1, checkboxlist.toString());
     			pst.executeUpdate();

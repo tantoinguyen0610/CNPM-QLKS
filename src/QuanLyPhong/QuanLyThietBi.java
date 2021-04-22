@@ -14,7 +14,7 @@ public class QuanLyThietBi extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("QuanLyThietBi.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		stage.setTitle("Demo giao diện");
+		stage.setTitle("Quản lí TB");
 		stage.show();
 	}
 

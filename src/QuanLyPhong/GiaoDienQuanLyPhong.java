@@ -9,13 +9,11 @@ public class GiaoDienQuanLyPhong extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
-		//Load FXML file
 		Parent root = FXMLLoader.load(getClass().getResource("GiaoDienQuanLyPhong.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("quanlyphong.css").toExternalForm());
 		stage.setScene(scene);
-		stage.setTitle("Demo giao diện");
+		stage.setTitle("Giao diện Quản lý phòng");
 		stage.show();
 	}
 

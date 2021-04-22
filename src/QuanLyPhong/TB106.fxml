@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.ChiTietThietBiController">
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.ThietBi106Controller">
    <children>
       <CheckBox fx:id="cb5" layoutX="365.0" layoutY="95.0" mnemonicParsing="false" onAction="#cb5_ActionListener" text="Tủ để quần áo" />
       <CheckBox fx:id="cb1" layoutX="89.0" layoutY="95.0" mnemonicParsing="false" onAction="#cb1_ActionListener" text="Giường ngủ" />

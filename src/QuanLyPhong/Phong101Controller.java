@@ -1,5 +1,6 @@
 package QuanLyPhong;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,12 +14,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class Phong101Controller implements Initializable {
 
@@ -27,9 +32,6 @@ public class Phong101Controller implements Initializable {
 
     @FXML
     private Label lbThietbi;
-
-    @FXML
-    private Label lbKiemtradinhki;
 
     @FXML
     private Label lbTrangthai;
@@ -46,8 +48,6 @@ public class Phong101Controller implements Initializable {
     @FXML
     private Button btThietbi;
 
-    @FXML
-    private Button btKiemtradinhki;
 
     @FXML
     private Label SoPhong_Label;
@@ -67,7 +67,7 @@ public class Phong101Controller implements Initializable {
     @FXML
     private TextField cbSonguoichophep;
     
-    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
+    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Trống","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
     
     @Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
@@ -76,7 +76,6 @@ public class Phong101Controller implements Initializable {
          cbSonguoichophep.setDisable(true);
          cbTrangthai.setDisable(true);
          btThietbi.setDisable(true);
-         btKiemtradinhki.setDisable(true);
          btLuu.setDisable(true);
          HienTextField();
 		
@@ -86,7 +85,7 @@ public class Phong101Controller implements Initializable {
     	try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query1 = "SELECT TEN_PHONG ,SONGUOIO "
+			String query1 = "SELECT TEN_PHONG ,SONGUOIO,TINHTRANG "
 						+ "from phong "
 						+ "WHERE MA_PHONG='1'";
 			 PreparedStatement pst1 = conn.prepareStatement(query1);
@@ -94,7 +93,7 @@ public class Phong101Controller implements Initializable {
 			 while(rs1.next()) {
 				 SoPhong_textField.setText(rs1.getString("TEN_PHONG"));
 				 cbSonguoichophep.setText(rs1.getString("SONGUOIO"));
-				 
+				 cbTrangthai.setValue(rs1.getString("TINHTRANG"));
 			 }
 		}
 			catch(Exception e) {
@@ -123,13 +122,17 @@ public class Phong101Controller implements Initializable {
     }
 
     @FXML
-    void btactiondinhki(ActionEvent event) {
+    void btactiondinhki(ActionEvent event) throws IOException {
 
     }
 
     @FXML
-    void btactionthietbi(ActionEvent event) {
-
+    void btactionthietbi(ActionEvent event)throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("ChiTietThietBi.fxml"));
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();   	
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
@@ -138,7 +141,6 @@ public class Phong101Controller implements Initializable {
         cbTrangthai.setDisable(false);
         btChinhsua.setDisable(true);
         btThietbi.setDisable(false);
-        btKiemtradinhki.setDisable(false);
         btLuu.setDisable(false);
     }
 
