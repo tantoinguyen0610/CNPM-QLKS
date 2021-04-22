@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import QuanLiKhachHang.SuaKhachHangController;
 import QuanLiKhachHang.TableKhachHang;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -351,13 +352,23 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     void SuaDVAnUongButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuAnUongController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
-    }
-
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuAnUongController.fxml"));
+    		Parent HienDanhSachSuaKhachHang = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaKhachHang);
+    		TableDichVuAnUong selected =DichVuAnUongTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuAnUongController controller = loader.getController();
+    		controller.setDichVuAnUong(selected);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
+        }
+    
     @FXML
     void SuaDVGTButtonListener(ActionEvent event) throws IOException {
     	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuGiaiTriController.fxml"));
