@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -15,6 +17,7 @@ import Check_in.ModelTable;
 import HoaDon.TableHoaDonTTP;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,6 +27,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class HoaDonTraPhongController implements Initializable {
 
@@ -60,6 +65,15 @@ public class HoaDonTraPhongController implements Initializable {
     @FXML
     private Label MaHD_Label;
 
+    @FXML
+    private Label err_NgayTT;
+    
+    @FXML
+    private Label MaPhieuDV_Label;
+
+    @FXML
+    private TextField MaPhieuDV_textField;
+    
     @FXML
     private TextField MaHD_textField;
 
@@ -117,13 +131,17 @@ public class HoaDonTraPhongController implements Initializable {
     @FXML
     private TableColumn<?, ?> Tbl_Col_Tong;
     
-    
+    @FXML
+    private Button Button_TaoHD;
 
     @FXML
     private Button Button_ThanhToan;
 
     @FXML
-    private Button Button_Huy_ThanhToan;
+    private Button Button_In;
+
+    @FXML
+    private Button Button_Huy;
 
     @FXML
     private TableView<TableHoaDon> Table_HoaDon;
@@ -132,40 +150,45 @@ public class HoaDonTraPhongController implements Initializable {
     private TableColumn<Integer, TableHoaDon> Tbl_Col_MaHD;
 
     @FXML
+    private TableColumn<Integer, TableHoaDon> Tbl_Col_MaPT;
+
+    @FXML
+    private TableColumn<Integer, TableHoaDon> Tbl_Col_MaPhieuDV;
+
+    @FXML
     private TableColumn<Integer, TableHoaDon> Tbl_Col_MaKH;
 
     @FXML
     private TableColumn<String, TableHoaDon> Tbl_Col_TenKH;
 
     @FXML
-    private TableColumn<String, TableHoaDon> Tbl_Col_MaPhong;
-
-    @FXML
-    private TableColumn<String, TableHoaDon> Tbl_Col_GiaPhongNgay;
-
-    @FXML
-    private TableColumn<String, TableHoaDon> Tbl_Col_NgayNhanPhong;
-
-    @FXML
     private TableColumn<String, TableHoaDon> Tbl_Col_NgayThanhToan;
 
     @FXML
-    private TableColumn<String, TableHoaDon> Tbl_Col_TinhTrang;
-    
+    private TableColumn<Integer, TableHoaDon> Tbl_Col_TienPhongNgay;
+
+    @FXML
+    private TableColumn<Integer, TableHoaDon> Tbl_Col_TienDV;
+
     @FXML
     private TableColumn<Integer, TableHoaDon> Tbl_Col_TongTien;
+
+    @FXML
+    private TableColumn<String, TableHoaDon> Tbl_Col_TinhTrang;
     
     ObservableList<TableHoaDon> hoadon = FXCollections.observableArrayList();
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		HienTableHoaDon();
+		ChuyenNguocNamThangNgay();
 	}
 	
 	public void setHoaDonTraPhong(ModelTable traphong) {
 		MaHD_textField.setText(String.valueOf(traphong.getMA_PT()));
 		MaPT_textField.setText(String.valueOf(traphong.getMA_PT()));
 		Ma_KH_textField.setText(String.valueOf(traphong.getMA_PT()));
+		MaPhieuDV_textField.setText(String.valueOf(traphong.getMA_PT()));
 		TenKH_textField.setText(traphong.getTENKH());
 		SoPhong_textField.setText(String.valueOf(traphong.getSOPHONG()));
 		SoNgayO_textField.setText(String.valueOf(traphong.getSONGAYO()));
@@ -175,7 +198,7 @@ public class HoaDonTraPhongController implements Initializable {
 	
 	public void TinhTongTextField() {
 		Double tongtien=0.0;
-		tongtien=tongtien + Double.valueOf(Gia_textField.getText());
+		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText()));
 		TongCong_textField.setText(tongtien+"");
 	}
 	
@@ -194,38 +217,158 @@ public class HoaDonTraPhongController implements Initializable {
 			 }
 		}
 			catch(Exception e) {
-				 JOptionPane.showMessageDialog(null, "Lỗi");
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
 			}
-	}
-	
-	public void HienTableHoaDon() {
-		 try {
+	}								
+									
+	public void HienTableHoaDon() {	
+		 try {						
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			ResultSet rs = conn.createStatement().executeQuery("select MA_HD_TTP,phieuthuephong.MAKH,khachhang.TENKH,SOPHONG,GIATIEN,NGAYNHAN,NGAYTHANHTOAN,TINHTRANG "
-																+ "from phieuthuephong, khachhang, hoadon_thanhtoanphong,loai_phong "
-																+ "where hoadon_thanhtoanphong.MA_HD_TTP=phieuthuephong.MA_PT");
-			
+			ResultSet rs = conn.createStatement().executeQuery("select * from hoadon_thanhtoanphong");		
 				while (rs.next()) {	
-					hoadon.add(new TableHoaDon(rs.getString("MA_HD_TTP"),rs.getString("MAKH"),
-							rs.getString("TENKH"),rs.getString("SOPHONG"),rs.getString("GIATIEN"),
-							rs.getString("NGAYNHAN"),rs.getString("NGAYTHANHTOAN"),
-							rs.getString("TINHTRANG"),rs.getString("TONGTIEN")));
+					hoadon.add(new TableHoaDon(rs.getString("MA_HD_TTP"),rs.getString("MA_PT"),
+							rs.getString("MAPHIEUDV"),rs.getString("MAKH"),rs.getString("TENKH"),
+							rs.getString("NGAYTHANHTOAN"),rs.getString("TIENPHONG"),
+							rs.getString("TONGTIENDV"),rs.getString("TONGTIEN"),rs.getString("TINHTRANG")));
 				}
 			}
 		 catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			}
 		 Tbl_Col_MaHD.setCellValueFactory(new PropertyValueFactory<>("MA_HD_TTP"));
+		 Tbl_Col_MaPT.setCellValueFactory(new PropertyValueFactory<>("MA_PT"));
+		 Tbl_Col_MaPhieuDV.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
 		 Tbl_Col_MaKH.setCellValueFactory(new PropertyValueFactory<>("MAKH"));
 		 Tbl_Col_TenKH.setCellValueFactory(new PropertyValueFactory<>("TENKH"));
-		 Tbl_Col_MaPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
-		 Tbl_Col_GiaPhongNgay.setCellValueFactory(new PropertyValueFactory<>("GIATIEN"));
-		 Tbl_Col_NgayNhanPhong.setCellValueFactory(new PropertyValueFactory<>("NGAYNHAN"));
 		 Tbl_Col_NgayThanhToan.setCellValueFactory(new PropertyValueFactory<>("NGAYTHANHTOAN"));
+		 Tbl_Col_TienPhongNgay.setCellValueFactory(new PropertyValueFactory<>("TIENPHONG"));
+		 Tbl_Col_TienDV.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
+		 Tbl_Col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIEN"));
 		 Tbl_Col_TinhTrang.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
 		 Table_HoaDon.setItems(hoadon);
 	}
 	
+
+	@FXML
+    void Huy_ActionListener(ActionEvent event) {
+		Stage stage = (Stage) Button_Huy.getScene().getWindow();
+	    stage.close();
+    }
+
+    @FXML
+    void In_ActionListener(ActionEvent event) {
+
+    }
+
+    @FXML
+    void TaoHD_ActionListener(ActionEvent event) {
+    	if( KiemTraNgayThanhToan()) {
+    	try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query = "insert into `hoadon_thanhtoanphong`(MA_HD_TTP,MA_PT,MAPHIEUDV,MAKH,TENKH,NGAYTHANHTOAN,TIENPHONG,TONGTIENDV,TONGTIEN,TINHTRANG) "
+							+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, MaHD_textField.getText());
+			pst.setString(2, MaPT_textField.getText());
+			pst.setString(3, MaPhieuDV_textField.getText());
+			pst.setString(4, Ma_KH_textField.getText());
+			pst.setString(5, TenKH_textField.getText());
+			pst.setString(6, ((TextField)NgayThanhToan_textField.getEditor()).getText());
+			pst.setString(7, Gia_textField.getText());
+			pst.setString(8, Tien_DV_textField.getText());
+			pst.setString(9, TongCong_textField.getText());
+			pst.setString(10, "Chưa Thanh Toán");
+			pst.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+			err_NgayTT.setText("");
+		}
+	catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Lỗi: Hoá đơn bạn nhập có thể bị trùng!");
+		}
+    	
+    	}
+    	UpdateTable();
+    	
+}
+
+   
+
+    @FXML
+    void ThanhToan_ActionListener(ActionEvent event) {
+    	 try {						
+    		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+ 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+ 			String value1 = "Đã Thanh Toán";
+ 			String value2 = MaPT_textField.getText();
+ 			String query1 = "UPDATE hoadon_thanhtoanphong SET TINHTRANG = '"+value1+"' WHERE MA_HD_TTP='"+value2+"' ";
+ 			 PreparedStatement pst1 = conn.prepareStatement(query1);
+ 			 pst1.executeUpdate();
+ 			JOptionPane.showMessageDialog(null, "Thanh Toán Thành công!");
+ 			CapNhatTinhTrangPhong();
+ 			 }
+ 		 catch(Exception e) {
+ 			JOptionPane.showMessageDialog(null, e);
+ 			}
+    	 UpdateTable();
+    	 
+    	
+    }
+    
+    public void CapNhatTinhTrangPhong() {
+		 try {						
+   		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String value1 = "Trống";
+			String value2 = SoPhong_textField.getText().toString();
+			String query1 = "UPDATE phong SET TINHTRANG = '"+value1+"' WHERE TEN_PHONG='"+value2+"' ";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 pst1.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Cập Nhật Phòng Trống Thành công!");
+			 }
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+	}
+    
+    public void UpdateTable() {
+		 hoadon.clear();
+		 HienTableHoaDon();
+	}
+    
+private boolean KiemTraNgayThanhToan() {
+		
+		if(((TextField)NgayThanhToan_textField.getEditor()).getText().isEmpty())
+			{
+			err_NgayTT.setText("Vui lòng nhập ngày thanh toán!");
+			return false;
+			}
+		return true;
+	}
+
+public void ChuyenNguocNamThangNgay()
+{
+	NgayThanhToan_textField.setConverter(
+					   new StringConverter<LocalDate>() {
+					          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+					          @Override
+					          public String toString(LocalDate date) {
+					            return (date != null) ? dateFormatter.format(date) : "";
+					          }
+
+					          @Override
+					          public LocalDate fromString(String string) {
+					            return (string != null && !string.isEmpty())
+					                ? LocalDate.parse(string, dateFormatter)
+					                : null;
+					          }
+					        });
+}
+	
+
 	
 }

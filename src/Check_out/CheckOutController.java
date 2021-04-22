@@ -84,6 +84,7 @@ public class CheckOutController implements Initializable {
 	
 	@FXML
     void TraPhong_ActionListener(ActionEvent event) throws IOException {
+		try {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("GiaoDien_HoaDonTraPhong.fxml"));
 		Parent HienLenTextFieldHoaDon = loader.load();
 		Stage stage = new Stage();
@@ -94,17 +95,10 @@ public class CheckOutController implements Initializable {
 		stage.setTitle("Hoa Don Thanh Toan");
 		stage.setScene(scene);
 		stage.show();
-		
-//		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-//    	FXMLLoader loader = new FXMLLoader();
-//    	loader.setLocation(getClass().getResource("GiaoDien_HoaDonTraPhong.fxml"));
-//    	Parent HienLenTextFieldHoaDon = loader.load();
-//    	Scene scene = new Scene(HienLenTextFieldHoaDon);
-//    	HoaDonTraPhongController controller = loader.getController();
-//    	ModelTable selected = Table_Check_In.getSelectionModel().getSelectedItem();
-//    	controller.setHoaDonTraPhong(selected);
-//    	stage.setScene(scene);
-//    	stage.show();
+		}
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
     }
 	
 	public void HienTableCheckIn() {
