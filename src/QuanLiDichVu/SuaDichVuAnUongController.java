@@ -2,7 +2,14 @@ package QuanLiDichVu;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
+import QuanLiKhachHang.TableKhachHang;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -85,8 +92,30 @@ public class SuaDichVuAnUongController {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-
-    }
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn lưu cập nhật?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
+     		try {
+    			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+    			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+    			String value0 = MaDVAnUongTextField.getText();
+    			String value1 = TenDVAnUongTextField.getText();
+    			String value2 =	LoaiDVAnUongTextField.getText();
+    			String value3 =SoLuongTextField.getText();
+    			String value4 =GiaTextField.getText();
+    			String value5 =TinhTrangTextField.getText();
+    			String sql = "update dv set MA_DV= '"+value0+"',TENDV='"+value1+"',LOAIDV='"+value2+"',SOLUONG='"+value3+"',GIA='"+value4+"',TINHTRANG='"+value5+"' where MA_DV='"+value0+"'";
+    			PreparedStatement pst = conn.prepareStatement(sql);	
+    			pst.execute();
+    			JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+     	}
+     	else if(response == JOptionPane.NO_OPTION){
+     		
+     	}
+} 
+  
 
     @FXML
     void MaDVAnUongTextFieldListener(ActionEvent event) {
@@ -112,6 +141,16 @@ public class SuaDichVuAnUongController {
     	 
     }
 
+    public void setDichVuAnUong(TableDichVuAnUong dvanuong) {
+    	MaDVAnUongTextField.setText(String.valueOf(dvanuong.getMA_DV()));
+    	TenDVAnUongTextField.setText(String.valueOf(dvanuong.getTENDV()));
+    	LoaiDVAnUongTextField.setText(String.valueOf(dvanuong.getLOAIDV()));
+    	SoLuongTextField.setText(String.valueOf(dvanuong.getSOLUONG()));
+    	GiaTextField.setText(String.valueOf(dvanuong.getGIA()));
+    	TinhTrangTextField.setText(String.valueOf(dvanuong.getTINHTRANG()));
+    }
+    
+    
     @FXML
     void TenDVAnUongTextFieldListener(ActionEvent event) {
 
