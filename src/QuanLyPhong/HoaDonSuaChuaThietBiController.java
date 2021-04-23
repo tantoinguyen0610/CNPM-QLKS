@@ -112,6 +112,7 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
     	autoTaoMaHD();
+    	ChuyenNguocNamThangNgay();
 	}
 
     @FXML
@@ -132,7 +133,7 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
     			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
     			Connection conn = DriverManager.getConnection(DB_URL,"root","");
     			String query = "insert into hoa_don (MA_HD,MA_TB,TENTB,LOAI_HD,SOLUONG,NGAYBD,NGAYKT,TINHTRANG,CHIPHI,TONGTIEN,DUYETTHANHTOAN) "
-    							+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
+    							+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
     			PreparedStatement pst = conn.prepareStatement(query);
     			pst.setString(1,HD_textField.getText() );
     			pst.setString(2, MaTB_textField.getText());
@@ -231,7 +232,7 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
 			return true;
 		}
 		else {
-			err_ChiPhi.setText("Vui lòng điền số ngày ở hợp lệ");
+			err_ChiPhi.setText("Vui lòng điền chi phí hợp lệ");
 			return false;
 		}
 	}
