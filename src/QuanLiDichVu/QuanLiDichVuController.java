@@ -411,12 +411,12 @@ public class QuanLiDichVuController implements Initializable {
     void SuaDVTGButtonListener(ActionEvent event) throws IOException {
     	try {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuThuGianController.fxml"));
-    		Parent HienDanhSachSuaDVPV = loader.load();
+    		Parent HienDanhSachSuaDVTG = loader.load();
     		Stage stage = new Stage();
-    		Scene scene = new Scene(HienDanhSachSuaDVPV);
-    		TableDichVuThuGian selected =DichVuThuGianTableView.getSelectionModel().getSelectedItem();
-    		SuaDichVuAnUongController controller = loader.getController();
-    		controller.setDichVuTG(selected);
+    		Scene scene = new Scene(HienDanhSachSuaDVTG);
+    		TableDichVuThuGian dvthugian =DichVuThuGianTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuThuGianController controller = loader.getController();
+    		controller.setDichVuTG(dvthugian);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
     		stage.show();
