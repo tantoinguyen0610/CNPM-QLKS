@@ -372,13 +372,13 @@ public class QuanLiDichVuController implements Initializable {
     @FXML
     void SuaDVGTButtonListener(ActionEvent event) throws IOException {
     	try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuAnUongController.fxml"));
-    		Parent HienDanhSachSuaKhachHang = loader.load();
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuGiaiTriController.fxml"));
+    		Parent HienDanhSachSuaDVGT = loader.load();
     		Stage stage = new Stage();
-    		Scene scene = new Scene(HienDanhSachSuaKhachHang);
-    		TableDichVuAnUong selected =DichVuAnUongTableView.getSelectionModel().getSelectedItem();
-    		SuaDichVuAnUongController controller = loader.getController();
-    		controller.setDichVuAnUong(selected);
+    		Scene scene = new Scene(HienDanhSachSuaDVGT);
+    		TableDichVuGiaiTri dvgiaitri = DichVuGiaiTriTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuGiaiTriController controller = loader.getController();
+    		controller.setDichVuGiaiTri(dvgiaitri);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
     		stage.show();
@@ -395,9 +395,9 @@ public class QuanLiDichVuController implements Initializable {
     		Parent HienDanhSachSuaDVPV = loader.load();
     		Stage stage = new Stage();
     		Scene scene = new Scene(HienDanhSachSuaDVPV);
-    		TableDichVuPhucVu selected =DIchVuPhucVuTableView.getSelectionModel().getSelectedItem();
+    		TableDichVuPhucVu dichvuphucvu =DIchVuPhucVuTableView.getSelectionModel().getSelectedItem();
     		SuaDichVuPhucVuController controller = loader.getController();
-    		controller.setDichVuPV(selected);
+    		controller.setDichVuPV(dichvuphucvu);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
     		stage.show();
