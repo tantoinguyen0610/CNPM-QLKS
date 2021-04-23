@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 20, 2021 lúc 12:27 PM
+-- Thời gian đã tạo: Th4 23, 2021 lúc 01:44 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -28,10 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bang_kiem_tra_dinh_ki` (
-  `MA_KT_DK` int(10) NOT NULL,
+  `MA_KTDK` int(10) NOT NULL,
+  `TEN_PHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAY_KT` date DEFAULT NULL,
-  `GIO_BD` time DEFAULT NULL,
-  `GIO_KT` time DEFAULT NULL,
+  `GIO_BD` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `GIO_KT` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `TRANGTHAISAUKT` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GHI_CHU` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -40,10 +41,8 @@ CREATE TABLE `bang_kiem_tra_dinh_ki` (
 -- Đang đổ dữ liệu cho bảng `bang_kiem_tra_dinh_ki`
 --
 
-INSERT INTO `bang_kiem_tra_dinh_ki` (`MA_KT_DK`, `NGAY_KT`, `GIO_BD`, `GIO_KT`, `TRANGTHAISAUKT`, `GHI_CHU`) VALUES
-(1, NULL, NULL, NULL, 'Cần sửa chữa', 'Sửa chữa tủ, sơn lại'),
-(2, NULL, NULL, NULL, 'Bình thường', NULL),
-(3, NULL, NULL, NULL, 'Cần nâng cấp, bảo tr', 'Phòng hư hỏng nặng, tủ tróc sơn, gạch sàn nứt');
+INSERT INTO `bang_kiem_tra_dinh_ki` (`MA_KTDK`, `TEN_PHONG`, `NGAY_KT`, `GIO_BD`, `GIO_KT`, `TRANGTHAISAUKT`, `GHI_CHU`) VALUES
+(1, '102', '2021-04-01', '2', '3', 'Bình thường', 'qweqweqwe');
 
 -- --------------------------------------------------------
 
@@ -147,6 +146,7 @@ INSERT INTO `hoadon_thanhtoanphong` (`MA_HD_TTP`, `MA_PT`, `MAPHIEUDV`, `MAKH`, 
 
 CREATE TABLE `hoa_don` (
   `MA_HD` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `MA_TB` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `TENTB` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `LOAI_HD` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SOPHONG` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -160,6 +160,14 @@ CREATE TABLE `hoa_don` (
   `DUYETTHANHTOAN` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `hoa_don`
+--
+
+INSERT INTO `hoa_don` (`MA_HD`, `MA_TB`, `TENTB`, `LOAI_HD`, `SOPHONG`, `SOLUONG`, `LIDONANGCAP`, `NGAYBD`, `NGAYKT`, `TINHTRANG`, `CHIPHI`, `TONGTIEN`, `DUYETTHANHTOAN`) VALUES
+('1', NULL, NULL, 'Sửa Chữa Thiết Bị', '102', NULL, 'qweqwe', '2021-04-08', '2021-04-09', 'wqeqwe', 123123, 231232, 'Chưa Thanh Toán'),
+('2', '1', 'Máy lạnh', 'Sửa Chữa Thiết Bị', NULL, 2, NULL, '2021-04-01', '2021-04-14', 'qwe', 12312412, 12124123, 'Chưa Thanh Toán');
+
 -- --------------------------------------------------------
 
 --
@@ -172,7 +180,7 @@ CREATE TABLE `khachhang` (
   `GIOITINH` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAYSINH` date DEFAULT NULL,
-  `SDT` int(11) DEFAULT NULL,
+  `SDT` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `CMND` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `QUOCTICH` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -182,9 +190,18 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MAKH`, `TENKH`, `GIOITINH`, `DIACHI`, `NGAYSINH`, `SDT`, `CMND`, `QUOCTICH`) VALUES
-(1, 'qwe', NULL, NULL, NULL, 12, '23', NULL),
-(2, 'qwe', NULL, NULL, NULL, 23, '123', NULL),
-(3, 'qwe', NULL, NULL, NULL, 12123, '2131', NULL);
+(1, 'qwe', NULL, NULL, NULL, '12', '23', NULL),
+(2, 'qwe', NULL, NULL, NULL, '23', '123', NULL),
+(3, 'qwe', NULL, NULL, NULL, '12123', '2131', NULL),
+(4, 'qweqwe', NULL, NULL, NULL, '123123', '123123', NULL),
+(5, 'qweqwe', NULL, NULL, NULL, '123123', '123123', NULL),
+(6, 'qweqwe', NULL, NULL, NULL, '21312', '12312', NULL),
+(7, 'qwqwe', NULL, NULL, NULL, '3213', '2131', NULL),
+(8, 'qwewqe', NULL, NULL, NULL, '31232', '2131', NULL),
+(9, 'qwe', NULL, NULL, NULL, '3213', '1231', NULL),
+(10, 'qwe', NULL, NULL, NULL, '21323', '213123', NULL),
+(11, 'qweq', NULL, NULL, NULL, '23', '12312', NULL),
+(12, 'qweq', NULL, NULL, NULL, '4324', '213123', NULL);
 
 -- --------------------------------------------------------
 
@@ -218,20 +235,20 @@ CREATE TABLE `nhanvien` (
   `MANV` int(10) NOT NULL,
   `TENNV` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `CHUCVU` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CA_LAM` int(10) DEFAULT NULL,
+  `TRANGTHAI` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NGAYLAMVIEC` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SDT` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GIOITINH` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `DIACHI` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `NGAYSINH` date DEFAULT NULL,
-  `SDT` int(11) DEFAULT NULL,
-  `EMAIL` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+  `NGAYSINH` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MANV`, `TENNV`, `CHUCVU`, `GIOITINH`, `DIACHI`, `NGAYSINH`, `SDT`, `EMAIL`) VALUES
-(1, 'asdasd', 'Quản Lý', 'Nam', NULL, NULL, NULL, NULL),
-(2, 'erterte', 'Lễ Tân', 'Nam', NULL, NULL, NULL, NULL);
+INSERT INTO `nhanvien` (`MANV`, `TENNV`, `CHUCVU`, `CA_LAM`, `TRANGTHAI`, `NGAYLAMVIEC`, `SDT`, `GIOITINH`, `NGAYSINH`) VALUES
+(1, 'qwe', 'Quản Lý', 1, 'Offline', '2021-04-01', '23123123', 'Nữ', '2021-04-22');
 
 -- --------------------------------------------------------
 
@@ -249,7 +266,7 @@ CREATE TABLE `phieuthuephong` (
   `NGAYNHAN` date DEFAULT NULL,
   `SONGAYO` int(11) DEFAULT NULL,
   `LOAIPHONG` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `SOPHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SOPHONG` int(10) DEFAULT NULL,
   `SONGUOI1PHONG` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -258,9 +275,18 @@ CREATE TABLE `phieuthuephong` (
 --
 
 INSERT INTO `phieuthuephong` (`MA_PT`, `MA_PHONG`, `MAKH`, `MA_DATCOC`, `NGAYDAT`, `MA_DATPHONG`, `NGAYNHAN`, `SONGAYO`, `LOAIPHONG`, `SOPHONG`, `SONGUOI1PHONG`) VALUES
-(1, NULL, 1, NULL, '2021-03-30', '2', '2021-04-01', 2, 'Standard', '102', 1),
-(2, NULL, 2, NULL, '2021-04-01', '1', '2021-04-09', 2, 'Deluxe', '102', 1),
-(3, NULL, 3, NULL, '', '', '2021-04-01', 2, 'Deluxe', '103', 1);
+(1, NULL, 1, NULL, '2021-03-30', '2', '2021-04-01', 2, 'Standard', 102, 1),
+(2, NULL, 2, NULL, '2021-04-01', '1', '2021-04-09', 2, 'Deluxe', 102, 1),
+(3, NULL, 3, NULL, '', '', '2021-04-01', 2, 'Deluxe', 103, 1),
+(4, NULL, 4, NULL, '2021-04-01', '3', '2021-04-21', 2, 'Standard', 103, 1),
+(5, NULL, 5, NULL, '', '', '2021-04-01', 2, 'Standard', 104, 1),
+(6, NULL, 6, NULL, '2021-04-01', 'wqeq', '2021-04-20', 2, 'Deluxe', 101, 1),
+(7, NULL, 7, NULL, '', '', '2021-04-01', 2, 'Superior', 106, 1),
+(8, NULL, 8, NULL, '', '', '2021-04-01', 2, 'Deluxe', 101, 1),
+(9, NULL, 9, NULL, '2021-04-01', '1', '2021-04-21', 2, 'Deluxe', 105, 1),
+(10, NULL, 10, NULL, '', '', '2021-04-01', 2, 'Superior', 102, 2),
+(11, NULL, 11, NULL, '', '', '2021-04-01', 2, 'Superior', 106, 2),
+(12, NULL, 12, NULL, '', '', '2021-04-01', 2, 'Standard', 103, 1);
 
 -- --------------------------------------------------------
 
@@ -285,8 +311,8 @@ CREATE TABLE `phong` (
   `MA_PHONG` int(10) NOT NULL,
   `MA_KT_DK` int(10) DEFAULT NULL,
   `MA_LOAIPHONG` int(10) DEFAULT NULL,
-  `MA_THIETBI` int(10) DEFAULT NULL,
-  `TEN_PHONG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `THIETBI` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TEN_PHONG` int(10) DEFAULT NULL,
   `SONGUOIO` int(11) DEFAULT NULL,
   `TINHTRANG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -295,13 +321,13 @@ CREATE TABLE `phong` (
 -- Đang đổ dữ liệu cho bảng `phong`
 --
 
-INSERT INTO `phong` (`MA_PHONG`, `MA_KT_DK`, `MA_LOAIPHONG`, `MA_THIETBI`, `TEN_PHONG`, `SONGUOIO`, `TINHTRANG`) VALUES
-(1, 1, 2, NULL, '101', 3, 'Đang sử dụng'),
-(2, 2, 3, NULL, '102', 2, NULL),
-(3, 3, 1, NULL, '103', 2, NULL),
-(4, 4, 1, NULL, '104', 2, NULL),
-(5, 5, 2, NULL, '105', 4, NULL),
-(6, 6, 3, NULL, '106', 2, NULL);
+INSERT INTO `phong` (`MA_PHONG`, `MA_KT_DK`, `MA_LOAIPHONG`, `THIETBI`, `TEN_PHONG`, `SONGUOIO`, `TINHTRANG`) VALUES
+(1, 1, 2, '[Giường ngủ, Bàn đầu giường, Ti vi, Tủ lạnh ]', 101, 3, 'Đã sử dụng'),
+(2, 2, 3, NULL, 102, 2, 'Trống'),
+(3, 3, 1, NULL, 103, 2, 'Đã sử dụng'),
+(4, 4, 1, NULL, 104, 2, 'Trống'),
+(5, 5, 2, NULL, 105, 4, 'Trống'),
+(6, 6, 3, NULL, 106, 2, 'Trống');
 
 -- --------------------------------------------------------
 
@@ -324,12 +350,19 @@ CREATE TABLE `taikhoan` (
 
 CREATE TABLE `thiet_bi` (
   `MA_THIETBI` int(10) NOT NULL,
-  `TEN_THIETBI` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `NGAY_NHAP` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `TEN_THIETBI` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NGAY_NHAP` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NGAY_XUAT` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `TINHTRANG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `VI_TRI` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `thiet_bi`
+--
+
+INSERT INTO `thiet_bi` (`MA_THIETBI`, `TEN_THIETBI`, `NGAY_NHAP`, `NGAY_XUAT`, `TINHTRANG`, `VI_TRI`) VALUES
+(1, 'Máy lạnhdddd', '2021-04-01', '2021-04-03', 'Bình thường', 'qweqw');
 
 -- --------------------------------------------------------
 
@@ -353,7 +386,7 @@ CREATE TABLE `thongke` (
 -- Chỉ mục cho bảng `bang_kiem_tra_dinh_ki`
 --
 ALTER TABLE `bang_kiem_tra_dinh_ki`
-  ADD PRIMARY KEY (`MA_KT_DK`);
+  ADD PRIMARY KEY (`MA_KTDK`);
 
 --
 -- Chỉ mục cho bảng `cham_cong`
@@ -429,7 +462,7 @@ ALTER TABLE `phieu_dv`
 ALTER TABLE `phong`
   ADD PRIMARY KEY (`MA_PHONG`),
   ADD KEY `fk_LOAIPHONG` (`MA_LOAIPHONG`),
-  ADD KEY `fk_THIETBI` (`MA_THIETBI`),
+  ADD KEY `fk_THIETBI` (`THIETBI`),
   ADD KEY `fk_KTDK` (`MA_KT_DK`);
 
 --
@@ -442,12 +475,6 @@ ALTER TABLE `thongke`
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
-
---
--- AUTO_INCREMENT cho bảng `bang_kiem_tra_dinh_ki`
---
-ALTER TABLE `bang_kiem_tra_dinh_ki`
-  MODIFY `MA_KT_DK` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `cham_cong`
