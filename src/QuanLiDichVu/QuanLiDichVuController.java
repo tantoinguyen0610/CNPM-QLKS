@@ -4,15 +4,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-
+import QuanLiKhachHang.TableKhachHang;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +30,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -236,7 +240,7 @@ public class QuanLiDichVuController implements Initializable {
     	HienTableDichVuGiaiTri();
     	HienTableDichVuThuGian();
     	HienTableDichVuPhucVu();
-    	
+    	HienDataLenTextField();
 	}
 
 
@@ -471,10 +475,44 @@ public class QuanLiDichVuController implements Initializable {
     	stage.show();
     }
 
+    private void HienDataLenTextField() {
+    	DichVuAnUongTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuAnUong tbl_nv = DichVuAnUongTableView.getItems().get(DichVuAnUongTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
+    }
+    
     @FXML
     void XoaDVAnUongButtonListener(ActionEvent event) throws IOException {
-    	
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DichVuAnUongTableView.getItems().removeAll(DichVuAnUongTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
+
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
+    
+    
 
     @FXML
     void XoaDVGTButtonListener(ActionEvent event) throws IOException {
