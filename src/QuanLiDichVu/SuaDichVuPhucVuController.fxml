@@ -20,7 +20,7 @@
             <Label fx:id="SoLuongLabel" alignment="CENTER" layoutX="461.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="Số Lượng" />
             <Label fx:id="GiaLabel" alignment="CENTER" layoutX="461.0" layoutY="229.0" prefHeight="45.0" prefWidth="127.0" text="Giá" />
             <Label fx:id="TinhTrangLLabel" alignment="CENTER" layoutX="462.0" layoutY="304.0" prefHeight="45.0" prefWidth="127.0" text="Tình Trạng" />
-            <TextField fx:id="MaDVTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaDVTextFieldListener" />
+            <TextField fx:id="MaDVTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaDVTextFieldListener" prefHeight="31.0" prefWidth="55.0" />
             <TextField fx:id="TenDVTextField" disable="true" layoutX="178.0" layoutY="238.0" onAction="#TenDVTextFieldListener" />
             <TextField fx:id="SoLuongTextField" disable="true" layoutX="626.0" layoutY="157.0" onAction="#SoLuongTextFieldListener" />
             <TextField fx:id="GiaTextField" disable="true" layoutX="626.0" layoutY="238.0" onAction="#GiaTextFieldListener" />
