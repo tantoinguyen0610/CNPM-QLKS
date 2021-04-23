@@ -354,9 +354,9 @@ public class QuanLiDichVuController implements Initializable {
     void SuaDVAnUongButtonListener(ActionEvent event) throws IOException {
     	try {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuAnUongController.fxml"));
-    		Parent HienDanhSachSuaKhachHang = loader.load();
+    		Parent HienDanhSachSuaDVANUONG = loader.load();
     		Stage stage = new Stage();
-    		Scene scene = new Scene(HienDanhSachSuaKhachHang);
+    		Scene scene = new Scene(HienDanhSachSuaDVANUONG);
     		TableDichVuAnUong selected =DichVuAnUongTableView.getSelectionModel().getSelectedItem();
     		SuaDichVuAnUongController controller = loader.getController();
     		controller.setDichVuAnUong(selected);
@@ -371,29 +371,59 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     void SuaDVGTButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuGiaiTriController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuAnUongController.fxml"));
+    		Parent HienDanhSachSuaKhachHang = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaKhachHang);
+    		TableDichVuAnUong selected =DichVuAnUongTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuAnUongController controller = loader.getController();
+    		controller.setDichVuAnUong(selected);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
     void SuaDVPVButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuPhucVuController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuPhucVuController.fxml"));
+    		Parent HienDanhSachSuaDVPV = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaDVPV);
+    		TableDichVuPhucVu selected =DIchVuPhucVuTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuPhucVuController controller = loader.getController();
+    		controller.setDichVuPV(selected);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
     void SuaDVTGButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuThuGianController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuThuGianController.fxml"));
+    		Parent HienDanhSachSuaDVPV = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaDVPV);
+    		TableDichVuThuGian selected =DichVuThuGianTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuAnUongController controller = loader.getController();
+    		controller.setDichVuTG(selected);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
