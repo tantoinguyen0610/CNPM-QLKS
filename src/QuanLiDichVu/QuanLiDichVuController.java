@@ -487,8 +487,8 @@ public class QuanLiDichVuController implements Initializable {
     	DichVuGiaiTriTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
     		@Override
     		public void handle(MouseEvent event) {
-    			TableDichVuGiaiTri tbl_nv = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
-    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			TableDichVuGiaiTri tb1 = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tb1.getMA_DV());
     			
     		}
     		
