@@ -1,150 +1,340 @@
 package TraCuuPhong;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
-import javafx.event.*;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import java.util.Stack;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.stage.*;
-import javafx.scene.*;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
+import javax.swing.JOptionPane;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-public class GiaoDienTraCuuPhongController /*implements Initializable*/ {
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-	 @FXML
-	    private AnchorPane Ap;
+public class GiaoDienTraCuuPhongController implements Initializable{
 
-	    @FXML
-	    private Button btTatca;
+    @FXML
+    private AnchorPane Ap;
 
-	    @FXML
-	    private Button btDasudung;
+    @FXML
+    private Button btDasudung;
 
-	    @FXML
-	    private Button btDangbaotri;
+    @FXML
+    private Button btDangbaotri;
 
-	    @FXML
-	    private Button btTrong;
+    @FXML
+    private Button btTrong;
 
-	    @FXML
-	    private Button btSaptra;
+    @FXML
+    private Button btDattruoc;
 
-	    @FXML
-	    private Button btDattruoc;
+    @FXML
+    private Button btphong1055;
 
-	    @FXML
-	    private Button btDathanhtoan;
+    @FXML
+    private Button btphong1066;
 
-	    @FXML
-	    private Button btphong105;
+    @FXML
+    private Button btphong1022;
 
-	    @FXML
-	    private Button btphong106;
+    @FXML
+    private Button btphong1033;
 
-	    @FXML
-	    private Button btphong102;
+    @FXML
+    private Button btphong1011;
 
-	    @FXML
-	    private Button btphong103;
-
-	    @FXML
-	    private Button btphong101;
-
-	    @FXML
-	    private Button btphong104;
+    @FXML
+    private Button btphong1044;
+    
+    @Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+    	DoiMauPhong101();
+    	DoiMauPhong102();
+    	DoiMauPhong103();
+    	DoiMauPhong104();
+    	DoiMauPhong105();
+    	DoiMauPhong106();
+	}
 
     
-    /*ObservableList<String> list = FXCollections.observableArrayList("Deluxe", "Double Room", "Single Room");
+    public void DoiMauPhong101() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='1'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1011.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1011.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1011.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1011.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1011.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1011.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
     
+    public void DoiMauPhong102() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='2'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1022.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1022.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1022.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1022.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1022.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1022.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong103() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='3'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1033.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1033.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1033.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1033.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1033.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1033.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong104() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='4'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1044.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1044.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1044.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1044.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1044.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1044.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong105() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='5'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1055.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1055.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1055.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1055.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1055.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1055.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+    
+    public void DoiMauPhong106() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TINHTRANG "
+						+ "from phong "
+						+ "WHERE MA_PHONG='6'";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 ResultSet rs1 = pst1.executeQuery();
+			 rs1.next();
+			 rs1.getString("TINHTRANG");
+			if(rs1.getString("TINHTRANG").equals("Đã sử dụng")) {
+				btphong1066.setStyle("-fx-background-color: #ff0000; ");
+				
+			}
+			else if(rs1.getString("TINHTRANG").equals("Trống")) {
+				btphong1066.setStyle("-fx-background-color: #26ff00; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đã thanh toán")) {
+				btphong1066.setStyle("-fx-background-color: #788276; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đang bảo trì")) {
+				btphong1066.setStyle("-fx-background-color: #ffffff; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Sắp trả")) {
+				btphong1066.setStyle("-fx-background-color: #fbff24; ");
+			}
+			else if(rs1.getString("TINHTRANG").equals("Đặt trước")) {
+				btphong1066.setStyle("-fx-background-color: #FF9933; ");
+			}
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}
+
     @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        //cbLoaiPhong.setItems(list);
-    }
-    public void comboBoxChanged (ActionEvent event){
-        //ta1.setText(cbLoaiPhong.getValue());
-        
-    }*/
-    @FXML
-    void bt1(ActionEvent event) throws IOException  {
-//    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//    	FXMLLoader loader = new FXMLLoader();
-//    	loader.setLocation(getClass().getResource("ChitietPhong.fxml"));
-//    	Parent sampleParent = loader.load();
-//    	Scene scene = new Scene(sampleParent);
-//    	stage.setScene(scene);
-    	
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongDeluxe.fxml"));
+    void bt11(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("Phong101.fxml"));
     	Scene scene = new Scene(root);
-    	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
     	stage.show();
     }
     
     @FXML
-    void bt2(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongSup.fxml"));
+    void bt22(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("Phong102.fxml"));
     	Scene scene = new Scene(root);
-    	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
-    	Stage stage = new Stage();
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
     	stage.show();
     }
     
     @FXML
-    void bt3(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongStandard.fxml"));
+    void bt33(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("Phong103.fxml"));
     	Scene scene = new Scene(root);
-    	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
-    	Stage stage = new Stage();
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
     	stage.show();
     }
     
     @FXML
-    void bt4(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongStandard.fxml"));
+    void bt44(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("Phong104.fxml"));
     	Scene scene = new Scene(root);
-    	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
-    	Stage stage = new Stage();
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
     	stage.show();
     }
     
     @FXML
-    void bt5(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongDeluxe.fxml"));
+    void bt55(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("Phong105.fxml"));
     	Scene scene = new Scene(root);
-    	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
-    	Stage stage = new Stage();
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
     	stage.show();
     }
     
     @FXML
-    void bt6(ActionEvent event) throws IOException  {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChitietPhongSup.fxml"));
+    void bt66(ActionEvent event) throws IOException  {
+    	Parent root = FXMLLoader.load(getClass().getResource("Phong106.fxml"));
     	Scene scene = new Scene(root);
-    	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
-    	Stage stage = new Stage();
+    	Stage stage = new Stage();   	
     	stage.setScene(scene);
     	stage.show();
     }
-    
-
-    	
+	
 }
