@@ -231,48 +231,8 @@ public class NhanVienController implements Initializable {
 			 	Col_SDT.setCellValueFactory(new PropertyValueFactory<>("SDT"));
 				Col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GIOITINH"));
 				Col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NGAYSINH"));
-				
-				Callback<TableColumn<TableNhanVien,String>,TableCell<TableNhanVien,String>> cellFactory=(param) ->{
-					final TableCell<TableNhanVien,String> cell = new TableCell<TableNhanVien,String>(){
-						public void updateItem(String item, boolean empty) {
-							super.updateItem(item, empty);
-							if (empty) {
-								setGraphic(null);
-								setText(null);
-							}
-							else {
-								final Button btn_nhiemvu= new Button("Xem thêm");
-								setGraphic(btn_nhiemvu);
-								setText(null);
-							}
-						};
-						
-					};
-					return cell;
-				};
-				Col_NhiemVu.setCellFactory((cellFactory));
-				
-				Callback<TableColumn<TableNhanVien,String>,TableCell<TableNhanVien,String>> cellFactory1=(param) ->{
-					final TableCell<TableNhanVien,String> cell = new TableCell<TableNhanVien,String>(){
-						public void updateItem(String item, boolean empty) {
-							super.updateItem(item, empty);
-							if (empty) {
-								setGraphic(null);
-								setText(null);
-							}
-							else {
-								final Button btn_ghichu= new Button("Xem thêm");
-								setGraphic(btn_ghichu);
-								setText(null);
-							}
-						};
-						
-					};
-					return cell;
-				};
-				Col_GhiChu.setCellFactory((cellFactory1));
 				Table_NhanVien.setItems(listnv);
-			}
+		 }
 		 catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			}
@@ -302,7 +262,7 @@ public class NhanVienController implements Initializable {
 					String sql = "update nhanvien set TENNV= '"+value1+"',CHUCVU='"+value2+"', GIOITINH='"+value3+"', SDT='"+value4+"', CA_LAM='"+value5+"', NGAYLAMVIEC='"+value6+"', NGAYSINH='"+value7+"', TRANGTHAI= '"+value8+"' where MANV='"+value0+"'";
 					PreparedStatement pst = conn.prepareStatement(sql);	
 					pst.execute();
-					JOptionPane.showMessageDialog(null, "Cạp nhật thành công!");
+					JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
