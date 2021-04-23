@@ -109,7 +109,11 @@ public class SuaDichVuAnUongController {
     			JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
     		}catch(Exception e) {
     			e.printStackTrace();
+    			
     		}
+     		Stage stage = (Stage) LuuButton.getScene().getWindow();
+	        // do what you have to do
+	        stage.close();
      	}
      	else if(response == JOptionPane.NO_OPTION){
      		
@@ -144,8 +148,8 @@ public class SuaDichVuAnUongController {
     public void setDichVuAnUong(TableDichVuAnUong dvanuong) {
     	MaDVAnUongTextField.setText(String.valueOf(dvanuong.getMA_DV()));
     	TenDVAnUongTextField.setText(String.valueOf(dvanuong.getTENDV()));
-    	LoaiDVAnUongTextField.setText(String.valueOf(dvanuong.getLOAIDV()));
     	SoLuongTextField.setText(String.valueOf(dvanuong.getSOLUONG()));
+    	LoaiDVAnUongTextField.setText(String.valueOf(dvanuong.getLOAIDV()));
     	GiaTextField.setText(String.valueOf(dvanuong.getGIA()));
     	TinhTrangTextField.setText(String.valueOf(dvanuong.getTINHTRANG()));
     }
@@ -160,6 +164,14 @@ public class SuaDichVuAnUongController {
     void TinhTrangTextFieldListener(ActionEvent event) {
 
     }
+
+	public void setDichVuTG(TableDichVuThuGian selected) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
 
     
 }
