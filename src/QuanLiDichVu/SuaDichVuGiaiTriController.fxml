@@ -28,6 +28,8 @@
             <Button fx:id="LuuButton" disable="true" layoutX="397.0" layoutY="407.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
             <Button fx:id="HuyButton" disable="true" layoutX="604.0" layoutY="407.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
             <Button fx:id="SuaButton" layoutX="193.0" layoutY="407.0" mnemonicParsing="false" onAction="#SuaButtonListener" prefHeight="63.0" prefWidth="116.0" text="Sửa" />
+            <Label fx:id="LoaiDVLabel" alignment="CENTER" layoutX="461.0" layoutY="303.0" prefHeight="45.0" prefWidth="127.0" text="Loại Dịch Vụ" />
+            <TextField fx:id="LoaiDVTestField" disable="true" layoutX="626.0" layoutY="310.0" />
          </children>
       </AnchorPane>
    </children>
