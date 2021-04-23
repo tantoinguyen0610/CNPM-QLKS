@@ -4,6 +4,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -70,6 +73,10 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
 
     @FXML
     private TextField HD_textField;
+    
+    @FXML
+    private TextField MaTB_textField;
+
 
     @FXML
     private DatePicker NgayBD;
@@ -98,10 +105,13 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
     @FXML
     private Label err_TongTien;
     
+    @FXML
+    private Label err_MaTB;
+    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+    	autoTaoMaHD();
 	}
 
     @FXML
@@ -116,24 +126,25 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-    	if(KiemTraTenTB() & KiemTraSoLuong() & KiemTraNgayBD() & KiemTraNgayKT() & KiemTraTinhTrang()&KiemTraChiPhi()&KiemTraTongTien()) {
+    	if(KiemTraTenTB() & KiemTraSoLuong() & KiemTraNgayBD() & KiemTraNgayKT() & KiemTraTinhTrang()&KiemTraChiPhi()&KiemTraTongTien()&KiemTraMaTB()) {
         	try {
     			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
     			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
     			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-    			String query = "insert into hoa_don (MA_HD,TENTB,LOAI_HD,SOLUONG,NGAYBD,NGAYKT,TINHTRANG,CHIPHI,TONGTIEN,DUYETTHANHTOAN) "
-    							+ "VALUES(?,?,?,?,?,?,?,?,?)";
+    			String query = "insert into hoa_don (MA_HD,MA_TB,TENTB,LOAI_HD,SOLUONG,NGAYBD,NGAYKT,TINHTRANG,CHIPHI,TONGTIEN,DUYETTHANHTOAN) "
+    							+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
     			PreparedStatement pst = conn.prepareStatement(query);
     			pst.setString(1,HD_textField.getText() );
-    			pst.setString(2, TenTBTextField.getText());
-    			pst.setString(3,"Sửa Chữa Thiết Bị");
-    			pst.setString(4,SoLuongTextField.getText() );
-    			pst.setString(5,((TextField)NgayBD.getEditor()).getText());
-    			pst.setString(6,((TextField)NgayKT.getEditor()).getText());
-    			pst.setString(7, TinhTrang_textField.getText());
-    			pst.setString(8, ChiPhiSuaChuaTextField.getText());
-    			pst.setString(9, TongTienTextField.getText());
-    			pst.setString(10, "Chưa Thanh Toán");
+    			pst.setString(2, MaTB_textField.getText());
+    			pst.setString(3, TenTBTextField.getText());
+    			pst.setString(4,"Sửa Chữa Thiết Bị");
+    			pst.setString(5,SoLuongTextField.getText() );
+    			pst.setString(6,((TextField)NgayBD.getEditor()).getText());
+    			pst.setString(7,((TextField)NgayKT.getEditor()).getText());
+    			pst.setString(8, TinhTrang_textField.getText());
+    			pst.setString(9, ChiPhiSuaChuaTextField.getText());
+    			pst.setString(10, TongTienTextField.getText());
+    			pst.setString(11, "Chưa Thanh Toán");
     			pst.executeUpdate();
     			
     			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
@@ -141,8 +152,19 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
     	catch(Exception e) {
     			JOptionPane.showMessageDialog(null, "Lỗi!" + e);
     		}
-        	
+        	autoTaoMaHD();
         	}
+    }
+    private boolean KiemTraMaTB() {
+    	Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(MaTB_textField.getText());
+		if(m.find() && m.group().equals(MaTB_textField.getText())){
+			return true;
+		}
+		else {
+			err_MaTB.setText("Vui lòng điền mã thiết bị!");
+			return false;
+		}
     }
     
     private boolean KiemTraTenTB() {
@@ -279,6 +301,30 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
 
     }
 
-	
+    public void autoTaoMaHD() {
+    	try {
+    		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+    		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+    		Statement s= conn.createStatement();
+    		
+    		ResultSet rs = s.executeQuery("select Max(MA_HD) from hoa_don");
+    		rs.next();
+    		rs.getString("Max(MA_HD)");
+    		
+    		if(rs.getString("Max(MA_HD)")== null)
+    		{
+    			HD_textField.setText("1");
+    		}
+    		else
+    		{
+    			int matb = Integer.parseInt(rs.getString("Max(MA_HD)"));
+    			matb++;
+    			HD_textField.setText(String.format("%d",matb));
+    		}
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
+
 
 }

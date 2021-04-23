@@ -125,18 +125,19 @@ public class HoaDonNangCapPhongController implements Initializable {
     			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
     			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
     			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-    			String query = "insert into hoa_don (MA_HD,SOPHONG,LIDONANGCAP,NGAYBD,NGAYKT,TINHTRANG,CHIPHI,TONGTIEN,DUYETTHANHTOAN) "
-    							+ "VALUES(?,?,?,?,?,?,?,?,?)";
+    			String query = "insert into hoa_don (MA_HD,LOAI_HD,SOPHONG,LIDONANGCAP,NGAYBD,NGAYKT,TINHTRANG,CHIPHI,TONGTIEN,DUYETTHANHTOAN) "
+    							+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
     			PreparedStatement pst = conn.prepareStatement(query);
     			pst.setString(1,MaHD_textField.getText() );
-    			pst.setString(2, SoPhong_cmb.getValue().toString());
-    			pst.setString(3,LiDoNangCapTextField.getText());
-    			pst.setString(4,((TextField)NgayBD.getEditor()).getText() );
-    			pst.setString(5, ((TextField)NgayKT.getEditor()).getText());
-    			pst.setString(6,TinhTrangNangCapTextField.getText());
-    			pst.setString(7, ChiPhiNangCapTextField.getText());
-    			pst.setString(8, TongTienTextField.getText());
-    			pst.setString(9, "Chưa Thanh Toán");
+    			pst.setString(2, "Nâng Cấp Phòng");
+    			pst.setString(3, SoPhong_cmb.getValue().toString());
+    			pst.setString(4,LiDoNangCapTextField.getText());
+    			pst.setString(5,((TextField)NgayBD.getEditor()).getText() );
+    			pst.setString(6, ((TextField)NgayKT.getEditor()).getText());
+    			pst.setString(7,TinhTrangNangCapTextField.getText());
+    			pst.setString(8, ChiPhiNangCapTextField.getText());
+    			pst.setString(9, TongTienTextField.getText());
+    			pst.setString(10, "Chưa Thanh Toán");
     			pst.executeUpdate();
     			
     			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 

@@ -14,9 +14,9 @@
             <Font name="Arial Italic" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="TênTBLabel" layoutX="31.0" layoutY="167.0" prefHeight="41.0" prefWidth="88.0" text="Tên Thiết Bị" />
-      <Label fx:id="SoLuongLabel" layoutX="50.0" layoutY="239.0" prefHeight="41.0" prefWidth="77.0" text="Số Lượng" />
-      <Label fx:id="NgayBatDauLabel" layoutX="20.0" layoutY="312.0" prefHeight="41.0" prefWidth="136.0" text="Ngày Bắt Đầu" />
+      <Label fx:id="TênTBLabel" layoutX="63.0" layoutY="167.0" prefHeight="41.0" prefWidth="88.0" text="Tên Thiết Bị" />
+      <Label fx:id="SoLuongLabel" layoutX="82.0" layoutY="239.0" prefHeight="41.0" prefWidth="77.0" text="Số Lượng" />
+      <Label fx:id="NgayBatDauLabel" layoutX="52.0" layoutY="312.0" prefHeight="41.0" prefWidth="97.0" text="Ngày Bắt Đầu" />
       <Label fx:id="NgayKetThucLabel" layoutX="418.0" layoutY="94.0" prefHeight="41.0" prefWidth="109.0" text="Ngày Kết Thúc" />
       <Label fx:id="TinhTrangSuaLabel" layoutX="418.0" layoutY="162.0" prefHeight="41.0" prefWidth="109.0" text="Tình Trạng Sửa" />
       <Label fx:id="ChiPhiSuaChuaLabel" layoutX="415.0" layoutY="239.0" prefHeight="41.0" prefWidth="116.0" text="Chi Phí Sửa Chữa" />
@@ -28,7 +28,7 @@
       <TextField fx:id="TongTienTextField" layoutX="543.0" layoutY="315.0" onAction="#TongTienTextFieldListener" prefHeight="31.0" prefWidth="197.0" />
       <Button fx:id="DongButton" layoutX="404.0" layoutY="401.0" mnemonicParsing="false" onAction="#DongButtonListener" prefHeight="59.0" prefWidth="123.0" text="Đóng" />
       <Button fx:id="LuuButton" layoutX="233.0" layoutY="401.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="59.0" prefWidth="123.0" text="Lưu" />
-      <Label layoutX="64.0" layoutY="104.0" text="Mã HD:" />
+      <Label layoutX="96.0" layoutY="104.0" text="Mã HD:" />
       <TextField fx:id="HD_textField" disable="true" layoutX="165.0" layoutY="99.0" prefHeight="31.0" prefWidth="50.0" />
       <DatePicker fx:id="NgayBD" layoutX="164.0" layoutY="317.0" prefHeight="31.0" prefWidth="187.0" />
       <DatePicker fx:id="NgayKT" layoutX="543.0" layoutY="99.0" prefHeight="31.0" prefWidth="197.0" />
@@ -39,5 +39,8 @@
       <Label fx:id="err_TinhTrang" layoutX="544.0" layoutY="198.0" textFill="RED" />
       <Label fx:id="err_ChiPhi" layoutX="545.0" layoutY="276.0" textFill="RED" />
       <Label fx:id="err_TongTien" layoutX="545.0" layoutY="345.0" textFill="RED" />
+      <Label layoutX="240.0" layoutY="104.0" text="Mã TB:" />
+      <TextField fx:id="MaTB_textField" layoutX="286.0" layoutY="99.0" prefHeight="31.0" prefWidth="50.0" />
+      <Label fx:id="err_MaTB" layoutX="244.0" layoutY="132.0" textFill="RED" />
    </children>
 </AnchorPane>
