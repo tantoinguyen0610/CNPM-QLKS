@@ -182,9 +182,7 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     private Button CapNhatDVTGButton;
-
-    
-    
+ 
     @FXML
     private Tab DichVuPhucVuTab;
 
@@ -268,6 +266,7 @@ public class QuanLiDichVuController implements Initializable {
     			GiaDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
     			TinhTrangDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
     			DichVuAnUongTableView.setItems(listdvanuong);
+    			
     			
 		 }
 
@@ -485,6 +484,33 @@ public class QuanLiDichVuController implements Initializable {
     		}
     		
     	});
+    	DichVuGiaiTriTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuGiaiTri tbl_nv = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
+    	DichVuThuGianTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuThuGian tbl_nv = DichVuThuGianTableView.getItems().get(DichVuThuGianTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
+    	DIchVuPhucVuTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuPhucVu tbl_nv = DIchVuPhucVuTableView.getItems().get(DIchVuPhucVuTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
     }
     
     @FXML
@@ -512,21 +538,79 @@ public class QuanLiDichVuController implements Initializable {
      	}
     }
     
-    
 
     @FXML
     void XoaDVGTButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DichVuGiaiTriTableView.getItems().removeAll(DichVuGiaiTriTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
     void XoaDVPVButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DIchVuPhucVuTableView.getItems().removeAll(DIchVuPhucVuTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
     void XoaDVTGButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DichVuThuGianTableView.getItems().removeAll(DichVuThuGianTableView.getSelectionModel().getSelectedItems());
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
     
     @FXML
