@@ -67,7 +67,7 @@ public class Phong101Controller implements Initializable {
     @FXML
     private TextField cbSonguoichophep;
     
-    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Trống","Đang sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
+    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Trống","Đã sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
     
     @Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
@@ -146,7 +146,8 @@ public class Phong101Controller implements Initializable {
 
     @FXML
     void btthoat(ActionEvent event) {
-
+    	Stage stage = (Stage) btThoat.getScene().getWindow();
+	    stage.close();
     }
 
 	
