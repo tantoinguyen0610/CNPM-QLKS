@@ -65,6 +65,13 @@ public class SuaDichVuThuGianController {
     
     @FXML
     private Button SuaButton;
+    
+    @FXML
+    private Label LoaiDVLabel;
+
+    @FXML
+    private TextField LoaiDVTestField;
+
 
     @FXML
     void GiaTextFieldListener(ActionEvent event) {
@@ -106,6 +113,7 @@ public class SuaDichVuThuGianController {
     	SoLuongNguoiTextField.setDisable(false);
     	GiaTextField.setDisable(false);
     	TinhTrangTextField.setDisable(false);
+    	LoaiDVTestField.setDisable(true);
     	LuuButton.setDisable(false);
     	HuyButton.setDisable(false);
     	SuaButton.setDisable(true);
