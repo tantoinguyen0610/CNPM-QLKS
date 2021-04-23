@@ -13,13 +13,13 @@ public class ThongKe extends Application
  {
  // Load the FXML file.
  Parent parent = FXMLLoader.load(
- getClass().getResource("Report.fxml"));
+ getClass().getResource("GiaoDienThongKe.fxml"));
 
  // Build the scene graph.
 Scene scene = new Scene(parent);
 
  // Display our window, using the scene graph.
- stage.setTitle("QuanLiKhachSan");
+ stage.setTitle("Giao Diện Thống Kê");
  stage.setScene(scene);
  stage.show();
  }
