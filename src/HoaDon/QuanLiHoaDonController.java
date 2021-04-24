@@ -4,16 +4,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
 import QuanLiDichVu.SuaDichVuThuGianController;
+import QuanLiDichVu.TableDichVuAnUong;
 import QuanLiDichVu.TableDichVuThuGian;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,6 +29,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -199,6 +204,7 @@ public class QuanLiHoaDonController implements Initializable {
     	HienTableHoaDonTTP();
     	HienTableHoaDonSuaChuaThietBi();
     	HienTableHoaDonNangCapPhong();
+    	HienDataLenTextField();
 	}
     
     public void HienTableHoaDonTTP() {
@@ -285,6 +291,38 @@ public class QuanLiHoaDonController implements Initializable {
     		
 		 }
     
+    private void HienDataLenTextField() {
+    	HoaDonThanhToanPhongTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableHoaDonTTP tbl_nv = HoaDonThanhToanPhongTableView.getItems().get(HoaDonThanhToanPhongTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_HD_TTP());
+    			
+    		}
+    		
+    	});
+    	
+    	HoaDonSuaChuaThietBiTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableHoaDonSuaThietBi tbl = HoaDonSuaChuaThietBiTableView.getItems().get(HoaDonSuaChuaThietBiTableView.getSelectionModel().getSelectedIndex());
+    			tb2TextField.setText(tbl.getMA_HD());
+    			
+    		}
+    		
+    	});
+    	
+    	HoaDonNangCapPhongTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableHoaDonNangCapPhong tb2 = HoaDonNangCapPhongTableView.getItems().get(HoaDonNangCapPhongTableView.getSelectionModel().getSelectedIndex());
+    			tb3TextField.setText(tb2.getMA_HD());
+    			
+    		}
+    		
+    	});
+}
+    
 
     @FXML
     void DuyetThanhToanHoaDonNCPButtonListener(ActionEvent event) throws IOException {
@@ -366,17 +404,77 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void XoaHDTTPButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		HoaDonThanhToanPhongTableView.getItems().removeAll(HoaDonThanhToanPhongTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from hoadon_thanhtoanphong where MA_HD_TTP = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
     void XoaHoaDonNCPButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		HoaDonNangCapPhongTableView.getItems().removeAll(HoaDonNangCapPhongTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from hoadon where MA_HD = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb3TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
     void XoaHoaDonSCTBButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		HoaDonSuaChuaThietBiTableView.getItems().removeAll(HoaDonSuaChuaThietBiTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from hoadon where MA_HD = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb2TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
     
     @FXML
