@@ -113,15 +113,17 @@ public class ChiTietHoaDonThanhToanPhongController {
         stage.close();
     }
     
-    public void setHDTTP(TableHoaDonTTP tablehoadon) {
-    	TenKhachHangTextField.setText(tablehoadon.getTENKH());
-    	SoPhongTextField.setText(String.valueOf(tablehoadon.getSOPHONG()));
-    	GiaPhongTextField.setText(String.valueOf(tablehoadon.getGIAPHONG()));
-    	SoNgayOTextField.setText(String.valueOf(tablehoadon.getSONGAYO()));
-    	TinhTrangTextField.setText(tablehoadon.getTINHTRANG());
-    	NgayThanhToanTextField.setText(String.valueOf(tablehoadon.getNGAYTHANHTOAN()));
-    	TongTienDichVuTextField.setText(String.valueOf(tablehoadon.getTONGTIENDV()));
-    	ThanhToanTextField.setText(String.valueOf(tablehoadon.getTHANHTOAN()));
+    public void setHDTTP(TableHoaDonTTP tablehoadonttp) {
+    	GiaPhongTextField.setText(tablehoadonttp.getMA_HD_TTP());
+    	TenKhachHangTextField.setText(tablehoadonttp.getTENKH());
+    	SoPhongTextField.setText(tablehoadonttp.getSOPHONG());
+    	NgayThanhToanTextField.setText(tablehoadonttp.getNGAYTHANHTOAN());
+    	SoNgayOTextField.setText(tablehoadonttp.getTIENPHONG());
+    	TongTienDichVuTextField.setText(tablehoadonttp.getTONGTIENDV());
+    	ThanhToanTextField.setText(tablehoadonttp.getTONGTIEN());
+    	TinhTrangTextField.setText(tablehoadonttp.getTINHTRANG());
+    	
+    	
     }
 
    

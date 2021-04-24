@@ -13,22 +13,22 @@
             <Font name="Arial Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="TenKhachHangLabel" layoutX="38.0" layoutY="89.0" prefHeight="36.0" prefWidth="122.0" text="Tên Khách Hàng" />
-      <Label fx:id="SoPhongLabel" layoutX="38.0" layoutY="158.0" prefHeight="36.0" prefWidth="122.0" text="Số Phòng" />
-      <Label fx:id="GiaPhongLabel" layoutX="38.0" layoutY="243.0" prefHeight="36.0" prefWidth="122.0" text="Giá Phòng" />
-      <Label fx:id="SoNgayOLabel" layoutX="38.0" layoutY="324.0" prefHeight="36.0" prefWidth="122.0" text="Số Ngày Ở" />
-      <Label fx:id="TinhTrangLabel" layoutX="409.0" layoutY="243.0" prefHeight="36.0" prefWidth="122.0" text="Tình Trạng" />
-      <Label fx:id="NgayThanhToanLabel" layoutX="409.0" layoutY="90.0" prefHeight="36.0" prefWidth="172.0" text="Ngày Thanh Toán" />
-      <Label fx:id="TongTienDichVuLabel" layoutX="409.0" layoutY="158.0" prefHeight="36.0" prefWidth="172.0" text="Tổng Tiền Dịch Vụ" />
-      <Label fx:id="ThanhToanLabel" layoutX="409.0" layoutY="324.0" prefHeight="36.0" prefWidth="172.0" text="Thanh Toán" />
-      <TextField fx:id="TenKhachHangTextField" disable="true" layoutX="163.0" layoutY="93.0" onAction="#TenKhachHangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
-      <TextField fx:id="SoPhongTextField" disable="true" layoutX="163.0" layoutY="163.0" onAction="#SoPhongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
-      <TextField fx:id="GiaPhongTextField" disable="true" layoutX="163.0" layoutY="246.0" onAction="#GiaPhongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <Label fx:id="TenKhachHangLabel" layoutX="38.0" layoutY="161.0" prefHeight="36.0" prefWidth="122.0" text="Tên Khách Hàng" />
+      <Label fx:id="SoPhongLabel" layoutX="38.0" layoutY="244.0" prefHeight="36.0" prefWidth="122.0" text="Số Phòng" />
+      <Label fx:id="GiaPhongLabel" layoutX="38.0" layoutY="91.0" prefHeight="36.0" prefWidth="122.0" text="MaHD" />
+      <Label fx:id="SoNgayOLabel" layoutX="38.0" layoutY="324.0" prefHeight="36.0" prefWidth="122.0" text="Tiền Phòng" />
+      <Label fx:id="TinhTrangLabel" layoutX="399.0" layoutY="324.0" prefHeight="36.0" prefWidth="122.0" text="Tình Trạng" />
+      <Label fx:id="NgayThanhToanLabel" layoutX="399.0" layoutY="91.0" prefHeight="36.0" prefWidth="172.0" text="Ngày Thanh Toán" />
+      <Label fx:id="TongTienDichVuLabel" layoutX="399.0" layoutY="158.0" prefHeight="36.0" prefWidth="172.0" text="Tổng Tiền Dịch Vụ" />
+      <Label fx:id="ThanhToanLabel" layoutX="399.0" layoutY="243.0" prefHeight="36.0" prefWidth="172.0" text="Thanh Toán" />
+      <TextField fx:id="TenKhachHangTextField" disable="true" layoutX="163.0" layoutY="161.0" onAction="#TenKhachHangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="SoPhongTextField" disable="true" layoutX="163.0" layoutY="247.0" onAction="#SoPhongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="GiaPhongTextField" disable="true" layoutX="163.0" layoutY="93.0" onAction="#GiaPhongTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
       <TextField fx:id="SoNgayOTextField" disable="true" layoutX="163.0" layoutY="327.0" onAction="#SoNgayOTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
-      <TextField fx:id="TinhTrangTextField" disable="true" layoutX="599.0" layoutY="246.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="TinhTrangTextField" disable="true" layoutX="599.0" layoutY="327.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
       <TextField fx:id="NgayThanhToanTextField" disable="true" layoutX="599.0" layoutY="93.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
       <TextField fx:id="TongTienDichVuTextField" disable="true" layoutX="599.0" layoutY="163.0" onAction="#TinhTrangTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
-      <TextField fx:id="ThanhToanTextField" disable="true" layoutX="599.0" layoutY="327.0" onAction="#ThanhToanTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="ThanhToanTextField" disable="true" layoutX="599.0" layoutY="246.0" onAction="#ThanhToanTextFieldListener" prefHeight="31.0" prefWidth="202.0" />
       <Button fx:id="DongHDTTPButton" layoutX="308.0" layoutY="401.0" mnemonicParsing="false" onAction="#DongHDTTPButtonListener" prefHeight="79.0" prefWidth="202.0" text="Đóng" />
    </children>
 </AnchorPane>
