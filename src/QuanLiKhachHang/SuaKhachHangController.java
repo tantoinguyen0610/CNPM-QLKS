@@ -136,6 +136,9 @@ public class SuaKhachHangController {
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
+     		Stage stage = (Stage) LuuButton.getScene().getWindow();
+	        // do what you have to do
+	        stage.close();
      	}
      	else if(response == JOptionPane.NO_OPTION){
      		

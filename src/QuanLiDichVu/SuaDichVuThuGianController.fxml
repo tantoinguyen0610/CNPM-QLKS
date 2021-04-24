@@ -18,13 +18,13 @@
             <Label fx:id="MaDVTGLabel" alignment="CENTER" layoutX="51.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="MADV" />
             <Label fx:id="TenDVTGLabel" alignment="CENTER" layoutX="51.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Tên Dịch Vụ" />
             <Label fx:id="KhungGioDVTGLabel" alignment="CENTER" layoutX="51.0" layoutY="303.0" prefHeight="45.0" prefWidth="127.0" text="Khung Giờ" />
-            <Label fx:id="SoLuongNguoiLabel" alignment="CENTER" layoutX="446.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="Số Lượng Người" />
+            <Label fx:id="LoaiDVLabel" alignment="CENTER" layoutX="446.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="Loại Dịch Vụ" />
             <Label fx:id="GiaLabel" alignment="CENTER" layoutX="446.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Giá" />
             <Label fx:id="TinhTrangLLabel" alignment="CENTER" layoutX="446.0" layoutY="303.0" prefHeight="45.0" prefWidth="127.0" text="Tình Trạng" />
             <TextField fx:id="MaDVThuGianTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaDVThuGianTextFieldListener" />
             <TextField fx:id="TenDVTGTextField" disable="true" layoutX="178.0" layoutY="238.0" onAction="#TenDVTGTextFieldListener" />
             <TextField fx:id="KhungGioDVTGTextField" disable="true" layoutX="178.0" layoutY="310.0" onAction="#KhungGioDVTGTextFieldListener" />
-            <TextField fx:id="SoLuongNguoiTextField" disable="true" layoutX="615.0" layoutY="157.0" onAction="#SoLuongNguoiTextFieldListener" />
+            <TextField fx:id="LoaiDVTextField" disable="true" layoutX="615.0" layoutY="157.0" />
             <TextField fx:id="GiaTextField" disable="true" layoutX="615.0" layoutY="238.0" onAction="#GiaTextFieldListener" />
             <TextField fx:id="TinhTrangTextField" disable="true" layoutX="615.0" layoutY="310.0" onAction="#TinhTrangTextFieldListener" />
             <Button fx:id="LuuButton" disable="true" layoutX="401.0" layoutY="407.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />

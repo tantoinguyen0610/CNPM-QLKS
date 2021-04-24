@@ -4,20 +4,24 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.JOptionPane;
 
-import QuanLiKhachHang.SuaKhachHangController;
 import QuanLiKhachHang.TableKhachHang;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -26,6 +30,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -126,6 +131,12 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     private Button CapNhatDVGTButton;
+    
+    @FXML
+    private Label tb1Label;
+
+    @FXML
+    private TextField tb1TextField;
 
     @FXML
     private Tab DichVuThuGianTab;
@@ -171,7 +182,7 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     private Button CapNhatDVTGButton;
-
+ 
     @FXML
     private Tab DichVuPhucVuTab;
 
@@ -227,7 +238,7 @@ public class QuanLiDichVuController implements Initializable {
     	HienTableDichVuGiaiTri();
     	HienTableDichVuThuGian();
     	HienTableDichVuPhucVu();
-    	
+    	HienDataLenTextField();
 	}
 
 
@@ -255,6 +266,7 @@ public class QuanLiDichVuController implements Initializable {
     			GiaDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("GIA"));
     			TinhTrangDVAnUongColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
     			DichVuAnUongTableView.setItems(listdvanuong);
+    			
     			
 		 }
 
@@ -354,9 +366,9 @@ public class QuanLiDichVuController implements Initializable {
     void SuaDVAnUongButtonListener(ActionEvent event) throws IOException {
     	try {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuAnUongController.fxml"));
-    		Parent HienDanhSachSuaKhachHang = loader.load();
+    		Parent HienDanhSachSuaDVANUONG = loader.load();
     		Stage stage = new Stage();
-    		Scene scene = new Scene(HienDanhSachSuaKhachHang);
+    		Scene scene = new Scene(HienDanhSachSuaDVANUONG);
     		TableDichVuAnUong selected =DichVuAnUongTableView.getSelectionModel().getSelectedItem();
     		SuaDichVuAnUongController controller = loader.getController();
     		controller.setDichVuAnUong(selected);
@@ -371,29 +383,59 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     void SuaDVGTButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuGiaiTriController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuGiaiTriController.fxml"));
+    		Parent HienDanhSachSuaDVGT = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaDVGT);
+    		TableDichVuGiaiTri dvgiaitri = DichVuGiaiTriTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuGiaiTriController controller = loader.getController();
+    		controller.setDichVuGiaiTri(dvgiaitri);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
     void SuaDVPVButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuPhucVuController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuPhucVuController.fxml"));
+    		Parent HienDanhSachSuaDVPV = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaDVPV);
+    		TableDichVuPhucVu dichvuphucvu =DIchVuPhucVuTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuPhucVuController controller = loader.getController();
+    		controller.setDichVuPV(dichvuphucvu);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
     void SuaDVTGButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("SuaDichVuThuGianController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("SuaDichVuThuGianController.fxml"));
+    		Parent HienDanhSachSuaDVTG = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienDanhSachSuaDVTG);
+    		TableDichVuThuGian dvthugian =DichVuThuGianTableView.getSelectionModel().getSelectedItem();
+    		SuaDichVuThuGianController controller = loader.getController();
+    		controller.setDichVuTG(dvthugian);
+    		stage.setTitle("Sửa Dịch Vụ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
@@ -432,24 +474,143 @@ public class QuanLiDichVuController implements Initializable {
     	stage.show();
     }
 
+    private void HienDataLenTextField() {
+    	DichVuAnUongTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuAnUong tbl_nv = DichVuAnUongTableView.getItems().get(DichVuAnUongTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
+    	DichVuGiaiTriTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuGiaiTri tb1 = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tb1.getMA_DV());
+    			
+    		}
+    		
+    	});
+    	DichVuThuGianTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuThuGian tbl_nv = DichVuThuGianTableView.getItems().get(DichVuThuGianTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
+    	DIchVuPhucVuTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableDichVuPhucVu tbl_nv = DIchVuPhucVuTableView.getItems().get(DIchVuPhucVuTableView.getSelectionModel().getSelectedIndex());
+    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			
+    		}
+    		
+    	});
+    }
+    
     @FXML
     void XoaDVAnUongButtonListener(ActionEvent event) throws IOException {
-    	
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DichVuAnUongTableView.getItems().removeAll(DichVuAnUongTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
+
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
+    
 
     @FXML
     void XoaDVGTButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DichVuGiaiTriTableView.getItems().removeAll(DichVuGiaiTriTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
     void XoaDVPVButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DIchVuPhucVuTableView.getItems().removeAll(DIchVuPhucVuTableView.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
     void XoaDVTGButtonListener(ActionEvent event) throws IOException {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		DichVuThuGianTableView.getItems().removeAll(DichVuThuGianTableView.getSelectionModel().getSelectedItems());
+        	String sql = "delete from dv where MA_DV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, tb1TextField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
 
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
     
     @FXML
