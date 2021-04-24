@@ -88,7 +88,8 @@ public class ChiTietHoaDonSuaChuaThietBiController {
     void NgayBatDauTextFieldListener(ActionEvent event) {
 
     }
-
+    
+    
 
     @FXML
     void TenTBTextFieldListener(ActionEvent event) {
@@ -104,6 +105,19 @@ public class ChiTietHoaDonSuaChuaThietBiController {
     void TìnhTrangSuaTextFieldListener(ActionEvent event) {
 
     }
+
+	public void setSCTB(TableHoaDonSuaThietBi tablehoadonsctb) {
+		MAHDSCTBTextField.setText(tablehoadonsctb.getMA_HD());
+		TenTBTextField.setText(tablehoadonsctb.getTENTB());
+		SoLuongTextField.setText(tablehoadonsctb.getSOLUONG());
+		NgayBatDauTextField.setText(tablehoadonsctb.getNGAYBD());
+		ChiPhiSuaChuaTextField.setText(tablehoadonsctb.getCHIPHI());
+		TongTienTextField.setText(tablehoadonsctb.getTONGTIEN());
+		TìnhTrangSuaTextField.setText(tablehoadonsctb.getTINHTRANG());
+		DuyetThanhToanTextField.setText(tablehoadonsctb.getDUYETTHANHTOAN());
+		
+		
+	}
 
 
 }

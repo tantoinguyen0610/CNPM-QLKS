@@ -287,7 +287,9 @@ public class QuanLiHoaDonController implements Initializable {
     
     public void UpdateTable() {
 		 listhoadonttp.clear();
+		 listhoadonsctb.clear();
 		 HienTableHoaDonTTP();
+		 HienTableHoaDonSuaChuaThietBi();
 	}
 
     @FXML
@@ -301,11 +303,21 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void XemHoaDonSCTBButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChiTietHoaDonSuaChuaThietBiController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("ChiTietHoaDonSuaChuaThietBiController.fxml"));
+    		Parent HienHoaDonSCTB = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienHoaDonSCTB);
+    		TableHoaDonSuaThietBi tablehoadonsctb = HoaDonSuaChuaThietBiTableView.getSelectionModel().getSelectedItem();
+    		ChiTietHoaDonSuaChuaThietBiController controller = loader.getController();
+    		controller.setSCTB(tablehoadonsctb);
+    		stage.setTitle("Chi Tiết Hóa Đơn ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
@@ -335,7 +347,7 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void CapNhat2ButtonListener(ActionEvent event) {
-
+    	UpdateTable();
     }
 
    
