@@ -432,7 +432,7 @@ public class QuanLiHoaDonController implements Initializable {
     	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
     		HoaDonNangCapPhongTableView.getItems().removeAll(HoaDonNangCapPhongTableView.getSelectionModel().getSelectedItems());
         	
-        	String sql = "delete from hoadon where MA_HD = ?";
+        	String sql = "delete from hoa_don where MA_HD = ?";
         	try {
         		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
         		Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -457,7 +457,7 @@ public class QuanLiHoaDonController implements Initializable {
     	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
     		HoaDonSuaChuaThietBiTableView.getItems().removeAll(HoaDonSuaChuaThietBiTableView.getSelectionModel().getSelectedItems());
         	
-        	String sql = "delete from hoadon where MA_HD = ?";
+        	String sql = "delete from hoa_don where MA_HD = ?";
         	try {
         		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
         		Connection conn = DriverManager.getConnection(DB_URL,"root","");
