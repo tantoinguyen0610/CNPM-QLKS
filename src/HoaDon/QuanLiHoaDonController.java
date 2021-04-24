@@ -96,31 +96,31 @@ public class QuanLiHoaDonController implements Initializable {
     private AnchorPane b;
 
     @FXML
-    private TableView<?> HoaDonSuaChuaThietBiTableView;
+    private TableView<TableHoaDonSuaThietBi> HoaDonSuaChuaThietBiTableView;
 
     @FXML
-    private TableColumn<?, ?> MaHDSCTBColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> MaHDSCTBColumn;
 
     @FXML
-    private TableColumn<?, ?> TenTBColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> TenTBColumn;
 
     @FXML
-    private TableColumn<?, ?> SoLuongTBColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> SoLuongTBColumn;
 
     @FXML
-    private TableColumn<?, ?> NgaySuaChuaColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> NgaySuaChuaColumn;
 
     @FXML
-    private TableColumn<?, ?> TongTienSCTBColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> TongTienSCTBColumn;
 
     @FXML
-    private TableColumn<?, ?> ThanhToanSCTBColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> ThanhToanSCTBColumn;
 
     @FXML
-    private TableColumn<?, ?> TingTrangHDSCTBColumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> TingTrangHDSCTBColumn;
 
     @FXML
-    private TableColumn<?, ?> DuyetThanhToanSCTBCoLumn;
+    private TableColumn<TableHoaDonSuaThietBi,String> DuyetThanhToanSCTBCoLumn;
 
     @FXML
     private Button XemHoaDonSCTBButton;
@@ -192,10 +192,11 @@ public class QuanLiHoaDonController implements Initializable {
     private TextField tb3TextField;
     
     ObservableList<TableHoaDonTTP> listhoadonttp = FXCollections.observableArrayList();
+    ObservableList<TableHoaDonSuaThietBi> listhoadonsctb = FXCollections.observableArrayList();
     
     public void initialize(URL arg0, ResourceBundle arg1) {
     	HienTableHoaDonTTP();
- 
+    	HienTableHoaDonSuaChuaThietBi();
 	}
     
     public void HienTableHoaDonTTP() {
@@ -226,6 +227,33 @@ public class QuanLiHoaDonController implements Initializable {
     		
 		 }
     
+    public void HienTableHoaDonSuaChuaThietBi() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("SELECT MA_HD,TENTB,SOLUONG,NGAYBD,CHIPHI,TONGTIEN,TINHTRANG,DUYETTHANHTOAN FROM hoa_don  "
+					+ "where hoa_don.LOAI_HD ='Sữa Chữa Thiết Bị' "  );
+			
+				while (rs.next()) {	
+					listhoadonsctb .add(new TableHoaDonSuaThietBi (rs.getString("MA_HD"),rs.getString("TENTB"),
+							rs.getString("SOLUONG"),rs.getString("NGAYBD"),rs.getString("CHIPHI"),rs.getString("TONGTIEN"),
+							rs.getString("TINHTRANG"),rs.getString("DUYETTHANHTOAN")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+    				MaHDSCTBColumn.setCellValueFactory(new PropertyValueFactory<>("MA_HD"));
+    				TenTBColumn.setCellValueFactory(new PropertyValueFactory<>("TENTB"));
+    				SoLuongTBColumn.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+    				NgaySuaChuaColumn.setCellValueFactory(new PropertyValueFactory<>("NGAYBD"));
+    				TongTienSCTBColumn.setCellValueFactory(new PropertyValueFactory<>("CHIPHI"));
+    				ThanhToanSCTBColumn.setCellValueFactory(new PropertyValueFactory<>("TONGTIEN"));
+    				TingTrangHDSCTBColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
+    				DuyetThanhToanSCTBCoLumn.setCellValueFactory(new PropertyValueFactory<>("DUYETTHANHTOAN"));
+    				HoaDonSuaChuaThietBiTableView.setItems(listhoadonsctb);
+    		
+		 }
     
 
     @FXML

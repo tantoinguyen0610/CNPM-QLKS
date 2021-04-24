@@ -31,7 +31,7 @@ public class ChiTietHoaDonSuaChuaThietBiController {
     private Label NgayBatDauLabel;
 
     @FXML
-    private Label NgayKetThucLabel;
+    private Label DuyetThanhToanLabel;
 
     @FXML
     private Label TinhTrangSuaLabel;
@@ -52,7 +52,7 @@ public class ChiTietHoaDonSuaChuaThietBiController {
     private TextField NgayBatDauTextField;
 
     @FXML
-    private TextField NgayKetThucTextField;
+    private TextField DuyetThanhToanTextField;
 
     @FXML
     private TextField TìnhTrangSuaTextField;
@@ -65,6 +65,12 @@ public class ChiTietHoaDonSuaChuaThietBiController {
 
     @FXML
     private Button DongButton;
+    
+    @FXML
+    private Label MAHDLabel;
+
+    @FXML
+    private TextField MAHDSCTBTextField;
 
     @FXML
     void ChiPhiSuaChuaTextFieldListener(ActionEvent event) {
@@ -83,10 +89,6 @@ public class ChiTietHoaDonSuaChuaThietBiController {
 
     }
 
-    @FXML
-    void NgayKetThucTextFieldListener(ActionEvent event) {
-
-    }
 
     @FXML
     void TenTBTextFieldListener(ActionEvent event) {
