@@ -17,12 +17,6 @@ import javafx.stage.Stage;
 public class ChiTietHoaDonNangCapPhongController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private AnchorPane ThongTinHoaDonNangCapPhong;
 
     @FXML
@@ -32,7 +26,7 @@ public class ChiTietHoaDonNangCapPhongController {
     private Label SoPhongLabel;
 
     @FXML
-    private Label LiDoNangCapLabel;
+    private Label DuyetThanhToanLabel;
 
     @FXML
     private Label NgayBatDauLabel;
@@ -53,7 +47,7 @@ public class ChiTietHoaDonNangCapPhongController {
     private TextField SoPhongTextField;
 
     @FXML
-    private TextField LiDoNangCapTextField;
+    private TextField DuyetThanhToanTextField;
 
     @FXML
     private TextField NgayBatDauTextField;
@@ -72,6 +66,12 @@ public class ChiTietHoaDonNangCapPhongController {
 
     @FXML
     private Button DongButton;
+
+    @FXML
+    private Label MaHDNCPLabel;
+
+    @FXML
+    private TextField MaHDNCPTextField;
 
     @FXML
     void ChiPhiNangCapTextFieldListener(ActionEvent event) {
@@ -114,6 +114,18 @@ public class ChiTietHoaDonNangCapPhongController {
     void TìnhTrangNangCapTextFieldListener(ActionEvent event) {
 
     }
+
+	public void setNCP(TableHoaDonNangCapPhong tablehoadonncp) {
+		MaHDNCPTextField.setText(tablehoadonncp.getMA_HD());
+		SoPhongTextField.setText(tablehoadonncp.getSOPHONG());
+		NgayBatDauTextField.setText(tablehoadonncp.getNGAYBD());
+		NgayKetThucTextField.setText(tablehoadonncp.getNGAYKT());
+		ChiPhiNangCapTextField.setText(tablehoadonncp.getCHIPHI());
+		TongTienTextField.setText(tablehoadonncp.getTONGTIEN());
+		TìnhTrangNangCapTextField.setText(tablehoadonncp.getTINHTRANG());
+		DuyetThanhToanTextField.setText(tablehoadonncp.getDUYETTHANHTOAN());
+		
+	}
 
   
 }

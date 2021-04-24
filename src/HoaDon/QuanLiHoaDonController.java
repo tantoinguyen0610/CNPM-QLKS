@@ -147,31 +147,31 @@ public class QuanLiHoaDonController implements Initializable {
     private AnchorPane c;
 
     @FXML
-    private TableView<?> HoaDonNangCapPhongTableView;
+    private TableView<TableHoaDonNangCapPhong> HoaDonNangCapPhongTableView;
 
     @FXML
-    private TableColumn<?, ?> MaHDNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> MaHDNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> SoPhongNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> SoPhongNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> NgaySuaChuaNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> NgaySuaChuaNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> NgayKetThucNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> NgayKetThucNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> TongTienSuaChuaNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> TongTienSuaChuaNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> ThanhToanNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> ThanhToanNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> TinhTrangHDNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> TinhTrangHDNCPColumn;
 
     @FXML
-    private TableColumn<?, ?> DuyetThanhToanNCPColumn;
+    private TableColumn<TableHoaDonNangCapPhong,String> DuyetThanhToanNCPColumn;
 
     @FXML
     private Button XemHoaDonNCPButton;
@@ -193,10 +193,12 @@ public class QuanLiHoaDonController implements Initializable {
     
     ObservableList<TableHoaDonTTP> listhoadonttp = FXCollections.observableArrayList();
     ObservableList<TableHoaDonSuaThietBi> listhoadonsctb = FXCollections.observableArrayList();
+    ObservableList<TableHoaDonNangCapPhong> listhoadonncp = FXCollections.observableArrayList();
     
     public void initialize(URL arg0, ResourceBundle arg1) {
     	HienTableHoaDonTTP();
     	HienTableHoaDonSuaChuaThietBi();
+    	HienTableHoaDonNangCapPhong();
 	}
     
     public void HienTableHoaDonTTP() {
@@ -255,6 +257,34 @@ public class QuanLiHoaDonController implements Initializable {
     		
 		 }
     
+    public void HienTableHoaDonNangCapPhong() {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("SELECT MA_HD,SOPHONG,NGAYBD,NGAYKT,CHIPHI,TONGTIEN,TINHTRANG,DUYETTHANHTOAN FROM hoa_don  "
+					+ "where LOAI_HD = 'Nâng Cấp Phòng' "  );
+			
+				while (rs.next()) {	
+					listhoadonncp .add(new TableHoaDonNangCapPhong (rs.getString("MA_HD"),rs.getString("SOPHONG"),
+							rs.getString("NGAYBD"),rs.getString("NGAYKT"),rs.getString("CHIPHI"),rs.getString("TONGTIEN"),
+							rs.getString("TINHTRANG"),rs.getString("DUYETTHANHTOAN")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+    				MaHDNCPColumn.setCellValueFactory(new PropertyValueFactory<>("MA_HD"));
+    				SoPhongNCPColumn.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+    				NgaySuaChuaNCPColumn.setCellValueFactory(new PropertyValueFactory<>("NGAYBD"));
+    				NgayKetThucNCPColumn.setCellValueFactory(new PropertyValueFactory<>("NGAYKT"));
+    				TongTienSuaChuaNCPColumn.setCellValueFactory(new PropertyValueFactory<>("CHIPHI"));
+    				ThanhToanNCPColumn.setCellValueFactory(new PropertyValueFactory<>("TONGTIEN"));
+    				TinhTrangHDNCPColumn.setCellValueFactory(new PropertyValueFactory<>("TINHTRANG"));
+    				DuyetThanhToanNCPColumn.setCellValueFactory(new PropertyValueFactory<>("DUYETTHANHTOAN"));
+    				HoaDonNangCapPhongTableView.setItems(listhoadonncp);
+    		
+		 }
+    
 
     @FXML
     void DuyetThanhToanHoaDonNCPButtonListener(ActionEvent event) throws IOException {
@@ -288,17 +318,29 @@ public class QuanLiHoaDonController implements Initializable {
     public void UpdateTable() {
 		 listhoadonttp.clear();
 		 listhoadonsctb.clear();
+		 listhoadonncp.clear();
 		 HienTableHoaDonTTP();
 		 HienTableHoaDonSuaChuaThietBi();
+		 HienTableHoaDonNangCapPhong();
 	}
 
     @FXML
     void XemHoaDonNCPButtonListener(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("ChiTietHoaDonNangCapPhongController.fxml"));
-    	Scene scene = new Scene(root);
-    	Stage stage = new Stage();
-    	stage.setScene(scene);
-    	stage.show();
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("ChiTietHoaDonNangCapPhongController.fxml"));
+    		Parent HienHoaDonNCP = loader.load();
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(HienHoaDonNCP);
+    		TableHoaDonNangCapPhong tablehoadonncp = HoaDonNangCapPhongTableView.getSelectionModel().getSelectedItem();
+    		ChiTietHoaDonNangCapPhongController controller = loader.getController();
+    		controller.setNCP(tablehoadonncp);
+    		stage.setTitle("Chi Tiết Hóa Đơn ");
+    		stage.setScene(scene);
+    		stage.show();
+    		}
+    		catch(Exception e) {
+    			JOptionPane.showMessageDialog(null, e);
+    		}
     }
 
     @FXML
@@ -319,6 +361,8 @@ public class QuanLiHoaDonController implements Initializable {
     			JOptionPane.showMessageDialog(null, e);
     		}
     }
+    
+    
 
     @FXML
     void XoaHDTTPButtonListener(ActionEvent event) throws IOException {
@@ -337,7 +381,7 @@ public class QuanLiHoaDonController implements Initializable {
     
     @FXML
     void CapNhat3Button(ActionEvent event) {
-
+    	UpdateTable();
     }
 
     @FXML

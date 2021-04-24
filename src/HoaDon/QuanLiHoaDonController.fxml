@@ -77,7 +77,7 @@
                            <columns>
                               <TableColumn fx:id="MaHDNCPColumn" prefWidth="75.0" text="MaHD" />
                               <TableColumn fx:id="SoPhongNCPColumn" prefWidth="75.0" text="Số Phòng" />
-                              <TableColumn fx:id="NgaySuaChuaNCPColumn" prefWidth="140.0" text="Ngày Sửa Chửa" />
+                              <TableColumn fx:id="NgaySuaChuaNCPColumn" prefWidth="140.0" text="Ngày Bắt Đầu" />
                               <TableColumn fx:id="NgayKetThucNCPColumn" prefWidth="133.0" text="Ngày Kết Thúc" />
                               <TableColumn fx:id="TongTienSuaChuaNCPColumn" prefWidth="153.0" text="Tổng Tiền Sửa Chửa" />
                               <TableColumn fx:id="ThanhToanNCPColumn" prefWidth="169.0" text="Thanh Toán" />
