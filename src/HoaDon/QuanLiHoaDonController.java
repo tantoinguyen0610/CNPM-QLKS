@@ -197,6 +197,7 @@ public class QuanLiHoaDonController implements Initializable {
     	HienTableHoaDonTTP();
  
 	}
+    
     public void HienTableHoaDonTTP() {
     	try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -255,6 +256,11 @@ public class QuanLiHoaDonController implements Initializable {
     			JOptionPane.showMessageDialog(null, e);
     		}
     }
+    
+    public void UpdateTable() {
+		 listhoadonttp.clear();
+		 HienTableHoaDonTTP();
+	}
 
     @FXML
     void XemHoaDonNCPButtonListener(ActionEvent event) throws IOException {
@@ -296,7 +302,7 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void CapNhatButtonListener(ActionEvent event) {
-
+    	UpdateTable();
     }
 
     @FXML
