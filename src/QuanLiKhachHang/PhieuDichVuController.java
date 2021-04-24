@@ -1,241 +1,300 @@
 package QuanLiKhachHang;
 
-import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+
+import Check_in.CheckInController;
+import Check_in.ModelTable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class PhieuDichVuController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
+public class PhieuDichVuController implements Initializable {
 
     @FXML
     private Label PhieuDichVuLabel;
+    
+    @FXML
+    private TableView<PhieuDV> tbl_PDV;
 
     @FXML
-    private Label DichVuAnUongLabel;
+    private TableColumn<Integer, PhieuDV> col_MaPhieu;
 
     @FXML
-    private Label DichVuThuGianLabel;
+    private TableColumn<String, PhieuDV> col_TenDV;
 
     @FXML
-    private Label DichVuGiaiTriLabel;
+    private TableColumn<String, PhieuDV> col_GiaTien;
 
     @FXML
-    private Label DichVuPhucVuLabel;
+    private TableColumn<String, PhieuDV> col_SoLuong;
 
     @FXML
-    private CheckBox SevenUpCheckBox;
-
-    @FXML
-    private CheckBox CocaCheckBox;
-
-    @FXML
-    private CheckBox BuffeeSangCheckBox;
-
-    @FXML
-    private CheckBox BuffeeTruaCheckBox;
-
-    @FXML
-    private CheckBox BuffeeToiCheckBox;
-
-    @FXML
-    private CheckBox BuffeeChayCheckBox;
-
-    @FXML
-    private CheckBox ComboBuffeeCaNgayCheckBox;
-
-    @FXML
-    private CheckBox PepsiCheckBox;
-
-    @FXML
-    private CheckBox NuocSuoiCheckBox;
-
-    @FXML
-    private CheckBox SpaCheckBox;
-
-    @FXML
-    private CheckBox ChamSocTocCheckBox;
-
-    @FXML
-    private CheckBox MassageCheckBox;
-
-    @FXML
-    private CheckBox XongHoiCheckBox;
-
-    @FXML
-    private CheckBox PhongGymCheckBox;
-
-    @FXML
-    private CheckBox QuayBarCheckBox;
-
-    @FXML
-    private CheckBox SanBongCheckBox;
-
-    @FXML
-    private CheckBox HoBoiCheckBox;
-
-    @FXML
-    private CheckBox PhongGameCheckBox;
-
-    @FXML
-    private CheckBox DatVeMayBayCheckBox;
-
-    @FXML
-    private CheckBox DatXeTaxiCheckBox;
-
-    @FXML
-    private CheckBox RuaXeCheckBox;
-
-    @FXML
-    private CheckBox DatVeThamQuanCheckBox;
-
-    @FXML
-    private CheckBox DatHuongDanVienCheckBox;
-
-    @FXML
-    private Label TongTienLabel;
-
-    @FXML
-    private TextField TongTienTextField;
+    private TableColumn<String, PhieuDV> col_TongTien;
 
     @FXML
     private Button LuuButton;
 
     @FXML
+    private Button Xoa_Button;
+
+    @FXML
     private Button HuyBotton;
 
     @FXML
-    void BuffeeChayCheckBoxListener(ActionEvent event) {
-    			
-    }
+    private Button Reset_Button;
 
     @FXML
-    void BuffeeSangCheckBoxListener(ActionEvent event) {
-
-    }
+    private TextField SL_textField;
 
     @FXML
-    void BuffeeToiCheckBoxListener(ActionEvent event) {
-
-    }
+    private ComboBox<String> TenDV_cmb;
 
     @FXML
-    void BuffeeTruaCheckBoxListener(ActionEvent event) {
-
-    }
+    private Label err_TenDV;
 
     @FXML
-    void ChamSocTocCheckBoxListener(ActionEvent event) {
-
-    }
+    private Label err_SL;
+    
+    @FXML
+    private TextField MaPhieuDV_textField;
+    
+    @FXML
+    private TextField Gia_textField;
 
     @FXML
-    void CocaCheckBoxListener(ActionEvent event) {
-
-    }
+    private TextField TT_textField;
+    
+    ObservableList<String> list_tendv = FXCollections.observableArrayList();
+    ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+    	HienComboboxTenDV();
+    	HienTablePhieuDV();
+    	 autoTaoMaPDV();
+	}
+    
+    public void HienComboboxTenDV() {
+		 
+		 try {
+			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			 String query = "select TENDV from dv";
+			 PreparedStatement pst = conn.prepareStatement(query);
+			 ResultSet rs = pst.executeQuery();
+			 while (rs.next())
+			 {
+				 list_tendv.add(rs.getString("TENDV"));
+				 TenDV_cmb.setItems(list_tendv);
+			 }
+			 pst.close();
+			 rs.close();
+		 }
+		 catch(SQLException ex)
+		 {
+			 Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE,null,ex);
+		 }
+	 }
+    
+    public void HienTablePhieuDV() {
+		 try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			ResultSet rs = conn.createStatement().executeQuery("select MAPHIEUDV,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV ORDER by phieu_dv.MAPHIEUDV ASC");
+			
+				while (rs.next()) {	
+					phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("TENDV"),
+							rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+		 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
+		 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+		 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+		 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+		 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
+			
+		 tbl_PDV.setItems(phieudv);
+	}
 
     @FXML
-    void ComboBuffeeCaNgayCheckBoxListener(ActionEvent event) {
+    void HuyBottonListener(ActionEvent event) {
 
-    }
-
-    @FXML
-    void DatHuongDanVienCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void DatVeThamQuanCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void DatXeTaxiCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void HoBoiCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void HuyBottonListener(ActionEvent event) throws IOException {
-    	Stage stage = (Stage) HuyBotton.getScene().getWindow();
-        // do what you have to do
-        stage.close();
     }
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-
+    	if(KiemTraTenDV()&KiemTraSL()) {
+    	try {
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query = "insert into phieu_dv(MAPHIEUDV,TENDV,SOLUONG,TONGTIENDV) "
+							+ "VALUES(?,?,?,?)";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, MaPhieuDV_textField.getText());
+			pst.setString(2, TenDV_cmb.getValue().toString());
+			pst.setString(3, SL_textField.getText());
+			Double tongtien=0.0;
+			tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SL_textField.getText()));
+			TT_textField.setText(tongtien+"");
+			pst.setString(4, TT_textField.getText());
+			pst.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+		}
+	catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}}
+    	UpdateTable();
+    	 autoTaoMaPDV();
+    	 XoaCanhBao();
+    }
+    
+    public void UpdateTable() {
+    	phieudv.clear();
+    	HienTablePhieuDV();
+	}
+    
+private boolean KiemTraTenDV() {
+		
+		if(TenDV_cmb.getSelectionModel().isEmpty())
+			{
+			err_TenDV.setText("Vui lòng chọn Dịch Vụ!");
+			return false;
+			}
+		return true;
+	}
+    
+    private boolean KiemTraSL() {
+		Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(SL_textField.getText());
+		if(m.find() && m.group().equals(SL_textField.getText())){
+			return true;
+		}
+		else {
+			err_SL.setText("Vui lòng điền số lượng hợp lệ");
+			return false;
+		}
+	}
+    
+    public void HienThiTextFieldGiaTien() {
+    	 try {
+			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			 String	tendv =(String) TenDV_cmb.getSelectionModel().getSelectedItem();
+			 String query = "SELECT GIA from dv WHERE TENDV ='"+tendv+"' ";
+			 ResultSet rs = conn.createStatement().executeQuery(query);
+			 while (rs.next())
+			 {
+				 Gia_textField.setText(rs.getString(1));
+			 }
+		 }
+		 catch(SQLException ex)
+		 {
+			 Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE,null,ex);
+		 }
+	}		
+    
+    @FXML
+    void TenDV_ActionListener(ActionEvent event) {
+    	HienThiTextFieldGiaTien();
     }
 
     @FXML
-    void MassageCheckBoxListener(ActionEvent event) {
-
+    void Reset_ActionListener(ActionEvent event) {
+    	TenDV_cmb.getSelectionModel().clearSelection();
+    	SL_textField.setText("");
+    	Gia_textField.setText("");
+    	TT_textField.setText("");
+    	err_TenDV.setText("");
+    	err_SL.setText("");
+    	UpdateTable();
+    }
+    public void XoaCanhBao() {
+    	err_TenDV.setText("");
+    	err_SL.setText("");
     }
 
     @FXML
-    void NuocSuoiCheckBoxListener(ActionEvent event) {
-
+    void Xoa_ActionListener(ActionEvent event) {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá phiếu DV này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		tbl_PDV.getItems().removeAll(tbl_PDV.getSelectionModel().getSelectedItems());
+        	
+        	String sql = "delete from phieu_dv where MAPHIEUDV = ?";
+        	try {
+        		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+        		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+        		PreparedStatement pst = conn.prepareStatement(sql);
+        		pst.setString(1, MaPhieuDV_textField.getText());
+        		pst.execute();
+        		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+        	}
+        	catch(Exception e) {
+        		JOptionPane.showMessageDialog(null, e);
+        	}
+        	UpdateTable();	
+        	autoTaoMaPDV();
+    	}
+    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá phiếu DV này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
-    @FXML
-    void PepsiCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void PhongGameCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void QuayBarCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void RuaXeCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void SanBongCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void SevenUpCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void SpaCheckBoxListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void TongTienTextFieldListener(ActionEvent event) {
-
-    }
-
-    @FXML
-    void XongHoiCheckBoxListener(ActionEvent event) {
-
-    }
-
+    public void TinhTongTextField() {
+    	
+		Double tongtien=0.0;
+		
+		
+			tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SL_textField.getText()));
+		TT_textField.setText(tongtien+"");
+	}
+    
+    public void autoTaoMaPDV() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(MAPHIEUDV) from phieu_dv");
+			rs.next();
+			rs.getString("Max(MAPHIEUDV)");
+			
+			if(rs.getString("Max(MAPHIEUDV)")== null)
+			{
+				MaPhieuDV_textField.setText("1");
+			}
+			else
+			{
+				int mapt = Integer.parseInt(rs.getString("Max(MAPHIEUDV)"));
+				mapt++;
+				MaPhieuDV_textField.setText(String.format("%d",mapt));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

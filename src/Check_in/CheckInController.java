@@ -218,15 +218,14 @@ public class CheckInController implements Initializable {
     @FXML
     private TableColumn<ModelTable, String> Tbl_Col_SoNgayO;
     
-ObservableList<String> list_lp = FXCollections.observableArrayList();
+ObservableList<String> list_lp = FXCollections.observableArrayList("Standard","Deluxe","Superior");
 ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
 ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1", "2","3","4");
-ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "102","103","104","105","106");
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		HienComboboxLoaiPhong();
+		//HienComboboxLoaiPhong();
 		
 		ChuyenNguocNamThangNgay();
 		
@@ -235,43 +234,40 @@ ObservableList<String> List_SoPhong = FXCollections.observableArrayList("101", "
 		DisableTextFields();
 		
 		HienTableCheckIn();		
-		
-		//combobox so nguoi 1 phong
+		Loai_Phong_Cmb.setItems(list_lp);
 		SoNguoiCung1Phong.setItems(List_SoNguoi1Phong);
-		
-		SoPhong_Cmb.setItems(List_SoPhong);
 		
 		autoTaoMaKH();
 		autoTaoMaPT();
-		//SoSanhNgay();
+		
 		
 	}
 	
+
+	public void HienCmbSoPhong() {
 	
-	
-	
-	public void HienComboboxLoaiPhong() {
-		 
 		 try {
 			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			 String query = "select TEN_lOAIPHONG from loai_phong";
-			 PreparedStatement pst = conn.prepareStatement(query);
-			 ResultSet rs = pst.executeQuery();
+			 String	loaiphong =(String) Loai_Phong_Cmb.getSelectionModel().getSelectedItem();
+			 String query = "SELECT TEN_PHONG from phong,loai_phong WHERE loai_phong.TEN_lOAIPHONG='"+loaiphong+"' AND TINHTRANG='Trống' AND loai_phong.MA_LOAIPHONG=phong.MA_LOAIPHONG ";
+			 ResultSet rs = conn.createStatement().executeQuery(query);
 			 while (rs.next())
 			 {
-				 list_lp.add(rs.getString("TEN_lOAIPHONG"));
-				 Loai_Phong_Cmb.setItems(list_lp);
+				 SoPhong_Cmb.setItems(FXCollections.observableArrayList(rs.getString(1)));
 			 }
-			 pst.close();
-			 rs.close();
 		 }
 		 catch(SQLException ex)
 		 {
 			 Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE,null,ex);
 		 }
-	 }
+	}
     
+	@FXML
+    void LoaiPhongActionListener(ActionEvent event) {
+		HienCmbSoPhong();
+    }
+	
 	public void ChuyenNguocNamThangNgay()
 	{
 			Ngay_Dat_Phong.setConverter(

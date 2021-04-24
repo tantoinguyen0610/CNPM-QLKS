@@ -1,5 +1,10 @@
 package Check_out;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -29,6 +35,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class HoaDonTraPhongController implements Initializable {
 
@@ -192,13 +207,13 @@ public class HoaDonTraPhongController implements Initializable {
 		TenKH_textField.setText(traphong.getTENKH());
 		SoPhong_textField.setText(String.valueOf(traphong.getSOPHONG()));
 		SoNgayO_textField.setText(String.valueOf(traphong.getSONGAYO()));
+		HienTextFieldTienDV();
 		HienThiTextFieldConLai();
 		TinhTongTextField();
     }
-	
 	public void TinhTongTextField() {
 		Double tongtien=0.0;
-		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText()));
+		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText())+Double.valueOf(Tien_DV_textField.getText()));
 		TongCong_textField.setText(tongtien+"");
 	}
 	
@@ -219,7 +234,26 @@ public class HoaDonTraPhongController implements Initializable {
 			catch(Exception e) {
 				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
 			}
-	}								
+	}				
+	
+	public void HienTextFieldTienDV() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query1 = "SELECT TONGTIENDV "
+						+ "from hoadon_thanhtoanphong "
+						+ "WHERE  MA_HD_TTP=? ";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 pst1.setString(1,MaPT_textField.getText());
+			 ResultSet rs1 = pst1.executeQuery();
+			 while(rs1.next()) {
+				 Tien_DV_textField.setText(rs1.getString("TONGTIENDV"));
+			 }
+		}
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+	}			
 									
 	public void HienTableHoaDon() {	
 		 try {						
@@ -259,6 +293,39 @@ public class HoaDonTraPhongController implements Initializable {
     @FXML
     void In_ActionListener(ActionEvent event) {
 
+    	try {
+    		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			InputStream in = new FileInputStream(new File("C:\\Users\\Asus\\git\\repository\\Tester\\src\\Check_out\\InHoaDon.jrxml"));
+			JasperDesign jd = JRXmlLoader.load(in);
+			String sql= "SELECT MA_HD_TTP,TENKH,SOPHONG,GIATIEN,TIENPHONG,SONGAYO,TONGTIENDV,TONGTIEN,NGAYTHANHTOAN from hoadon_thanhtoanphong,phieuthuephong,loai_phong WHERE	MA_HD_TTP='"+MaHD_textField.getText()+"' AND phieuthuephong.MA_PT='"+MaPT_textField.getText()+"' AND phieuthuephong.LOAIPHONG=loai_phong.TEN_lOAIPHONG";
+			JRDesignQuery newQuery = new JRDesignQuery();
+			newQuery.setText(sql);
+			jd.setQuery(newQuery);
+			JasperReport jr = JasperCompileManager.compileReport(jd);
+			HashMap<String,Object> para = new HashMap<>();
+    		para.put("MA_HD_TTP",MaHD_textField.getText());
+    		JasperPrint j = JasperFillManager.fillReport(jr, para,conn);
+    		JasperViewer.viewReport(j,false);
+    		OutputStream os = new FileOutputStream(new File("C:\\Users\\Asus\\Desktop\\New folder"));
+    		JasperExportManager.exportReportToPdfStream(j,os);
+			
+			//    		JasperDesign jasdi=JRXmlLoader.load("C:\\Users\\Asus\\git\\repository\\Tester\\src\\Check_out\\Blank_A4.jrxml");
+//    		String sql = "SELECT MA_HD_TTP,TENKH,SOPHONG,TIENPHONG,SONGAYO,TONGTIENDV,TONGTIEN,NGAYTHANHTOAN from hoadon_thanhtoanphong,phieuthuephong WHERE MA_HD_TTP='"+MaHD_textField.getText()+"' AND phieuthuephong.MA_PT='"+MaPT_textField+"'";
+//    		JRDesignQuery newQuery = new JRDesignQuery();
+//    		newQuery.setText(sql);
+//    		jasdi.setQuery(newQuery);
+//    		HashMap<String,Object> para = new HashMap<>();
+//    		para.put("MaHD",MaHD_textField.getText());
+//    		
+//    		JasperReport js = JasperCompileManager.compileReport(jasdi);
+//    		JasperPrint jp = JasperFillManager.fillReport(js, para,conn);
+//    		JasperViewer.viewReport(jp);
+    		
+    	}catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, "Lỗi"+ e);
+    	}
+    	
     }
 
     @FXML
