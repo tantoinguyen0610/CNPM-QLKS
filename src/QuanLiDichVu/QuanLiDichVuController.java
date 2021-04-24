@@ -89,6 +89,13 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     private Button CapNhatDVAnUongButton;
+    
+    @FXML
+    private Label tb1Label;
+
+    @FXML
+    private TextField tb1TextField;
+
 
     @FXML
     private Tab DichVuGiaiTriTab;
@@ -133,10 +140,10 @@ public class QuanLiDichVuController implements Initializable {
     private Button CapNhatDVGTButton;
     
     @FXML
-    private Label tb1Label;
+    private Label tb2Label;
 
     @FXML
-    private TextField tb1TextField;
+    private TextField tb2TextField;
 
     @FXML
     private Tab DichVuThuGianTab;
@@ -182,6 +189,13 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     private Button CapNhatDVTGButton;
+    
+    @FXML
+    private Label tb3Label;
+
+    @FXML
+    private TextField tb3TextField;
+
  
     @FXML
     private Tab DichVuPhucVuTab;
@@ -225,6 +239,11 @@ public class QuanLiDichVuController implements Initializable {
     @FXML
     private Button CapNhatDVPVButton;
 
+    @FXML
+    private Label tb4Label;
+
+    @FXML
+    private TextField tb4TextField;
 
   
     
@@ -239,6 +258,8 @@ public class QuanLiDichVuController implements Initializable {
     	HienTableDichVuThuGian();
     	HienTableDichVuPhucVu();
     	HienDataLenTextField();
+  
+    	
 	}
 
 
@@ -484,11 +505,12 @@ public class QuanLiDichVuController implements Initializable {
     		}
     		
     	});
+    
     	DichVuGiaiTriTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
     		@Override
     		public void handle(MouseEvent event) {
     			TableDichVuGiaiTri tb1 = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
-    			tb1TextField.setText(tb1.getMA_DV());
+    			tb2TextField.setText(tb1.getMA_DV());
     			
     		}
     		
@@ -497,16 +519,16 @@ public class QuanLiDichVuController implements Initializable {
     		@Override
     		public void handle(MouseEvent event) {
     			TableDichVuThuGian tbl_nv = DichVuThuGianTableView.getItems().get(DichVuThuGianTableView.getSelectionModel().getSelectedIndex());
-    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			tb3TextField.setText(tbl_nv.getMA_DV());
     			
     		}
     		
-    	});
+    	}); 
     	DIchVuPhucVuTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
     		@Override
     		public void handle(MouseEvent event) {
     			TableDichVuPhucVu tbl_nv = DIchVuPhucVuTableView.getItems().get(DIchVuPhucVuTableView.getSelectionModel().getSelectedIndex());
-    			tb1TextField.setText(tbl_nv.getMA_DV());
+    			tb4TextField.setText(tbl_nv.getMA_DV());
     			
     		}
     		

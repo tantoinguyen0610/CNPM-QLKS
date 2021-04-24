@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 23, 2021 lúc 01:44 PM
+-- Thời gian đã tạo: Th4 24, 2021 lúc 11:41 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -90,7 +90,7 @@ CREATE TABLE `dv` (
   `TENDV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `LOAIDV` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SOLUONG` int(11) DEFAULT NULL,
-  `KHUNGGIO` time DEFAULT NULL,
+  `KHUNGGIO` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SONGUOITHAMGIA` int(11) DEFAULT NULL,
   `GIA` int(11) DEFAULT NULL,
   `TINHTRANG` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
@@ -101,14 +101,18 @@ CREATE TABLE `dv` (
 --
 
 INSERT INTO `dv` (`MA_DV`, `TENDV`, `LOAIDV`, `SOLUONG`, `KHUNGGIO`, `SONGUOITHAMGIA`, `GIA`, `TINHTRANG`) VALUES
-(1, 'pepsi', 'ăn uống', 1, NULL, NULL, 10000, 'còn hàng'),
-(2, 'c2 ', 'ăn uống', 1, NULL, NULL, 10000, 'còn hàng'),
-(3, 'sting', 'ăn uống ', 1, NULL, NULL, 20000, 'vẫn còn'),
-(4, 'Sân Bóng ', 'Giải Trí', NULL, '07:00:00', NULL, 120000, 'vẫn còn'),
-(5, 'nước suối', 'ăn uống', 1, NULL, NULL, 20000, 'Còn Hàng'),
-(6, 'Xem Phim', 'Giải Trí', NULL, '08:00:00', NULL, 150000, 'Đang Hoạt Động'),
-(7, 'Massage', 'Thư Giản', NULL, '07:00:00', NULL, 100000, 'Đang Hoạt Động'),
-(8, 'Vé Máy Bay', 'Phục Vụ', 1, NULL, NULL, 100000, 'Còn Hoạt Động');
+(1, 'Pepsi', 'ăn uống', 1, NULL, NULL, 10000, 'vẫn còn'),
+(2, '7up', 'ăn uống', 1, NULL, NULL, 10000, 'vẫn còn'),
+(3, 'coca', 'ăn uống', 1, NULL, NULL, 10000, 'vẫn còn'),
+(4, 'nước suối', 'ăn uống', 1, NULL, NULL, 6000, 'vẫn còn'),
+(5, 'buffet sáng', 'ăn uống', 1, NULL, NULL, 500000, 'vẫn còn'),
+(6, 'Phòng Gym', 'giải trí', NULL, '7h-21h', NULL, 200000, 'vẫn còn'),
+(7, 'Bar', 'giải trí', NULL, '19h-2h', NULL, 700000, 'vẫn còn'),
+(8, 'hồ bơi', 'giải trí', NULL, '7h-16h', NULL, 30000, 'vẫn còn'),
+(9, 'Spa', 'thư giãn', NULL, '9h-22h', NULL, 100000, 'vẫn còn'),
+(10, 'Massage', 'thư giãn', NULL, '9h-22h', NULL, 300000, 'vẫn còn'),
+(11, 'Đặt vé máy bay', 'phục vụ', 1, NULL, NULL, 3000000, 'Vẫn còn'),
+(12, 'rửa xe', 'phục vụ', 1, NULL, NULL, 300000, 'vẫn còn');
 
 -- --------------------------------------------------------
 
@@ -134,7 +138,7 @@ CREATE TABLE `hoadon_thanhtoanphong` (
 --
 
 INSERT INTO `hoadon_thanhtoanphong` (`MA_HD_TTP`, `MA_PT`, `MAPHIEUDV`, `MAKH`, `TENKH`, `NGAYTHANHTOAN`, `TIENPHONG`, `TONGTIENDV`, `TONGTIEN`, `TINHTRANG`) VALUES
-(1, 1, 1, 1, 'qwe', '2021-04-02', 500000, '', 1000000, 'Đã Thanh Toán'),
+(1, 1, 1, 1, 'qwe', '2021-04-02', 500000, '2333999', 1000000, 'Đã Thanh Toán'),
 (2, 2, 2, 2, 'qwe', '2021-03-31', 3000000, '', 6000000, 'Đã Thanh Toán'),
 (3, 3, 3, 3, 'qwe', '2021-04-08', 3000000, '', 6000000, 'Đã Thanh Toán');
 
@@ -165,8 +169,9 @@ CREATE TABLE `hoa_don` (
 --
 
 INSERT INTO `hoa_don` (`MA_HD`, `MA_TB`, `TENTB`, `LOAI_HD`, `SOPHONG`, `SOLUONG`, `LIDONANGCAP`, `NGAYBD`, `NGAYKT`, `TINHTRANG`, `CHIPHI`, `TONGTIEN`, `DUYETTHANHTOAN`) VALUES
-('1', NULL, NULL, 'Sửa Chữa Thiết Bị', '102', NULL, 'qweqwe', '2021-04-08', '2021-04-09', 'wqeqwe', 123123, 231232, 'Chưa Thanh Toán'),
-('2', '1', 'Máy lạnh', 'Sửa Chữa Thiết Bị', NULL, 2, NULL, '2021-04-01', '2021-04-14', 'qwe', 12312412, 12124123, 'Chưa Thanh Toán');
+('', NULL, NULL, 'Nâng Cấp Phòng', '102', NULL, 'wqeqwe', '2021-04-01', '2021-04-17', 'wqeqwe', 1231231, 432423, 'Chưa Thanh Toán'),
+('1', NULL, NULL, 'Nâng Cấp Phòng', '102', NULL, 'qweqwe', '2021-04-08', '2021-04-09', 'wqeqwe', 123123, 231232, 'Đã Thanh Toán'),
+('2', '1', 'Máy lạnh', 'Sửa Chữa Thiết Bị', NULL, 2, NULL, '2021-04-01', '2021-04-14', 'qwe', 12312412, 12124123, 'Đã Thanh Toán');
 
 -- --------------------------------------------------------
 
@@ -296,9 +301,9 @@ INSERT INTO `phieuthuephong` (`MA_PT`, `MA_PHONG`, `MAKH`, `MA_DATCOC`, `NGAYDAT
 
 CREATE TABLE `phieu_dv` (
   `MAPHIEUDV` int(10) NOT NULL,
-  `MA_DV` int(10) NOT NULL,
-  `TENDV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `TONGTIENDV` int(11) DEFAULT NULL
+  `TENDV` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TONGTIENDV` int(11) DEFAULT NULL,
+  `SOLUONG` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -311,7 +316,7 @@ CREATE TABLE `phong` (
   `MA_PHONG` int(10) NOT NULL,
   `MA_KT_DK` int(10) DEFAULT NULL,
   `MA_LOAIPHONG` int(10) DEFAULT NULL,
-  `THIETBI` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `THIETBI` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `TEN_PHONG` int(10) DEFAULT NULL,
   `SONGUOIO` int(11) DEFAULT NULL,
   `TINHTRANG` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
@@ -323,7 +328,7 @@ CREATE TABLE `phong` (
 
 INSERT INTO `phong` (`MA_PHONG`, `MA_KT_DK`, `MA_LOAIPHONG`, `THIETBI`, `TEN_PHONG`, `SONGUOIO`, `TINHTRANG`) VALUES
 (1, 1, 2, '[Giường ngủ, Bàn đầu giường, Ti vi, Tủ lạnh ]', 101, 3, 'Đã sử dụng'),
-(2, 2, 3, NULL, 102, 2, 'Trống'),
+(2, 2, 3, '[Bàn đầu giường, Giường ngủ, Ti vi, Tủ lạnh ]', 102, 2, 'Trống'),
 (3, 3, 1, NULL, 103, 2, 'Đã sử dụng'),
 (4, 4, 1, NULL, 104, 2, 'Trống'),
 (5, 5, 2, NULL, 105, 4, 'Trống'),
@@ -453,8 +458,7 @@ ALTER TABLE `phieuthuephong`
 -- Chỉ mục cho bảng `phieu_dv`
 --
 ALTER TABLE `phieu_dv`
-  ADD PRIMARY KEY (`MAPHIEUDV`),
-  ADD KEY `fk_DICHVU1` (`MA_DV`);
+  ADD PRIMARY KEY (`MAPHIEUDV`);
 
 --
 -- Chỉ mục cho bảng `phong`
