@@ -1,50 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.PhieuDichVuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="1159.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.PhieuDichVuController">
    <children>
-      <Label fx:id="PhieuDichVuLabel" layoutX="299.0" layoutY="27.0" prefHeight="135.0" prefWidth="341.0" text="Phiếu Dịch Vụ">
+      <Label fx:id="PhieuDichVuLabel" layoutX="384.0" layoutY="14.0" prefHeight="98.0" prefWidth="341.0" text="Phiếu Dịch Vụ">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label fx:id="DichVuAnUongLabel" layoutX="52.0" layoutY="172.0" prefHeight="46.0" prefWidth="115.0" text="Dịch Vụ ăn Uống" />
-      <Label fx:id="DichVuThuGianLabel" layoutX="271.0" layoutY="172.0" prefHeight="46.0" prefWidth="122.0" text="Dịch Vụ Thư Giản" />
-      <Label fx:id="DichVuGiaiTriLabel" layoutX="506.0" layoutY="172.0" prefHeight="46.0" prefWidth="115.0" text="Dịch Vụ Giải Trí" />
-      <Label fx:id="DichVuPhucVuLabel" layoutX="737.0" layoutY="172.0" prefHeight="46.0" prefWidth="115.0" text="Dịch Vụ Phục Vụ" />
-      <CheckBox fx:id="SevenUpCheckBox" layoutX="63.0" layoutY="267.0" mnemonicParsing="false" onAction="#SevenUpCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="7up" />
-      <CheckBox fx:id="CocaCheckBox" layoutX="63.0" layoutY="312.0" mnemonicParsing="false" onAction="#CocaCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="CoCa" />
-      <CheckBox fx:id="BuffeeSangCheckBox" layoutX="63.0" layoutY="406.0" mnemonicParsing="false" onAction="#BuffeeSangCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Buffee Sáng" />
-      <CheckBox fx:id="BuffeeTruaCheckBox" layoutX="63.0" layoutY="453.0" mnemonicParsing="false" onAction="#BuffeeTruaCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Buffee trưa" />
-      <CheckBox fx:id="BuffeeToiCheckBox" layoutX="63.0" layoutY="503.0" mnemonicParsing="false" onAction="#BuffeeToiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Buffee Tối" />
-      <CheckBox fx:id="BuffeeChayCheckBox" layoutX="63.0" layoutY="559.0" mnemonicParsing="false" onAction="#BuffeeChayCheckBoxListener" prefHeight="35.0" prefWidth="115.0" text="Buffee Chay" />
-      <CheckBox fx:id="ComboBuffeeCaNgayCheckBox" layoutX="63.0" layoutY="616.0" mnemonicParsing="false" onAction="#ComboBuffeeCaNgayCheckBoxListener" prefHeight="35.0" prefWidth="182.0" text="ComBo Buffee cả ngày" />
-      <CheckBox fx:id="PepsiCheckBox" layoutX="63.0" layoutY="218.0" mnemonicParsing="false" onAction="#PepsiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="PepSi" />
-      <CheckBox fx:id="NuocSuoiCheckBox" layoutX="63.0" layoutY="358.0" mnemonicParsing="false" onAction="#NuocSuoiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Nước Suối" />
-      <CheckBox fx:id="SpaCheckBox" layoutX="271.0" layoutY="218.0" mnemonicParsing="false" onAction="#SpaCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Spa" />
-      <CheckBox fx:id="ChamSocTocCheckBox" layoutX="271.0" layoutY="267.0" mnemonicParsing="false" onAction="#ChamSocTocCheckBoxListener" prefHeight="35.0" prefWidth="131.0" text="Chăm Sóc Tóc" />
-      <CheckBox fx:id="MassageCheckBox" layoutX="271.0" layoutY="312.0" mnemonicParsing="false" onAction="#MassageCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Massage" />
-      <CheckBox fx:id="XongHoiCheckBox" layoutX="271.0" layoutY="358.0" mnemonicParsing="false" onAction="#XongHoiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Xông Hơi" />
-      <CheckBox fx:id="PhongGymCheckBox" layoutX="506.0" layoutY="218.0" mnemonicParsing="false" onAction="#XongHoiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Phòng Gym" />
-      <CheckBox fx:id="QuayBarCheckBox" layoutX="506.0" layoutY="267.0" mnemonicParsing="false" onAction="#QuayBarCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Quầy Bar" />
-      <CheckBox fx:id="SanBongCheckBox" layoutX="506.0" layoutY="312.0" mnemonicParsing="false" onAction="#SanBongCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Sân Bóng" />
-      <CheckBox fx:id="HoBoiCheckBox" layoutX="506.0" layoutY="358.0" mnemonicParsing="false" onAction="#HoBoiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Hồ Bơi" />
-      <CheckBox fx:id="PhongGameCheckBox" layoutX="506.0" layoutY="406.0" mnemonicParsing="false" onAction="#PhongGameCheckBoxListener" prefHeight="35.0" prefWidth="122.0" text="Phòng Game" />
-      <CheckBox fx:id="DatVeMayBayCheckBox" layoutX="741.0" layoutY="218.0" mnemonicParsing="false" onAction="#PhongGameCheckBoxListener" prefHeight="35.0" prefWidth="145.0" text="Đặt Vé Máy Bay" />
-      <CheckBox fx:id="DatXeTaxiCheckBox" layoutX="741.0" layoutY="267.0" mnemonicParsing="false" onAction="#DatXeTaxiCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Đặt Xe Taxi" />
-      <CheckBox fx:id="RuaXeCheckBox" layoutX="741.0" layoutY="312.0" mnemonicParsing="false" onAction="#RuaXeCheckBoxListener" prefHeight="35.0" prefWidth="108.0" text="Rửa Xe" />
-      <CheckBox fx:id="DatVeThamQuanCheckBox" layoutX="741.0" layoutY="358.0" mnemonicParsing="false" onAction="#DatVeThamQuanCheckBoxListener" prefHeight="35.0" prefWidth="161.0" text="Đặt Vé Tham Quan " />
-      <CheckBox fx:id="DatHuongDanVienCheckBox" layoutX="741.0" layoutY="406.0" mnemonicParsing="false" onAction="#DatHuongDanVienCheckBoxListener" prefHeight="35.0" prefWidth="175.0" text="Đặt Hướng Dẫn Viên" />
-      <Label fx:id="TongTienLabel" layoutX="511.0" layoutY="648.0" prefHeight="58.0" prefWidth="98.0" text="Tổng Tiền" />
-      <TextField fx:id="TongTienTextField" layoutX="621.0" layoutY="659.0" onAction="#TongTienTextFieldListener" prefHeight="35.0" prefWidth="187.0" />
-      <Button fx:id="LuuButton" layoutX="95.0" layoutY="706.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="46.0" prefWidth="98.0" text="Lưu " />
-      <Button fx:id="HuyBotton" layoutX="250.0" layoutY="706.0" mnemonicParsing="false" onAction="#HuyBottonListener" prefHeight="46.0" prefWidth="98.0" text="Hủy" />
+      <ScrollPane layoutX="378.0" layoutY="147.0" prefHeight="264.0" prefWidth="755.0">
+         <content>
+            <TableView fx:id="tbl_PDV" prefHeight="262.0" prefWidth="762.0">
+              <columns>
+                <TableColumn fx:id="col_MaPhieu" prefWidth="94.0" text="Mã Phiếu" />
+                <TableColumn fx:id="col_TenDV" prefWidth="155.0" text="Tên DV" />
+                  <TableColumn fx:id="col_GiaTien" prefWidth="171.0" text="Giá Tiền" />
+                  <TableColumn fx:id="col_SoLuong" prefWidth="116.0" text="Số Lượng" />
+                  <TableColumn fx:id="col_TongTien" prefWidth="225.0" text="Tổng Tiền" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <ButtonBar layoutX="255.0" layoutY="448.0" prefHeight="53.0" prefWidth="599.0">
+         <buttons>
+            <Button fx:id="LuuButton" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="46.0" prefWidth="98.0" text="Thêm" />
+            <Button fx:id="Xoa_Button" mnemonicParsing="false" onAction="#Xoa_ActionListener" prefHeight="46.0" prefWidth="98.0" text="Xoá" />
+            <Button fx:id="HuyBotton" mnemonicParsing="false" onAction="#HuyBottonListener" prefHeight="46.0" prefWidth="98.0" text="Hủy" />
+            <Button fx:id="Reset_Button" mnemonicParsing="false" onAction="#Reset_ActionListener" prefHeight="46.0" prefWidth="133.0" text="Reset" />
+         </buttons>
+      </ButtonBar>
+      <TextField fx:id="SL_textField" layoutX="135.0" layoutY="329.0" prefHeight="31.0" prefWidth="49.0" />
+      <Label layoutX="34.0" layoutY="334.0" text="Số Lượng:" />
+      <Label layoutX="14.0" layoutY="200.0" text="Tên Dịch Vụ:" />
+      <ComboBox fx:id="TenDV_cmb" layoutX="135.0" layoutY="195.0" onAction="#TenDV_ActionListener" prefWidth="150.0" />
+      <Label fx:id="err_TenDV" layoutX="135.0" layoutY="230.0" textFill="RED" />
+      <Label fx:id="err_SL" layoutX="136.0" layoutY="360.0" textFill="RED" />
+      <Label layoutX="11.0" layoutY="126.0" text="Mã Phiếu DV:" />
+      <TextField fx:id="MaPhieuDV_textField" disable="true" layoutX="135.0" layoutY="121.0" prefHeight="31.0" prefWidth="49.0" />
+      <TextField fx:id="Gia_textField" disable="true" layoutX="135.0" layoutY="264.0" prefHeight="31.0" prefWidth="150.0" />
+      <TextField fx:id="TT_textField" disable="true" layoutX="135.0" layoutY="392.0" prefHeight="31.0" prefWidth="150.0" />
+      <Label layoutX="28.0" layoutY="397.0" text="Tổng Tiền:" />
+      <Label layoutX="40.0" layoutY="269.0" text="Giá tiền:" />
    </children>
 </AnchorPane>
