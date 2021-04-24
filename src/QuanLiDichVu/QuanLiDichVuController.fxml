@@ -64,8 +64,8 @@
                         <Button fx:id="SuaDVGTButton" layoutX="355.0" layoutY="662.0" mnemonicParsing="false" onAction="#SuaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Sửa" />
                         <Button fx:id="XoaDVGTButton" layoutX="538.0" layoutY="662.0" mnemonicParsing="false" onAction="#XoaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Xóa" />
                         <Button fx:id="CapNhatDVGTButton" layoutX="726.0" layoutY="662.0" mnemonicParsing="false" onAction="#CapNhatDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Cập Nhật" />
-                        <Label fx:id="tb1Label" layoutX="24.0" layoutY="626.0" prefHeight="21.0" prefWidth="134.0" text="Dịch Vụ Đang Chọn" />
-                        <TextField fx:id="tb1TextField" alignment="CENTER" disable="true" layoutX="166.0" layoutY="621.0" prefHeight="31.0" prefWidth="39.0" />
+                        <Label fx:id="tb2Label" layoutX="24.0" layoutY="626.0" prefHeight="21.0" prefWidth="134.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb2TextField" alignment="CENTER" disable="true" layoutX="166.0" layoutY="621.0" prefHeight="31.0" prefWidth="39.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -93,8 +93,8 @@
                         <Button fx:id="SuaDVTGButton" layoutX="360.0" layoutY="662.0" mnemonicParsing="false" onAction="#SuaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Sửa" />
                         <Button fx:id="XoaDVTGButton" layoutX="542.0" layoutY="662.0" mnemonicParsing="false" onAction="#XoaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Xóa" />
                         <Button fx:id="CapNhatDVTGButton" layoutX="717.0" layoutY="662.0" mnemonicParsing="false" onAction="#CapNhatDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Cập Nhật" />
-                        <Label fx:id="tb1Label" layoutX="29.0" layoutY="619.0" prefHeight="21.0" prefWidth="136.0" text="Dịch Vụ Đang Chọn" />
-                        <TextField fx:id="tb1TextField" alignment="CENTER" disable="true" layoutX="165.0" layoutY="614.0" prefHeight="31.0" prefWidth="46.0" />
+                        <Label fx:id="tb3Label" layoutX="29.0" layoutY="619.0" prefHeight="21.0" prefWidth="136.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb3TextField" alignment="CENTER" disable="true" layoutX="165.0" layoutY="614.0" prefHeight="31.0" prefWidth="46.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -121,8 +121,8 @@
                         <Button fx:id="SuaDVPVButton" layoutX="374.0" layoutY="667.0" mnemonicParsing="false" onAction="#SuaDVPVButtonListener" prefHeight="75.0" prefWidth="120.0" text="Sửa" />
                         <Button fx:id="XoaDVPVButton" layoutX="540.0" layoutY="667.0" mnemonicParsing="false" onAction="#XoaDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Xóa" />
                         <Button fx:id="CapNhatDVPVButton" layoutX="712.0" layoutY="667.0" mnemonicParsing="false" onAction="#CapNhatDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Cập Nhật" />
-                        <Label fx:id="tb1Label" layoutX="25.0" layoutY="629.0" prefHeight="21.0" prefWidth="133.0" text="Dịch Vụ Đang Chọn" />
-                        <TextField fx:id="tb1TextField" alignment="CENTER" disable="true" layoutX="161.0" layoutY="624.0" prefHeight="31.0" prefWidth="45.0" />
+                        <Label fx:id="tb4Label" layoutX="25.0" layoutY="629.0" prefHeight="21.0" prefWidth="133.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb4TextField" alignment="CENTER" disable="true" layoutX="161.0" layoutY="624.0" prefHeight="31.0" prefWidth="45.0" />
                      </children>
                   </AnchorPane>
                </content>
