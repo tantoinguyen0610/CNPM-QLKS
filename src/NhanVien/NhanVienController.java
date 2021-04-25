@@ -188,8 +188,6 @@ public class NhanVienController implements Initializable {
     
     @FXML
     private ComboBox<String> TrangThai_cmb;
-
-
     
     ObservableList<TableNhanVien> listnv = FXCollections.observableArrayList();
     ObservableList<String> list_gioitinh = FXCollections.observableArrayList("Nam","Nữ");
@@ -238,6 +236,87 @@ public class NhanVienController implements Initializable {
 			}
 		 	
 	}
+    
+    public void ChuyenNguocNamThangNgay()
+   	{
+       	NgayBatDau_DatePicker.setConverter(
+   				   new StringConverter<LocalDate>() {
+   				          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+   				          @Override
+   				          public String toString(LocalDate date) {
+   				            return (date != null) ? dateFormatter.format(date) : "";
+   				          }
+
+   				          @Override
+   				          public LocalDate fromString(String string) {
+   				            return (string != null && !string.isEmpty())
+   				                ? LocalDate.parse(string, dateFormatter)
+   				                : null;
+   				          }
+   				        });
+       	NgaySinh_DatePicker.setConverter(
+   						   new StringConverter<LocalDate>() {
+   						          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+   						          @Override
+   						          public String toString(LocalDate date) {
+   						            return (date != null) ? dateFormatter.format(date) : "";
+   						          }
+
+   						          @Override
+   						          public LocalDate fromString(String string) {
+   						            return (string != null && !string.isEmpty())
+   						                ? LocalDate.parse(string, dateFormatter)
+   						                : null;
+   						          }
+   						        });
+   	}
+    
+    public void autoTaoMaNV() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(MANV) from nhanvien");
+			rs.next();
+			rs.getString("Max(MANV)");
+			
+			if(rs.getString("Max(MANV)")== null)
+			{
+				MaNV_textField.setText("1");
+			}
+			else
+			{
+				int mapt = Integer.parseInt(rs.getString("Max(MANV)"));
+				mapt++;
+				MaNV_textField.setText(String.format("%d",mapt));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+    
+    private void HienDataLenTextField() {
+    	Table_NhanVien.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			TableNhanVien tbl_nv = Table_NhanVien.getItems().get(Table_NhanVien.getSelectionModel().getSelectedIndex());
+    			MaNV_textField.setText(tbl_nv.getMANV());
+    			TenNV_textField.setText(tbl_nv.getTENNV());
+    			ChucVu_cmbBox.setValue(tbl_nv.getCHUCVU());
+    			CaLam_Cmb.setValue(tbl_nv.getCA_LAM());
+    			TrangThai_cmb.setValue(tbl_nv.getTRANGTHAI());
+    			((TextField)NgayBatDau_DatePicker.getEditor()).setText(tbl_nv.getNGAYLAMVIEC());
+    			SDT_textField.setText(tbl_nv.getSDT());
+    			GioiTinh_cmbBox.setValue(tbl_nv.getGIOITINH());
+    			((TextField)NgaySinh_DatePicker.getEditor()).setText(tbl_nv.getNGAYSINH());
+    			Button_Xoa.setDisable(false);
+    		}
+    		
+    	});
+    }
 
     @FXML
     void ChamCong_ActionListener(ActionEvent event) {
@@ -300,39 +379,6 @@ public class NhanVienController implements Initializable {
     	listnv.clear();
     	HienTableNhanVien();
     	}
-    }
-
-    @FXML
-    void XoaNV_ActionListener(ActionEvent event) {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá nhân viên này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-    	Table_NhanVien.getItems().removeAll(Table_NhanVien.getSelectionModel().getSelectedItems());
-    	
-    	String sql = "delete from nhanvien where MANV = ?";
-    	try {
-    		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-    		Connection conn = DriverManager.getConnection(DB_URL,"root","");
-    		PreparedStatement pst = conn.prepareStatement(sql);
-    		pst.setString(1, MaNV_textField.getText());
-    		pst.execute();
-    		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
-    	}
-    	catch(Exception e) {
-    		JOptionPane.showMessageDialog(null, e);
-    	}
-    	}
-    	else {
-    		listnv.clear();
-        	HienTableNhanVien();
-        	autoTaoMaNV();
-    	}
-    }
-    
-    @FXML
-    void Refresh_ActionListener(ActionEvent event) {
-    	listnv.clear();
-    	HienTableNhanVien();
-    	ResetTextField();
-    	autoTaoMaNV();
     }
     
     private boolean KiemTraTenNV() {
@@ -410,89 +456,38 @@ public class NhanVienController implements Initializable {
 			}
 		return true;
 	}
+
+    @FXML
+    void XoaNV_ActionListener(ActionEvent event) {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá nhân viên này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	Table_NhanVien.getItems().removeAll(Table_NhanVien.getSelectionModel().getSelectedItems());
+    	
+    	String sql = "delete from nhanvien where MANV = ?";
+    	try {
+    		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+    		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+    		PreparedStatement pst = conn.prepareStatement(sql);
+    		pst.setString(1, MaNV_textField.getText());
+    		pst.execute();
+    		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
+    	}
+    	catch(Exception e) {
+    		JOptionPane.showMessageDialog(null, e);
+    	}
+    	}
+    	else {
+    		listnv.clear();
+        	HienTableNhanVien();
+        	autoTaoMaNV();
+    	}
+    }
     
-    
-    
-
-    public void ChuyenNguocNamThangNgay()
-	{
-    	NgayBatDau_DatePicker.setConverter(
-				   new StringConverter<LocalDate>() {
-				          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-				          @Override
-				          public String toString(LocalDate date) {
-				            return (date != null) ? dateFormatter.format(date) : "";
-				          }
-
-				          @Override
-				          public LocalDate fromString(String string) {
-				            return (string != null && !string.isEmpty())
-				                ? LocalDate.parse(string, dateFormatter)
-				                : null;
-				          }
-				        });
-    	NgaySinh_DatePicker.setConverter(
-						   new StringConverter<LocalDate>() {
-						          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-						          @Override
-						          public String toString(LocalDate date) {
-						            return (date != null) ? dateFormatter.format(date) : "";
-						          }
-
-						          @Override
-						          public LocalDate fromString(String string) {
-						            return (string != null && !string.isEmpty())
-						                ? LocalDate.parse(string, dateFormatter)
-						                : null;
-						          }
-						        });
-	}
-	
-    public void autoTaoMaNV() {
-		try {
-			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			Statement s= conn.createStatement();
-			
-			ResultSet rs = s.executeQuery("select Max(MANV) from nhanvien");
-			rs.next();
-			rs.getString("Max(MANV)");
-			
-			if(rs.getString("Max(MANV)")== null)
-			{
-				MaNV_textField.setText("1");
-			}
-			else
-			{
-				int mapt = Integer.parseInt(rs.getString("Max(MANV)"));
-				mapt++;
-				MaNV_textField.setText(String.format("%d",mapt));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-    
-    private void HienDataLenTextField() {
-    	Table_NhanVien.setOnMouseClicked(new EventHandler<MouseEvent>() {
-    		@Override
-    		public void handle(MouseEvent event) {
-    			TableNhanVien tbl_nv = Table_NhanVien.getItems().get(Table_NhanVien.getSelectionModel().getSelectedIndex());
-    			MaNV_textField.setText(tbl_nv.getMANV());
-    			TenNV_textField.setText(tbl_nv.getTENNV());
-    			ChucVu_cmbBox.setValue(tbl_nv.getCHUCVU());
-    			CaLam_Cmb.setValue(tbl_nv.getCA_LAM());
-    			TrangThai_cmb.setValue(tbl_nv.getTRANGTHAI());
-    			((TextField)NgayBatDau_DatePicker.getEditor()).setText(tbl_nv.getNGAYLAMVIEC());
-    			SDT_textField.setText(tbl_nv.getSDT());
-    			GioiTinh_cmbBox.setValue(tbl_nv.getGIOITINH());
-    			((TextField)NgaySinh_DatePicker.getEditor()).setText(tbl_nv.getNGAYSINH());
-    			Button_Xoa.setDisable(false);
-    		}
-    		
-    	});
+    @FXML
+    void Refresh_ActionListener(ActionEvent event) {
+    	listnv.clear();
+    	HienTableNhanVien();
+    	ResetTextField();
+    	autoTaoMaNV();
     }
     
     public void ResetTextField() {
@@ -505,7 +500,5 @@ public class NhanVienController implements Initializable {
 		GioiTinh_cmbBox.getSelectionModel().clearSelection();
 		NgaySinh_DatePicker.getEditor().clear();
     }
-    
-    
-    
+ 
 }

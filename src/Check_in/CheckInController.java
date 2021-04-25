@@ -225,8 +225,6 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		//HienComboboxLoaiPhong();
-		
 		ChuyenNguocNamThangNgay();
 		
 		Chon1Trong2LoaiPhieu();
@@ -234,39 +232,17 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		DisableTextFields();
 		
 		HienTableCheckIn();		
-		Loai_Phong_Cmb.setItems(list_lp);
-		SoNguoiCung1Phong.setItems(List_SoNguoi1Phong);
 		
+		Loai_Phong_Cmb.setItems(list_lp);
+		
+		SoNguoiCung1Phong.setItems(List_SoNguoi1Phong);
+
 		autoTaoMaKH();
+		
 		autoTaoMaPT();
 		
 		
 	}
-	
-
-	public void HienCmbSoPhong() {
-	
-		 try {
-			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			 String	loaiphong =(String) Loai_Phong_Cmb.getSelectionModel().getSelectedItem();
-			 String query = "SELECT TEN_PHONG from phong,loai_phong WHERE loai_phong.TEN_lOAIPHONG='"+loaiphong+"' AND TINHTRANG='Trống' AND loai_phong.MA_LOAIPHONG=phong.MA_LOAIPHONG ";
-			 ResultSet rs = conn.createStatement().executeQuery(query);
-			 while (rs.next())
-			 {
-				 SoPhong_Cmb.setItems(FXCollections.observableArrayList(rs.getString(1)));
-			 }
-		 }
-		 catch(SQLException ex)
-		 {
-			 Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE,null,ex);
-		 }
-	}
-    
-	@FXML
-    void LoaiPhongActionListener(ActionEvent event) {
-		HienCmbSoPhong();
-    }
 	
 	public void ChuyenNguocNamThangNgay()
 	{
@@ -304,6 +280,39 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 						        });
 	}
 	
+	public void Chon1Trong2LoaiPhieu() {
+		boolean isDisabled = (Button_DP_TaiQuay.isSelected()== false);
+		TenKH_textField.setDisable(isDisabled);
+    	CMND_textField.setDisable(isDisabled);
+    	SDT_textField.setDisable(isDisabled);
+    	SoNgayO_textField.setDisable(isDisabled);
+    	Ngay_Dat_Phong.setDisable(isDisabled);
+    	NgayNhanPhong.setDisable(isDisabled);
+    	SoNguoiCung1Phong.setDisable(isDisabled);
+    	Ma_DP_textField.setDisable(isDisabled);
+    	Loai_Phong_Cmb.setDisable(isDisabled);
+    	DatCoc_CheckBox.setDisable(isDisabled);
+    	Button_DatPhong.setDisable(isDisabled);
+    	Button_Reset.setDisable(isDisabled);
+				
+	}
+	
+	public void DisableTextFields() {
+		TenKH_textField.setDisable(true);
+    	CMND_textField.setDisable(true);
+    	SDT_textField.setDisable(true);
+    	SoNgayO_textField.setDisable(true);
+    	Ngay_Dat_Phong.setDisable(true);
+    	NgayNhanPhong.setDisable(true);
+    	SoNguoiCung1Phong.setDisable(true);
+    	Ma_DP_textField.setDisable(true);
+    	SoPhong_Cmb.setDisable(true);
+    	Loai_Phong_Cmb.setDisable(true);
+    	DatCoc_CheckBox.setDisable(true);
+    	Button_DatPhong.setDisable(true);
+    	Button_Reset.setDisable(true);
+	}
+	
 	public void HienTableCheckIn() {
 		 try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -336,136 +345,80 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 			Table_Check_In.setItems(oblist);
 	}
 	
-	private boolean KiemTraNgayDat() {
+	public void autoTaoMaKH() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(MaKH) from phieuthuephong");
+			rs.next();
+			rs.getString("Max(MaKH)");
+			
+			if(rs.getString("Max(MaKH)")== null)
+			{
+				MaKH_textField.setText("1");
+			}
+			else
+			{
+				int makh = Integer.parseInt(rs.getString("Max(MaKH)"));
+				makh++;
+				MaKH_textField.setText(String.format("%d",makh));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void autoTaoMaPT() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			
+			ResultSet rs = s.executeQuery("select Max(Ma_PT) from phieuthuephong");
+			rs.next();
+			rs.getString("Max(Ma_PT)");
+			
+			if(rs.getString("Max(Ma_PT)")== null)
+			{
+				MaPT_textField.setText("1");
+			}
+			else
+			{
+				int mapt = Integer.parseInt(rs.getString("Max(Ma_PT)"));
+				mapt++;
+				MaPT_textField.setText(String.format("%d",mapt));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+    
+	@FXML
+    void LoaiPhongActionListener(ActionEvent event) {
+		HienCmbSoPhong();
+    }
+	
+	public void HienCmbSoPhong() {
 		
-		if(((TextField)Ngay_Dat_Phong.getEditor()).getText().isEmpty())
-			{
-			err_NgayDP.setText("Vui lòng nhập ngày đặt phòng");
-			return false;
-			}
-		return true;
-	}
-	
-	private boolean KiemTraNgayNhan() {
-	
-		if(((TextField)NgayNhanPhong.getEditor()).getText().isEmpty())
-				
-			{
-			err_NgayNhanPhong.setText("Vui lòng nhập ngày nhận phòng");
-			return false;
-			}
-		return true;
-	}
-	
-	private boolean KiemTraSoNguoi1Phong() {
-		
-		if(SoNguoiCung1Phong.getSelectionModel().isEmpty())
-			{
-			err_SoNguoi1Phong.setText("Vui lòng chọn số người cùng 1 phòng");
-			return false;
-			}
-		return true;
-	}
-	
-	private boolean KiemTraLoaiPhong() {
-		
-		if(Loai_Phong_Cmb.getSelectionModel().isEmpty())
-			{
-			err_LoaiPhong.setText("Vui lòng chọn loại phòng");
-			return false;
-			}
-		return true;
-	}
-	
-	private boolean KiemTraSoPhong() {
-		
-		if(SoPhong_Cmb.getSelectionModel().isEmpty())
-			{
-			err_SoPhong.setText("Vui lòng chọn số phòng");
-			return false;
-			}
-		return true;
-	}
-	
-	private boolean KiemTraCMND() {
-		
-		if(CMND_textField.getText().isEmpty())
-				
-			{
-			err_CMND.setText("Vui lòng nhập CMND");
-			return false;
-			}
-		return true;
-	}
-	
-	private boolean KiemTraSDT() {
-		Pattern p = Pattern.compile("[0-9]+");
-		Matcher m = p.matcher(SDT_textField.getText());
-		if(m.find() && m.group().equals(SDT_textField.getText())){
-			return true;
-		}
-		else {
-			err_SDT.setText("Vui lòng điền số hợp lệ");
-			return false;
-		}
-	}
-	
-	private boolean KiemTraSoNgayO() {
-		Pattern p = Pattern.compile("[0-9]+");
-		Matcher m = p.matcher(SoNgayO_textField.getText());
-		if(m.find() && m.group().equals(SoNgayO_textField.getText())){
-			return true;
-		}
-		else {
-			err_SoNgayO.setText("Vui lòng điền số ngày ở hợp lệ");
-			return false;
-		}
-	}
-	
-	
-	private boolean KiemTraTenKH() {
-		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
-		Matcher m = p.matcher(TenKH_textField.getText());
-		if(m.find() && m.group().equals(TenKH_textField.getText())){
-			return true;
-		}
-		else {
-			err_TenKH.setText("Vui lòng điền tên hợp lệ");
-			return false;
-		}
-	}
-	
-	public void Chon1Trong2LoaiPhieu() {
-		boolean isDisabled = (Button_DP_TaiQuay.isSelected()== false);
-		TenKH_textField.setDisable(isDisabled);
-    	CMND_textField.setDisable(isDisabled);
-    	SDT_textField.setDisable(isDisabled);
-    	SoNgayO_textField.setDisable(isDisabled);
-    	Ngay_Dat_Phong.setDisable(isDisabled);
-    	NgayNhanPhong.setDisable(isDisabled);
-    	SoNguoiCung1Phong.setDisable(isDisabled);
-    	Ma_DP_textField.setDisable(isDisabled);
-    	Loai_Phong_Cmb.setDisable(isDisabled);
-    	DatCoc_CheckBox.setDisable(isDisabled);
-    	Button_DatPhong.setDisable(isDisabled);
-    	Button_Reset.setDisable(isDisabled);
-				
-	}
-	
-	public void DisableTextFields() {
-		TenKH_textField.setDisable(true);
-    	CMND_textField.setDisable(true);
-    	SDT_textField.setDisable(true);
-    	SoNgayO_textField.setDisable(true);
-    	Ngay_Dat_Phong.setDisable(true);
-    	NgayNhanPhong.setDisable(true);
-    	SoNguoiCung1Phong.setDisable(true);
-    	Ma_DP_textField.setDisable(true);
-    	SoPhong_Cmb.setDisable(true);
-    	Loai_Phong_Cmb.setDisable(true);
-    	DatCoc_CheckBox.setDisable(true);
-    	Button_DatPhong.setDisable(true);
-    	Button_Reset.setDisable(true);
+		 try {
+			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			 String	loaiphong =(String) Loai_Phong_Cmb.getSelectionModel().getSelectedItem();
+			 String query = "SELECT TEN_PHONG from phong,loai_phong WHERE loai_phong.TEN_lOAIPHONG='"+loaiphong+"' AND TINHTRANG='Trống' AND loai_phong.MA_LOAIPHONG=phong.MA_LOAIPHONG ";
+			 ResultSet rs = conn.createStatement().executeQuery(query);
+			 while (rs.next())
+			 {
+				 SoPhong_Cmb.setItems(FXCollections.observableArrayList(rs.getString(1)));
+			 }
+		 }
+		 catch(SQLException ex)
+		 {
+			 Logger.getLogger(CheckInController.class.getName()).log(Level.SEVERE,null,ex);
+		 }
 	}
 	
     @FXML
@@ -588,6 +541,105 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		autoTaoMaPT();
     }
 	
+	private boolean KiemTraNgayDat() {
+		
+		if(((TextField)Ngay_Dat_Phong.getEditor()).getText().isEmpty())
+			{
+			err_NgayDP.setText("Vui lòng nhập ngày đặt phòng");
+			return false;
+			}
+		return true;
+	}
+	
+	private boolean KiemTraNgayNhan() {
+	
+		if(((TextField)NgayNhanPhong.getEditor()).getText().isEmpty())
+				
+			{
+			err_NgayNhanPhong.setText("Vui lòng nhập ngày nhận phòng");
+			return false;
+			}
+		return true;
+	}
+	
+	private boolean KiemTraSoNguoi1Phong() {
+		
+		if(SoNguoiCung1Phong.getSelectionModel().isEmpty())
+			{
+			err_SoNguoi1Phong.setText("Vui lòng chọn số người cùng 1 phòng");
+			return false;
+			}
+		return true;
+	}
+	
+	private boolean KiemTraLoaiPhong() {
+		
+		if(Loai_Phong_Cmb.getSelectionModel().isEmpty())
+			{
+			err_LoaiPhong.setText("Vui lòng chọn loại phòng");
+			return false;
+			}
+		return true;
+	}
+	
+	private boolean KiemTraSoPhong() {
+		
+		if(SoPhong_Cmb.getSelectionModel().isEmpty())
+			{
+			err_SoPhong.setText("Vui lòng chọn số phòng");
+			return false;
+			}
+		return true;
+	}
+	
+	private boolean KiemTraCMND() {
+		
+		if(CMND_textField.getText().isEmpty())
+				
+			{
+			err_CMND.setText("Vui lòng nhập CMND");
+			return false;
+			}
+		return true;
+	}
+	
+	private boolean KiemTraSDT() {
+		Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(SDT_textField.getText());
+		if(m.find() && m.group().equals(SDT_textField.getText())){
+			return true;
+		}
+		else {
+			err_SDT.setText("Vui lòng điền số hợp lệ");
+			return false;
+		}
+	}
+	
+	private boolean KiemTraSoNgayO() {
+		Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(SoNgayO_textField.getText());
+		if(m.find() && m.group().equals(SoNgayO_textField.getText())){
+			return true;
+		}
+		else {
+			err_SoNgayO.setText("Vui lòng điền số ngày ở hợp lệ");
+			return false;
+		}
+	}
+	
+	
+	private boolean KiemTraTenKH() {
+		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
+		Matcher m = p.matcher(TenKH_textField.getText());
+		if(m.find() && m.group().equals(TenKH_textField.getText())){
+			return true;
+		}
+		else {
+			err_TenKH.setText("Vui lòng điền tên hợp lệ");
+			return false;
+		}
+	}
+	
 	public void XoaCanhBao() {
 		err_TenKH.setText(""); 
 		err_CMND.setText("");
@@ -605,63 +657,14 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		 oblist.clear();
 		 HienTableCheckIn();
 	}
-	
-	public void autoTaoMaKH() {
-		try {
-			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			Statement s= conn.createStatement();
-			
-			ResultSet rs = s.executeQuery("select Max(MaKH) from phieuthuephong");
-			rs.next();
-			rs.getString("Max(MaKH)");
-			
-			if(rs.getString("Max(MaKH)")== null)
-			{
-				MaKH_textField.setText("1");
-			}
-			else
-			{
-				int makh = Integer.parseInt(rs.getString("Max(MaKH)"));
-				makh++;
-				MaKH_textField.setText(String.format("%d",makh));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void autoTaoMaPT() {
-		try {
-			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			Statement s= conn.createStatement();
-			
-			ResultSet rs = s.executeQuery("select Max(Ma_PT) from phieuthuephong");
-			rs.next();
-			rs.getString("Max(Ma_PT)");
-			
-			if(rs.getString("Max(Ma_PT)")== null)
-			{
-				MaPT_textField.setText("1");
-			}
-			else
-			{
-				int mapt = Integer.parseInt(rs.getString("Max(Ma_PT)"));
-				mapt++;
-				MaPT_textField.setText(String.format("%d",mapt));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	public boolean SoSanhNgay() {
 		
-		if(Ngay_Dat_Phong.getValue().isAfter(NgayNhanPhong.getValue()) && Ngay_Dat_Phong.getValue()!=null )
-		{	
-			JOptionPane.showMessageDialog(null, "Ngày Đặt Phải Nhỏ Hơn Hoặc Bằng Ngày Nhận! ");
-			return false;
-		}
-		return true;
-	}
+//	public boolean SoSanhNgay() {
+//		
+//		if(Ngay_Dat_Phong.getValue().isAfter(NgayNhanPhong.getValue()) && Ngay_Dat_Phong.getValue()!=null )
+//		{	
+//			JOptionPane.showMessageDialog(null, "Ngày Đặt Phải Nhỏ Hơn Hoặc Bằng Ngày Nhận! ");
+//			return false;
+//		}
+//		return true;
+//	}
 }

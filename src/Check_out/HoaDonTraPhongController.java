@@ -197,31 +197,18 @@ public class HoaDonTraPhongController implements Initializable {
     
 ObservableList<TableHoaDon> hoadon = FXCollections.observableArrayList();
 ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-	
-		HienTableHoaDon();
-		ChuyenNguocNamThangNgay();
-	}
-	
+
 	public void setHoaDonTraPhong(ModelTable traphong) {
-		MaHD_textField.setText(String.valueOf(traphong.getMA_PT()));
-		MaPT_textField.setText(String.valueOf(traphong.getMA_PT()));
-		Ma_KH_textField.setText(String.valueOf(traphong.getMA_PT()));
-		MaPhieuDV_textField.setText(String.valueOf(traphong.getMA_PT()));
-		TenKH_textField.setText(traphong.getTENKH());
-		SoPhong_textField.setText(String.valueOf(traphong.getSOPHONG()));
-		SoNgayO_textField.setText(String.valueOf(traphong.getSONGAYO()));
-		Tien_DV_textField.setText("0");
-		HienThiTextFieldConLai();
-	   	
-		
-    }
-	public void TinhTongTextField() {
-		Double tongtien=0.0;
-		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText())+Double.valueOf(Tien_DV_textField.getText()));
-		TongCong_textField.setText(tongtien+"");
-	}
+	MaHD_textField.setText(String.valueOf(traphong.getMA_PT()));
+	MaPT_textField.setText(String.valueOf(traphong.getMA_PT()));
+	Ma_KH_textField.setText(String.valueOf(traphong.getMA_PT()));
+	MaPhieuDV_textField.setText(String.valueOf(traphong.getMA_PT()));
+	TenKH_textField.setText(traphong.getTENKH());
+	SoPhong_textField.setText(String.valueOf(traphong.getSOPHONG()));
+	SoNgayO_textField.setText(String.valueOf(traphong.getSONGAYO()));
+	Tien_DV_textField.setText("0");
+	HienThiTextFieldConLai();
+}
 	
 	public void HienThiTextFieldConLai() {
 		try {
@@ -240,67 +227,15 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 			catch(Exception e) {
 				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
 			}
-	}		
-	//HienTextFieldTienDV();
+		}		
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 	
-	public void HienTextFieldTienDV() {
-		try {
-			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			Statement s= conn.createStatement();
-			String	value1 =SoPhong_textField.getText() ;
-			ResultSet rs1 = s.executeQuery("SELECT sum(TONGTIENDV) as TONGDV FROM phieu_dv WHERE SOPHONG='"+value1+"'");	
-			rs1.next();
-			rs1.getString("TONGDV");
-			if(rs1.getString("TONGDV")==null) {
-				
-				Tien_DV_textField.setText("0");
-			
-			}
-			else  {
-				Tien_DV_textField.setText(rs1.getString("TONGDV"));
-			}
-			 
-			 }
-			catch(Exception e) {
-				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
-			}
-		}			
+		HienTableHoaDon();
+		ChuyenNguocNamThangNgay();
+	}
 	
-	@FXML
-    void Load_ActionListener(ActionEvent event) {
-		 try {
-				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-				Connection conn = DriverManager.getConnection(DB_URL,"root","");
-				String value1= SoPhong_textField.getText();
-				String query = "select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG=? ";
-				 PreparedStatement pst1 = conn.prepareStatement(query);
-				 pst1.setString(1,SoPhong_textField.getText());
-				 ResultSet rs = pst1.executeQuery();
-				
-				//ResultSet rs = conn.createStatement().executeQuery("select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG='104' ORDER by phieu_dv.MAPHIEUDV ASC");
-					while (rs.next()) {	
-						phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("SOPHONG"),rs.getString("TENDV"),
-								rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
-					}
-				}
-			 catch(Exception e) {
-				JOptionPane.showMessageDialog(null, "Lỗi phieudv"+e);
-				}
-			 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
-			 col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
-			 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
-			 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
-			 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
-			 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
-			 tbl_PDV.setItems(phieudv);
-			 HienTextFieldTienDV();
-			 TinhTongTextField();
-			
-    }
-	
-	
-									
 	public void HienTableHoaDon() {	
 		 try {						
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -329,7 +264,82 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 		 Table_HoaDon.setItems(hoadon);
 	}
 	
+	public void ChuyenNguocNamThangNgay()
+	{
+		NgayThanhToan_textField.setConverter( new StringConverter<LocalDate>() {
+			 final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+			 @Override
+			 public String toString(LocalDate date) {
+				return (date != null) ? dateFormatter.format(date) : "";
+			}
+			 @Override
+				public LocalDate fromString(String string) {
+				return (string != null && !string.isEmpty())
+				 ? LocalDate.parse(string, dateFormatter)
+				 : null;
+						          }
+						        });
+	}
+	
+	@FXML
+    void Load_ActionListener(ActionEvent event) {
+		 try {
+				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+				Connection conn = DriverManager.getConnection(DB_URL,"root","");
+				String query = "select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG=? ";
+				 PreparedStatement pst1 = conn.prepareStatement(query);
+				 pst1.setString(1,SoPhong_textField.getText());
+				 ResultSet rs = pst1.executeQuery();	
+					while (rs.next()) {	
+						phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("SOPHONG"),rs.getString("TENDV"),
+								rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
+					}
+				}
+			 catch(Exception e) {
+				JOptionPane.showMessageDialog(null, "Lỗi "+e);
+				}
+			 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
+			 col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+			 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+			 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+			 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+			 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
+			 tbl_PDV.setItems(phieudv);
+			 HienTextFieldTienDV();
+			 TinhTongTextField();
+    }
+	
+	public void HienTextFieldTienDV() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			String	value1 =SoPhong_textField.getText() ;
+			ResultSet rs1 = s.executeQuery("SELECT sum(TONGTIENDV) as TONGDV FROM phieu_dv WHERE SOPHONG='"+value1+"'");	
+			rs1.next();
+			rs1.getString("TONGDV");
+			if(rs1.getString("TONGDV")==null) {
+				
+				Tien_DV_textField.setText("0");
+			
+			}
+			else  {
+				Tien_DV_textField.setText(rs1.getString("TONGDV"));
+			}
+			 
+			 }
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+		}			
+	
+	public void TinhTongTextField() {
+		Double tongtien=0.0;
+		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText())+Double.valueOf(Tien_DV_textField.getText()));
+		TongCong_textField.setText(tongtien+"");
+	}
+									
 	@FXML
     void Huy_ActionListener(ActionEvent event) {
 		Stage stage = (Stage) Button_Huy.getScene().getWindow();
@@ -355,18 +365,6 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
     		JasperViewer.viewReport(j,false);
     		OutputStream os = new FileOutputStream(new File("C:\\Users\\Asus\\Desktop\\New folder"));
     		JasperExportManager.exportReportToPdfStream(j,os);
-			
-			//    		JasperDesign jasdi=JRXmlLoader.load("C:\\Users\\Asus\\git\\repository\\Tester\\src\\Check_out\\Blank_A4.jrxml");
-//    		String sql = "SELECT MA_HD_TTP,TENKH,SOPHONG,TIENPHONG,SONGAYO,TONGTIENDV,TONGTIEN,NGAYTHANHTOAN from hoadon_thanhtoanphong,phieuthuephong WHERE MA_HD_TTP='"+MaHD_textField.getText()+"' AND phieuthuephong.MA_PT='"+MaPT_textField+"'";
-//    		JRDesignQuery newQuery = new JRDesignQuery();
-//    		newQuery.setText(sql);
-//    		jasdi.setQuery(newQuery);
-//    		HashMap<String,Object> para = new HashMap<>();
-//    		para.put("MaHD",MaHD_textField.getText());
-//    		
-//    		JasperReport js = JasperCompileManager.compileReport(jasdi);
-//    		JasperPrint jp = JasperFillManager.fillReport(js, para,conn);
-//    		JasperViewer.viewReport(jp);
     		
     	}catch(Exception e) {
     		JOptionPane.showMessageDialog(null, "Lỗi"+ e);
@@ -408,8 +406,21 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
     	UpdateTable();
     	HienTextFieldTienDV();
 }
+    
+    private boolean KiemTraNgayThanhToan() {
+		
+		if(((TextField)NgayThanhToan_textField.getEditor()).getText().isEmpty())
+			{
+			err_NgayTT.setText("Vui lòng nhập ngày thanh toán!");
+			return false;
+			}
+		return true;
+	}
 
-   
+    public void UpdateTable() {
+		 hoadon.clear();
+		 HienTableHoaDon();
+	}
 
     @FXML
     void ThanhToan_ActionListener(ActionEvent event) {
@@ -427,9 +438,7 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
  		 catch(Exception e) {
  			JOptionPane.showMessageDialog(null, e);
  			}
-    	 UpdateTable();
-    	 
-    	
+    	 UpdateTable();	
     }
     
     public void CapNhatTinhTrangPhong() {
@@ -448,40 +457,10 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 			}
 	}
     
-    public void UpdateTable() {
-		 hoadon.clear();
-		 HienTableHoaDon();
-	}
-    
-private boolean KiemTraNgayThanhToan() {
-		
-		if(((TextField)NgayThanhToan_textField.getEditor()).getText().isEmpty())
-			{
-			err_NgayTT.setText("Vui lòng nhập ngày thanh toán!");
-			return false;
-			}
-		return true;
-	}
+   
 
-public void ChuyenNguocNamThangNgay()
-{
-	NgayThanhToan_textField.setConverter(
-					   new StringConverter<LocalDate>() {
-					          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-					          @Override
-					          public String toString(LocalDate date) {
-					            return (date != null) ? dateFormatter.format(date) : "";
-					          }
 
-					          @Override
-					          public LocalDate fromString(String string) {
-					            return (string != null && !string.isEmpty())
-					                ? LocalDate.parse(string, dateFormatter)
-					                : null;
-					          }
-					        });
-}
 	
 
 	

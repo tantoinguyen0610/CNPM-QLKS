@@ -83,22 +83,6 @@ public class CheckOutController implements Initializable {
 		
 	}
 	
-	@FXML
-    void TraPhong_ActionListener(ActionEvent event) throws IOException {
-		
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("GiaoDien_HoaDonTraPhong.fxml"));
-			Parent HienLenTextFieldHoaDon = loader.load();
-			Stage stage = new Stage();
-			Scene scene = new Scene(HienLenTextFieldHoaDon);
-			ModelTable selected = Table_Check_In.getSelectionModel().getSelectedItem();
-			HoaDonTraPhongController controller = loader.getController();
-			controller.setHoaDonTraPhong(selected);
-			stage.setTitle("Hoa Don Thanh Toan");
-			stage.setScene(scene);
-			stage.show();
-			
-    }
-	
 	public void HienTableCheckIn() {
 		 try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -131,6 +115,20 @@ public class CheckOutController implements Initializable {
 			Table_Check_In.setItems(oblist);
 	}
 	
-	
+	@FXML
+    void TraPhong_ActionListener(ActionEvent event) throws IOException {
+		
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("GiaoDien_HoaDonTraPhong.fxml"));
+			Parent HienLenTextFieldHoaDon = loader.load();
+			Stage stage = new Stage();
+			Scene scene = new Scene(HienLenTextFieldHoaDon);
+			ModelTable selected = Table_Check_In.getSelectionModel().getSelectedItem();
+			HoaDonTraPhongController controller = loader.getController();
+			controller.setHoaDonTraPhong(selected);
+			stage.setTitle("Hoa Don Thanh Toan");
+			stage.setScene(scene);
+			stage.show();
+			
+    }
 	
 }

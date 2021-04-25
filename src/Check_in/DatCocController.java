@@ -84,33 +84,6 @@ public class DatCocController implements Initializable {
 				        });
 	}
     
-    @FXML
-    void Huy_AcitonListener(ActionEvent event) {
-    	
-    }
-    
-    @FXML
-    void XacNhan_ActionListener(ActionEvent event) {
-    	
-    	try {
-			
-			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "insert into datcoc(SOTIENKHACHDATCOC,SOTIENCANDATCOC,NGAYDATCOC) VALUES(?,?,?)";
-			PreparedStatement pst = conn.prepareStatement(query);
-			pst.setString(1, datCoc_textField.getText());
-			pst.setString(2, SoTienKhachDatCoc_textField.getText());
-			pst.setString(3, ((TextField)NgayDatCoc_textField.getEditor()).getText());
-			pst.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
-    	
-    } catch(SQLException e)
-    	{
-    	JOptionPane.showMessageDialog(null, e);
-    	}
-    	autoTaoMaDatCoc();
-}
-    
     public void autoTaoMaDatCoc() {
 		try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -136,5 +109,33 @@ public class DatCocController implements Initializable {
 		}
 	}
     
+    @FXML
+    void XacNhan_ActionListener(ActionEvent event) {
+    	
+    	try {
+			
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query = "insert into datcoc(SOTIENKHACHDATCOC,SOTIENCANDATCOC,NGAYDATCOC) VALUES(?,?,?)";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.setString(1, datCoc_textField.getText());
+			pst.setString(2, SoTienKhachDatCoc_textField.getText());
+			pst.setString(3, ((TextField)NgayDatCoc_textField.getEditor()).getText());
+			pst.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+    	
+    } catch(SQLException e)
+    	{
+    	JOptionPane.showMessageDialog(null, e);
+    	}
+    	autoTaoMaDatCoc();
+}
+    
+    @FXML
+    void Huy_AcitonListener(ActionEvent event) {
+    	
+    }
+    
+ 
 }
 
