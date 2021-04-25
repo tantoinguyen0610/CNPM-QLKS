@@ -326,12 +326,39 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void DuyetThanhToanHoaDonNCPButtonListener(ActionEvent event) throws IOException {
+    	try {						
+   		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String value1 = "Đã Thanh Toán";
+			String value2 = tb3TextField.getText();
+			String query1 = "UPDATE hoa_don SET DUYETTHANHTOAN = '"+value1+"' WHERE MA_HD='"+value2+"' ";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 pst1.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Thanh Toán Thành công!");
+			 }
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+   	 UpdateTable();
     	
     }
 
     @FXML
     void DuyetThanhToanHoaDonSCTBButtonListener(ActionEvent event) throws IOException {
-
+    	try {						
+      		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+   			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+   			String value1 = "Đã Thanh Toán";
+   			String value2 = tb2TextField.getText();
+   			String query1 = "UPDATE hoa_don SET DUYETTHANHTOAN = '"+value1+"' WHERE MA_HD='"+value2+"' ";
+   			 PreparedStatement pst1 = conn.prepareStatement(query1);
+   			 pst1.executeUpdate();
+   			JOptionPane.showMessageDialog(null, "Thanh Toán Thành công!");
+   			 }
+   		 catch(Exception e) {
+   			JOptionPane.showMessageDialog(null, e);
+   			}
+      	 UpdateTable();
     }
 
     @FXML
