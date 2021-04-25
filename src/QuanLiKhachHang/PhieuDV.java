@@ -1,9 +1,10 @@
 package QuanLiKhachHang;
 
 public class PhieuDV {
-	String MAPHIEUDV,TENDV,GIA,TONGTIENDV,SOLUONG;
-	public PhieuDV(String MAPHIEUDV, String TENDV,String GIA,String SOLUONG, String TONGTIENDV ) {
+	String MAPHIEUDV,SOPHONG,TENDV,GIA,TONGTIENDV,SOLUONG;
+	public PhieuDV(String MAPHIEUDV,String SOPHONG, String TENDV,String GIA,String SOLUONG, String TONGTIENDV ) {
 		this.MAPHIEUDV=MAPHIEUDV;
+		this.SOPHONG=SOPHONG;
 		this.TENDV=TENDV;
 		this.GIA=GIA;
 		this.SOLUONG=SOLUONG;
@@ -12,6 +13,14 @@ public class PhieuDV {
 		
 	}
 	
+	public String getSOPHONG() {
+		return SOPHONG;
+	}
+
+	public void setSOPHONG(String sOPHONG) {
+		SOPHONG = sOPHONG;
+	}
+
 	public String getGIATIEN() {
 		return GIA;
 	}

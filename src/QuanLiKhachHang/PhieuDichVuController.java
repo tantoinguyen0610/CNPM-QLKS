@@ -17,9 +17,11 @@ import javax.swing.JOptionPane;
 
 import Check_in.CheckInController;
 import Check_in.ModelTable;
+import NhanVien.TableNhanVien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,6 +31,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class PhieuDichVuController implements Initializable {
 
@@ -40,6 +43,9 @@ public class PhieuDichVuController implements Initializable {
 
     @FXML
     private TableColumn<Integer, PhieuDV> col_MaPhieu;
+
+    @FXML
+    private TableColumn<String, PhieuDV> col_SoPhong;
 
     @FXML
     private TableColumn<String, PhieuDV> col_TenDV;
@@ -66,6 +72,9 @@ public class PhieuDichVuController implements Initializable {
     private Button Reset_Button;
 
     @FXML
+    private Button Sua_Button;
+
+    @FXML
     private TextField SL_textField;
 
     @FXML
@@ -76,23 +85,33 @@ public class PhieuDichVuController implements Initializable {
 
     @FXML
     private Label err_SL;
-    
+
     @FXML
     private TextField MaPhieuDV_textField;
-    
+
     @FXML
     private TextField Gia_textField;
 
     @FXML
     private TextField TT_textField;
+
+    @FXML
+    private ComboBox<String> SoPhong_cmb;
+
+    @FXML
+    private Label err_SoPhong;
     
     ObservableList<String> list_tendv = FXCollections.observableArrayList();
+    ObservableList<String> list_sophong = FXCollections.observableArrayList("101","102","103","104","105","106");
     ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	HienComboboxTenDV();
     	HienTablePhieuDV();
     	 autoTaoMaPDV();
+    	 SoPhong_cmb.setItems(list_sophong);
+    	 Xoa_Button.setDisable(true);
+    	 HienDataLenTextField() ;
 	}
     
     public void HienComboboxTenDV() {
@@ -121,10 +140,10 @@ public class PhieuDichVuController implements Initializable {
 		 try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			ResultSet rs = conn.createStatement().executeQuery("select MAPHIEUDV,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV ORDER by phieu_dv.MAPHIEUDV ASC");
+			ResultSet rs = conn.createStatement().executeQuery("select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV ORDER by phieu_dv.MAPHIEUDV ASC");
 			
 				while (rs.next()) {	
-					phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("TENDV"),
+					phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("SOPHONG"),rs.getString("TENDV"),
 							rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
 				}
 			}
@@ -132,6 +151,7 @@ public class PhieuDichVuController implements Initializable {
 			JOptionPane.showMessageDialog(null, e);
 			}
 		 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
+		 col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
 		 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
 		 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
 		 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
@@ -147,21 +167,22 @@ public class PhieuDichVuController implements Initializable {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-    	if(KiemTraTenDV()&KiemTraSL()) {
+    	if(KiemTraTenDV()&KiemTraSL()&KiemTraSoPhong()) {
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query = "insert into phieu_dv(MAPHIEUDV,TENDV,SOLUONG,TONGTIENDV) "
-							+ "VALUES(?,?,?,?)";
+			String query = "insert into phieu_dv(MAPHIEUDV,SOPHONG,TENDV,SOLUONG,TONGTIENDV) "
+							+ "VALUES(?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.setString(1, MaPhieuDV_textField.getText());
-			pst.setString(2, TenDV_cmb.getValue().toString());
-			pst.setString(3, SL_textField.getText());
+			pst.setString(2, SoPhong_cmb.getValue().toString());
+			pst.setString(3, TenDV_cmb.getValue().toString());
+			pst.setString(4, SL_textField.getText());
 			Double tongtien=0.0;
 			tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SL_textField.getText()));
 			TT_textField.setText(tongtien+"");
-			pst.setString(4, TT_textField.getText());
+			pst.setString(5, TT_textField.getText());
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
 		}
@@ -169,6 +190,12 @@ public class PhieuDichVuController implements Initializable {
 			JOptionPane.showMessageDialog(null, e);
 		}}
     	UpdateTable();
+    	TenDV_cmb.getSelectionModel().clearSelection();
+    	SL_textField.setText("");
+    	Gia_textField.setText("");
+    	TT_textField.setText("");
+    	err_TenDV.setText("");
+    	err_SL.setText("");
     	 autoTaoMaPDV();
     	 XoaCanhBao();
     }
@@ -187,6 +214,16 @@ private boolean KiemTraTenDV() {
 			}
 		return true;
 	}
+
+private boolean KiemTraSoPhong() {
+	
+	if(SoPhong_cmb.getSelectionModel().isEmpty())
+		{
+		err_SoPhong.setText("Vui lòng chọn Số phòng!");
+		return false;
+		}
+	return true;
+}
     
     private boolean KiemTraSL() {
 		Pattern p = Pattern.compile("[0-9]+");
@@ -222,6 +259,30 @@ private boolean KiemTraTenDV() {
     void TenDV_ActionListener(ActionEvent event) {
     	HienThiTextFieldGiaTien();
     }
+    
+    @FXML
+    void Sua_ActionListener(ActionEvent event) {
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa phiếu DV này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String value0 = MaPhieuDV_textField.getText();
+			String value1 =  SoPhong_cmb.getValue().toString();
+			String value2 = TenDV_cmb.getValue().toString();
+			String value3 = SL_textField.getText();
+			String value4 = TT_textField.getText();
+			
+			String sql = "update phieu_dv set SOPHONG= '"+value1+"',TENDV='"+value2+"', SOLUONG='"+value3+"', TONGITENDV='"+value4+"' where MAPHIEUDV='"+value0+"'";
+			PreparedStatement pst = conn.prepareStatement(sql);	
+			pst.execute();
+			JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}}
+else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa phiếu DV này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     		
+     	}
+    }
 
     @FXML
     void Reset_ActionListener(ActionEvent event) {
@@ -236,6 +297,23 @@ private boolean KiemTraTenDV() {
     public void XoaCanhBao() {
     	err_TenDV.setText("");
     	err_SL.setText("");
+    }
+    
+    private void HienDataLenTextField() {
+    	tbl_PDV.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			PhieuDV tbl_nv = tbl_PDV.getItems().get(tbl_PDV.getSelectionModel().getSelectedIndex());
+    			MaPhieuDV_textField.setText(tbl_nv.getMAPHIEUDV());
+    			SoPhong_cmb.setValue(tbl_nv.getSOPHONG());
+    			TenDV_cmb.setValue(tbl_nv.getTENDV());
+    			Gia_textField.setText(tbl_nv.getGIATIEN());
+    			SL_textField.setText(tbl_nv.getSOLUONG());
+    			TT_textField.setText(tbl_nv.getTONGTIENDV());
+    			Xoa_Button.setDisable(false);
+    		}
+    		
+    	});
     }
 
     @FXML
