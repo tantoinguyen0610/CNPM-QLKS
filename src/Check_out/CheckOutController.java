@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import Check_in.ModelTable;
 import HoaDon.ChiTietHoaDonThanhToanPhongController;
 import HoaDon.TableHoaDonTTP;
+import QuanLiKhachHang.PhieuDV;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,7 +74,7 @@ public class CheckOutController implements Initializable {
     private TableColumn<ModelTable, String> Tbl_Col_SoNgayO;
 
     ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
- 
+  
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -84,21 +85,18 @@ public class CheckOutController implements Initializable {
 	
 	@FXML
     void TraPhong_ActionListener(ActionEvent event) throws IOException {
-		try {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("GiaoDien_HoaDonTraPhong.fxml"));
-		Parent HienLenTextFieldHoaDon = loader.load();
-		Stage stage = new Stage();
-		Scene scene = new Scene(HienLenTextFieldHoaDon);
-		ModelTable selected = Table_Check_In.getSelectionModel().getSelectedItem();
-		HoaDonTraPhongController controller = loader.getController();
-		controller.setHoaDonTraPhong(selected);
-		stage.setTitle("Hoa Don Thanh Toan");
-		stage.setScene(scene);
-		stage.show();
-		}
-		catch(Exception e) {
-			JOptionPane.showMessageDialog(null, e);
-		}
+		
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("GiaoDien_HoaDonTraPhong.fxml"));
+			Parent HienLenTextFieldHoaDon = loader.load();
+			Stage stage = new Stage();
+			Scene scene = new Scene(HienLenTextFieldHoaDon);
+			ModelTable selected = Table_Check_In.getSelectionModel().getSelectedItem();
+			HoaDonTraPhongController controller = loader.getController();
+			controller.setHoaDonTraPhong(selected);
+			stage.setTitle("Hoa Don Thanh Toan");
+			stage.setScene(scene);
+			stage.show();
+			
     }
 	
 	public void HienTableCheckIn() {

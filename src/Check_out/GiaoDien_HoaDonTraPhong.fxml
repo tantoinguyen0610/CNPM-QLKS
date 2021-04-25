@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.HoaDonTraPhongController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="1259.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.HoaDonTraPhongController">
    <children>
       <Label fx:id="HDTP_Label" layoutX="397.0" layoutY="14.0" text="HOÁ ĐƠN TRẢ PHÒNG">
          <font>
@@ -38,19 +38,11 @@
       <TextField fx:id="SoNgayO_textField" disable="true" layoutX="208.0" layoutY="257.0" prefHeight="31.0" prefWidth="216.0" />
       <TextField fx:id="Tien_DV_textField" disable="true" layoutX="208.0" layoutY="292.0" prefHeight="31.0" prefWidth="216.0" />
       <TextField fx:id="TongCong_textField" disable="true" layoutX="208.0" layoutY="325.0" prefHeight="31.0" prefWidth="216.0" />
-      <Label fx:id="BangDV_Label" layoutX="714.0" layoutY="118.0" text="Bảng dịch vụ">
+      <Label fx:id="BangDV_Label" layoutX="747.0" layoutY="77.0" text="Bảng dịch vụ">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView_BangDV" layoutX="565.0" layoutY="146.0" prefHeight="210.0" prefWidth="371.0">
-        <columns>
-          <TableColumn fx:id="Tbl_Col_TenDV" prefWidth="124.0" text="Tên dịch vụ" />
-          <TableColumn fx:id="Tbl_Col_SoLuong" prefWidth="82.0" text="Số lượng" />
-            <TableColumn fx:id="Tbl_Col_Gia" prefWidth="82.0" text="Giá" />
-            <TableColumn fx:id="Tbl_Col_Tong" prefWidth="82.0" text="Tổng" />
-        </columns>
-      </TableView>
       <ButtonBar layoutX="257.0" layoutY="419.0" prefHeight="65.0" prefWidth="629.0">
         <buttons>
           <Button fx:id="Button_TaoHD" mnemonicParsing="false" onAction="#TaoHD_ActionListener" prefHeight="46.0" prefWidth="151.0" text="Tạo Hoá Đơn" />
@@ -85,5 +77,20 @@
             </TableView>
          </content>
       </ScrollPane>
+      <ScrollPane layoutX="474.0" layoutY="125.0" prefHeight="264.0" prefWidth="748.0">
+         <content>
+            <TableView fx:id="tbl_PDV" prefHeight="262.0" prefWidth="987.0">
+               <columns>
+                  <TableColumn fx:id="col_MaPhieu" prefWidth="94.0" text="STT" />
+                  <TableColumn fx:id="col_SoPhong" prefWidth="155.0" text="Số Phòng" />
+                  <TableColumn fx:id="col_TenDV" prefWidth="171.0" text="Tên DV" />
+                  <TableColumn fx:id="col_GiaTien" prefWidth="116.0" text="Giá Tiền" />
+                  <TableColumn fx:id="col_SoLuong" prefWidth="225.0" text="Số Lượng" />
+                  <TableColumn fx:id="col_TongTien" prefWidth="225.0" text="Thành Tiền" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Button fx:id="Load_Button" layoutX="1157.0" layoutY="404.0" mnemonicParsing="false" onAction="#Load_ActionListener" text="Load" />
    </children>
 </AnchorPane>

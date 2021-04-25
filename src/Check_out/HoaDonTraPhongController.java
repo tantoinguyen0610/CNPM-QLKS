@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 
 import Check_in.ModelTable;
 import HoaDon.TableHoaDonTTP;
+import QuanLiKhachHang.PhieuDV;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,8 +47,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class HoaDonTraPhongController implements Initializable {
-
-    @FXML
+	@FXML
     private Label HDTP_Label;
 
     @FXML
@@ -76,21 +76,6 @@ public class HoaDonTraPhongController implements Initializable {
 
     @FXML
     private Label TongTien_Label;
-    
-    @FXML
-    private Label MaHD_Label;
-
-    @FXML
-    private Label err_NgayTT;
-    
-    @FXML
-    private Label MaPhieuDV_Label;
-
-    @FXML
-    private TextField MaPhieuDV_textField;
-    
-    @FXML
-    private TextField MaHD_textField;
 
     @FXML
     private TextField Ma_KH_textField;
@@ -108,44 +93,14 @@ public class HoaDonTraPhongController implements Initializable {
     private TextField SoNgayO_textField;
 
     @FXML
-    private DatePicker NgayThanhToan_textField;
-
-    @FXML
     private TextField Tien_DV_textField;
 
     @FXML
     private TextField TongCong_textField;
-    
-    @FXML
-    private Label MaPT_Label;
-
-    @FXML
-    private TextField MaPT_textField;
-
-    @FXML
-    private Label LoaiPhong_Label;
-
-    @FXML
-    private TextField LoaiPhong_textField;
 
     @FXML
     private Label BangDV_Label;
 
-    @FXML
-    private TableView<?> tableView_BangDV;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_TenDV;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_SoLuong;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_Gia;
-
-    @FXML
-    private TableColumn<?, ?> Tbl_Col_Tong;
-    
     @FXML
     private Button Button_TaoHD;
 
@@ -159,19 +114,43 @@ public class HoaDonTraPhongController implements Initializable {
     private Button Button_Huy;
 
     @FXML
+    private Label MaHD_Label;
+
+    @FXML
+    private TextField MaHD_textField;
+
+    @FXML
+    private Label MaPT_Label;
+
+    @FXML
+    private TextField MaPT_textField;
+
+    @FXML
+    private DatePicker NgayThanhToan_textField;
+
+    @FXML
+    private Label err_NgayTT;
+
+    @FXML
+    private Label MaPhieuDV_Label;
+
+    @FXML
+    private TextField MaPhieuDV_textField;
+
+    @FXML
     private TableView<TableHoaDon> Table_HoaDon;
 
     @FXML
     private TableColumn<Integer, TableHoaDon> Tbl_Col_MaHD;
 
     @FXML
-    private TableColumn<Integer, TableHoaDon> Tbl_Col_MaPT;
+    private TableColumn<String, TableHoaDon> Tbl_Col_MaPT;
 
     @FXML
-    private TableColumn<Integer, TableHoaDon> Tbl_Col_MaPhieuDV;
+    private TableColumn<String, TableHoaDon> Tbl_Col_MaPhieuDV;
 
     @FXML
-    private TableColumn<Integer, TableHoaDon> Tbl_Col_MaKH;
+    private TableColumn<String, TableHoaDon> Tbl_Col_MaKH;
 
     @FXML
     private TableColumn<String, TableHoaDon> Tbl_Col_TenKH;
@@ -180,21 +159,47 @@ public class HoaDonTraPhongController implements Initializable {
     private TableColumn<String, TableHoaDon> Tbl_Col_NgayThanhToan;
 
     @FXML
-    private TableColumn<Integer, TableHoaDon> Tbl_Col_TienPhongNgay;
+    private TableColumn<String, TableHoaDon> Tbl_Col_TienPhongNgay;
 
     @FXML
-    private TableColumn<Integer, TableHoaDon> Tbl_Col_TienDV;
+    private TableColumn<String, TableHoaDon> Tbl_Col_TienDV;
 
     @FXML
-    private TableColumn<Integer, TableHoaDon> Tbl_Col_TongTien;
+    private TableColumn<String, TableHoaDon> Tbl_Col_TongTien;
 
     @FXML
     private TableColumn<String, TableHoaDon> Tbl_Col_TinhTrang;
+
+    @FXML
+    private TableView<PhieuDV> tbl_PDV;
+
+    @FXML
+    private TableColumn<Integer, PhieuDV> col_MaPhieu;
+
+    @FXML
+    private TableColumn<String, PhieuDV> col_SoPhong;
+
+    @FXML
+    private TableColumn<String, PhieuDV> col_TenDV;
+
+    @FXML
+    private TableColumn<String, PhieuDV> col_GiaTien;
+
+    @FXML
+    private TableColumn<String, PhieuDV> col_SoLuong;
+
+    @FXML
+    private TableColumn<String, PhieuDV> col_TongTien;
     
-    ObservableList<TableHoaDon> hoadon = FXCollections.observableArrayList();
+    @FXML
+    private Button Load_Button;
     
+    
+ObservableList<TableHoaDon> hoadon = FXCollections.observableArrayList();
+ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+	
 		HienTableHoaDon();
 		ChuyenNguocNamThangNgay();
 	}
@@ -207,9 +212,10 @@ public class HoaDonTraPhongController implements Initializable {
 		TenKH_textField.setText(traphong.getTENKH());
 		SoPhong_textField.setText(String.valueOf(traphong.getSOPHONG()));
 		SoNgayO_textField.setText(String.valueOf(traphong.getSONGAYO()));
-		HienTextFieldTienDV();
+		Tien_DV_textField.setText("0");
 		HienThiTextFieldConLai();
-		TinhTongTextField();
+	   	
+		
     }
 	public void TinhTongTextField() {
 		Double tongtien=0.0;
@@ -234,26 +240,66 @@ public class HoaDonTraPhongController implements Initializable {
 			catch(Exception e) {
 				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
 			}
-	}				
+	}		
+	//HienTextFieldTienDV();
 	
 	public void HienTextFieldTienDV() {
 		try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			String query1 = "SELECT TONGTIENDV "
-						+ "from hoadon_thanhtoanphong "
-						+ "WHERE  MA_HD_TTP=? ";
-			 PreparedStatement pst1 = conn.prepareStatement(query1);
-			 pst1.setString(1,MaPT_textField.getText());
-			 ResultSet rs1 = pst1.executeQuery();
-			 while(rs1.next()) {
-				 Tien_DV_textField.setText(rs1.getString("TONGTIENDV"));
+			Statement s= conn.createStatement();
+			String	value1 =SoPhong_textField.getText() ;
+			ResultSet rs1 = s.executeQuery("SELECT sum(TONGTIENDV) as TONGDV FROM phieu_dv WHERE SOPHONG='"+value1+"'");	
+			rs1.next();
+			rs1.getString("TONGDV");
+			if(rs1.getString("TONGDV")==null) {
+				
+				Tien_DV_textField.setText("0");
+			
+			}
+			else  {
+				Tien_DV_textField.setText(rs1.getString("TONGDV"));
+			}
+			 
 			 }
-		}
 			catch(Exception e) {
 				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
 			}
-	}			
+		}			
+	
+	@FXML
+    void Load_ActionListener(ActionEvent event) {
+		 try {
+				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+				Connection conn = DriverManager.getConnection(DB_URL,"root","");
+				String value1= SoPhong_textField.getText();
+				String query = "select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG=? ";
+				 PreparedStatement pst1 = conn.prepareStatement(query);
+				 pst1.setString(1,SoPhong_textField.getText());
+				 ResultSet rs = pst1.executeQuery();
+				
+				//ResultSet rs = conn.createStatement().executeQuery("select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG='104' ORDER by phieu_dv.MAPHIEUDV ASC");
+					while (rs.next()) {	
+						phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("SOPHONG"),rs.getString("TENDV"),
+								rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
+					}
+				}
+			 catch(Exception e) {
+				JOptionPane.showMessageDialog(null, "Lỗi phieudv"+e);
+				}
+			 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
+			 col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+			 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+			 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+			 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+			 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
+			 tbl_PDV.setItems(phieudv);
+			 HienTextFieldTienDV();
+			 TinhTongTextField();
+			
+    }
+	
+	
 									
 	public void HienTableHoaDon() {	
 		 try {						
@@ -358,8 +404,9 @@ public class HoaDonTraPhongController implements Initializable {
 		}
     	
     	}
+
     	UpdateTable();
-    	
+    	HienTextFieldTienDV();
 }
 
    
