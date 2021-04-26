@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javax.security.auth.callback.PasswordCallback;
 import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
+import javafx.scene.control.PasswordField;
 public class LoginController implements Initializable {
 
     @FXML
@@ -49,7 +50,7 @@ public class LoginController implements Initializable {
     private TextField UserTextField;
 
     @FXML
-    private TextField PasswordTextField;
+    private PasswordField PasswordTextField;
 
     @FXML
     private Button LoginButton;
@@ -59,7 +60,6 @@ public class LoginController implements Initializable {
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		
 	}
     
