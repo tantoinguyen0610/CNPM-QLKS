@@ -1,10 +1,15 @@
 package GiaoDienTong;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -72,7 +77,24 @@ public class GiaoDienQuanLiController {
     
     @FXML
     void QL_Thoat_ButtonListener(ActionEvent event) {
-    	
+    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    		try {
+    			
+   			 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+   		      	FXMLLoader loader = new FXMLLoader();
+   		      	loader.setLocation(getClass().getClassLoader().getResource("Login/LoginController.fxml"));
+   		      	Parent sampleParent = loader.load();
+   		      	Scene scene = new Scene(sampleParent);
+   		      	stage.setScene(scene);
+   		} catch (IOException e) {
+   			// TODO Auto-generated catch block
+   			e.printStackTrace();
+   		}
+    		
+	}
+	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+      	
+ 	}
     }
    
 }
