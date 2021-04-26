@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="1259.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.HoaDonTraPhongController">
+   <children>
+      <Label fx:id="HDTP_Label" layoutX="397.0" layoutY="14.0" text="HOÁ ĐƠN TRẢ PHÒNG">
+         <font>
+            <Font name="Times New Roman" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="TTHoaDon_Label" layoutX="81.0" layoutY="65.0" text="Thông Tin Hoá Đơn">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="MaKH_Label" layoutX="80.0" layoutY="128.0" text="Mã KH:" />
+      <Label fx:id="TenKH_Label" layoutX="80.0" layoutY="164.0" text="Tên KH: " />
+      <Label fx:id="SoPhong_Label" layoutX="80.0" layoutY="197.0" text="Số phòng:" />
+      <Label fx:id="GiaPhong_Label" layoutX="81.0" layoutY="230.0" text="Giá phòng:" />
+      <Label fx:id="SoNgayO_Label" layoutX="82.0" layoutY="262.0" text="Số ngày ở:" />
+      <Label fx:id="NgayThanhToan_Label" layoutX="80.0" layoutY="365.0" text="Ngày thanh toán:" />
+      <Label fx:id="TongTienDV_Label" layoutX="79.0" layoutY="297.0" text="Tổng tiền dịch vụ:" />
+      <Label fx:id="TongTien_Label" layoutX="80.0" layoutY="330.0" text="Tổng tiền:" />
+      <TextField fx:id="Ma_KH_textField" disable="true" layoutX="208.0" layoutY="126.0" prefHeight="31.0" prefWidth="70.0" />
+      <TextField fx:id="TenKH_textField" disable="true" layoutX="208.0" layoutY="159.0" prefHeight="31.0" prefWidth="216.0" />
+      <TextField fx:id="SoPhong_textField" disable="true" layoutX="208.0" layoutY="192.0" prefHeight="31.0" prefWidth="216.0" />
+      <TextField fx:id="Gia_textField" disable="true" layoutX="209.0" layoutY="225.0" prefHeight="31.0" prefWidth="216.0" />
+      <TextField fx:id="SoNgayO_textField" disable="true" layoutX="208.0" layoutY="257.0" prefHeight="31.0" prefWidth="216.0" />
+      <TextField fx:id="Tien_DV_textField" disable="true" layoutX="208.0" layoutY="292.0" prefHeight="31.0" prefWidth="216.0" />
+      <TextField fx:id="TongCong_textField" disable="true" layoutX="208.0" layoutY="325.0" prefHeight="31.0" prefWidth="216.0" />
+      <Label fx:id="BangDV_Label" layoutX="747.0" layoutY="77.0" text="Bảng dịch vụ">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="257.0" layoutY="419.0" prefHeight="65.0" prefWidth="629.0">
+        <buttons>
+          <Button fx:id="Button_TaoHD" mnemonicParsing="false" onAction="#TaoHD_ActionListener" prefHeight="46.0" prefWidth="151.0" text="Tạo Hoá Đơn" />
+            <Button fx:id="Button_ThanhToan" mnemonicParsing="false" onAction="#ThanhToan_ActionListener" prefHeight="43.0" text="Thanh Toán" />
+            <Button fx:id="Button_In" mnemonicParsing="false" onAction="#In_ActionListener" prefHeight="44.0" text="In Hoá Đơn" />
+            <Button fx:id="Button_Huy" mnemonicParsing="false" onAction="#Huy_ActionListener" prefHeight="43.0" text="Huỷ" />
+        </buttons>
+      </ButtonBar>
+      <Label fx:id="MaHD_Label" layoutX="79.0" layoutY="91.0" text="Mã HĐ:" />
+      <TextField fx:id="MaHD_textField" disable="true" layoutX="207.0" layoutY="89.0" prefHeight="31.0" prefWidth="70.0" />
+      <Label fx:id="MaPT_Label" layoutX="297.0" layoutY="133.0" text="Mã PT:" />
+      <TextField fx:id="MaPT_textField" disable="true" layoutX="353.0" layoutY="128.0" prefHeight="31.0" prefWidth="70.0" />
+      <DatePicker fx:id="NgayThanhToan_textField" layoutX="208.0" layoutY="360.0" prefHeight="31.0" prefWidth="216.0" />
+      <Label fx:id="err_NgayTT" layoutX="432.0" layoutY="365.0" textFill="RED" />
+      <Label fx:id="MaPhieuDV_Label" layoutX="295.0" layoutY="91.0" text="Mã PDV:" />
+      <TextField fx:id="MaPhieuDV_textField" disable="true" layoutX="353.0" layoutY="86.0" prefHeight="31.0" prefWidth="70.0" />
+      <ScrollPane layoutX="37.0" layoutY="509.0" prefHeight="207.0" prefWidth="1069.0">
+         <content>
+            <TableView fx:id="Table_HoaDon" prefHeight="205.0" prefWidth="1457.0">
+               <columns>
+                  <TableColumn fx:id="Tbl_Col_MaHD" text="Mã HĐ" />
+                  <TableColumn fx:id="Tbl_Col_MaPT" prefWidth="114.0" text="Mã PT" />
+                  <TableColumn fx:id="Tbl_Col_MaPhieuDV" prefWidth="159.0" text="Mã Phiếu DV" />
+                  <TableColumn fx:id="Tbl_Col_MaKH" prefWidth="139.0" text="Mã KH" />
+                  <TableColumn fx:id="Tbl_Col_TenKH" prefWidth="166.0" text="Tên KH" />
+                  <TableColumn fx:id="Tbl_Col_NgayThanhToan" prefWidth="150.0" text="Ngày Thanh Toán" />
+                  <TableColumn fx:id="Tbl_Col_TienPhongNgay" prefWidth="150.0" text="Tiền phòng/ ngày" />
+                  <TableColumn fx:id="Tbl_Col_TienDV" prefWidth="150.0" text="Tiền DV" />
+                  <TableColumn fx:id="Tbl_Col_TongTien" prefWidth="150.0" text="Tổng Tiền" />
+                  <TableColumn fx:id="Tbl_Col_TinhTrang" prefWidth="196.0" text="Tình Trạng" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <ScrollPane layoutX="474.0" layoutY="125.0" prefHeight="264.0" prefWidth="748.0">
+         <content>
+            <TableView fx:id="tbl_PDV" prefHeight="262.0" prefWidth="987.0">
+               <columns>
+                  <TableColumn fx:id="col_MaPhieu" prefWidth="94.0" text="STT" />
+                  <TableColumn fx:id="col_SoPhong" prefWidth="155.0" text="Số Phòng" />
+                  <TableColumn fx:id="col_TenDV" prefWidth="171.0" text="Tên DV" />
+                  <TableColumn fx:id="col_GiaTien" prefWidth="116.0" text="Giá Tiền" />
+                  <TableColumn fx:id="col_SoLuong" prefWidth="225.0" text="Số Lượng" />
+                  <TableColumn fx:id="col_TongTien" prefWidth="225.0" text="Thành Tiền" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Button fx:id="Load_Button" layoutX="1157.0" layoutY="404.0" mnemonicParsing="false" onAction="#Load_ActionListener" text="Load" />
+   </children>
+</AnchorPane>

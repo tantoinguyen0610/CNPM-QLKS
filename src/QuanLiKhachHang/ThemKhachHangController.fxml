@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.ThemKhachHangController">
+   <children>
+      <Label fx:id="ThemKHLabel" alignment="CENTER" layoutX="184.0" layoutY="28.0" prefHeight="84.0" prefWidth="578.0" text="Thêm Khách Hàng">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="MaKHLabel" alignment="CENTER" layoutX="51.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="MAKH" />
+      <Label fx:id="TenKHLabel" alignment="CENTER" layoutX="51.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Tên Khách Hàng" />
+      <Label fx:id="GTLabel" alignment="CENTER" layoutX="452.0" layoutY="324.0" prefHeight="45.0" prefWidth="127.0" text="Giới Tính" />
+      <Label fx:id="SDTLabel" alignment="CENTER" layoutX="43.0" layoutY="324.0" prefHeight="45.0" prefWidth="127.0" text="SDT" />
+      <Label fx:id="CMNDLabel" alignment="CENTER" layoutX="43.0" layoutY="412.0" prefHeight="45.0" prefWidth="127.0" text="CMND" />
+      <Label fx:id="QuocTichLabel" alignment="CENTER" layoutX="446.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="Quốc Tịch" />
+      <Label fx:id="NgaySinhLabel" alignment="CENTER" layoutX="446.0" layoutY="231.0" prefHeight="45.0" prefWidth="127.0" text="Ngày Sinh" />
+      <Label fx:id="DiaChiLabel" alignment="CENTER" layoutX="446.0" layoutY="412.0" prefHeight="45.0" prefWidth="127.0" text="Địa Chỉ" />
+      <TextField fx:id="MaKHTextField" disable="true" layoutX="178.0" layoutY="157.0" onAction="#MaKHTextFieldListener" prefHeight="31.0" prefWidth="74.0" />
+      <TextField fx:id="TenKhTextField" layoutX="178.0" layoutY="238.0" onAction="#TenKhTextFieldListener" />
+      <TextField fx:id="GTTextField" layoutX="615.0" layoutY="331.0" onAction="#GTTextFieldListener" />
+      <TextField fx:id="SDTTextField" layoutX="178.0" layoutY="331.0" onAction="#SDTTextFieldListener" />
+      <TextField fx:id="CMNDTextField" layoutX="178.0" layoutY="419.0" onAction="#CMNDTextFieldListener" />
+      <TextField fx:id="QuocTichTextField" layoutX="615.0" layoutY="157.0" onAction="#QuocTichTextFieldListener" />
+      <TextField fx:id="NgaySinhTextField" layoutX="615.0" layoutY="238.0" onAction="#NgaySinhTextFieldListener" />
+      <TextField fx:id="DiaChiTextField" layoutX="615.0" layoutY="419.0" onAction="#DiaChiTextFieldListener" />
+      <Button fx:id="LuuButton" layoutX="249.0" layoutY="543.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
+      <Button fx:id="HuyButton" layoutX="515.0" layoutY="543.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
+      <Label fx:id="tb2Label" layoutX="180.0" layoutY="376.0" textFill="#ee0202" />
+      <Label fx:id="tb3Label" layoutX="180.0" layoutY="466.0" textFill="#fc0000" />
+      <Label fx:id="tb4Label" layoutX="627.0" layoutY="203.0" textFill="#e80000" />
+      <Label fx:id="tb5Label" layoutX="627.0" layoutY="285.0" textFill="#ee0808" />
+      <Label fx:id="tb6Label" layoutX="627.0" layoutY="376.0" textFill="#f80000" />
+      <Label fx:id="tb7Label" layoutX="623.0" layoutY="466.0" textFill="#fc0000" />
+      <Label fx:id="tb1Label" layoutX="178.0" layoutY="285.0" textFill="#fc0606" />
+   </children>
+</AnchorPane>

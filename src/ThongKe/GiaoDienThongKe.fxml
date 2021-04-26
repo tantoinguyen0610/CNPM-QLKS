@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<ScrollPane prefHeight="948.0" prefWidth="1197.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ThongKe.ThongKeController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1587.0" prefWidth="1195.0">
+         <children>
+            <Label layoutX="490.0" layoutY="14.0" text="THỐNG KÊ" textFill="#1b1b1b">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <BarChart fx:id="BarChart_KHRaVao" layoutX="52.0" layoutY="271.0" prefHeight="543.0" prefWidth="434.0" title="Thống kê Khách Hàng Ra Vào">
+              <xAxis>
+                <CategoryAxis label="Tháng" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Lượng Khách (Người)" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <BarChart fx:id="BarChart_DoanhThu" layoutX="658.0" layoutY="271.0" prefHeight="543.0" prefWidth="434.0" title="Thống kê Doanh Thu">
+               <xAxis>
+                  <CategoryAxis label="Tháng" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Tổng Tiền (đồng)" side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <BarChart fx:id="BarChart_LoaiPhong" layoutX="56.0" layoutY="934.0" prefHeight="543.0" prefWidth="434.0" title="Thống kê Loại Phòng Được Dùng">
+               <xAxis>
+                  <CategoryAxis label="Tháng" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Lượng Phòng Được Dùng" side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <BarChart fx:id="BarChart_SCNCPhong" layoutX="706.0" layoutY="925.0" prefHeight="543.0" prefWidth="434.0" title="Chi Phí Sửa Chữa, Nâng Cấp Phòng">
+               <xAxis>
+                  <CategoryAxis label="Tháng" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Tổng Chi Phí" side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <Label layoutX="50.0" layoutY="105.0" text="Lượng Khách Check-In:" />
+            <Label layoutX="41.0" layoutY="144.0" text="Lượng Khách Check-Out:" />
+            <Button layoutX="537.0" layoutY="1511.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="122.0" text="Thoát" />
+            <TextField fx:id="CI_textField" disable="true" layoutX="206.0" layoutY="100.0" />
+            <TextField fx:id="CO_textField" disable="true" layoutX="206.0" layoutY="139.0" />
+            <Label layoutX="129.0" layoutY="184.0" text="Doanh Thu:" />
+            <TextField fx:id="DT_textField" disable="true" layoutX="206.0" layoutY="179.0" />
+            <Label layoutX="671.0" layoutY="105.0" text="Chi Phí Sửa Chữa:" />
+            <Label layoutX="623.0" layoutY="144.0" text="Chi Phí Nâng Cấp Phòng:" />
+            <TextField fx:id="SC_textField" disable="true" layoutX="801.0" layoutY="104.0" />
+            <TextField fx:id="NCP_textField" disable="true" layoutX="801.0" layoutY="143.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

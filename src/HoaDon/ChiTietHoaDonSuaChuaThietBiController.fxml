@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HoaDon.ChiTietHoaDonSuaChuaThietBiController">
+   <children>
+      <Label fx:id="ThongTinHoaDonSCTBLabel" alignment="CENTER" layoutX="29.0" layoutY="1.0" prefHeight="70.0" prefWidth="720.0" text="Thông Tin Hóa Đơn Sửa Chửa Thiết Bị">
+         <font>
+            <Font name="Arial Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="TênTBLabel" layoutX="29.0" layoutY="166.0" prefHeight="41.0" prefWidth="136.0" text="Tên Thiết Bị" />
+      <Label fx:id="SoLuongLabel" layoutX="29.0" layoutY="258.0" prefHeight="41.0" prefWidth="136.0" text="Số Lượng" />
+      <Label fx:id="NgayBatDauLabel" layoutX="29.0" layoutY="348.0" prefHeight="41.0" prefWidth="136.0" text="Ngày Sửa Chửa" />
+      <Label fx:id="DuyetThanhToanLabel" layoutX="394.0" layoutY="348.0" prefHeight="41.0" prefWidth="136.0" text="Duyệt Thanh Toán" />
+      <Label fx:id="TinhTrangSuaLabel" layoutX="389.0" layoutY="95.0" prefHeight="41.0" prefWidth="145.0" text="Tình Trạng " />
+      <Label fx:id="ChiPhiSuaChuaLabel" layoutX="389.0" layoutY="171.0" prefHeight="41.0" prefWidth="145.0" text="Tổng Tiền Sửa Chửa" />
+      <Label fx:id="TongTienLabel" layoutX="389.0" layoutY="258.0" prefHeight="41.0" prefWidth="145.0" text="Thanh Toán" />
+      <TextField fx:id="TenTBTextField" disable="true" layoutX="174.0" layoutY="176.0" onAction="#TenTBTextFieldListener" />
+      <TextField fx:id="SoLuongTextField" disable="true" layoutX="165.0" layoutY="263.0" onAction="#TenTBTextFieldListener" />
+      <TextField fx:id="NgayBatDauTextField" disable="true" layoutX="174.0" layoutY="353.0" onAction="#NgayBatDauTextFieldListener" />
+      <TextField fx:id="DuyetThanhToanTextField" disable="true" layoutX="530.0" layoutY="353.0" />
+      <TextField fx:id="TìnhTrangSuaTextField" disable="true" layoutX="534.0" layoutY="100.0" onAction="#TìnhTrangSuaTextFieldListener" />
+      <TextField fx:id="ChiPhiSuaChuaTextField" disable="true" layoutX="534.0" layoutY="176.0" onAction="#ChiPhiSuaChuaTextFieldListener" />
+      <TextField fx:id="TongTienTextField" disable="true" layoutX="530.0" layoutY="263.0" onAction="#TongTienTextFieldListener" />
+      <Button fx:id="DongButton" layoutX="310.0" layoutY="406.0" mnemonicParsing="false" onAction="#DongButtonListener" prefHeight="59.0" prefWidth="187.0" text="Đóng" />
+      <Label fx:id="MAHDLabel" layoutX="29.0" layoutY="95.0" prefHeight="41.0" prefWidth="136.0" text="Mã Hóa Đơn" />
+      <TextField fx:id="MAHDSCTBTextField" disable="true" layoutX="174.0" layoutY="100.0" />
+   </children>
+</AnchorPane>

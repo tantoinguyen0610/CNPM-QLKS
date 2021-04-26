@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiDichVu.QuanLiDichVuController">
+   <children>
+      <TabPane fx:id="DichVuTabPane" prefHeight="801.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="DichVuAnUongTab" text="Dịch Vụ Ăn Uống">
+            <content>
+              <AnchorPane fx:id="DichVuAnUongAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="671.0" prefWidth="970.0">
+                     <children>
+                        <ScrollPane fx:id="AScrollPane" layoutX="31.0" layoutY="26.0" prefHeight="546.0" prefWidth="923.0">
+                           <content>
+                              <TableView fx:id="DichVuAnUongTableView" prefHeight="523.0" prefWidth="926.0">
+                                <columns>
+                                  <TableColumn fx:id="MaDVAnUongColumn" prefWidth="101.0" text="MaDV" />
+                                  <TableColumn fx:id="TenDichVuAnUongColumn" prefWidth="150.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="LoaiDichVuAnUongColumn" prefWidth="160.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="SoLuongAnUongColumn" prefWidth="79.0" text="Số Lượng" />
+                                    <TableColumn fx:id="GiaDVAnUongColumn" prefWidth="254.0" text="Giá" />
+                                    <TableColumn fx:id="TinhTrangDVAnUongColumn" prefWidth="170.0" text="Tình Trạng" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="ThemDVAnUongButton" layoutX="161.0" layoutY="635.0" mnemonicParsing="false" onAction="#ThemDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Thêm " />
+                        <Button fx:id="SuaDVAnUongButton" layoutX="364.0" layoutY="635.0" mnemonicParsing="false" onAction="#SuaDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Sửa" />
+                        <Button fx:id="XoaDVAnUongButton" layoutX="567.0" layoutY="635.0" mnemonicParsing="false" onAction="#XoaDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVAnUongButton" layoutX="748.0" layoutY="635.0" mnemonicParsing="false" onAction="#CapNhatDVAnUongButtonListener" prefHeight="67.0" prefWidth="112.0" text="Cập Nhật" />
+                        <Label fx:id="tb1Label" layoutX="29.0" layoutY="579.0" prefHeight="33.0" prefWidth="137.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb1TextField" disable="true" layoutX="166.0" layoutY="580.0" prefHeight="31.0" prefWidth="42.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="DichVuGiaiTriTab" text="Dịch Vụ Giải Trí">
+            <content>
+              <AnchorPane fx:id="DichVuGiaiTriAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="710.0" prefWidth="970.0">
+                     <children>
+                        <ScrollPane fx:id="BScrollPane" layoutX="24.0" layoutY="35.0" prefHeight="575.0" prefWidth="918.0">
+                           <content>
+                              <TableView fx:id="DichVuGiaiTriTableView" prefHeight="522.0" prefWidth="928.0">
+                                <columns>
+                                  <TableColumn fx:id="MaDVGTColumn" prefWidth="87.0" text="MADV" />
+                                  <TableColumn fx:id="TenDVGTColumn" prefWidth="135.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="LoaiDVGTColumn" prefWidth="132.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="KhungGioGTColumn" minWidth="0.0" prefWidth="184.0" text="Khung Giờ" />
+                                    <TableColumn fx:id="TinhTrangColumn" minWidth="0.0" prefWidth="168.0" text="Tình Trạng" />
+                                    <TableColumn fx:id="GiaDVGTColumn" prefWidth="196.0" text="Giá " />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="ThemDVGTButton" layoutX="166.0" layoutY="662.0" mnemonicParsing="false" onAction="#ThemDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Thêm " />
+                        <Button fx:id="SuaDVGTButton" layoutX="355.0" layoutY="662.0" mnemonicParsing="false" onAction="#SuaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Sửa" />
+                        <Button fx:id="XoaDVGTButton" layoutX="538.0" layoutY="662.0" mnemonicParsing="false" onAction="#XoaDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVGTButton" layoutX="726.0" layoutY="662.0" mnemonicParsing="false" onAction="#CapNhatDVGTButtonListener" prefHeight="81.0" prefWidth="119.0" text="Cập Nhật" />
+                        <Label fx:id="tb2Label" layoutX="24.0" layoutY="626.0" prefHeight="21.0" prefWidth="134.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb2TextField" alignment="CENTER" disable="true" layoutX="166.0" layoutY="621.0" prefHeight="31.0" prefWidth="39.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="DichVuThuGianTab" text="Dịch Vụ Thư Giản">
+               <content>
+                  <AnchorPane fx:id="DichVuThuGianAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="CScrollPane" layoutX="29.0" layoutY="30.0" prefHeight="577.0" prefWidth="921.0">
+                           <content>
+                              <TableView fx:id="DichVuThuGianTableView" prefHeight="575.0" prefWidth="921.0">
+                                <columns>
+                                  <TableColumn fx:id="MaDVTGColumn" prefWidth="75.0" text="MaDV" />
+                                  <TableColumn fx:id="TenDVTGColumn" prefWidth="131.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="LoaiDVTGColumn" prefWidth="115.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="SoLuongNguoiDVTGColumn" prefWidth="137.0" text="Số Lượng Người" />
+                                    <TableColumn fx:id="KhungGioDVTGColumn" prefWidth="129.0" text="Khung Giờ" />
+                                    <TableColumn fx:id="TinhTrangDVTGColumn" prefWidth="159.0" text="Tình Trạng" />
+                                    <TableColumn fx:id="GiaDVTGColumn" prefWidth="156.0" text="Giá" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="ThemDVTGButton" layoutX="189.0" layoutY="662.0" mnemonicParsing="false" onAction="#ThemDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Thêm" />
+                        <Button fx:id="SuaDVTGButton" layoutX="360.0" layoutY="662.0" mnemonicParsing="false" onAction="#SuaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Sửa" />
+                        <Button fx:id="XoaDVTGButton" layoutX="542.0" layoutY="662.0" mnemonicParsing="false" onAction="#XoaDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVTGButton" layoutX="717.0" layoutY="662.0" mnemonicParsing="false" onAction="#CapNhatDVTGButtonListener" prefHeight="80.0" prefWidth="115.0" text="Cập Nhật" />
+                        <Label fx:id="tb3Label" layoutX="29.0" layoutY="619.0" prefHeight="21.0" prefWidth="136.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb3TextField" alignment="CENTER" disable="true" layoutX="165.0" layoutY="614.0" prefHeight="31.0" prefWidth="46.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="DichVuPhucVuTab" text="Dịch Vụ Phục Vụ">
+               <content>
+                  <AnchorPane fx:id="DichVuPhucVuAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="716.0" prefWidth="975.0">
+                     <children>
+                        <ScrollPane fx:id="DScrollPane" layoutX="25.0" layoutY="17.0" prefHeight="602.0" prefWidth="937.0">
+                           <content>
+                              <TableView fx:id="DIchVuPhucVuTableView" prefHeight="600.0" prefWidth="939.0">
+                                <columns>
+                                  <TableColumn fx:id="MADVPVColumn" prefWidth="75.0" text="MaDV" />
+                                  <TableColumn fx:id="TenDVPVColumn" prefWidth="198.0" text="Tên Dịch Vụ" />
+                                    <TableColumn fx:id="SoLuongDVPVColumn" prefWidth="142.0" text="Số Lượng" />
+                                    <TableColumn fx:id="LoaiDVPVColumn" prefWidth="203.0" text="Loại Dịch Vụ" />
+                                    <TableColumn fx:id="TinhTrangDVPVColumn" prefWidth="154.0" text="Tình Trạng" />
+                                    <TableColumn fx:id="GiaDVPVColumn" prefWidth="145.0" text="Giá" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="ThemDVPVButton" layoutX="196.0" layoutY="667.0" mnemonicParsing="false" onAction="#ThemDVPVButtonListener" prefHeight="75.0" prefWidth="117.0" text="Thêm" />
+                        <Button fx:id="SuaDVPVButton" layoutX="374.0" layoutY="667.0" mnemonicParsing="false" onAction="#SuaDVPVButtonListener" prefHeight="75.0" prefWidth="120.0" text="Sửa" />
+                        <Button fx:id="XoaDVPVButton" layoutX="540.0" layoutY="667.0" mnemonicParsing="false" onAction="#XoaDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Xóa" />
+                        <Button fx:id="CapNhatDVPVButton" layoutX="712.0" layoutY="667.0" mnemonicParsing="false" onAction="#CapNhatDVPVButtonListener" prefHeight="75.0" prefWidth="124.0" text="Cập Nhật" />
+                        <Label fx:id="tb4Label" layoutX="25.0" layoutY="629.0" prefHeight="21.0" prefWidth="133.0" text="Dịch Vụ Đang Chọn" />
+                        <TextField fx:id="tb4TextField" alignment="CENTER" disable="true" layoutX="161.0" layoutY="624.0" prefHeight="31.0" prefWidth="45.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.ThietBi104Controller">
+   <children>
+      <CheckBox fx:id="cb5" layoutX="365.0" layoutY="95.0" mnemonicParsing="false" onAction="#cb5_ActionListener" text="Tủ để quần áo" />
+      <CheckBox fx:id="cb1" layoutX="89.0" layoutY="95.0" mnemonicParsing="false" onAction="#cb1_ActionListener" text="Giường ngủ" />
+      <CheckBox fx:id="cb2" layoutX="88.0" layoutY="126.0" mnemonicParsing="false" onAction="#cb2_ActionListener" text="Bàn đầu giường" />
+      <CheckBox fx:id="cb8" layoutX="365.0" layoutY="191.0" mnemonicParsing="false" onAction="#cb8_ActionListener" text="Điều hòa nhiệt độ" />
+      <CheckBox fx:id="cb6" layoutX="365.0" layoutY="126.0" mnemonicParsing="false" onAction="#cb6_ActionListener" text="Đèn phòng" />
+      <CheckBox fx:id="cb3" layoutX="88.0" layoutY="156.0" mnemonicParsing="false" onAction="#cb3_ActionListener" text="Ti vi" />
+      <CheckBox fx:id="cb4" layoutX="89.0" layoutY="191.0" mnemonicParsing="false" onAction="#cb4_ActionListener" text="Tủ lạnh " />
+      <CheckBox fx:id="cb7" layoutX="365.0" layoutY="156.0" mnemonicParsing="false" onAction="#cb7_ActionListener" text="Bàn và ghế làm việc" />
+      <Button fx:id="btLuu" layoutX="142.0" layoutY="238.0" mnemonicParsing="false" onAction="#Luu_ActionListener" prefHeight="31.0" prefWidth="80.0" text="Lưu " />
+      <Button fx:id="btHuy" layoutX="333.0" layoutY="238.0" mnemonicParsing="false" onAction="#Huy_ActionListener" prefHeight="31.0" prefWidth="80.0" text="Hủy" />
+      <Label fx:id="lbThietbiphong" layoutX="193.0" layoutY="26.0" text="Thiết Bị Phòng">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

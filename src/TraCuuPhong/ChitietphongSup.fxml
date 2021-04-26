@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="Ap" fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TraCuuPhong.GiaoDienChiTietPhongLeTanController">
+   <children>
+      <Label fx:id="lbSonguoichophep" layoutX="25.0" layoutY="95.0" text="Số người cho phép" />
+      <Label fx:id="lbSonguoihientai" layoutX="25.0" layoutY="155.0" prefHeight="21.0" prefWidth="126.0" text="Số người hiện tại" />
+      <Label fx:id="lbTrangthai" layoutX="25.0" layoutY="223.0" text="Trạng thái" />
+      <Label fx:id="lbPhong" layoutX="25.0" layoutY="36.0" prefHeight="21.0" prefWidth="844.0" text="Phòng Superior (SUP): là một loại phòng với tầm nhìn và không gian thoải mái, phù hợp với nhiều đối tượng khách hàng." />
+      <ComboBox fx:id="cbSonguoihientai" layoutX="160.0" layoutY="150.0" onAction="#comboBoxChanged" prefHeight="38.0" prefWidth="67.0" />
+      <TextField fx:id="tfSonguoichophep" layoutX="158.0" layoutY="90.0" prefHeight="38.0" prefWidth="47.0" />
+      <ComboBox fx:id="cbTrangthai" layoutX="158.0" layoutY="218.0" onAction="#comboBoxChanged1" prefHeight="38.0" prefWidth="161.0" />
+      <Button fx:id="btchecklist" layoutX="537.0" layoutY="218.0" mnemonicParsing="false" onAction="#btchecklist" prefHeight="38.0" prefWidth="153.0" style="-fx-background-border: 2em;" text="     Check-list" />
+      <Button fx:id="btThoat" layoutX="668.0" layoutY="374.0" mnemonicParsing="false" onAction="#btthoataction" prefHeight="38.0" prefWidth="136.0" text="Thoát" />
+      <Button fx:id="btChinhsua" layoutX="390.0" layoutY="374.0" mnemonicParsing="false" onAction="#btactionchinhsua" prefHeight="38.0" prefWidth="136.0" text="Chỉnh sửa" />
+      <Button fx:id="btLuu" layoutX="110.0" layoutY="374.0" mnemonicParsing="false" onAction="#btactionluu" prefHeight="38.0" prefWidth="136.0" text="Lưu" />
+      <ImageView fitHeight="38.0" fitWidth="49.0" layoutX="546.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@btchecklist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="179.0" focusTraversable="true" layoutX="614.0" layoutY="69.0" pickOnBounds="true">
+         <image>
+            <Image url="@phong-superior.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

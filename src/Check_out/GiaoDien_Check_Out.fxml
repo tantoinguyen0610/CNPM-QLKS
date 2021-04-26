@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="1335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.CheckOutController">
+   <children>
+      <Button fx:id="Button_TraPhong" layoutX="601.0" layoutY="375.0" mnemonicParsing="false" onAction="#TraPhong_ActionListener" prefHeight="44.0" prefWidth="134.0" text="Trả phòng">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Label fx:id="CO_Label" layoutX="573.0" layoutY="14.0" text="CHECK OUT">
+         <font>
+            <Font name="Times New Roman" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="72.0" text="Bảng phiếu thuê">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="14.0" layoutY="115.0" prefHeight="228.0" prefWidth="1291.0">
+         <content>
+            <TableView fx:id="Table_Check_In" prefHeight="226.0" prefWidth="1600.0">
+               <columns>
+                  <TableColumn fx:id="Tbl_Col_STT" prefWidth="72.00003051757812" text="Mã PT" />
+                  <TableColumn fx:id="Tbl_Col_KH" prefWidth="164.0" text="Tên KH" />
+                  <TableColumn fx:id="Tbl_Col_CMND" maxWidth="239.0" minWidth="-1.0" prefWidth="155.0" text="CMND" />
+                  <TableColumn fx:id="Tbl_Col_SDT" prefWidth="168.0" text="SDT" />
+                  <TableColumn fx:id="Tbl_Col_SoNguoi1Phong" prefWidth="231.0" text="Số người 1 phòng" />
+                  <TableColumn fx:id="Tbl_Col_LoaiPhong" prefWidth="185.0" text="Loại phòng" />
+                  <TableColumn fx:id="Tbl_Col_SoPhong" prefWidth="153.0" text="Số phòng" />
+                  <TableColumn fx:id="Tbl_Col_NgayDat" prefWidth="154.0" text="Ngày đặt phòng" />
+                  <TableColumn fx:id="Tbl_Col_NgayNhan" prefWidth="156.0" text="Ngày nhận phòng" />
+                  <TableColumn fx:id="Tbl_Col_SoNgayO" prefWidth="84.0" text="Số ngày ở" />
+                  <TableColumn fx:id="Tbl_Col_MaDP" prefWidth="75.0" text="Ma_DP" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

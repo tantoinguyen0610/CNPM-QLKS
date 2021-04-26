@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="App" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1095.0" styleClass="bgquanlyphong" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.GiaoDienQuanLyPhongController">
+   <children>
+      <Button id="bt4" fx:id="btDasudungg" layoutX="420.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
+      <Button id="bt5" fx:id="btDangbaotrii" layoutX="559.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
+      <Button id="bt2" fx:id="btTrongg" layoutX="288.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Trống" textAlignment="CENTER" textFill="#0d0d08" wrapText="true" />
+      <Button id="bt7" fx:id="btDattruocc" layoutX="694.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đặt trước" />
+      <Button fx:id="btphong1055" layoutX="444.0" layoutY="490.0" mnemonicParsing="false" onAction="#bt55" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 105 (Deluxe)">
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong1066" layoutX="724.0" layoutY="490.0" mnemonicParsing="false" onAction="#bt66" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 106 (Superior)">
+         <graphic>
+            <ImageView fitHeight="82.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong1022" layoutX="444.0" layoutY="321.0" mnemonicParsing="false" onAction="#bt22" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 102 (Superior)">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong1033" layoutX="724.0" layoutY="321.0" mnemonicParsing="false" onAction="#bt33" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 103 (Standard)">
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong1011" layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#bt11" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 101 (Deluxe)">
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btphong1044" layoutX="164.0" layoutY="490.0" mnemonicParsing="false" onAction="#bt44" prefHeight="70.0" prefWidth="226.0" style="-fx-background-radius: 2em;" text="Phòng 104 (Standard)">
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconroom.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="131.0" fitWidth="91.0" layoutX="495.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../TraCuuPhong/hinhnensgu.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="442.0" layoutY="32.0" prefHeight="70.0" prefWidth="219.0" text="SGU HOTEL" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#862196" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <ButtonBar layoutX="128.0" layoutY="625.0" prefHeight="70.0" prefWidth="795.0">
+         <buttons>
+            <Button fx:id="btQuanlythietbi" mnemonicParsing="false" onAction="#actionQuanlythietbi" prefHeight="37.0" prefWidth="178.0" text="Quản lý thiết bị" />
+            <Button fx:id="btnangcapphong" mnemonicParsing="false" onAction="#btnangcapphongListener" prefHeight="37.0" prefWidth="178.0" text="Phiếu nâng cấp phòng" />
+            <Button fx:id="btsuachuaphong" mnemonicParsing="false" onAction="#btsuachuaphongListener" prefHeight="37.0" prefWidth="178.0" text="Phiếu sửa chữa thiết bị" />
+            <Button fx:id="Button_KTDK" mnemonicParsing="false" onAction="#KTDK_ActionListener" prefHeight="38.0" text="Bảng KT định kì" />
+         </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/mysql-connector-java-8.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/jfxrt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/access-bridge-64.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/cldrdata.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/dnsns.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/jaccess.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/localedata.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/nashorn.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/sunec.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/sunjce_provider.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/sunmscapi.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/sunpkcs11.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/zipfs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/bcmail-jdk14-1.38.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/bcmail-jdk14-138.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/bcprov-jdk14-1.38.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/bcprov-jdk14-138.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/bctsp-jdk14-1.38.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/castor-core-1.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/castor-xml-1.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/commons-beanutils-1.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/core-2.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/ecj-4.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/icu4j-57.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/itext-2.1.7.js5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jackson-annotations-2.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jackson-core-2.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jackson-databind-2.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jakarta-regexp-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jasperreports-6.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/lucene-analyzers-common-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/lucene-core-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/lucene-queries-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/lucene-queryparser-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/lucene-sandbox-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/olap4j-0.9.7.309-JS-3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/spring-aop-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/spring-asm-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/spring-beans-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/spring-context-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/spring-core-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/spring-expression-3.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/stax-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/Desktop/New folder/stax-api-1.0-2.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

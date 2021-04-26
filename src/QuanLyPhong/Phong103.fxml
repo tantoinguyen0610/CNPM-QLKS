@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.Phong103Controller">
+   <children>
+      <Label fx:id="lbThietbi" layoutX="31.0" layoutY="165.0" text="Thiết bị" />
+      <Label fx:id="lbTrangthai" layoutX="26.0" layoutY="287.0" text="Trạng thái" />
+      <Label fx:id="lbPhong" layoutX="25.0" layoutY="38.0" text="Phòng Deluxe: Loại phòng cao hơn Superior, thường ở tầng cao, diện tích rộng, hướng nhìn đẹp và trang bị cao cấp." />
+      <ComboBox fx:id="cbTrangthai" layoutX="225.0" layoutY="282.0" prefHeight="31.0" prefWidth="161.0" />
+      <Label fx:id="lbSonguoichophep" layoutX="28.0" layoutY="225.0" text="Số người cho phép" />
+      <Button fx:id="btThietbi" layoutX="223.0" layoutY="160.0" mnemonicParsing="false" onAction="#btactionthietbi" text="Click" />
+      <Label fx:id="SoPhong_Label" layoutX="31.0" layoutY="106.0" text="Số phòng:" />
+      <TextField fx:id="SoPhong_textField" disable="true" layoutX="223.0" layoutY="101.0" prefHeight="31.0" prefWidth="99.0" />
+      <ButtonBar layoutX="232.0" layoutY="351.0" prefHeight="87.0" prefWidth="450.0">
+         <buttons>
+            <Button fx:id="btLuu" mnemonicParsing="false" onAction="#btactionLuu" prefHeight="51.0" prefWidth="147.0" text="Lưu" />
+            <Button fx:id="btChinhsua" mnemonicParsing="false" onAction="#btchinhsua" prefHeight="53.0" prefWidth="136.0" text="Chỉnh sửa" />
+            <Button fx:id="btThoat" mnemonicParsing="false" onAction="#btthoat" prefHeight="53.0" prefWidth="136.0" text="Thoát" />
+         </buttons>
+      </ButtonBar>
+      <TextField fx:id="cbSonguoichophep" layoutX="223.0" layoutY="220.0" prefHeight="31.0" prefWidth="99.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="1485.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.BangKiemTraDinhKiController">
+   <children>
+      <ScrollPane layoutX="575.0" layoutY="75.0" prefHeight="365.0" prefWidth="893.0">
+         <content>
+            <TableView fx:id="tbview1" prefHeight="363.0" prefWidth="1072.0">
+               <columns>
+                  <TableColumn fx:id="tcMaKT" prefWidth="78.0" text="Mã KT" />
+                  <TableColumn fx:id="tcPhong" prefWidth="145.0" text="Phòng" />
+                  <TableColumn fx:id="tcNgayKT" prefWidth="156.0" text="Ngày Kiểm Tra" />
+                  <TableColumn fx:id="tcGiobatdau" prefWidth="168.0" text="Giờ Bắt Đầu" />
+                  <TableColumn fx:id="tcGioketthuc" prefWidth="192.0" text="Giờ Kết Thúc" />
+                  <TableColumn fx:id="tcTinhTrangSauKT" prefWidth="156.0" text="Tình trạng sau KT" />
+                  <TableColumn fx:id="tcGhichu" prefWidth="174.0" text="Ghi chú" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label fx:id="lbbangkiemtradinhki" layoutX="539.0" layoutY="14.0" text="BẢNG KIỂM TRA ĐỊNH KÌ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btThoat" layoutX="610.0" layoutY="466.0" mnemonicParsing="false" onAction="#btThoat" prefHeight="48.0" prefWidth="115.0" text="Thoát" />
+      <Label fx:id="lbngaykiemtra" layoutX="71.0" layoutY="142.0" text="Ngày kiểm tra" />
+      <Label fx:id="lbghichu" layoutX="116.0" layoutY="318.0" text="Ghi chú" />
+      <Label fx:id="lbGioketthuc" layoutX="84.0" layoutY="231.0" text="Giờ kết thúc" />
+      <Label fx:id="lbGiobatdau" layoutX="84.0" layoutY="186.0" text="Giờ bắt đầu" />
+      <Label fx:id="lbTrangthaisausuachua" layoutX="46.0" layoutY="273.0" prefHeight="21.0" prefWidth="122.0" text="Tình trạng sau KT" />
+      <DatePicker fx:id="dtNgaykiemtra" layoutX="186.0" layoutY="137.0" prefHeight="31.0" prefWidth="171.0" />
+      <TextField fx:id="tfGioketthuc" layoutX="187.0" layoutY="226.0" prefHeight="31.0" prefWidth="81.0" />
+      <TextField fx:id="tfGhichu" layoutX="185.0" layoutY="313.0" prefHeight="31.0" prefWidth="171.0" />
+      <ComboBox fx:id="cbTrangthaisausuachua" layoutX="186.0" layoutY="268.0" prefHeight="31.0" prefWidth="153.0" />
+      <TextField fx:id="tfGiobatdau" layoutX="186.0" layoutY="182.0" prefHeight="31.0" prefWidth="81.0" />
+      <Label fx:id="SoPhong_Label" layoutX="103.0" layoutY="97.0" text="Số Phòng:" />
+      <Label fx:id="err_SoPhong" layoutX="368.0" layoutY="97.0" textFill="RED" />
+      <Label fx:id="err_NgayKT" layoutX="366.0" layoutY="142.0" textFill="RED" />
+      <Label fx:id="err_GioBD" layoutX="367.0" layoutY="187.0" textFill="RED" />
+      <Label fx:id="err_GioKT" layoutX="366.0" layoutY="231.0" textFill="RED" />
+      <Label fx:id="err_SauKT" layoutX="366.0" layoutY="273.0" textFill="RED" />
+      <ComboBox fx:id="SoPhong_cmb" layoutX="185.0" layoutY="92.0" prefHeight="31.0" prefWidth="130.0" />
+      <ButtonBar layoutX="30.0" layoutY="362.0" prefHeight="64.0" prefWidth="483.0">
+         <buttons>
+            <Button fx:id="btThem1" mnemonicParsing="false" onAction="#btThembangkiemtradinhki" prefHeight="48.0" prefWidth="115.0" text="Thêm" />
+            <Button fx:id="Button_Sua" mnemonicParsing="false" onAction="#Sua_ActionListener" prefHeight="49.0" text="Sửa" />
+            <Button fx:id="Button_Xoa" mnemonicParsing="false" onAction="#Xoa_ActionListener" prefHeight="49.0" text="Xoá" />
+            <Button fx:id="btReset1" mnemonicParsing="false" onAction="#btReset" prefHeight="48.0" prefWidth="115.0" text="Reset" />
+         </buttons>
+      </ButtonBar>
+      <Label layoutX="114.0" layoutY="55.0" text="Mã KT:" />
+      <TextField fx:id="MaKT_textField" disable="true" layoutX="186.0" layoutY="50.0" prefHeight="31.0" prefWidth="51.0" />
+   </children>
+</AnchorPane>
