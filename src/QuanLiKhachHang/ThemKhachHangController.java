@@ -85,6 +85,27 @@ public class ThemKhachHangController implements Initializable {
     @FXML
     private Button HuyButton;
     
+    @FXML
+    private Label tb1Label;
+
+    @FXML
+    private Label tb2Label;
+
+    @FXML
+    private Label tb3Label;
+
+    @FXML
+    private Label tb4Label;
+
+    @FXML
+    private Label tb5Label;
+
+    @FXML
+    private Label tb6Label;
+
+    @FXML
+    private Label tb7Label;
+    
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -117,7 +138,11 @@ public class ThemKhachHangController implements Initializable {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-		try {
+    	if ( KiemTraTenKhachHang() & KiemTraSDT() 
+    			& KiemTraCMND() & KiemTraQUOCTICH() 
+    			&  KiemTraNgaySinh() 
+    			& KiemTraGioiTinh() & KiemTraDiaChi()) 	{
+    	try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -134,15 +159,16 @@ public class ThemKhachHangController implements Initializable {
 			
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
-			
+			Stage stage = (Stage) LuuButton.getScene().getWindow();
+	        stage.close();
+		
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
+}
 		autoTaoMaKH();
-		Stage stage = (Stage) LuuButton.getScene().getWindow();
-        // do what you have to do
-        stage.close();
+		
 } 
     
     public void autoTaoMaKH() {
@@ -172,6 +198,83 @@ public class ThemKhachHangController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+    
+private boolean KiemTraTenKhachHang() {
+		
+		if(TenKhTextField.getText().isEmpty())
+				
+			{
+			tb1Label.setText(" Vui lòng nhập Tên Khách Hàng");
+			return false;
+			}
+		return true;
+	}
+
+private boolean KiemTraSDT() {
+	
+	if(SDTTextField.getText().isEmpty())
+			
+		{
+		tb2Label.setText("Vui lòng nhập Số Điện Thoại ");
+		return false;
+		}
+	return true;
+}
+
+private boolean KiemTraCMND() {
+	
+	if(CMNDTextField.getText().isEmpty())
+			
+		{
+		tb3Label.setText("Vui lòng nhập CMND ");
+		return false;
+		}
+	return true;
+}
+
+private boolean KiemTraQUOCTICH() {
+	
+	if(QuocTichTextField.getText().isEmpty())
+			
+		{
+		tb4Label.setText("Vui lòng nhập Quốc Tịch ");
+		return false;
+		}
+	return true;
+}
+
+private boolean KiemTraNgaySinh() {
+	
+	if(NgaySinhTextField.getText().isEmpty())
+			
+		{
+		tb5Label.setText("Vui lòng nhập Ngày Sinh ");
+		return false;
+		}
+	return true;
+}
+
+private boolean KiemTraGioiTinh() {
+	
+	if(GTTextField.getText().isEmpty())
+			
+		{
+		tb6Label.setText("Vui lòng nhập Giới Tính ");
+		return false;
+		}
+	return true;
+}
+
+private boolean KiemTraDiaChi() {
+	
+	if(DiaChiTextField.getText().isEmpty())
+			
+		{
+		tb7Label.setText("Vui lòng nhập Địa Chỉ ");
+		return false;
+		}
+	return true;
+}
     
 
     @FXML
