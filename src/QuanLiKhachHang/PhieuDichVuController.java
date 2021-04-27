@@ -318,7 +318,8 @@ else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa phiếu DV n
 
     @FXML
     void Xoa_ActionListener(ActionEvent event) {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá phiếu DV này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn lưu cập nhật?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		tbl_PDV.getItems().removeAll(tbl_PDV.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from phieu_dv where MAPHIEUDV = ?";
@@ -336,7 +337,7 @@ else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa phiếu DV n
         	UpdateTable();	
         	autoTaoMaPDV();
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá phiếu DV này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
