@@ -530,6 +530,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 				pst1.executeUpdate();
 				
 				JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
+				CapNhatTinhTrangPhong();
 				XoaCanhBao();
 			}
 		catch(Exception e) {
@@ -540,6 +541,22 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		autoTaoMaKH();
 		autoTaoMaPT();
     }
+	
+	public void CapNhatTinhTrangPhong() {
+		 try {						
+  		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String value1 = "Đã sử dụng";
+			String value2 = SoPhong_Cmb.getValue().toString();
+			String query1 = "UPDATE phong SET TINHTRANG = '"+value1+"' WHERE TEN_PHONG='"+value2+"' ";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 pst1.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Cập Nhật Phòng Thành công!");
+			 }
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+	}
 	
 	private boolean KiemTraNgayDat() {
 		
