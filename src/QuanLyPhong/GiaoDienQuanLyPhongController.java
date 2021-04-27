@@ -41,6 +41,7 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     @FXML
     private Button btDasudungg;
 
+    
     @FXML
     private Button btDangbaotrii;
 
