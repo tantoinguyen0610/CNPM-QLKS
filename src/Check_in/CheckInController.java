@@ -537,6 +537,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 				JOptionPane.showMessageDialog(null, e);
 			}
 	}
+	 CapNhatTinhTrangDatPhong();
 		UpdateTable();
 		autoTaoMaKH();
 		autoTaoMaPT();
@@ -556,6 +557,23 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		 catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			}
+	}
+	
+	public void CapNhatTinhTrangDatPhong() {
+		if(((TextField)Ngay_Dat_Phong.getEditor()).getText() ==null) {
+		 try {						
+ 		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String value1 = "Đặt trước";
+			String value2 = SoPhong_Cmb.getValue().toString();
+			String query1 = "UPDATE phong SET TINHTRANG = '"+value1+"' WHERE TEN_PHONG='"+value2+"' ";
+			 PreparedStatement pst1 = conn.prepareStatement(query1);
+			 pst1.executeUpdate();
+			 }
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+			}
+		}
 	}
 	
 	private boolean KiemTraNgayDat() {
