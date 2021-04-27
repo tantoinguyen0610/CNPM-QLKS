@@ -178,7 +178,8 @@ public class QuanLiKhachHangController implements Initializable {
 
     @FXML
     void XoaButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn Xóa Khách Hàng này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		DanhSachKHTableView.getItems().removeAll(DanhSachKHTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from khachhang where MAKH = ?";
@@ -196,7 +197,7 @@ public class QuanLiKhachHangController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }

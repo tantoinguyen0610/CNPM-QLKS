@@ -431,7 +431,8 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void XoaHDTTPButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		HoaDonThanhToanPhongTableView.getItems().removeAll(HoaDonThanhToanPhongTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from hoadon_thanhtoanphong where MA_HD_TTP = ?";
@@ -449,14 +450,15 @@ public class QuanLiHoaDonController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
 
     @FXML
     void XoaHoaDonNCPButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		HoaDonNangCapPhongTableView.getItems().removeAll(HoaDonNangCapPhongTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from hoa_don where MA_HD = ?";
@@ -474,14 +476,15 @@ public class QuanLiHoaDonController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
 
     @FXML
     void XoaHoaDonSCTBButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		HoaDonSuaChuaThietBiTableView.getItems().removeAll(HoaDonSuaChuaThietBiTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from hoa_don where MA_HD = ?";
@@ -499,7 +502,7 @@ public class QuanLiHoaDonController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Hóa Đơn này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+    	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
