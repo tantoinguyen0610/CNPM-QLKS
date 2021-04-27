@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="1485.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.BangKiemTraDinhKiController">
+<AnchorPane id="bg" fx:id="Ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="1485.0" stylesheets="@bg.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.BangKiemTraDinhKiController">
    <children>
       <ScrollPane layoutX="575.0" layoutY="75.0" prefHeight="365.0" prefWidth="893.0">
          <content>
