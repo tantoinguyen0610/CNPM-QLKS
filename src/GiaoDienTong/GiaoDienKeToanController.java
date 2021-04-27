@@ -50,7 +50,7 @@ public class GiaoDienKeToanController {
     @FXML
     void ThongKeButtonListener(ActionEvent event) throws Exception{
     	Parent parent = FXMLLoader.load(
-				 getClass().getClassLoader().getResource("ThongKe/Report.fxml"));
+				 getClass().getClassLoader().getResource("ThongKe/GiaoDienThongKe.fxml"));
 				 Scene scene = new Scene(parent);
 				Stage stage = new Stage();
 				 stage.setTitle("Thống Kê");
