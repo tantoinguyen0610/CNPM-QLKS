@@ -8,11 +8,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.SuaKhachHangController">
    <children>
-      <AnchorPane fx:id="SuaKhachHangAnchorPane" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="926.0">
+      <AnchorPane id="bg" fx:id="SuaKhachHangAnchorPane" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="926.0" stylesheets="@Quanlykhachhang.css">
          <children>
-            <Label fx:id="SuaKHLabel" alignment="CENTER" layoutX="184.0" layoutY="28.0" prefHeight="84.0" prefWidth="578.0" text="Sửa Khách Hàng">
+            <Label fx:id="SuaKHLabel" alignment="CENTER" layoutX="184.0" layoutY="28.0" prefHeight="84.0" prefWidth="578.0" text="SỬA KHÁCH HÀNG">
                <font>
-                  <Font size="50.0" />
+                  <Font name="System Bold" size="48.0" />
                </font>
             </Label>
             <Label fx:id="MaKHLabel" alignment="CENTER" layoutX="51.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="MAKH" />

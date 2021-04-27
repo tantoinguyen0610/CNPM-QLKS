@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1324.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.NhanVienController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1324.0" stylesheets="@Nhanvien.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.NhanVienController">
    <children>
       <ScrollPane layoutX="631.0" layoutY="86.0" prefHeight="571.0" prefWidth="664.0">
          <content>
@@ -31,9 +31,9 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Label fx:id="BangNV_Label" layoutX="461.0" layoutY="28.0" text="BẢNG NHÂN VIÊN">
+      <Label fx:id="BangNV_Label" layoutX="426.0" layoutY="14.0" text="BẢNG NHÂN VIÊN">
          <font>
-            <Font name="Times New Roman" size="37.0" />
+            <Font name="Times New Roman Bold" size="48.0" />
          </font>
       </Label>
       <Button fx:id="Button_Refresh" layoutX="1216.0" layoutY="667.0" mnemonicParsing="false" onAction="#Refresh_ActionListener" prefHeight="41.0" prefWidth="72.0" text="Refresh" />

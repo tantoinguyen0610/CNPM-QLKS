@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.BangNhiemVuController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="685.0" stylesheets="@Nhanvien.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.BangNhiemVuController">
    <children>
       <Label fx:id="BangNhiemVu_Label" layoutX="210.0" layoutY="25.0" text="BẢNG NHIỆM VỤ">
          <font>
-            <Font name="Times New Roman" size="33.0" />
+            <Font name="Times New Roman Bold" size="33.0" />
          </font>
       </Label>
       <Label fx:id="DiLamDungGio_Label" layoutX="149.0" layoutY="122.0" text="Đi làm đúng giờ" />

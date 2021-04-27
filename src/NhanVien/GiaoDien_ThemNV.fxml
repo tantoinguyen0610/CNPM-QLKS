@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.ThemNVController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="703.0" stylesheets="@Nhanvien.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NhanVien.ThemNVController">
    <children>
-      <Label fx:id="ThemNV_Label" layoutX="222.0" layoutY="21.0" text="BẢNG THÊM NV">
+      <Label fx:id="ThemNV_Label" layoutX="145.0" layoutY="20.0" text="BẢNG THÊM NHÂN VIÊN">
          <font>
-            <Font name="Times New Roman" size="34.0" />
+            <Font name="Times New Roman Bold" size="34.0" />
          </font>
       </Label>
       <Label fx:id="MaNV_Label" layoutX="182.0" layoutY="83.0" text="Mã nhân viên:" />

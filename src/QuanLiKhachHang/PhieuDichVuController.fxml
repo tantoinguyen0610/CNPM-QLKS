@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1388.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.PhieuDichVuController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1388.0" stylesheets="@Quanlykhachhang.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.PhieuDichVuController">
    <children>
-      <Label fx:id="PhieuDichVuLabel" layoutX="555.0" layoutY="14.0" prefHeight="98.0" prefWidth="341.0" text="Phiếu Dịch Vụ">
+      <Label fx:id="PhieuDichVuLabel" layoutX="555.0" layoutY="14.0" prefHeight="98.0" prefWidth="383.0" text="PHIẾU DỊCH VỤ">
          <font>
-            <Font size="50.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
       <ScrollPane layoutX="378.0" layoutY="147.0" prefHeight="264.0" prefWidth="976.0">

@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.ThemKhachHangController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="909.0" stylesheets="@Quanlykhachhang.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLiKhachHang.ThemKhachHangController">
    <children>
-      <Label fx:id="ThemKHLabel" alignment="CENTER" layoutX="184.0" layoutY="28.0" prefHeight="84.0" prefWidth="578.0" text="Thêm Khách Hàng">
+      <Label fx:id="ThemKHLabel" alignment="CENTER" layoutX="184.0" layoutY="28.0" prefHeight="84.0" prefWidth="578.0" text="THÊM KHÁCH HÀNG">
          <font>
-            <Font size="50.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
       <Label fx:id="MaKHLabel" alignment="CENTER" layoutX="51.0" layoutY="150.0" prefHeight="45.0" prefWidth="127.0" text="MAKH" />
