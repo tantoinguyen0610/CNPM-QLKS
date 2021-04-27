@@ -8,17 +8,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class ThemKhachHangController implements Initializable {
 
@@ -106,12 +113,21 @@ public class ThemKhachHangController implements Initializable {
     @FXML
     private Label tb7Label;
     
+    @FXML
+    private DatePicker NgaySinh;
+
+    @FXML
+    private ComboBox<String> GioiTinhCMB;
+    
+    ObservableList<String> GioiTinh = FXCollections.observableArrayList("Nam","Nữ");
+    
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		
 		autoTaoMaKH();
-		
+		GioiTinhCMB.setItems(GioiTinh);
+		ChuyenNguocNamThangNgay();
 	}
 
     @FXML
@@ -154,8 +170,8 @@ public class ThemKhachHangController implements Initializable {
 			pst.setString(4,  SDTTextField.getText());		
 			pst.setString(5, QuocTichTextField.getText());
 			pst.setString(6,  CMNDTextField.getText());
-			pst.setString(7, GTTextField.getText());
-			pst.setString(8, NgaySinhTextField.getText());
+			pst.setString(7, GioiTinhCMB.getValue().toString());
+			pst.setString(8,((TextField)NgaySinh.getEditor()).getText());
 			
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
@@ -199,7 +215,27 @@ public class ThemKhachHangController implements Initializable {
 		}
 	}
     
-private boolean KiemTraTenKhachHang() {
+    public void ChuyenNguocNamThangNgay()
+	{
+			NgaySinh.setConverter(
+				   new StringConverter<LocalDate>() {
+				          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+				          @Override
+				          public String toString(LocalDate date) {
+				            return (date != null) ? dateFormatter.format(date) : "";
+				          }
+
+				          @Override
+				          public LocalDate fromString(String string) {
+				            return (string != null && !string.isEmpty())
+				                ? LocalDate.parse(string, dateFormatter)
+				                : null;
+				          }
+				        });
+	}
+    
+    private boolean KiemTraTenKhachHang() {
 		
 		if(TenKhTextField.getText().isEmpty())
 				
@@ -210,7 +246,7 @@ private boolean KiemTraTenKhachHang() {
 		return true;
 	}
 
-private boolean KiemTraSDT() {
+    private boolean KiemTraSDT() {
 	
 	if(SDTTextField.getText().isEmpty())
 			
@@ -221,7 +257,7 @@ private boolean KiemTraSDT() {
 	return true;
 }
 
-private boolean KiemTraCMND() {
+    private boolean KiemTraCMND() {
 	
 	if(CMNDTextField.getText().isEmpty())
 			
@@ -232,7 +268,7 @@ private boolean KiemTraCMND() {
 	return true;
 }
 
-private boolean KiemTraQUOCTICH() {
+    private boolean KiemTraQUOCTICH() {
 	
 	if(QuocTichTextField.getText().isEmpty())
 			
@@ -243,29 +279,30 @@ private boolean KiemTraQUOCTICH() {
 	return true;
 }
 
-private boolean KiemTraNgaySinh() {
-	
-	if(NgaySinhTextField.getText().isEmpty())
-			
-		{
-		tb5Label.setText("Vui lòng nhập Ngày Sinh ");
-		return false;
-		}
-	return true;
-}
+    private boolean KiemTraNgaySinh() {
+    	
+		if(((TextField)NgaySinh.getEditor()).getText().isEmpty())
+				
+			{
+			tb5Label.setText("Vui lòng nhập Ngày Sinh");
+			return false;
+			}
+		tb5Label.setText("");
+		return true;
+	}
 
 private boolean KiemTraGioiTinh() {
-	
-	if(GTTextField.getText().isEmpty())
-			
-		{
-		tb6Label.setText("Vui lòng nhập Giới Tính ");
-		return false;
-		}
-	return true;
-}
+		
+		if(GioiTinhCMB.getSelectionModel().isEmpty())
+			{
+			tb6Label.setText("Vui lòng chọn Giới Tính");
+			return false;
+			}
+		tb6Label.setText("");
+		return true;
+	}
 
-private boolean KiemTraDiaChi() {
+    private boolean KiemTraDiaChi() {
 	
 	if(DiaChiTextField.getText().isEmpty())
 			

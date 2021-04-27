@@ -29,6 +29,12 @@
             <TextField fx:id="TinhTrangTextField" layoutX="615.0" layoutY="310.0" onAction="#TinhTrangTextFieldListener" />
             <Button fx:id="LuuButton" layoutX="242.0" layoutY="407.0" mnemonicParsing="false" onAction="#LuuButtonListener" prefHeight="63.0" prefWidth="116.0" text="Lưu" />
             <Button fx:id="HuyButton" layoutX="479.0" layoutY="407.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
+            <Label fx:id="tb1Label" layoutX="178.0" layoutY="203.0" textFill="RED" />
+            <Label fx:id="tb2Label" layoutX="178.0" layoutY="282.0" textFill="RED" />
+            <Label fx:id="tb3Label" layoutX="178.0" layoutY="348.0" textFill="#ff0505" />
+            <Label fx:id="tb4Label" layoutX="615.0" layoutY="203.0" textFill="#ff0505" />
+            <Label fx:id="tb5Label" layoutX="615.0" layoutY="282.0" textFill="#f80000" />
+            <Label fx:id="tb6Label" layoutX="615.0" layoutY="348.0" textFill="#fc0000" />
          </children>
       </AnchorPane>
    </children>

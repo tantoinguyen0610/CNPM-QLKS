@@ -75,7 +75,23 @@ public class ThemDichVuAnUongController implements Initializable {
     @FXML
     private Button HuyButton;
     
-    
+    @FXML
+    private Label tb1Label;
+
+    @FXML
+    private Label tb2Label;
+
+    @FXML
+    private Label tb3Label;
+
+    @FXML
+    private Label tb4Label;
+
+    @FXML
+    private Label tb5Label;
+
+    @FXML
+    private Label tb6Label;
 
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
