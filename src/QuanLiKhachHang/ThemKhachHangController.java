@@ -239,6 +239,7 @@ public class ThemKhachHangController implements Initializable {
 			tb1Label.setText(" Vui lòng nhập Tên Khách Hàng");
 			return false;
 			}
+		tb1Label.setText("");
 		return true;
 	}
 
@@ -280,6 +281,7 @@ public class ThemKhachHangController implements Initializable {
 		tb4Label.setText("Vui lòng nhập Quốc Tịch ");
 		return false;
 		}
+	tb4Label.setText("");
 	return true;
 }
 
@@ -314,6 +316,7 @@ private boolean KiemTraGioiTinh() {
 		tb7Label.setText("Vui lòng nhập Địa Chỉ ");
 		return false;
 		}
+	tb7Label.setText("");
 	return true;
 }
     
