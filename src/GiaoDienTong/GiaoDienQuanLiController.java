@@ -77,7 +77,8 @@ public class GiaoDienQuanLiController {
     
     @FXML
     void QL_Thoat_ButtonListener(ActionEvent event) {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn Xóa Khách Hàng này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		try {
     			
    			 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -92,9 +93,9 @@ public class GiaoDienQuanLiController {
    		}
     		
 	}
-	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
-      	
- 	}
+else if(response == JOptionPane.NO_OPTION){
+     		
+     	}
     }
    
 }

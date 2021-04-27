@@ -565,6 +565,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 			err_NgayDP.setText("Vui lòng nhập ngày đặt phòng");
 			return false;
 			}
+		err_NgayDP.setText("");
 		return true;
 	}
 	
@@ -576,6 +577,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 			err_NgayNhanPhong.setText("Vui lòng nhập ngày nhận phòng");
 			return false;
 			}
+		err_NgayNhanPhong.setText("");
 		return true;
 	}
 	
@@ -586,6 +588,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 			err_SoNguoi1Phong.setText("Vui lòng chọn số người cùng 1 phòng");
 			return false;
 			}
+		err_SoNguoi1Phong.setText("");
 		return true;
 	}
 	
@@ -596,6 +599,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 			err_LoaiPhong.setText("Vui lòng chọn loại phòng");
 			return false;
 			}
+		err_LoaiPhong.setText("");
 		return true;
 	}
 	
@@ -606,24 +610,32 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 			err_SoPhong.setText("Vui lòng chọn số phòng");
 			return false;
 			}
+		err_SoPhong.setText("");
 		return true;
 	}
 	
 	private boolean KiemTraCMND() {
-		
-		if(CMND_textField.getText().isEmpty())
+		Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(CMND_textField.getText());
+		if(m.find() && m.group().equals(CMND_textField.getText())&& CMND_textField.getText().matches("\\d{9}|\\d{12}"))
 				
 			{
-			err_CMND.setText("Vui lòng nhập CMND");
-			return false;
+			err_CMND.setText("");
+			return true;
 			}
-		return true;
+		else {
+			err_CMND.setText("Vui lòng điền số hợp lệ");
+			return false;
+		}
+		
 	}
 	
 	private boolean KiemTraSDT() {
 		Pattern p = Pattern.compile("[0-9]+");
 		Matcher m = p.matcher(SDT_textField.getText());
-		if(m.find() && m.group().equals(SDT_textField.getText())){
+		if(m.find() && m.group().equals(SDT_textField.getText())&& SDT_textField.getText().matches("\\d{10}|\\d{11}"))
+				{
+			err_SDT.setText("");
 			return true;
 		}
 		else {
@@ -636,6 +648,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		Pattern p = Pattern.compile("[0-9]+");
 		Matcher m = p.matcher(SoNgayO_textField.getText());
 		if(m.find() && m.group().equals(SoNgayO_textField.getText())){
+			err_SoNgayO.setText("");
 			return true;
 		}
 		else {
@@ -649,6 +662,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
 		Matcher m = p.matcher(TenKH_textField.getText());
 		if(m.find() && m.group().equals(TenKH_textField.getText())){
+			err_TenKH.setText("");
 			return true;
 		}
 		else {

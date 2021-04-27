@@ -59,7 +59,8 @@ public class GiaoDienKeToanController {
     }
     @FXML
     void Thoat_ActionListener(ActionEvent event) {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn thoát giao diện?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		try {
     			
    			 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -74,9 +75,9 @@ public class GiaoDienKeToanController {
    		}
     		
 	}
-	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
-      	
- 	}
+else if(response == JOptionPane.NO_OPTION){
+     		
+     	}
     	
     }
     
