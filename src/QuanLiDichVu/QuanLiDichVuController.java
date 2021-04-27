@@ -537,7 +537,8 @@ public class QuanLiDichVuController implements Initializable {
     
     @FXML
     void XoaDVAnUongButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		DichVuAnUongTableView.getItems().removeAll(DichVuAnUongTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from dv where MA_DV = ?";
@@ -555,7 +556,7 @@ public class QuanLiDichVuController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
@@ -563,7 +564,8 @@ public class QuanLiDichVuController implements Initializable {
 
     @FXML
     void XoaDVGTButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		DichVuGiaiTriTableView.getItems().removeAll(DichVuGiaiTriTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from dv where MA_DV = ?";
@@ -581,14 +583,15 @@ public class QuanLiDichVuController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+    	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
 
     @FXML
     void XoaDVPVButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		DIchVuPhucVuTableView.getItems().removeAll(DIchVuPhucVuTableView.getSelectionModel().getSelectedItems());
         	
         	String sql = "delete from dv where MA_DV = ?";
@@ -606,14 +609,15 @@ public class QuanLiDichVuController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
 
     @FXML
     void XoaDVTGButtonListener(ActionEvent event) throws IOException {
-    	if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa Hóa Đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     		DichVuThuGianTableView.getItems().removeAll(DichVuThuGianTableView.getSelectionModel().getSelectedItems());
         	String sql = "delete from dv where MA_DV = ?";
         	try {
@@ -630,7 +634,7 @@ public class QuanLiDichVuController implements Initializable {
         	UpdateTable();	
 
     	}
-    	else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá Khách Hàng này?","Cảnh Báo",JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+     	else if(response == JOptionPane.NO_OPTION){
      		
      	}
     }
