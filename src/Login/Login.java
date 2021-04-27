@@ -12,9 +12,7 @@ public class Login extends Application {
 	 {
 	 // Load the FXML file.
 	 Parent parent = FXMLLoader.load(
-	 getClass().getResource("LoginController.fxml"));
-	
-	 // Build the scene graph.
+	 getClass().getResource("LoginController.fxml")); 
 	 Scene scene = new Scene(parent);
 	
 	 // Display our window, using the scene graph.
@@ -25,7 +23,6 @@ public class Login extends Application {
 	
 	 public static void main(String[] args)
  {
-	 // Launch the application.
 	 launch(args);
 	 }
 

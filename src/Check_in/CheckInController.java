@@ -240,8 +240,6 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		autoTaoMaKH();
 		
 		autoTaoMaPT();
-		
-		
 	}
 	
 	public void ChuyenNguocNamThangNgay()

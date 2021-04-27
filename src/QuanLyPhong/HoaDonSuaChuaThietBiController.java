@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class HoaDonSuaChuaThietBiController implements Initializable {
@@ -122,7 +123,8 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
 
     @FXML
     void DongButtonListener(ActionEvent event) {
-
+    	Stage stage = (Stage) DongButton.getScene().getWindow();
+	    stage.close();
     }
 
     @FXML
