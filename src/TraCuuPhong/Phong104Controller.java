@@ -116,7 +116,9 @@ public class Phong104Controller implements Initializable {
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
-     		
+     		Stage stage = (Stage) btLuu.getScene().getWindow();
+	        // do what you have to do
+	        stage.close();
      	}
      	else if(response == JOptionPane.NO_OPTION){
      		

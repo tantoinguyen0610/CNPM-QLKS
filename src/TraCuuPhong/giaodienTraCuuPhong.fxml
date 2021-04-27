@@ -93,5 +93,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button fx:id="Load_Button" layoutX="989.0" layoutY="662.0" mnemonicParsing="false" onAction="#Load_ActionListener" text="Cập Nhật" />
    </children>
 </AnchorPane>

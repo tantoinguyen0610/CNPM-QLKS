@@ -114,11 +114,14 @@ public class Phong102Controller implements Initializable {
 			 PreparedStatement pst1 = conn.prepareStatement(query1);
 			 pst1.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
+			
 			 }
 		 catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			}
-    	
+    	Stage stage = (Stage) btLuu.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML

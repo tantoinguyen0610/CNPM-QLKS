@@ -55,6 +55,19 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     @FXML
     private Button btphong1044;
     
+    @FXML
+    private Button Load_Button;
+
+    @FXML
+    void Load_ActionListener(ActionEvent event) {
+    	DoiMauPhong101();
+    	DoiMauPhong102();
+    	DoiMauPhong103();
+    	DoiMauPhong104();
+    	DoiMauPhong105();
+    	DoiMauPhong106();
+    }
+    
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -336,5 +349,7 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	stage.setScene(scene);
     	stage.show();
     }
+    
+    
 	
 }

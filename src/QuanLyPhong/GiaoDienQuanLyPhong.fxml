@@ -90,5 +90,6 @@
             <Button fx:id="Button_KTDK" mnemonicParsing="false" onAction="#KTDK_ActionListener" prefHeight="38.0" text="Bảng KT định kì" />
          </buttons>
       </ButtonBar>
+      <Button fx:id="Load_Button" layoutX="987.0" layoutY="584.0" mnemonicParsing="false" onAction="#Load_ActionListener" text="Cập Nhật" />
    </children>
 </AnchorPane>

@@ -120,7 +120,9 @@ public class Phong103Controller implements Initializable {
 		 catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			}
-    	
+    	Stage stage = (Stage) btLuu.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML
