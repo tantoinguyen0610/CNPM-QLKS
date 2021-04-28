@@ -192,6 +192,9 @@ public class HoaDonTraPhongController implements Initializable {
     private TableColumn<String, PhieuDV> col_TongTien;
     
     @FXML
+    private TextField DatCoc_textField;
+    
+    @FXML
     private Button Load_Button;
     
     
@@ -207,6 +210,7 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 	SoPhong_textField.setText(String.valueOf(traphong.getSOPHONG()));
 	SoNgayO_textField.setText(String.valueOf(traphong.getSONGAYO()));
 	Tien_DV_textField.setText("0");
+	DatCoc_textField.setText("0");
 	HienThiTextFieldConLai();
 }
 	
@@ -328,6 +332,27 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 				Tien_DV_textField.setText(rs1.getString("TONGDV"));
 			}
 			 
+			 }
+			catch(Exception e) {
+				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
+			}
+		}		
+	
+	public void HienTextFieldTienDatCoc() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			Statement s= conn.createStatement();
+			String	value1 =MaHD_textField.getText() ;
+			ResultSet rs1 = s.executeQuery("SELECT SOTIENKHACHDATCOC FROM datcoc WHERE MaHD_textField='"+value1+"'");
+			rs1.next();
+			rs1.getString("SOTIENKHACHDATCOC");
+			if(rs1.getString("SOTIENKHACHDATCOC")==null) {	
+				DatCoc_textField.setText("0");			
+			}
+			else  {
+				DatCoc_textField.setText(rs1.getString("SOTIENKHACHDATCOC"));
+			}			 
 			 }
 			catch(Exception e) {
 				 JOptionPane.showMessageDialog(null, "Lỗi: "+  e);
