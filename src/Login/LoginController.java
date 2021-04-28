@@ -66,7 +66,7 @@ public class LoginController implements Initializable {
         System.out.println(UserTextField.getText());
         System.out.println(PasswordTextField.getText());
 
-         if (UserTextField.getText().isEmpty()) {
+         if (UserTextField.getText().isEmpty()&& Character.isWhitespace(UserTextField.getText().charAt(0))) {
              thongbao.setText("Bạn chưa nhập tài khoản !");
              return;
          }
