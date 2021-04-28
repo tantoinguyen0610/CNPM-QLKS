@@ -16,7 +16,7 @@
         <tabs>
           <Tab fx:id="HoaDonThanhToanPhongTab" text="Hoá Đơn Thanh Toán Phòng">
             <content>
-              <AnchorPane fx:id="a" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane id="bg" fx:id="a" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@HoaDon.css">
                      <children>
                         <ScrollPane fx:id="thanhcuon1" layoutX="17.0" layoutY="88.0" prefHeight="451.0" prefWidth="1058.0">
                            <content>
@@ -45,7 +45,7 @@
           </Tab>
             <Tab fx:id="HoaDonSuaChuaThietBiTab" text="Hóa Đơn Sửa Chửa Thiết Bị">
                <content>
-                  <AnchorPane fx:id="b" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane id="bg" fx:id="b" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@HoaDon.css">
                      <children>
                         <TableView fx:id="HoaDonSuaChuaThietBiTableView" layoutX="17.0" layoutY="88.0" prefHeight="449.0" prefWidth="1046.0">
                            <columns>
@@ -71,7 +71,7 @@
             </Tab>
             <Tab fx:id="HoaDonNangCapPhongTab" text="Hóa Đơn Nâng Cấp Phòng">
                <content>
-                  <AnchorPane fx:id="c" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane id="bg" fx:id="c" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@HoaDon.css">
                      <children>
                         <TableView fx:id="HoaDonNangCapPhongTableView" layoutX="17.0" layoutY="88.0" prefHeight="449.0" prefWidth="1046.0">
                            <columns>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="1335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.CheckOutController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="1335.0" stylesheets="@Checkout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Check_out.CheckOutController">
    <children>
       <Button fx:id="Button_TraPhong" layoutX="601.0" layoutY="375.0" mnemonicParsing="false" onAction="#TraPhong_ActionListener" prefHeight="44.0" prefWidth="134.0" text="Trả phòng">
          <font>
@@ -17,7 +17,7 @@
       </Button>
       <Label fx:id="CO_Label" layoutX="573.0" layoutY="14.0" text="CHECK OUT">
          <font>
-            <Font name="Times New Roman" size="34.0" />
+            <Font name="Times New Roman Bold" size="34.0" />
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="72.0" text="Bảng phiếu thuê">
