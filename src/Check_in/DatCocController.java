@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class DatCocController implements Initializable {
@@ -133,7 +134,9 @@ public class DatCocController implements Initializable {
     
     @FXML
     void Huy_AcitonListener(ActionEvent event) {
-    	
+    	 Stage stage = (Stage) Button_Huy.getScene().getWindow();
+    	    // do what you have to do
+    	    stage.close();
     }
     
  

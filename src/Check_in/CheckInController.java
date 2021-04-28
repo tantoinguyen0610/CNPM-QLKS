@@ -17,11 +17,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -420,6 +422,8 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
     				Stage stage = new Stage();
     				stage.setTitle("DatCoc");
     				stage.setScene(scene);
+    				stage.initModality(Modality.WINDOW_MODAL);
+    				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     				stage.show();
     	}
     }
