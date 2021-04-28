@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 public class GiaoDienNhanVienController {
 
@@ -37,6 +38,9 @@ public class GiaoDienNhanVienController {
     
     @FXML
     private Button Thoat_Button;
+    
+    @FXML
+    private Label labelLeTan;
 
     @FXML
     void Check_inButtonListener(ActionEvent event) throws IOException {

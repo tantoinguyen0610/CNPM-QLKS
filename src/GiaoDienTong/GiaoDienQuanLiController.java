@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 public class GiaoDienQuanLiController {
 
@@ -34,6 +35,9 @@ public class GiaoDienQuanLiController {
     
     @FXML
     private Button Button_Thoat;
+    
+    @FXML
+    private Label labelQuanLy;
 
 
     @FXML

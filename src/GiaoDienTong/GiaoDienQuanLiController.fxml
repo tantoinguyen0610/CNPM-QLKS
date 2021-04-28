@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="1083.0" styleClass="bgquanly" stylesheets="@bgTong.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienQuanLiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="1083.0" styleClass="bgquanly" stylesheets="@bgTong.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GiaoDienTong.GiaoDienQuanLiController">
    <children>
       <AnchorPane id="bgquanly" layoutX="32.0" layoutY="-29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="1063.0" stylesheets="@bgTong.css">
          <children>
-            <Label alignment="CENTER" layoutX="295.0" layoutY="43.0" text="QUẢN LÝ KHÁCH SẠN" textAlignment="CENTER" textFill="#99b99c">
+            <Label alignment="CENTER" layoutX="266.0" layoutY="91.0" text="QUẢN LÝ KHÁCH SẠN" textAlignment="CENTER" textFill="#b9ebbd">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <ButtonBar layoutX="86.0" layoutY="665.0" prefHeight="126.0" prefWidth="889.0">
+      <ButtonBar layoutX="87.0" layoutY="590.0" prefHeight="126.0" prefWidth="889.0">
         <buttons>
             <Button fx:id="QLNVButton" mnemonicParsing="false" onAction="#QLNVButtonListener" prefHeight="71.0" prefWidth="261.0" style="-fx-background-radius: 2em; -fx-background-color: CCCCCC;" text="QUẢN LÝ NHÂN VIÊN">
                <font>
@@ -43,10 +43,15 @@
             </Button>
         </buttons>
       </ButtonBar>
-      <ImageView fitHeight="226.0" fitWidth="161.0" layoutX="474.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="226.0" fitWidth="161.0" layoutX="468.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@hinhnensgu.png" />
          </image>
       </ImageView>
+      <Label fx:id="labelQuanLy" layoutX="444.0" layoutY="404.0" text="QUẢN LÝ" textFill="#b9ebbd">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

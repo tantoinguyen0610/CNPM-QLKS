@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
-
+import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +33,9 @@ public class GiaoDienKeToanController {
     private Button QLHDButton;
     @FXML
     private Button Button_Thoat_QLKS;
+    
+    @FXML
+    private Label lbKeToan;
 
     @FXML
     void QLHDButtonListener(ActionEvent event) throws Exception {
