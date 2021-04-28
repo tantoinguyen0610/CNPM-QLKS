@@ -386,8 +386,6 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		}
 	}
 	
-	
-    
 	@FXML
     void LoaiPhongActionListener(ActionEvent event) {
 		HienCmbSoPhong();
@@ -487,6 +485,8 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 	
 	@FXML
     void DatPhong_ActionListener(ActionEvent event) {
+		int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn lưu?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
 	if ( KiemTraCMND() & KiemTraSDT() 
 			& KiemTraTenKH() & KiemTraSoNgayO() 
 			&  KiemTraCMND() 
@@ -534,6 +534,10 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		UpdateTable();
 		autoTaoMaKH();
 		autoTaoMaPT();
+		}
+     	else if(response == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 	
 	public void CapNhatTinhTrangPhong() {
