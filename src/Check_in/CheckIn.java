@@ -24,5 +24,4 @@ public class CheckIn extends Application {
  {
 	 launch(args);
 	 }
-
 }

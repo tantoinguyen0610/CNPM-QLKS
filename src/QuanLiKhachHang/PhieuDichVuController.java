@@ -157,7 +157,6 @@ public class PhieuDichVuController implements Initializable {
 		 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
 		 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
 		 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
-			
 		 tbl_PDV.setItems(phieudv);
 	}
 
