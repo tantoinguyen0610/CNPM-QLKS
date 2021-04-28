@@ -208,7 +208,7 @@ public class QuanLiKhachHangController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableKhachHang tbl_nv = DanhSachKHTableView.getItems().get(DanhSachKHTableView.getSelectionModel().getSelectedIndex());
     			tb1TextField.setText(tbl_nv.getMAKH());
-    			
+    			XoaButton.setDisable(false);
     		}
     		
     	});
