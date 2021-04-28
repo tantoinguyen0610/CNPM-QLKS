@@ -444,6 +444,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
     	SoNguoiCung1Phong.getSelectionModel().clearSelection();
     	Ma_DP_textField.setText("");
     	Loai_Phong_Cmb.getSelectionModel().clearSelection();
+    	SoPhong_Cmb.getSelectionModel().clearSelection();
     	UpdateTable();
     	XoaCanhBao();
     }

@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane prefHeight="948.0" prefWidth="1197.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ThongKe.ThongKeController">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1587.0" prefWidth="1195.0">
@@ -54,7 +53,7 @@
             </BarChart>
             <Label layoutX="50.0" layoutY="105.0" text="Lượng Khách Check-In:" />
             <Label layoutX="41.0" layoutY="144.0" text="Lượng Khách Check-Out:" />
-            <Button layoutX="537.0" layoutY="1511.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="122.0" text="Thoát" />
+            <Button fx:id="Button_Thoat" layoutX="537.0" layoutY="1511.0" mnemonicParsing="false" onAction="#Thoat_ActionListener" prefHeight="50.0" prefWidth="122.0" text="Thoát" />
             <TextField fx:id="CI_textField" disable="true" layoutX="206.0" layoutY="100.0" />
             <TextField fx:id="CO_textField" disable="true" layoutX="206.0" layoutY="139.0" />
             <Label layoutX="129.0" layoutY="184.0" text="Doanh Thu:" />

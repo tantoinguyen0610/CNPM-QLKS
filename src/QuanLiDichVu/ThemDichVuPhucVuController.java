@@ -92,6 +92,8 @@ public class ThemDichVuPhucVuController implements Initializable {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	autoTaoMADV();
+    	LoaiDVTextField.setText("phục vụ");
+    	LoaiDVTextField.setDisable(true);
 	}
 
     @FXML

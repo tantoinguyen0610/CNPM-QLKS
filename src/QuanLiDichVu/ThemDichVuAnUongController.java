@@ -96,6 +96,8 @@ public class ThemDichVuAnUongController implements Initializable {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	autoTaoMADV();
+    	LoaiDVAnUongTextField.setText("ăn uống");
+    	LoaiDVAnUongTextField.setDisable(true);
 	}
     
     @FXML

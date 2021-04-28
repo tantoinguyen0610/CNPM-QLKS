@@ -69,6 +69,8 @@ public class GiaoDienQuanLiController {
 				 // Build the scene graph.
 				 Scene scene = new Scene(parent);
 				Stage stage = new Stage();
+				scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Giao Diện Quản Lý Phòng");
 				stage.setScene(scene);

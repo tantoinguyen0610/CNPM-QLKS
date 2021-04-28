@@ -87,6 +87,8 @@ public class ThemDichVuThuGianController implements Initializable {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	autoTaoMADV();
+    	LoaiDVTextField.setText("thư giãn");
+    	LoaiDVTextField.setDisable(true);
 	}
     
     @FXML

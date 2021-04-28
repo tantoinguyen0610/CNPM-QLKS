@@ -86,6 +86,8 @@ public class ThemDichVuGiaiTriController implements Initializable {
     
     public void initialize(URL arg0, ResourceBundle arg1) {
     	autoTaoMADV();
+    	LoaiDVTextField.setText("giải trí");
+    	LoaiDVTextField.setDisable(true);
 	}
 
     @FXML

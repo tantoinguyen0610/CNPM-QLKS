@@ -85,6 +85,7 @@ public class GiaoDienNhanVienController {
 				 Scene scene = new Scene(parent);
 				Stage stage = new Stage();
 				 // Display our window, using the scene graph.
+				scene.getStylesheets().add(getClass().getResource("quanlyphong.css").toExternalForm());
 				 stage.setTitle("Tra cứu phòng");
 				stage.setScene(scene);
 				 stage.show();

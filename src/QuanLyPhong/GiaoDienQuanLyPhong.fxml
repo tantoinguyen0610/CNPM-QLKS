@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="App" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1095.0" styleClass="bgquanlyphong" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.GiaoDienQuanLyPhongController">
+<AnchorPane fx:id="App" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1095.0" styleClass="bgquanlyphong" stylesheets="@quanlyphong.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuanLyPhong.GiaoDienQuanLyPhongController">
    <children>
       <Button id="bt4" fx:id="btDasudungg" layoutX="420.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đã sử dụng" />
       <Button id="bt5" fx:id="btDangbaotrii" layoutX="559.0" layoutY="206.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" text="Đang bảo trì" />
