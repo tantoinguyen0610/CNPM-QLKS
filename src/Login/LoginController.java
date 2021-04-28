@@ -60,6 +60,25 @@ public class LoginController implements Initializable {
     	TextFormat();
 	}
     
+ public void TextFormat() {
+    	
+        
+        TextFormatter<?> formatter = new TextFormatter<>((TextFormatter.Change change) -> {
+            String text = change.getText();
+
+            if (!text.isEmpty()) {
+                String newText = text.replace(" ", "").toLowerCase();
+
+                int carretPos = change.getCaretPosition() - text.length() + newText.length();
+                change.setText(newText);
+
+                change.selectRange(carretPos, carretPos);
+            }
+            return change;
+        });
+        UserTextField.setTextFormatter(formatter);
+        }
+    
     @FXML
     void LoginButtonListener(ActionEvent event) throws Exception {
     	
@@ -138,24 +157,7 @@ public class LoginController implements Initializable {
 		}
 	}
     
-    public void TextFormat() {
-    	
-        
-        TextFormatter<?> formatter = new TextFormatter<>((TextFormatter.Change change) -> {
-            String text = change.getText();
-
-            if (!text.isEmpty()) {
-                String newText = text.replace(" ", "").toLowerCase();
-
-                int carretPos = change.getCaretPosition() - text.length() + newText.length();
-                change.setText(newText);
-
-                change.selectRange(carretPos, carretPos);
-            }
-            return change;
-        });
-        UserTextField.setTextFormatter(formatter);
-        }
+   
        
    
     //Hiển Thị Giao Diện
