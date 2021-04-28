@@ -36,6 +36,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class QuanLiHoaDonController implements Initializable {
@@ -201,11 +202,24 @@ public class QuanLiHoaDonController implements Initializable {
     ObservableList<TableHoaDonNangCapPhong> listhoadonncp = FXCollections.observableArrayList();
     
     public void initialize(URL arg0, ResourceBundle arg1) {
+    	BatTatNut();
     	HienTableHoaDonTTP();
     	HienTableHoaDonSuaChuaThietBi();
     	HienTableHoaDonNangCapPhong();
     	HienDataLenTextField();
+    	
 	}
+    
+    public void BatTatNut() {
+    	XoaHoaDonNCPButton.setDisable(true);
+    	XoaHoaDonSCTBButton.setDisable(true);
+    	XoaHDTTPButton.setDisable(true);
+    	XemHoaDonSCTBButton.setDisable(true);
+    	XemHoaDonNCPButton.setDisable(true);
+    	XemChiTietHDTTPButton.setDisable(true);
+    	DuyetThanhToanHoaDonSCTBButton.setDisable(true);
+    	DuyetThanhToanHoaDonNCPButton.setDisable(true);
+    }
     
     public void HienTableHoaDonTTP() {
     	try {
@@ -297,7 +311,10 @@ public class QuanLiHoaDonController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableHoaDonTTP tbl_nv = HoaDonThanhToanPhongTableView.getItems().get(HoaDonThanhToanPhongTableView.getSelectionModel().getSelectedIndex());
     			tb1TextField.setText(tbl_nv.getMA_HD_TTP());
+    			XoaHDTTPButton.setDisable(false);
     			
+    	    	
+    	    	XemChiTietHDTTPButton.setDisable(false);
     		}
     		
     	});
@@ -307,7 +324,10 @@ public class QuanLiHoaDonController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableHoaDonSuaThietBi tbl = HoaDonSuaChuaThietBiTableView.getItems().get(HoaDonSuaChuaThietBiTableView.getSelectionModel().getSelectedIndex());
     			tb2TextField.setText(tbl.getMA_HD());
-    			
+    			XoaHoaDonSCTBButton.setDisable(false);
+    			XemHoaDonSCTBButton.setDisable(false);
+    			DuyetThanhToanHoaDonSCTBButton.setDisable(false);
+    	    
     		}
     		
     	});
@@ -317,7 +337,9 @@ public class QuanLiHoaDonController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableHoaDonNangCapPhong tb2 = HoaDonNangCapPhongTableView.getItems().get(HoaDonNangCapPhongTableView.getSelectionModel().getSelectedIndex());
     			tb3TextField.setText(tb2.getMA_HD());
-    			
+    			XoaHoaDonNCPButton.setDisable(false);
+    			XemHoaDonNCPButton.setDisable(false);
+    			DuyetThanhToanHoaDonNCPButton.setDisable(false);
     		}
     		
     	});
@@ -326,6 +348,8 @@ public class QuanLiHoaDonController implements Initializable {
 
     @FXML
     void DuyetThanhToanHoaDonNCPButtonListener(ActionEvent event) throws IOException {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn duyệt hóa đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     	try {						
    		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -340,11 +364,17 @@ public class QuanLiHoaDonController implements Initializable {
 			JOptionPane.showMessageDialog(null, e);
 			}
    	 UpdateTable();
+   	 }
+     	else if(response == JOptionPane.NO_OPTION){
+ 		
+     	}
     	
     }
 
     @FXML
     void DuyetThanhToanHoaDonSCTBButtonListener(ActionEvent event) throws IOException {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn duyệt hóa đơn Này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     	try {						
       		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
    			Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -359,6 +389,10 @@ public class QuanLiHoaDonController implements Initializable {
    			JOptionPane.showMessageDialog(null, e);
    			}
       	 UpdateTable();
+      	 }
+     	else if(response == JOptionPane.NO_OPTION){
+     		
+     	}
     }
 
     @FXML
@@ -373,6 +407,8 @@ public class QuanLiHoaDonController implements Initializable {
     		controller.setHDTTP(tablehoadonttp);
     		stage.setTitle("Chi Tiết Hóa Đơn ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -387,6 +423,7 @@ public class QuanLiHoaDonController implements Initializable {
 		 HienTableHoaDonTTP();
 		 HienTableHoaDonSuaChuaThietBi();
 		 HienTableHoaDonNangCapPhong();
+		 BatTatNut();
 	}
 
     @FXML
@@ -401,6 +438,8 @@ public class QuanLiHoaDonController implements Initializable {
     		controller.setNCP(tablehoadonncp);
     		stage.setTitle("Chi Tiết Hóa Đơn ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -420,6 +459,8 @@ public class QuanLiHoaDonController implements Initializable {
     		controller.setSCTB(tablehoadonsctb);
     		stage.setTitle("Chi Tiết Hóa Đơn ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {

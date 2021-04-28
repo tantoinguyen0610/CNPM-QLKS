@@ -28,8 +28,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.stage.*;
 import javafx.scene.*;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -331,6 +329,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -341,6 +341,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -351,6 +353,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -361,6 +365,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -371,6 +377,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -381,6 +389,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	scene.getStylesheets().add(getClass().getResource("Chitietphongquanly.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -390,6 +400,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     	
     }
@@ -400,6 +412,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     	
     }
@@ -410,6 +424,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -419,6 +435,8 @@ public class GiaoDienQuanLyPhongController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     	

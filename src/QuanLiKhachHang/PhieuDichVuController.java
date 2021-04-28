@@ -110,6 +110,7 @@ public class PhieuDichVuController implements Initializable {
     	HienTablePhieuDV();
     	 autoTaoMaPDV();
     	 SoPhong_cmb.setItems(list_sophong);
+    	 Sua_Button.setDisable(true);
     	 Xoa_Button.setDisable(true);
     	 HienDataLenTextField() ;
 	}
@@ -203,6 +204,8 @@ public class PhieuDichVuController implements Initializable {
     public void UpdateTable() {
     	phieudv.clear();
     	HienTablePhieuDV();
+    	 Sua_Button.setDisable(true);
+    	 Xoa_Button.setDisable(true);
 	}
     
 private boolean KiemTraTenDV() {
@@ -311,6 +314,8 @@ else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa phiếu DV n
     			SL_textField.setText(tbl_nv.getSOLUONG());
     			TT_textField.setText(tbl_nv.getTONGTIENDV());
     			Xoa_Button.setDisable(false);
+    			 Sua_Button.setDisable(false);
+    	    	
     		}
     		
     	});

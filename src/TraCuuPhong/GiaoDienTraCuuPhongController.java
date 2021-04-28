@@ -14,10 +14,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GiaoDienTraCuuPhongController implements Initializable{
@@ -303,6 +305,8 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -313,6 +317,8 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -323,6 +329,8 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -333,6 +341,8 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -343,6 +353,8 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     
@@ -353,6 +365,8 @@ public class GiaoDienTraCuuPhongController implements Initializable{
     	scene.getStylesheets().add(getClass().getResource("chitietphong.css").toExternalForm());
     	Stage stage = new Stage();   	
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
     

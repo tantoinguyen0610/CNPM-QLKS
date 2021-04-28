@@ -41,7 +41,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import NhanVien.SuaNVController;
 
 public class NhanVienController implements Initializable {
 
@@ -207,6 +206,7 @@ public class NhanVienController implements Initializable {
     	autoTaoMaNV();
     	HienDataLenTextField();
     	Button_Xoa.setDisable(true);
+    	Button_Sua.setDisable(true);
 	}
     
     public void HienTableNhanVien() {
@@ -313,6 +313,7 @@ public class NhanVienController implements Initializable {
     			GioiTinh_cmbBox.setValue(tbl_nv.getGIOITINH());
     			((TextField)NgaySinh_DatePicker.getEditor()).setText(tbl_nv.getNGAYSINH());
     			Button_Xoa.setDisable(false);
+    			Button_Sua.setDisable(false);
     		}
     		
     	});
@@ -325,6 +326,10 @@ public class NhanVienController implements Initializable {
 
     @FXML
     void SuaNV_ActionListener(ActionEvent event) throws Exception {
+    	if(KiemTraTenNV() & KiemTraChucVu() & 
+    			KiemTraGioiTinh() & KiemTraSDT() &
+    			KiemTraCaLam() & KiemTraBatDauLam() & 
+    			KiemTraNgaySinh()) {
 				try {
 					final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 					Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -344,7 +349,7 @@ public class NhanVienController implements Initializable {
 					JOptionPane.showMessageDialog(null, "Cập nhật thành công!");
 				}catch(Exception e) {
 					e.printStackTrace();
-				}
+				}}
     }
 
     @FXML
@@ -385,6 +390,7 @@ public class NhanVienController implements Initializable {
 		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
 		Matcher m = p.matcher(TenNV_textField.getText());
 		if(m.find() && m.group().equals(TenNV_textField.getText())){
+			err_TenNV.setText("");
 			return true;
 		}
 		else {
@@ -400,6 +406,7 @@ public class NhanVienController implements Initializable {
 			err_ChucVu.setText("Vui lòng chọn chức vụ");
 			return false;
 			}
+		err_ChucVu.setText("");
 		return true;
 	}
     
@@ -410,6 +417,7 @@ public class NhanVienController implements Initializable {
 			err_GioiTinh.setText("Vui lòng chọn giới tính");
 			return false;
 			}
+		err_GioiTinh.setText("");
 		return true;
 	}
     
@@ -434,6 +442,7 @@ public class NhanVienController implements Initializable {
 			err_CaLam.setText("Vui lòng chọn ca làm");
 			return false;
 			}
+		err_CaLam.setText("");
 		return true;
 	}
     
@@ -490,6 +499,8 @@ public class NhanVienController implements Initializable {
     	HienTableNhanVien();
     	ResetTextField();
     	autoTaoMaNV();
+    	Button_Xoa.setDisable(true);
+    	Button_Sua.setDisable(true);
     }
     
     public void ResetTextField() {

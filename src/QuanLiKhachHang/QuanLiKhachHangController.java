@@ -23,6 +23,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,6 +32,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -99,7 +101,7 @@ public class QuanLiKhachHangController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
     	HienTableKhachHang();
     	HienDataLenTextField();
-    	
+    	SuaButton.setDisable(true);
 	}
     
     public void HienTableKhachHang() {
@@ -132,6 +134,8 @@ public class QuanLiKhachHangController implements Initializable {
     public void UpdateTable() {
 		 listkh.clear();
 		 HienTableKhachHang();
+		 SuaButton.setDisable(true);
+		 XoaButton.setDisable(true);
 	}
     
     @FXML
@@ -145,6 +149,8 @@ public class QuanLiKhachHangController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -160,6 +166,8 @@ public class QuanLiKhachHangController implements Initializable {
     		controller.setKhachHang(selected);
     		stage.setTitle("Khách Hàng");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -173,6 +181,8 @@ public class QuanLiKhachHangController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -209,6 +219,8 @@ public class QuanLiKhachHangController implements Initializable {
     			TableKhachHang tbl_nv = DanhSachKHTableView.getItems().get(DanhSachKHTableView.getSelectionModel().getSelectedIndex());
     			tb1TextField.setText(tbl_nv.getMAKH());
     			XoaButton.setDisable(false);
+    	    	SuaButton.setDisable(false);
+
     		}
     		
     	});

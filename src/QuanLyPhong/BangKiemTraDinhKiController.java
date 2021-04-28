@@ -144,10 +144,12 @@ public class BangKiemTraDinhKiController implements Initializable {
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 		cbTrangthaisausuachua.setItems(cb_Trangthaisausuachua);
 		SoPhong_cmb.setItems(cb_sophong);
+		HienDataLenTextField();
 		HienTableKTDK();
 		ChuyenNguocNamThangNgay();
 		Button_Xoa.setDisable(true);
-		HienDataLenTextField();
+		Button_Sua.setDisable(true);
+		
 		autoTaoMaKT();
 	}
     
@@ -164,6 +166,8 @@ public class BangKiemTraDinhKiController implements Initializable {
     			cbTrangthaisausuachua.setValue(tbl_nv.getTRANGTHAISAUKT());
     			tfGhichu.setText(tbl_nv.getGHI_CHU());
     			Button_Xoa.setDisable(false);
+    			Button_Sua.setDisable(false);
+
     		}
     		
     	});

@@ -19,6 +19,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
@@ -32,6 +33,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class QuanLiDichVuController implements Initializable {
@@ -253,6 +255,7 @@ public class QuanLiDichVuController implements Initializable {
     ObservableList<TableDichVuPhucVu> listdvpv = FXCollections.observableArrayList();
     
     public void initialize(URL arg0, ResourceBundle arg1) {
+    	BatTatNut();
     	HienTableDichVuAnUong();
     	HienTableDichVuGiaiTri();
     	HienTableDichVuThuGian();
@@ -261,6 +264,19 @@ public class QuanLiDichVuController implements Initializable {
   
     	
 	}
+    public void BatTatNut() {
+    	SuaDVAnUongButton.setDisable(true);
+    	XoaDVAnUongButton.setDisable(true);
+    	
+    	SuaDVGTButton.setDisable(true);
+    	XoaDVTGButton.setDisable(true);
+    	
+    	SuaDVTGButton.setDisable(true);
+    	XoaDVTGButton.setDisable(true);
+    	
+    	SuaDVPVButton.setDisable(true);
+    	XoaDVPVButton.setDisable(true);
+    }
 
 
 
@@ -381,6 +397,7 @@ public class QuanLiDichVuController implements Initializable {
 		 HienTableDichVuGiaiTri();
 		 HienTableDichVuThuGian();
 		 HienTableDichVuPhucVu();
+		 BatTatNut();
 	}
     
     @FXML
@@ -395,6 +412,8 @@ public class QuanLiDichVuController implements Initializable {
     		controller.setDichVuAnUong(selected);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -414,6 +433,8 @@ public class QuanLiDichVuController implements Initializable {
     		controller.setDichVuGiaiTri(dvgiaitri);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -433,6 +454,8 @@ public class QuanLiDichVuController implements Initializable {
     		controller.setDichVuPV(dichvuphucvu);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -452,6 +475,8 @@ public class QuanLiDichVuController implements Initializable {
     		controller.setDichVuTG(dvthugian);
     		stage.setTitle("Sửa Dịch Vụ");
     		stage.setScene(scene);
+    		stage.initModality(Modality.WINDOW_MODAL);
+    		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     		stage.show();
     		}
     		catch(Exception e) {
@@ -465,6 +490,8 @@ public class QuanLiDichVuController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -474,6 +501,8 @@ public class QuanLiDichVuController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -483,6 +512,8 @@ public class QuanLiDichVuController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -492,6 +523,8 @@ public class QuanLiDichVuController implements Initializable {
     	Scene scene = new Scene(root);
     	Stage stage = new Stage();
     	stage.setScene(scene);
+    	stage.initModality(Modality.WINDOW_MODAL);
+		stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     	stage.show();
     }
 
@@ -502,6 +535,8 @@ public class QuanLiDichVuController implements Initializable {
     			TableDichVuAnUong tbl_nv = DichVuAnUongTableView.getItems().get(DichVuAnUongTableView.getSelectionModel().getSelectedIndex());
     			tb1TextField.setText(tbl_nv.getMA_DV());
     			XoaDVAnUongButton.setDisable(false);
+    			SuaDVAnUongButton.setDisable(false);
+    	  
     		}
     		
     	});
@@ -512,6 +547,8 @@ public class QuanLiDichVuController implements Initializable {
     			TableDichVuGiaiTri tb1 = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
     			tb2TextField.setText(tb1.getMA_DV());
     			XoaDVGTButton.setDisable(false);
+    			SuaDVGTButton.setDisable(false);
+    	  
     		}
     		
     	});
@@ -521,6 +558,8 @@ public class QuanLiDichVuController implements Initializable {
     			TableDichVuThuGian tbl_nv = DichVuThuGianTableView.getItems().get(DichVuThuGianTableView.getSelectionModel().getSelectedIndex());
     			tb3TextField.setText(tbl_nv.getMA_DV());
     			XoaDVTGButton.setDisable(false);
+    			SuaDVTGButton.setDisable(false);
+    	    	
     		}
     		
     	}); 
@@ -530,6 +569,8 @@ public class QuanLiDichVuController implements Initializable {
     			TableDichVuPhucVu tbl_nv = DIchVuPhucVuTableView.getItems().get(DIchVuPhucVuTableView.getSelectionModel().getSelectedIndex());
     			tb4TextField.setText(tbl_nv.getMA_DV());
     			XoaDVPVButton.setDisable(false);
+    			SuaDVPVButton.setDisable(false);
+    	    	
     		}
     		
     	});
