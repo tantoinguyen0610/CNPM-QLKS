@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -69,9 +71,6 @@ public class ThemKhachHangController implements Initializable {
     private TextField TenKhTextField;
 
     @FXML
-    private TextField GTTextField;
-
-    @FXML
     private TextField SDTTextField;
 
     @FXML
@@ -79,9 +78,6 @@ public class ThemKhachHangController implements Initializable {
 
     @FXML
     private TextField QuocTichTextField;
-
-    @FXML
-    private TextField NgaySinhTextField;
 
     @FXML
     private TextField DiaChiTextField;
@@ -243,29 +239,38 @@ public class ThemKhachHangController implements Initializable {
 			tb1Label.setText(" Vui lòng nhập Tên Khách Hàng");
 			return false;
 			}
+		tb1Label.setText("");
 		return true;
 	}
 
     private boolean KiemTraSDT() {
 	
-	if(SDTTextField.getText().isEmpty())
-			
-		{
-		tb2Label.setText("Vui lòng nhập Số Điện Thoại ");
-		return false;
+    	Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(SDTTextField.getText());
+		if(m.find() && m.group().equals(SDTTextField.getText())&& SDTTextField.getText().matches("\\d{10}|\\d{11}"))
+				{
+			tb2Label.setText("");
+			return true;
 		}
-	return true;
-}
+		else {
+			tb2Label.setText("Vui lòng điền số hợp lệ");
+			return false;
+		}
+	}
 
     private boolean KiemTraCMND() {
 	
-	if(CMNDTextField.getText().isEmpty())
-			
-		{
-		tb3Label.setText("Vui lòng nhập CMND ");
-		return false;
+    	Pattern p = Pattern.compile("[0-9]+");
+		Matcher m = p.matcher(CMNDTextField.getText());
+		if(m.find() && m.group().equals(CMNDTextField.getText())&& CMNDTextField.getText().matches("\\d{10}|\\d{11}"))
+				{
+			tb3Label.setText("");
+			return true;
 		}
-	return true;
+		else {
+			tb3Label.setText("Vui lòng điền số hợp lệ");
+			return false;
+		}
 }
 
     private boolean KiemTraQUOCTICH() {
@@ -276,6 +281,7 @@ public class ThemKhachHangController implements Initializable {
 		tb4Label.setText("Vui lòng nhập Quốc Tịch ");
 		return false;
 		}
+	tb4Label.setText("");
 	return true;
 }
 
@@ -310,6 +316,7 @@ private boolean KiemTraGioiTinh() {
 		tb7Label.setText("Vui lòng nhập Địa Chỉ ");
 		return false;
 		}
+	tb7Label.setText("");
 	return true;
 }
     

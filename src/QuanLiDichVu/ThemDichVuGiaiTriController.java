@@ -72,6 +72,18 @@ public class ThemDichVuGiaiTriController implements Initializable {
     @FXML
     private TextField LoaiDVTextField;
     
+    @FXML
+    private Label tb1Label;
+
+    @FXML
+    private Label tb2Label;
+
+    @FXML
+    private Label tb3Label;
+
+    @FXML
+    private Label tb4Label;
+    
     public void initialize(URL arg0, ResourceBundle arg1) {
     	autoTaoMADV();
 	}
@@ -100,6 +112,8 @@ public class ThemDichVuGiaiTriController implements Initializable {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
+    	if ( KiemTraTenDichVu() & KiemTraKhungGio() 
+    			& KiemTraGia() & KiemTraTinhTrang() ) {
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -124,7 +138,7 @@ public class ThemDichVuGiaiTriController implements Initializable {
         // do what you have to do
         stage.close();
     }
-    
+}    
     public void autoTaoMADV() {
 		try {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -152,6 +166,54 @@ public class ThemDichVuGiaiTriController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+    
+private boolean KiemTraTenDichVu() {
+		
+		if(TenDVAnUongTextField.getText().isEmpty())
+				
+			{
+			tb1Label.setText(" Vui lòng nhập Tên Dịch Vụ");
+			return false;
+			}
+		tb1Label.setText("");
+		return true;
+	}
+private boolean KiemTraKhungGio() {
+	
+	if(KhungGioTextField.getText().isEmpty())
+			
+		{
+		tb2Label.setText(" Vui lòng nhập Khung Giờ");
+		return false;
+		}
+	tb2Label.setText("");
+	return true;
+}
+
+private boolean KiemTraGia() {
+	
+	if(GiaTextField.getText().isEmpty())
+			
+		{
+		tb3Label.setText(" Vui lòng nhập Giá");
+		return false;
+		}
+	tb3Label.setText("");
+	return true;
+}
+
+private boolean KiemTraTinhTrang() {
+	
+	if(TinhTrangTextField.getText().isEmpty())
+			
+		{
+		tb4Label.setText(" Vui lòng nhập Tình Trạng");
+		return false;
+		}
+	tb4Label.setText("");
+	return true;
+}
+
 
     @FXML
     void MaDVAnUongTextFieldListener(ActionEvent event) {

@@ -5,20 +5,28 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import Check_in.ModelTable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
-public class SuaKhachHangController {
+public class SuaKhachHangController implements Initializable  {
 
     @FXML
     private ResourceBundle resources;
@@ -91,7 +99,44 @@ public class SuaKhachHangController {
 
     @FXML
     private Button SuaButton;
+    
+    @FXML
+    private ComboBox<String> GioiTinhCMB;
 
+    @FXML
+    private DatePicker NgaySinh;
+    
+    ObservableList<String> GioiTinh = FXCollections.observableArrayList("Nam","Nữ");
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		
+		GioiTinhCMB.setItems(GioiTinh);
+		ChuyenNguocNamThangNgay();
+	}
+
+    
+    public void ChuyenNguocNamThangNgay()
+   	{
+   			NgaySinh.setConverter(
+   				   new StringConverter<LocalDate>() {
+   				          final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+   				          @Override
+   				          public String toString(LocalDate date) {
+   				            return (date != null) ? dateFormatter.format(date) : "";
+   				          }
+
+   				          @Override
+   				          public LocalDate fromString(String string) {
+   				            return (string != null && !string.isEmpty())
+   				                ? LocalDate.parse(string, dateFormatter)
+   				                : null;
+   				          }
+   				        });
+   	}
+    
     @FXML
     void CMNDTextFieldListener(ActionEvent event) {
 
@@ -123,8 +168,8 @@ public class SuaKhachHangController {
     			Connection conn = DriverManager.getConnection(DB_URL,"root","");
     			String value0 = MaKHTextField.getText();
     			String value1 = TenKhTextField.getText();
-    			String value2 =NgaySinhTextField.getText();
-    			String value3 =GTTextField.getText();
+    			String value2 =((TextField)NgaySinh.getEditor()).getText();
+    			String value3 =GioiTinhCMB.getValue().toString();
     			String value4 =DiaChiTextField.getText();
     			String value5 =QuocTichTextField.getText();
     			String value6 =SDTTextField.getText();
@@ -169,8 +214,8 @@ public class SuaKhachHangController {
     public void setKhachHang(TableKhachHang khachhang) {
     	MaKHTextField.setText(String.valueOf(khachhang.getMAKH()));
     	TenKhTextField.setText(String.valueOf(khachhang.getTENKH()));
-    	NgaySinhTextField.setText(String.valueOf(khachhang.getNGAYSINH()));
-    	GTTextField.setText(String.valueOf(khachhang.getGIOITINH()));
+    	((TextField)NgaySinh.getEditor()).setText(khachhang.getNGAYSINH());
+    	GioiTinhCMB.setValue(khachhang.getGIOITINH());
     	DiaChiTextField.setText(String.valueOf(khachhang.getDIACHI()));
     	QuocTichTextField.setText(String.valueOf(khachhang.getQUOCTICH()));
     	SDTTextField.setText(String.valueOf(khachhang.getSDT()));
@@ -181,11 +226,11 @@ public class SuaKhachHangController {
     void SuaButtonListener(ActionEvent event) {
     	MaKHTextField.setDisable(true);
     	TenKhTextField.setDisable(false);
-    	GTTextField.setDisable(false);
+    	GioiTinhCMB.setDisable(false);
     	SDTTextField.setDisable(false);
     	CMNDTextField.setDisable(false);
     	QuocTichTextField.setDisable(false);
-    	NgaySinhTextField.setDisable(false);
+    	NgaySinh.setDisable(false);
     	DiaChiTextField.setDisable(false);
     	LuuButton.setDisable(false);
     	HuyButton.setDisable(false);

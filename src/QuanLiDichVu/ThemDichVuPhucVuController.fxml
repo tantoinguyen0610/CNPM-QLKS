@@ -29,6 +29,10 @@
             <Button fx:id="HuyButton" layoutX="479.0" layoutY="407.0" mnemonicParsing="false" onAction="#HuyButtonListener" prefHeight="63.0" prefWidth="116.0" text="Hủy" />
             <Label fx:id="LoaiDVLabel" alignment="CENTER" layoutX="51.0" layoutY="303.0" prefHeight="45.0" prefWidth="127.0" text="Loại Dịch Vụ" />
             <TextField fx:id="LoaiDVTextField" layoutX="178.0" layoutY="310.0" onAction="#LoaiDVTextFieldListener" />
+            <Label fx:id="tb1Label" layoutX="178.0" layoutY="282.0" textFill="RED" />
+            <Label fx:id="tb2Label" layoutX="619.0" layoutY="202.0" textFill="RED" />
+            <Label fx:id="tb3Label" layoutX="619.0" layoutY="282.0" textFill="RED" />
+            <Label fx:id="tb4Label" layoutX="619.0" layoutY="348.0" textFill="RED" />
          </children>
       </AnchorPane>
    </children>

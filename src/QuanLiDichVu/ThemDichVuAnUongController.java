@@ -117,6 +117,9 @@ public class ThemDichVuAnUongController implements Initializable {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
+    	if ( KiemTraTenDichVu() & KiemTraSoLuong() 
+    			& KiemTraGia() & KiemTraTinhTrang() )
+    			 	{
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
@@ -131,16 +134,17 @@ public class ThemDichVuAnUongController implements Initializable {
 			pst.setString(6,TinhTrangTextField.getText());
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
-			//UpdateTable();
+			
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		}
     	autoTaoMADV();
-    	    	Stage stage = (Stage) LuuButton.getScene().getWindow();
+    	Stage stage = (Stage) LuuButton.getScene().getWindow();
         // do what you have to do
-        stage.close();
+        stage.close();	
     }
+}
     
     public void autoTaoMADV() {
 		try {
@@ -168,6 +172,58 @@ public class ThemDichVuAnUongController implements Initializable {
 			
 			e.printStackTrace();
 		}
+	}
+    
+
+    
+    private boolean KiemTraTenDichVu() {
+		
+		if(TenDVAnUongTextField.getText().isEmpty())
+				
+			{
+			tb2Label.setText(" Vui lòng nhập Tên Dịch Vụ");
+			return false;
+			}
+		tb2Label.setText("");
+		return true;
+	}
+    
+
+
+    private boolean KiemTraSoLuong() {
+		
+		if(SoLuongTextField.getText().isEmpty())
+				
+			{
+			tb4Label.setText(" Vui lòng nhập Số Lượng");
+			return false;
+			}
+		tb4Label.setText("");
+		return true;
+	}
+ 
+    private boolean KiemTraGia() {
+		
+		if(GiaTextField.getText().isEmpty())
+				
+			{
+			tb5Label.setText(" Vui lòng nhập Giá");
+			return false;
+			}
+		tb5Label.setText("");
+		return true;
+	}
+ 
+ private boolean KiemTraTinhTrang() {
+		
+		if(TinhTrangTextField.getText().isEmpty())
+				
+			{
+			tb6Label.setText(" Vui lòng nhập Tình Trạng");
+			return false;
+			}
+		tb6Label.setText("");
+		return true;
 	}
 
     @FXML
