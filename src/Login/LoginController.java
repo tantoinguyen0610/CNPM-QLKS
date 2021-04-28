@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.security.auth.callback.PasswordCallback;
 import javax.swing.JOptionPane;
@@ -55,27 +57,16 @@ public class LoginController implements Initializable {
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+    	TextFormat();
 	}
     
-
     @FXML
     void LoginButtonListener(ActionEvent event) throws Exception {
     	
     	Window owner = LoginButton.getScene().getWindow();
 
-        System.out.println(UserTextField.getText());
-        System.out.println(PasswordTextField.getText());
-
-         if (UserTextField.getText().isEmpty()&& Character.isWhitespace(UserTextField.getText().charAt(0))) {
-             thongbao.setText("Bạn chưa nhập tài khoản !");
-             return;
-         }
-         else if (PasswordTextField.getText().isEmpty()) {
-             thongbao.setText("Bạn chưa nhập mật khẩu !");
-             return ;
-         }
-    	
+        if(KiemTraUserName() && KiemTraPassword()) {
+        	
     	try {
 			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -121,17 +112,52 @@ public class LoginController implements Initializable {
     	}
     	
     	
-    	
+        }
     }
     
-    public void KhoangTrang() {
-    	UserTextField.setTextFormatter(new TextFormatter<>(change -> {
-    	    if (change.getText().equals(" ")) {
-    	        change.setText("");
-    	    }
-    	    return change;
-    	}));
-    }
+    private boolean KiemTraUserName() {
+		if(UserTextField.getText().isEmpty()){
+			thongbao.setText("Bạn chưa nhập tài khoản !");
+			return false;
+		}
+		else {
+			
+			thongbao.setText("");
+			return true;
+		}
+	}
+    
+    private boolean KiemTraPassword() {
+		if(PasswordTextField.getText().isEmpty()){
+			thongbao.setText("Bạn chưa nhập mật khẩu !");
+			return false;
+		}
+		else {
+			thongbao.setText("");
+			return true;
+		}
+	}
+    
+    public void TextFormat() {
+    	
+        
+        TextFormatter<?> formatter = new TextFormatter<>((TextFormatter.Change change) -> {
+            String text = change.getText();
+
+            if (!text.isEmpty()) {
+                String newText = text.replace(" ", "").toLowerCase();
+
+                int carretPos = change.getCaretPosition() - text.length() + newText.length();
+                change.setText(newText);
+
+                change.selectRange(carretPos, carretPos);
+            }
+            return change;
+        });
+        UserTextField.setTextFormatter(formatter);
+        }
+       
+   
     //Hiển Thị Giao Diện
     public void HienThiGiaoDienQuanLi(ActionEvent event) throws Exception {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
