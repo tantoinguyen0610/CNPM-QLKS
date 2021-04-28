@@ -101,6 +101,7 @@ public class GiaoDienNhanVienController {
    		      	loader.setLocation(getClass().getClassLoader().getResource("Login/LoginController.fxml"));
    		      	Parent sampleParent = loader.load();
    		      	Scene scene = new Scene(sampleParent);
+   		     scene.getStylesheets().add(getClass().getClassLoader().getResource("Login/Login.css").toExternalForm());
    		      	stage.setScene(scene);
    		} catch (IOException e) {
    			// TODO Auto-generated catch block
