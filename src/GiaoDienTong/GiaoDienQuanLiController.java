@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
@@ -50,6 +51,8 @@ public class GiaoDienQuanLiController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Giao Diện Dịch Vụ");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
 
@@ -63,6 +66,8 @@ public class GiaoDienQuanLiController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Giao Diện Nhân Viên");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
 
@@ -78,12 +83,14 @@ public class GiaoDienQuanLiController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Giao Diện Quản Lý Phòng");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
     
     @FXML
     void QL_Thoat_ButtonListener(ActionEvent event) {
-    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn Xóa Khách Hàng này?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn thoát giao diện?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
      	if(response == JOptionPane.YES_OPTION) {
     		try {
     			

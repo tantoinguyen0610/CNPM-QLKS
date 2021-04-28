@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
@@ -52,6 +53,8 @@ public class GiaoDienNhanVienController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Giao Diện Check-in");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
 
@@ -65,6 +68,8 @@ public class GiaoDienNhanVienController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Giao Diện Check-out");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
 
@@ -78,6 +83,8 @@ public class GiaoDienNhanVienController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Quản Lí Khách Hàng");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
 
@@ -92,6 +99,8 @@ public class GiaoDienNhanVienController {
 				scene.getStylesheets().add(getClass().getResource("quanlyphong.css").toExternalForm());
 				 stage.setTitle("Tra cứu phòng");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
     

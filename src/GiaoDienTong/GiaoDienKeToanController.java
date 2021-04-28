@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import HoaDon.QuanLiHoaDonController;
 public class GiaoDienKeToanController {
@@ -47,6 +48,8 @@ public class GiaoDienKeToanController {
 				 // Display our window, using the scene graph.
 				 stage.setTitle("Quản Lí Hoá Đơn");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
 
@@ -58,6 +61,8 @@ public class GiaoDienKeToanController {
 				Stage stage = new Stage();
 				 stage.setTitle("Thống Kê");
 				stage.setScene(scene);
+				stage.initModality(Modality.WINDOW_MODAL);
+				stage.initOwner(((Node) event.getSource()).getScene().getWindow());
 				 stage.show();
     }
     @FXML
@@ -72,6 +77,7 @@ public class GiaoDienKeToanController {
    		      	Parent sampleParent = loader.load();
    		      	Scene scene = new Scene(sampleParent);
    		     scene.getStylesheets().add(getClass().getClassLoader().getResource("Login/Login.css").toExternalForm());
+   		     
    		      	stage.setScene(scene);
    		} catch (IOException e) {
    			// TODO Auto-generated catch block
