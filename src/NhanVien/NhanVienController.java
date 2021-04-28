@@ -416,7 +416,9 @@ public class NhanVienController implements Initializable {
     private boolean KiemTraSDT() {
 		Pattern p = Pattern.compile("[0-9]+");
 		Matcher m = p.matcher(SDT_textField.getText());
-		if(m.find() && m.group().equals(SDT_textField.getText())){
+		if(m.find() && m.group().equals(SDT_textField.getText())&& SDT_textField.getText().matches("\\d{10}|\\d{11}"))
+				{
+			err_SDT.setText("");
 			return true;
 		}
 		else {

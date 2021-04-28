@@ -36,7 +36,7 @@
             <Font name="Times New Roman Bold" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="Button_Refresh" layoutX="1216.0" layoutY="667.0" mnemonicParsing="false" onAction="#Refresh_ActionListener" prefHeight="41.0" prefWidth="72.0" text="Refresh" />
+      <Button fx:id="Button_Refresh" layoutX="1169.0" layoutY="667.0" mnemonicParsing="false" onAction="#Refresh_ActionListener" prefHeight="41.0" prefWidth="119.0" text="Cập nhật" />
       <Label fx:id="MaNV_Label" layoutX="64.0" layoutY="127.0" text="Mã nhân viên:" />
       <Label fx:id="HoTenNV_Label" layoutX="64.0" layoutY="162.0" text="Họ và tên NV:" />
       <Label fx:id="ChucVu_Label" layoutX="66.0" layoutY="367.0" text="Chức vụ:" />
@@ -65,7 +65,6 @@
             <Button fx:id="Button_ThemNV" mnemonicParsing="false" onAction="#ThemNV_ActionListener" prefHeight="111.0" prefWidth="167.0" text="Thêm" />
             <Button fx:id="Button_Sua" mnemonicParsing="false" onAction="#SuaNV_ActionListener" prefHeight="113.0" prefWidth="167.0" text="Sửa" />
             <Button fx:id="Button_Xoa" mnemonicParsing="false" onAction="#XoaNV_ActionListener" prefHeight="121.0" prefWidth="167.0" text="Xoá" />
-          <Button fx:id="Button_ChamCong" mnemonicParsing="false" onAction="#ChamCong_ActionListener" prefHeight="111.0" prefWidth="238.0" text="Chấm công" />
         </buttons>
       </ButtonBar>
       <Label fx:id="GioiTinh_Label" layoutX="66.0" layoutY="243.0" text="Giới tính:" />
