@@ -225,20 +225,13 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		ChuyenNguocNamThangNgay();
-		
-		Chon1Trong2LoaiPhieu();
-		
-		DisableTextFields();
-		
-		HienTableCheckIn();		
-		
-		Loai_Phong_Cmb.setItems(list_lp);
-		
+		ChuyenNguocNamThangNgay();		
+		Chon1Trong2LoaiPhieu();		
+		DisableTextFields();		
+		HienTableCheckIn();				
+		Loai_Phong_Cmb.setItems(list_lp);		
 		SoNguoiCung1Phong.setItems(List_SoNguoi1Phong);
-
-		autoTaoMaKH();
-		
+		autoTaoMaKH();		
 		autoTaoMaPT();
 	}
 	
