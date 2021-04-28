@@ -465,6 +465,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
     	Loai_Phong_Cmb.setDisable(false);
     	Button_DatPhong.setDisable(false);
     	Button_Reset.setDisable(false);
+    	err_NgayDP.setText("");
     }
 
     @FXML

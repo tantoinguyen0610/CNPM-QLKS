@@ -28,35 +28,29 @@ import javafx.stage.Window;
 import javafx.scene.control.PasswordField;
 public class LoginController implements Initializable {
 
-    @FXML
-    private ResourceBundle resources;
+	  @FXML
+	    private AnchorPane AnchorPane;
 
-    @FXML
-    private URL location;
+	    @FXML
+	    private Label QLKSLabel;
 
-    @FXML
-    private AnchorPane AnchorPane;
+	    @FXML
+	    private Label UserLabel;
 
-    @FXML
-    private Label QLKSLabel;
+	    @FXML
+	    private Label PasswordLabel;
 
-    @FXML
-    private Label UserLabel;
+	    @FXML
+	    private TextField UserTextField;
 
-    @FXML
-    private Label PasswordLabel;
+	    @FXML
+	    private TextField PasswordTextField;
 
-    @FXML
-    private TextField UserTextField;
-
-    @FXML
-    private PasswordField PasswordTextField;
-
-    @FXML
-    private Button LoginButton;
-    
-    @FXML
-    private Label thongbao;
+	    @FXML
+	    private Button LoginButton;
+	    
+	    @FXML
+	    private Label thongbao;
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
