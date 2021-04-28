@@ -501,7 +501,7 @@ public class QuanLiDichVuController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableDichVuAnUong tbl_nv = DichVuAnUongTableView.getItems().get(DichVuAnUongTableView.getSelectionModel().getSelectedIndex());
     			tb1TextField.setText(tbl_nv.getMA_DV());
-    			
+    			XoaDVAnUongButton.setDisable(false);
     		}
     		
     	});
@@ -511,7 +511,7 @@ public class QuanLiDichVuController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableDichVuGiaiTri tb1 = DichVuGiaiTriTableView.getItems().get(DichVuGiaiTriTableView.getSelectionModel().getSelectedIndex());
     			tb2TextField.setText(tb1.getMA_DV());
-    			
+    			XoaDVGTButton.setDisable(false);
     		}
     		
     	});
@@ -520,7 +520,7 @@ public class QuanLiDichVuController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableDichVuThuGian tbl_nv = DichVuThuGianTableView.getItems().get(DichVuThuGianTableView.getSelectionModel().getSelectedIndex());
     			tb3TextField.setText(tbl_nv.getMA_DV());
-    			
+    			XoaDVTGButton.setDisable(false);
     		}
     		
     	}); 
@@ -529,7 +529,7 @@ public class QuanLiDichVuController implements Initializable {
     		public void handle(MouseEvent event) {
     			TableDichVuPhucVu tbl_nv = DIchVuPhucVuTableView.getItems().get(DIchVuPhucVuTableView.getSelectionModel().getSelectedIndex());
     			tb4TextField.setText(tbl_nv.getMA_DV());
-    			
+    			XoaDVPVButton.setDisable(false);
     		}
     		
     	});
