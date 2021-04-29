@@ -361,7 +361,7 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 	
 	public void TinhTongTextField() {
 		Double tongtien=0.0;
-		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText())+Double.valueOf(Tien_DV_textField.getText()));
+		tongtien=tongtien + (Double.valueOf(Gia_textField.getText()) * Double.valueOf(SoNgayO_textField.getText()) + Double.valueOf(Tien_DV_textField.getText()) - Double.valueOf(DatCoc_textField.getText()));
 		TongCong_textField.setText(tongtien+"");
 	}
 									
