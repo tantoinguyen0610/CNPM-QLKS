@@ -180,7 +180,7 @@ public class ThietBi105Controller implements Initializable {
     
     @FXML
     void Luu_ActionListener(ActionEvent event) { 
-    	int response=	JOptionPane.showConfirmDialog(null, "Bạn muốn lưu r xoá", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn muốn lưu ?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	if(response == JOptionPane.YES_OPTION) {
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
