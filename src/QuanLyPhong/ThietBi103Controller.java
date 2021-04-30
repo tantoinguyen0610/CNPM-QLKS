@@ -185,7 +185,12 @@ public class ThietBi103Controller implements Initializable {
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
 			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 103";
 			PreparedStatement pst = conn.prepareStatement(query);
-			pst.setString(1, checkboxlist.toString());
+			 if (checkboxlist.isEmpty()) {
+				 pst.setString(1, null); 
+		           
+		        } else {
+		        	 pst.setString(1, checkboxlist.toString());
+		        }
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
 		}

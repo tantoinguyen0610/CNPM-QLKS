@@ -240,7 +240,6 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		Button_ThanhToan.setDisable(true);
 		HienTableHoaDon();
 		ChuyenNguocNamThangNgay();
 		TatNutDuyetThanhToan();
@@ -395,7 +394,7 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 
     @FXML
     void In_ActionListener(ActionEvent event) {
-    	
+    	if(KiemTraNgayThanhToanTrong()) {
     	try {
     		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -416,9 +415,20 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
     	}catch(Exception e) {
     		JOptionPane.showMessageDialog(null, "Lỗi"+ e);
     	}
-    	
+    	}
     }
     
+   private boolean KiemTraNgayThanhToanTrong() {
+    	
+    		if(((TextField)NgayThanhToan_textField.getEditor()).getText().isEmpty()){
+    			JOptionPane.showMessageDialog(null, "Vui lòng nhập ngày thanh toán");
+    			return false;
+    		}
+    		else {
+    			return true;
+    		}
+
+    }
 
     @FXML
     void TaoHD_ActionListener(ActionEvent event) {
@@ -459,7 +469,7 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 		
 		if(((TextField)NgayThanhToan_textField.getEditor()).getText().isEmpty())
 			{
-			err_NgayTT.setText("Vui lòng nhập ngày thanh toán!");
+			JOptionPane.showMessageDialog(null, "Vui lòng nhập ngày thanh toán");
 			return false;
 			}
 		return true;

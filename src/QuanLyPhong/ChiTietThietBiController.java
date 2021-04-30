@@ -23,6 +23,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class ChiTietThietBiController implements Initializable {
 
@@ -69,8 +70,11 @@ public class ChiTietThietBiController implements Initializable {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	LayDataVeCheckBox();
+
 		
 	}
+    
+  
     
   public void  LayDataVeCheckBox() {
 	  try {
@@ -80,7 +84,6 @@ public class ChiTietThietBiController implements Initializable {
 			ResultSet rs = s.executeQuery("select THIETBI from phong where MA_PHONG = '1' ");
 			rs.next();
 			//ResultSet rs = conn.createStatement().executeQuery("select THIETBI from phong where MA_PHONG = '1' ");
-				rs.getString("THIETBI");
 				if(rs.getString("THIETBI")!=null) {
 				cb1.setSelected(false);
 				cb2.setSelected(false);
@@ -149,7 +152,7 @@ public class ChiTietThietBiController implements Initializable {
 
     @FXML
     void cb3_ActionListener(ActionEvent event) {
-    	checkboxlist.add(cb3.getText());
+    checkboxlist.add(cb3.getText());
     }
 
     @FXML
@@ -179,43 +182,42 @@ public class ChiTietThietBiController implements Initializable {
     
     @FXML
     void Luu_ActionListener(ActionEvent event) {
+    	int response=	JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn lưu?", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     	if(response == JOptionPane.YES_OPTION) {
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
 			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 101";
 			PreparedStatement pst = conn.prepareStatement(query);
-			pst.setString(1, checkboxlist.toString());
+			
+			 if (checkboxlist.isEmpty()) {
+				 pst.setString(1, null); 
+		           
+		        } else {
+		        	 pst.setString(1, checkboxlist.toString());
+		        }
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
 		}
 	catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Lỗi:" +e);
+			
 		}
+    	Stage stage = (Stage) btHuy.getScene().getWindow();
+	    stage.close();
+     	}
+     	
+	else if(response == JOptionPane.NO_OPTION){
+     		
+     	}
     }
     
     @FXML
     void Huy_ActionListener(ActionEvent event) {
-    int response=	JOptionPane.showConfirmDialog(null, "Bạn muốn lưu r xoá", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    	if(response == JOptionPane.YES_OPTION) {
-    		try {
-    			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-    			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-    			Connection conn = DriverManager.getConnection(DB_URL,"root","");
-    			String query = "UPDATE phong SET THIETBI = ? WHERE TEN_PHONG= 101";
-    			PreparedStatement pst = conn.prepareStatement(query);
-    			pst.setString(1, checkboxlist.toString());
-    			pst.executeUpdate();
-    			JOptionPane.showMessageDialog(null, "Thêm Thành Công!"); 
-    		}
-    	catch(Exception e) {
-    			JOptionPane.showMessageDialog(null, "Lỗi:" +e);
-    		}
+    	Stage stage = (Stage) btHuy.getScene().getWindow();
+	    stage.close();
     	}
-    	else if(response == JOptionPane.NO_OPTION){
-    		
-    	}
-    }
 
 	
 

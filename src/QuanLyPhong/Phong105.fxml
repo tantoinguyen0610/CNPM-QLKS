@@ -11,7 +11,6 @@
    <children>
       <Label fx:id="lbThietbi" layoutX="31.0" layoutY="165.0" text="Thiết bị" />
       <Label fx:id="lbTrangthai" layoutX="26.0" layoutY="287.0" text="Trạng thái" />
-      <Label fx:id="lbPhong" layoutX="25.0" layoutY="38.0" text="Phòng Deluxe: Loại phòng cao hơn Superior, thường ở tầng cao, diện tích rộng, hướng nhìn đẹp và trang bị cao cấp." />
       <ComboBox fx:id="cbTrangthai" layoutX="225.0" layoutY="282.0" prefHeight="31.0" prefWidth="161.0" />
       <Label fx:id="lbSonguoichophep" layoutX="28.0" layoutY="225.0" text="Số người cho phép" />
       <Button fx:id="btThietbi" layoutX="223.0" layoutY="160.0" mnemonicParsing="false" onAction="#btactionthietbi" text="Click" />
