@@ -16,6 +16,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -25,6 +27,7 @@ import QuanLiKhachHang.PhieuDV;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -34,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -236,8 +240,10 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
+		Button_ThanhToan.setDisable(true);
 		HienTableHoaDon();
 		ChuyenNguocNamThangNgay();
+		TatNutDuyetThanhToan();
 	}
 	
 	public void HienTableHoaDon() {	
@@ -291,6 +297,17 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 		CapNhatLenTblView();
 			
     }
+	
+	 private void TatNutDuyetThanhToan() {
+	    	Table_HoaDon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    		@Override
+	    		public void handle(MouseEvent event) {
+	    			
+	    			Button_ThanhToan.setDisable(false);
+	    		}
+	    		
+	    	});
+		}
 	
 	public void CapNhatLenTblView() {
 		try {
@@ -378,7 +395,7 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 
     @FXML
     void In_ActionListener(ActionEvent event) {
-
+    	if(KiemTraNgayThanhToanTrong()) {
     	try {
     		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -399,7 +416,19 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
     	}catch(Exception e) {
     		JOptionPane.showMessageDialog(null, "Lỗi"+ e);
     	}
+    	}
+    }
+    
+   private boolean KiemTraNgayThanhToanTrong() {
     	
+    		if(((TextField)NgayThanhToan_textField.getEditor()).getText().isEmpty()){
+    			JOptionPane.showMessageDialog(null, "Vui lòng nhập ngày thanh toán");
+    			return false;
+    		}
+    		else {
+    			return true;
+    		}
+
     }
 
     @FXML
@@ -470,6 +499,8 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
  			}
     	 UpdateTable();	
     }
+    
+   
     
     public void CapNhatTinhTrangPhong() {
 		 try {						
