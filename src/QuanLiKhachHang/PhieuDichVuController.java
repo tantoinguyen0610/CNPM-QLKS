@@ -312,7 +312,7 @@ else if(JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa phiếu DV n
     			MaPhieuDV_textField.setText(tbl_nv.getMAPHIEUDV());
     			SoPhong_cmb.setValue(tbl_nv.getSOPHONG());
     			TenDV_cmb.setValue(tbl_nv.getTENDV());
-    			Gia_textField.setText(tbl_nv.getGIATIEN());
+    			Gia_textField.setText(tbl_nv.getGIA());
     			SL_textField.setText(tbl_nv.getSOLUONG());
     			TT_textField.setText(tbl_nv.getTONGTIENDV());
     			Xoa_Button.setDisable(false);

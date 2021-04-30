@@ -12,34 +12,29 @@ public class PhieuDV {
 		
 		
 	}
-	
-	public String getSOPHONG() {
-		return SOPHONG;
-	}
-
-	public void setSOPHONG(String sOPHONG) {
-		SOPHONG = sOPHONG;
-	}
-
-	public String getGIATIEN() {
-		return GIA;
-	}
-
-	public void setGIATIEN(String gIA) {
-		GIA = gIA;
-	}
-
 	public String getMAPHIEUDV() {
 		return MAPHIEUDV;
 	}
 	public void setMAPHIEUDV(String mAPHIEUDV) {
 		MAPHIEUDV = mAPHIEUDV;
 	}
+	public String getSOPHONG() {
+		return SOPHONG;
+	}
+	public void setSOPHONG(String sOPHONG) {
+		SOPHONG = sOPHONG;
+	}
 	public String getTENDV() {
 		return TENDV;
 	}
 	public void setTENDV(String tENDV) {
 		TENDV = tENDV;
+	}
+	public String getGIA() {
+		return GIA;
+	}
+	public void setGIA(String gIA) {
+		GIA = gIA;
 	}
 	public String getTONGTIENDV() {
 		return TONGTIENDV;
@@ -53,4 +48,6 @@ public class PhieuDV {
 	public void setSOLUONG(String sOLUONG) {
 		SOLUONG = sOLUONG;
 	}
+	
+	
 }

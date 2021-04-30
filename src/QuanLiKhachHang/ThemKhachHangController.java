@@ -150,7 +150,7 @@ public class ThemKhachHangController implements Initializable {
 
     @FXML
     void LuuButtonListener(ActionEvent event) {
-    	if ( KiemTraTenKhachHang() & KiemTraSDT() 
+    	if ( KiemTraTenKH() & KiemTraSDT() 
     			& KiemTraCMND() & KiemTraQUOCTICH() 
     			&  KiemTraNgaySinh() 
     			& KiemTraGioiTinh() & KiemTraDiaChi()) 	{
@@ -231,16 +231,17 @@ public class ThemKhachHangController implements Initializable {
 				        });
 	}
     
-    private boolean KiemTraTenKhachHang() {
-		
-		if(TenKhTextField.getText().isEmpty())
-				
-			{
-			tb1Label.setText(" Vui lòng nhập Tên Khách Hàng");
+    private boolean KiemTraTenKH() {
+		Pattern p = Pattern.compile("[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ,\\s]+");
+		Matcher m = p.matcher(TenKhTextField.getText());
+		if(m.find() && m.group().equals(TenKhTextField.getText())){
+			tb1Label.setText("");
+			return true;
+		}
+		else {
+			tb1Label.setText("Vui lòng điền tên hợp lệ");
 			return false;
-			}
-		tb1Label.setText("");
-		return true;
+		}
 	}
 
     private boolean KiemTraSDT() {
@@ -262,7 +263,7 @@ public class ThemKhachHangController implements Initializable {
 	
     	Pattern p = Pattern.compile("[0-9]+");
 		Matcher m = p.matcher(CMNDTextField.getText());
-		if(m.find() && m.group().equals(CMNDTextField.getText())&& CMNDTextField.getText().matches("\\d{10}|\\d{11}"))
+		if(m.find() && m.group().equals(CMNDTextField.getText())&& CMNDTextField.getText().matches("\\d{9}|\\d{12}"))
 				{
 			tb3Label.setText("");
 			return true;
