@@ -4,6 +4,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -109,6 +112,7 @@ public class HoaDonNangCapPhongController implements Initializable {
 		// TODO Auto-generated method stub
     	SoPhong_cmb.setItems(listsophong);
     	ChuyenNguocNamThangNgay();
+    	autoTaoMaHD();
 	}
     
     @FXML
@@ -145,7 +149,9 @@ public class HoaDonNangCapPhongController implements Initializable {
     	catch(Exception e) {
     			JOptionPane.showMessageDialog(null, "Lỗi!" + e);
     		}
-        	
+        	autoTaoMaHD();
+        	Stage stage = (Stage) DongButton.getScene().getWindow();
+    	    stage.close();
         	}
     }
     
@@ -265,6 +271,30 @@ public class HoaDonNangCapPhongController implements Initializable {
  			        });
     }
 
+    public void autoTaoMaHD() {
+    	try {
+    		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+    		Connection conn = DriverManager.getConnection(DB_URL,"root","");
+    		Statement s= conn.createStatement();
+    		
+    		ResultSet rs = s.executeQuery("select Max(MA_HD) from hoa_don");
+    		rs.next();
+    		rs.getString("Max(MA_HD)");
+    		
+    		if(rs.getString("Max(MA_HD)")== null)
+    		{
+    			MaHD_textField.setText("1");
+    		}
+    		else
+    		{
+    			int matb = Integer.parseInt(rs.getString("Max(MA_HD)"));
+    			matb++;
+    			MaHD_textField.setText(String.format("%d",matb));
+    		}
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
 
 	
 

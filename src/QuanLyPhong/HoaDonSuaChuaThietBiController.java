@@ -156,6 +156,8 @@ public class HoaDonSuaChuaThietBiController implements Initializable {
     			JOptionPane.showMessageDialog(null, "Lỗi!" + e);
     		}
         	autoTaoMaHD();
+        	Stage stage = (Stage) DongButton.getScene().getWindow();
+    	    stage.close();
         	}
     }
     private boolean KiemTraMaTB() {

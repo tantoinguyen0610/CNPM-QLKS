@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -70,10 +71,16 @@ public class ThongKeController implements Initializable {
 		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 		Connection conn = DriverManager.getConnection(DB_URL,"root","");
     		ResultSet rs = conn.createStatement().executeQuery(query);
-    		while(rs.next()) {
-    			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+    		
+    		rs.next();
+	 		if(rs.getString("MONTH(NGAYNHAN)")== null) {
+				series.getData().add(new XYChart.Data<>("",0.0));
+			}
+			else {
+				series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
     			CI_textField.setText(rs.getString("SUM(SONGUOI1PHONG)"));
-    		}
+			}
+    		
     		BarChart_KHRaVao.getData().add(series);
     	}catch(Exception ex) {
     		JOptionPane.showMessageDialog(null, ex);
@@ -87,10 +94,18 @@ public class ThongKeController implements Initializable {
 		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 		Connection conn = DriverManager.getConnection(DB_URL,"root","");
     		ResultSet rs = conn.createStatement().executeQuery(query1);
-    		while(rs.next()) {
-    			series1.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+    		
+    		
+    		rs.next();
+	 		if(rs.getString("MONTH(NGAYTHANHTOAN)")== null) {
+				series.getData().add(new XYChart.Data<>("",0.0));
+			}
+			else {
+				series1.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
     			CO_textField.setText(rs.getString("COUNT(*)"));
-    		}
+			}
+    		
+    		
     		BarChart_KHRaVao.getData().add(series1);
     	}catch(Exception ex) {
     		JOptionPane.showMessageDialog(null, ex);
@@ -107,10 +122,16 @@ public class ThongKeController implements Initializable {
 		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 		Connection conn = DriverManager.getConnection(DB_URL,"root","");
     		ResultSet rs = conn.createStatement().executeQuery(query);
-    		while(rs.next()) {
-    			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+    		
+	 		rs.next();
+	 		if(rs.getString("MONTH(NGAYTHANHTOAN)")== null) {
+				series.getData().add(new XYChart.Data<>("",0.0));
+			}
+			else {
+				series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
     			DT_textField.setText(rs.getString("SUM(TONGTIEN)"));
-    		}
+			}
+
     		BarChart_DoanhThu.getData().add(series);
     	}catch(Exception ex) {
     		JOptionPane.showMessageDialog(null, ex);
@@ -126,10 +147,15 @@ public class ThongKeController implements Initializable {
 		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 		Connection conn = DriverManager.getConnection(DB_URL,"root","");
  		ResultSet rs = conn.createStatement().executeQuery(query);
- 		while(rs.next()) {
- 			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
- 			
- 		}
+ 		
+ 		rs.next();
+ 		if(rs.getString("MONTH(NGAYNHAN)")== null) {
+			series.getData().add(new XYChart.Data<>("",0));
+		}
+		else {
+			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+		}
+
  		BarChart_LoaiPhong.getData().add(series);
  	}catch(Exception ex) {
  		JOptionPane.showMessageDialog(null, ex);
@@ -148,9 +174,14 @@ public class ThongKeController implements Initializable {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
 	 		ResultSet rs = conn.createStatement().executeQuery(query);
-	 		while(rs.next()) {
-	 			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
-	 		}
+	 		
+	 		rs.next();
+	 		if(rs.getString("MONTH(NGAYNHAN)")== null) {
+				series.getData().add(new XYChart.Data<>("",0));
+			}
+			else {
+				series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+			}
 	 		BarChart_LoaiPhong.getData().add(series);
 	 	}catch(Exception ex) {
 	 		JOptionPane.showMessageDialog(null, ex);
@@ -165,9 +196,15 @@ public class ThongKeController implements Initializable {
 			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
 	 		ResultSet rs = conn.createStatement().executeQuery(query);
-	 		while(rs.next()) {
-	 			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
-	 		}
+//	 		Statement s= conn.createStatement();
+//			ResultSet rs = s.executeQuery(query);
+			rs.next();
+			if(rs.getString("MONTH(NGAYNHAN)")== null) {
+				series.getData().add(new XYChart.Data<>("",0));
+			}
+			else {
+				series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+			}
 	 		BarChart_LoaiPhong.getData().add(series);
 	 	}catch(Exception ex) {
 	 		JOptionPane.showMessageDialog(null, ex);
@@ -183,10 +220,16 @@ public class ThongKeController implements Initializable {
 		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 		Connection conn = DriverManager.getConnection(DB_URL,"root","");
  		ResultSet rs = conn.createStatement().executeQuery(query);
- 		while(rs.next()) {
- 			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+ 		rs.next();
+ 		
+ 		if(rs.getString("MONTH(NGAYKT)")== null) {
+			series.getData().add(new XYChart.Data<>("",0.0));
+		}
+		else {
+			series.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
  			SC_textField.setText(rs.getString("SUM(TONGTIEN)"));
- 		}
+		}
+ 		
  		BarChart_SCNCPhong.getData().add(series);
  	}catch(Exception ex) {
  		JOptionPane.showMessageDialog(null, ex);
@@ -200,10 +243,15 @@ public class ThongKeController implements Initializable {
 		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 		Connection conn = DriverManager.getConnection(DB_URL,"root","");
  		ResultSet rs = conn.createStatement().executeQuery(query1);
- 		while(rs.next()) {
- 			series1.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
+ 		
+ 			rs.next();
+ 		if(rs.getString("MONTH(NGAYKT)")== null) {
+ 			series1.getData().add(new XYChart.Data<>("",0.0));
+		}
+		else {
+			series1.getData().add(new XYChart.Data<>(rs.getString(2),rs.getDouble(1)));
  			NCP_textField.setText(rs.getString("SUM(TONGTIEN)"));
- 		}
+		}
  		BarChart_SCNCPhong.getData().add(series1);
  	}catch(Exception ex) {
  		JOptionPane.showMessageDialog(null, ex);
