@@ -48,7 +48,6 @@ public class Phong101Controller implements Initializable {
     @FXML
     private Button btThietbi;
 
-
     @FXML
     private Label SoPhong_Label;
 
