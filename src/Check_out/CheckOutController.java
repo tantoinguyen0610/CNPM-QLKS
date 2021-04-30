@@ -12,10 +12,12 @@ import javax.swing.JOptionPane;
 import Check_in.ModelTable;
 import HoaDon.ChiTietHoaDonThanhToanPhongController;
 import HoaDon.TableHoaDonTTP;
+import QuanLiDichVu.TableDichVuAnUong;
 import QuanLiKhachHang.PhieuDV;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class CheckOutController implements Initializable {
@@ -80,7 +83,19 @@ public class CheckOutController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		HienTableCheckIn();
-		
+		Button_TraPhong.setDisable(true);
+		 HienDataLenTextField();
+	}
+	
+	private void HienDataLenTextField() {
+		Table_Check_In.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {
+    			
+    			Button_TraPhong.setDisable(false);
+    		}
+    		
+    	});
 	}
 	
 	public void HienTableCheckIn() {
