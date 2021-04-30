@@ -614,7 +614,7 @@ public class QuanLiDichVuController implements Initializable {
         		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
         		Connection conn = DriverManager.getConnection(DB_URL,"root","");
         		PreparedStatement pst = conn.prepareStatement(sql);
-        		pst.setString(1, tb1TextField.getText());
+        		pst.setString(1, tb2TextField.getText());
         		pst.execute();
         		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
         	}
@@ -640,7 +640,7 @@ public class QuanLiDichVuController implements Initializable {
         		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
         		Connection conn = DriverManager.getConnection(DB_URL,"root","");
         		PreparedStatement pst = conn.prepareStatement(sql);
-        		pst.setString(1, tb1TextField.getText());
+        		pst.setString(1, tb4TextField.getText());
         		pst.execute();
         		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
         	}
@@ -665,7 +665,7 @@ public class QuanLiDichVuController implements Initializable {
         		final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
         		Connection conn = DriverManager.getConnection(DB_URL,"root","");
         		PreparedStatement pst = conn.prepareStatement(sql);
-        		pst.setString(1, tb1TextField.getText());
+        		pst.setString(1, tb3TextField.getText());
         		pst.execute();
         		JOptionPane.showMessageDialog(null, "Xoá Thành Công");
         	}

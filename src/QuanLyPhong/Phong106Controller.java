@@ -67,7 +67,7 @@ public class Phong106Controller implements Initializable {
 	    @FXML
 	    private TextField cbSonguoichophep;
     
-    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Trống","Đã sử dụng", "Sắp trả", "Đặt trước","Thanh toán");
+    ObservableList<String> listtrangthai = FXCollections.observableArrayList("Trống","Đã sử dụng", "Đặt trước","Đang bảo trì");
     
     @Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {

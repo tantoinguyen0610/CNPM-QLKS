@@ -387,7 +387,7 @@ public class NhanVienController implements Initializable {
     }
     
     private boolean KiemTraTenNV() {
-		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
+		Pattern p = Pattern.compile("[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ,\\s]+");
 		Matcher m = p.matcher(TenNV_textField.getText());
 		if(m.find() && m.group().equals(TenNV_textField.getText())){
 			err_TenNV.setText("");
@@ -398,6 +398,7 @@ public class NhanVienController implements Initializable {
 			return false;
 		}
 	}
+	
     
     private boolean KiemTraChucVu() {
 		
