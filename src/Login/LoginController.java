@@ -58,6 +58,7 @@ public class LoginController implements Initializable {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	TextFormat();
+    	TextFormatPsw();
 	}
     
  public void TextFormat() {
@@ -77,8 +78,28 @@ public class LoginController implements Initializable {
             return change;
         });
         UserTextField.setTextFormatter(formatter);
+        //PasswordTextField.setTextFormatter(formatter);
         }
     
+ public void TextFormatPsw() {
+ 	
+     
+     TextFormatter<?> formatter = new TextFormatter<>((TextFormatter.Change change) -> {
+         String text = change.getText();
+
+         if (!text.isEmpty()) {
+             String newText = text.replace(" ", "").toLowerCase();
+
+             int carretPos = change.getCaretPosition() - text.length() + newText.length();
+             change.setText(newText);
+
+             change.selectRange(carretPos, carretPos);
+         }
+         return change;
+     });
+     PasswordTextField.setTextFormatter(formatter);
+     }
+ 
     @FXML
     void LoginButtonListener(ActionEvent event) throws Exception {
     	

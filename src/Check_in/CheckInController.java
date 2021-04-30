@@ -114,12 +114,10 @@ public class CheckInController implements Initializable {
     @FXML
     private Label MaPT_Label;
 
-    @FXML
-    private TextField MaPT_textField;
+    @FXML TextField MaPT_textField;
 
     
-    @FXML
-    private TextField TenKH_textField;
+    @FXML TextField TenKH_textField;
     
     @FXML
     private TextField MaKH_textField;
