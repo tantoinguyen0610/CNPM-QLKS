@@ -32,6 +32,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class PhieuDichVuController implements Initializable {
 
@@ -162,7 +163,9 @@ public class PhieuDichVuController implements Initializable {
 
     @FXML
     void HuyBottonListener(ActionEvent event) {
-
+    	Stage stage = (Stage) HuyBotton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML

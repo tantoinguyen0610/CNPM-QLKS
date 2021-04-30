@@ -63,7 +63,7 @@
                     </buttons>
                   </ButtonBar>
                   <Label fx:id="Sophong_Label" layoutX="494.0" layoutY="323.0" text="Số phòng:" />
-                  <ComboBox fx:id="SoPhong_Cmb" layoutX="696.0" layoutY="316.0" prefWidth="150.0" />
+                  <ComboBox fx:id="SoPhong_Cmb" layoutX="696.0" layoutY="316.0" onAction="#SoPhong_ActionListener" prefWidth="150.0" />
                   <ComboBox fx:id="Loai_Phong_Cmb" layoutX="696.0" layoutY="280.0" onAction="#LoaiPhongActionListener" prefWidth="150.0" />
                   <Label fx:id="err_TenKH" layoutX="899.0" layoutY="103.0" textFill="RED" />
                   <Label fx:id="err_CMND" layoutX="899.0" layoutY="135.0" textFill="RED" />

@@ -285,34 +285,39 @@ ObservableList<PhieuDV> phieudv = FXCollections.observableArrayList();
 						          }
 						        });
 	}
-	
 	@FXML
     void Load_ActionListener(ActionEvent event) {
-		 try {
-				final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
-				Connection conn = DriverManager.getConnection(DB_URL,"root","");
-				String query = "select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG=? ";
-				 PreparedStatement pst1 = conn.prepareStatement(query);
-				 pst1.setString(1,SoPhong_textField.getText());
-				 ResultSet rs = pst1.executeQuery();	
-					while (rs.next()) {	
-						phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("SOPHONG"),rs.getString("TENDV"),
-								rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
-					}
-				}
-			 catch(Exception e) {
-				JOptionPane.showMessageDialog(null, "Lỗi "+e);
-				}
-			 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
-			 col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
-			 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
-			 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
-			 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
-			 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
-			 tbl_PDV.setItems(phieudv);
-			 HienTextFieldTienDV();
-			 TinhTongTextField();
+		 phieudv.clear();
+		CapNhatLenTblView();
+			
     }
+	
+	public void CapNhatLenTblView() {
+		try {
+			final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
+			Connection conn = DriverManager.getConnection(DB_URL,"root","");
+			String query = "select MAPHIEUDV,SOPHONG,dv.TENDV,GIA,phieu_dv.SOLUONG,TONGTIENDV from phieu_dv,dv where dv.TENDV=phieu_dv.TENDV and phieu_dv.SOPHONG=? ";
+			 PreparedStatement pst1 = conn.prepareStatement(query);
+			 pst1.setString(1,SoPhong_textField.getText());
+			 ResultSet rs = pst1.executeQuery();	
+				while (rs.next()) {	
+					phieudv.add(new PhieuDV(rs.getString("MAPHIEUDV"),rs.getString("SOPHONG"),rs.getString("TENDV"),
+							rs.getString("GIA"),rs.getString("SOLUONG"),rs.getString("TONGTIENDV")));
+				}
+			}
+		 catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Lỗi "+e);
+			}
+		 col_MaPhieu.setCellValueFactory(new PropertyValueFactory<>("MAPHIEUDV"));
+		 col_SoPhong.setCellValueFactory(new PropertyValueFactory<>("SOPHONG"));
+		 col_TenDV.setCellValueFactory(new PropertyValueFactory<>("TENDV"));
+		 col_GiaTien.setCellValueFactory(new PropertyValueFactory<>("GIA"));
+		 col_SoLuong.setCellValueFactory(new PropertyValueFactory<>("SOLUONG"));
+		 col_TongTien.setCellValueFactory(new PropertyValueFactory<>("TONGTIENDV"));
+		 tbl_PDV.setItems(phieudv);
+		 HienTextFieldTienDV();
+		 TinhTongTextField();
+	}
 	
 	public void HienTextFieldTienDV() {
 		try {

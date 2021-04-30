@@ -222,6 +222,7 @@ ObservableList<String> list_lp = FXCollections.observableArrayList("Standard","D
 ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
 ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1", "2","3","4");
 
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -233,6 +234,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		SoNguoiCung1Phong.setItems(List_SoNguoi1Phong);
 		autoTaoMaKH();		
 		autoTaoMaPT();
+		//HienCmbSoPhong();
 	}
 	
 	public void ChuyenNguocNamThangNgay()
@@ -391,18 +393,25 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 		HienCmbSoPhong();
     }
 	
+	  @FXML
+	    void SoPhong_ActionListener(ActionEvent event) {
+		  
+	    }
+	
 	public void HienCmbSoPhong() {
-		
+		ObservableList<String> listsophong = FXCollections.observableArrayList();
 		 try {
 			 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			 Connection conn = DriverManager.getConnection(DB_URL,"root","");
-			 String	loaiphong =(String) Loai_Phong_Cmb.getSelectionModel().getSelectedItem();
-			 String query = "SELECT TEN_PHONG from phong,loai_phong WHERE loai_phong.TEN_lOAIPHONG='"+loaiphong+"' AND TINHTRANG='Trống' AND loai_phong.MA_LOAIPHONG=phong.MA_LOAIPHONG ";
-			 ResultSet rs = conn.createStatement().executeQuery(query);
+			 String	loaiphong = Loai_Phong_Cmb.getSelectionModel().getSelectedItem();
+			 ResultSet rs = conn.createStatement().executeQuery("SELECT TEN_PHONG from phong,loai_phong WHERE loai_phong.TEN_lOAIPHONG='"+loaiphong+"' AND TINHTRANG='Trống' AND loai_phong.MA_LOAIPHONG=phong.MA_LOAIPHONG ");
 			 while (rs.next())
 			 {
-				 SoPhong_Cmb.setItems(FXCollections.observableArrayList(rs.getString(1)));
-			 }
+				 
+				 listsophong.add(rs.getString(1));
+				 SoPhong_Cmb.setItems(listsophong);
+				 
+				 }
 		 }
 		 catch(SQLException ex)
 		 {
@@ -559,7 +568,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 	}
 	
 	public void CapNhatTinhTrangDatPhong() {
-		if(((TextField)Ngay_Dat_Phong.getEditor()).getText() ==null) {
+		if(((TextField)Ngay_Dat_Phong.getEditor()).getText() !=null) {
 		 try {						
  		 final String DB_URL = "jdbc:mysql://localhost:3306/qlks_db";
 			Connection conn = DriverManager.getConnection(DB_URL,"root","");
@@ -676,7 +685,7 @@ ObservableList<String> List_SoNguoi1Phong = FXCollections.observableArrayList("1
 	
 	
 	private boolean KiemTraTenKH() {
-		Pattern p = Pattern.compile("^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$");
+		Pattern p = Pattern.compile("[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ,\\s]+");
 		Matcher m = p.matcher(TenKH_textField.getText());
 		if(m.find() && m.group().equals(TenKH_textField.getText())){
 			err_TenKH.setText("");
